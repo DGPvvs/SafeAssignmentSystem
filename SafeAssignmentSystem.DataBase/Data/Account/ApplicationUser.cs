@@ -2,8 +2,10 @@
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
+    using SafeAssignmentSystem.DataBase.Data.SafeAssignmentDocumentModels;
     using SafeAssignmentSystem.DataBase.Data.StaffsModels;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ApplicationUserConstants;
 
     /// <summary>
@@ -14,9 +16,28 @@
     {
         public ApplicationUser()
         {
-            this.ChangedsSchedules = new HashSet<ChangedSchedule>();
-        }
+            // Инициализиране на колекция от записи сочещи към свързваща таблица с инсталации
+            this.ApplicationUserPlantInstalations = new HashSet<ApplicationUserPlantInstalation>();
 
+            // Инициализиране на колекция от полета сочещи сменният график на потребителя
+            this.ChangedsSchedules = new HashSet<ChangedSchedule>();
+
+            // Инициализиране на инверсно пропърти съдържако колекция от лицата (оператори или издаващи наряд) поискали откриване на нарядите
+            this.PersonsRequestedsOpeningOrders = new HashSet<SafeAssignmentDocument>();
+
+            // Инициализиране на инверсно пропърти съдържако колекция от лицата (дежурни електромонтьори) открили нарядите
+            this.ЕlectriciansOpeningOrders = new HashSet<SafeAssignmentDocument>();
+
+            // Инициализиране на инверсно пропърти съдържако колекция от лицата (дежурни електромонтьори) закрили нарядите
+            this.ЕlectriciansClosingOrders = new HashSet<SafeAssignmentDocument>();
+
+            // Инициализация на инверсно пропърти съдържако колекция от лицата от технологичния персонал, поискали подаване на напрежение
+            this.PersonsRequestedsVoltageSupply = new HashSet<SafeAssignmentDocument>();
+
+            // Инициализация на инверсно пропърти съдържако колекция от дежурни елмонтьори подали напрежение
+            this.ElectriciansAppliedsVoltage = new HashSet<SafeAssignmentDocument>();
+        }
+            
         /// <summary>
         /// Собствено име на потребител
         /// </summary>
@@ -41,9 +62,9 @@
         public int UserWorkNumber { get; set; }
 
         /// <summary>
-        /// Колекция от записи сочещи към свързваща таблица с потребители
+        /// Колекция от записи сочещи към свързваща таблица с инсталации
         /// </summary>
-        [Comment("Колекция от записи сочещи към свързваща таблица с потребители")]
+        [Comment("Колекция от записи сочещи към свързваща таблица с инсталации")]
         public virtual ICollection<ApplicationUserPlantInstalation> ApplicationUserPlantInstalations { get; set; } = null!;
 
         /// <summary>
@@ -52,5 +73,43 @@
         [Comment("Колекция от полета сочещи сменният график на потребителя")]
         [Required]
         public virtual ICollection<ChangedSchedule> ChangedsSchedules { get; set; }
+
+        /// <summary>
+        /// Инверсно пропърти съдържако колекция от лицата (оператори или издаващи наряд)
+        /// поискали откриване на нарядите
+        /// </summary>
+        [Comment("Инверсно пропърти съдържако колекция от лицата (оператори или издаващи наряд) поискали откриване на нарядите")]
+        [InverseProperty("PersonRequestedOpeningOrder")]
+        public virtual ICollection<SafeAssignmentDocument> PersonsRequestedsOpeningOrders { get; set; }
+
+        /// <summary>
+        /// Инверсно пропърти съдържако колекция от лицата (дежурни електромонтьори)
+        /// открили нарядите
+        /// </summary>
+        [Comment("Инверсно пропърти съдържако колекция от лицата (дежурни електромонтьори) открили нарядите")]
+        [InverseProperty("ЕlectricianOpeningOrder")]
+        public virtual ICollection<SafeAssignmentDocument> ЕlectriciansOpeningOrders { get; set; }
+
+        /// <summary>
+        /// Инверсно пропърти съдържако колекция от лицата (дежурни електромонтьори)
+        /// закрили нарядите
+        /// </summary>
+        [Comment("Инверсно пропърти съдържако колекция от лицата (дежурни електромонтьори) закрили нарядите")]
+        [InverseProperty("ЕlectricianClosingOrder")]
+        public virtual ICollection<SafeAssignmentDocument> ЕlectriciansClosingOrders { get; set; }
+
+        /// <summary>
+        /// Инверсно пропърти съдържако колекция от лицата от технологичния персонал, поискали подаване на напрежение
+        /// </summary>
+        [Comment("Инверсно пропърти съдържако колекция от лицата от технологичния персонал, поискал подаване на напрежение")]
+        [InverseProperty("PersonRequestedVoltageSupply")]
+        public virtual ICollection<SafeAssignmentDocument> PersonsRequestedsVoltageSupply { get; set; }
+
+        /// <summary>
+        /// Инверсно пропърти съдържако колекция от дежурни елмонтьори подали напрежение
+        /// </summary>
+        [Comment("Инверсно пропърти съдържако колекция от дежурни елмонтьори подали напрежение")]
+        [InverseProperty("ElectricianAppliedVoltage")]
+        public virtual ICollection<SafeAssignmentDocument> ElectriciansAppliedsVoltage { get; set; }
     }
 }

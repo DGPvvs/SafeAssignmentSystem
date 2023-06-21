@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SafeAssignmentSystem.Core.Data;
 
@@ -11,9 +12,10 @@ using SafeAssignmentSystem.Core.Data;
 namespace SafeAssignmentSystem.DataBase.Migrations
 {
     [DbContext(typeof(SafeAssignmentDbContext))]
-    partial class SafeAssignmentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230621190131_AddSafeAssignmentDocumentNull")]
+    partial class AddSafeAssignmentDocumentNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -417,7 +419,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
 
                     b.HasIndex("ЕlectricianOpeningOrderId");
 
-                    b.ToTable("SafeAssignmentDocuments");
+                    b.ToTable("SafeAssignmentDocument");
 
                     b.HasComment("Модел на нарядите");
                 });

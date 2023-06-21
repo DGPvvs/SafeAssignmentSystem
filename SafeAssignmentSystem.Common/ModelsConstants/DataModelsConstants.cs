@@ -74,5 +74,16 @@
             /// </summary>
             public const int LastName_Max_Length = 20;
         }
+
+        /// <summary>
+        /// Константи описващи модела на нарядите
+        /// </summary>
+        public static class SafeAssignmentDocumentConstants
+        {
+            /// <summary>
+            /// Максимална дължина на номера на наряда
+            /// </summary>
+            public const int Number_Max_Length = 200;
+        }
     }
 }

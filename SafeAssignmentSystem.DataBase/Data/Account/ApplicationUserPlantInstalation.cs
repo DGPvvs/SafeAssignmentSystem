@@ -41,5 +41,14 @@
         [Comment("Кореспондиращо поле съдържащо инсталацията")]
         [Required]
         public virtual PlantInstalation Instalation { get; set; } = null!;
+
+        /// <summary>
+        /// Поле указващо дали записът е изтрит
+        /// true - записът е достъпен
+        /// false - записът не е достъпен
+        /// </summary>
+        [Comment("Поле указващо дали записът е изтрит")]
+        [Required]
+        public bool IsActive { get; set; }
     }
 }

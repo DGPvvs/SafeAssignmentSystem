@@ -4,6 +4,7 @@
     using Microsoft.EntityFrameworkCore;
     using SafeAssignmentSystem.DataBase.Data.Account;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
+    using SafeAssignmentSystem.DataBase.Data.SafeAssignmentDocumentModels;
     using SafeAssignmentSystem.DataBase.Data.StaffsModels;
 
     public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser>
@@ -24,6 +25,8 @@
         public DbSet<ChangedSchedule> ChangedsSchedules { get; set; } = null!;
 
         public DbSet<ApplicationUserPlantInstalation> ApplicationUserPlantInstalations { get; set; } = null!;
+
+        public DbSet<SafeAssignmentDocument> SafeAssignmentDocuments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
