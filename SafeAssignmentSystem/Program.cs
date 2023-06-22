@@ -2,7 +2,7 @@ namespace SafeAssignmentSystem
 {
     using Microsoft.EntityFrameworkCore;
     using SafeAssignmentSystem.Core.Data;
-    using SafeAssignmentSystem.DataBase.Data.Account;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 
     public class Program
     {

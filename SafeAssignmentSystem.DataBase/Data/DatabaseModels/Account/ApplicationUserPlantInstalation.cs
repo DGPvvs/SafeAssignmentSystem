@@ -1,7 +1,7 @@
-﻿namespace SafeAssignmentSystem.DataBase.Data.Account
+﻿namespace SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account
 {
     using Microsoft.EntityFrameworkCore;
-    using SafeAssignmentSystem.DataBase.Data.FactoryModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;

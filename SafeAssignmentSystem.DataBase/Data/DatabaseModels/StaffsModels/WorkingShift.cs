@@ -1,4 +1,4 @@
-﻿namespace SafeAssignmentSystem.DataBase.Data.StaffsModels
+﻿namespace SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels
 {
 	using Microsoft.EntityFrameworkCore;
 	using Microsoft.EntityFrameworkCore.Metadata.Internal;

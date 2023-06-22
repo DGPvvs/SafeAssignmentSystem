@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SafeAssignmentSystem.Core.Data;
 
@@ -11,9 +12,10 @@ using SafeAssignmentSystem.Core.Data;
 namespace SafeAssignmentSystem.DataBase.Migrations
 {
     [DbContext(typeof(SafeAssignmentDbContext))]
-    partial class SafeAssignmentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230622153258_AddProductionComplexPropertyIsDeleted")]
+    partial class AddProductionComplexPropertyIsDeleted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,7 +161,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -242,7 +244,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasComment("Модел на потребителите");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUserPlantInstalation", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUserPlantInstalation", b =>
                 {
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)")
@@ -265,7 +267,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasComment("Свързваща таблица между потребителите и инсталациите");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.PlantInstalation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -295,144 +297,9 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.ToTable("PlantInstalations");
 
                     b.HasComment("Модел на инсталациите");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("4dabf64e-adb1-486a-b208-b07c5fabc440"),
-                            ComplexId = new Guid("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
-                            FullName = "Водородна",
-                            Name = "ВИ"
-                        },
-                        new
-                        {
-                            Id = new Guid("8b6563b0-5bc0-4778-bc4c-30fa347d9854"),
-                            ComplexId = new Guid("fe306aa1-f678-4e94-9d86-308ed58fd305"),
-                            FullName = "Втечнени газове, авто и жп. наливни естакади",
-                            Name = "ВГ и АЖПН"
-                        },
-                        new
-                        {
-                            Id = new Guid("13d901bf-8203-4280-ae70-24eef3fed196"),
-                            ComplexId = new Guid("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
-                            FullName = "Газова сяра",
-                            Name = "ГС"
-                        },
-                        new
-                        {
-                            Id = new Guid("439d96e7-35fd-4037-a88e-ac56dd11e9d8"),
-                            ComplexId = new Guid("bd922bb0-94af-4bf0-9a99-2431661a27b6"),
-                            FullName = "Гранулация на полипропилен",
-                            Name = "ГППр"
-                        },
-                        new
-                        {
-                            Id = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            ComplexId = new Guid("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
-                            FullName = "Каталитичен крекинг",
-                            Name = "ККр"
-                        },
-                        new
-                        {
-                            Id = new Guid("c7d3bad4-cd8c-4a73-a98c-3e57fc04b09d"),
-                            ComplexId = new Guid("79afcb01-d8f3-4fe0-9fa2-fd95b72c615f"),
-                            FullName = "Каталитичен реформинг",
-                            Name = "КР"
-                        },
-                        new
-                        {
-                            Id = new Guid("0d5fc355-ba0d-494e-aa2d-421616e9f651"),
-                            ComplexId = new Guid("79afcb01-d8f3-4fe0-9fa2-fd95b72c615f"),
-                            FullName = "МТБЕ и хидроочистка-1 и 3",
-                            Name = "МТБЕ и ХО 1, 3"
-                        },
-                        new
-                        {
-                            Id = new Guid("c639c036-bdc1-4e54-9425-c77ab00658a3"),
-                            ComplexId = new Guid("125b8f04-7c38-4d1b-b39e-6d750e7bd037"),
-                            FullName = "Очистни съоръжения",
-                            Name = "ЦПС"
-                        },
-                        new
-                        {
-                            Id = new Guid("38a9c7f5-45b6-4783-a1ba-365f22cb8cea"),
-                            ComplexId = new Guid("bd922bb0-94af-4bf0-9a99-2431661a27b6"),
-                            FullName = "Полимеризация на пропилен",
-                            Name = "ПП"
-                        },
-                        new
-                        {
-                            Id = new Guid("5078a11e-d2b0-40ca-ae46-79d81197af11"),
-                            ComplexId = new Guid("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
-                            FullName = "Регенерация на МДЕА и кисели води",
-                            Name = "РМДЕА и РКВ"
-                        },
-                        new
-                        {
-                            Id = new Guid("7e9d0982-c5fa-493d-b8b1-30babddbdfcc"),
-                            ComplexId = new Guid("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
-                            FullName = "Регенерация на хексан",
-                            Name = "РХ"
-                        },
-                        new
-                        {
-                            Id = new Guid("27e67a5e-9def-417e-b479-a3374ac01357"),
-                            ComplexId = new Guid("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
-                            FullName = "Сярно-кисело алкилиране и абсорбционно газофракциони",
-                            Name = "СКА"
-                        },
-                        new
-                        {
-                            Id = new Guid("e9e9f60a-057a-4105-8adb-b0f4f0fbfcc5"),
-                            ComplexId = new Guid("125b8f04-7c38-4d1b-b39e-6d750e7bd037"),
-                            FullName = "ТЕЦ и топлопренос",
-                            Name = "ТЕЦ"
-                        },
-                        new
-                        {
-                            Id = new Guid("0c3d7329-a0af-45ee-8ba2-4ac6b0320e3e"),
-                            ComplexId = new Guid("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
-                            FullName = "Хидрокрекинг на гудрон",
-                            Name = "ХККр"
-                        },
-                        new
-                        {
-                            Id = new Guid("35dbc6f8-e63e-46a5-98ec-305161eca10f"),
-                            ComplexId = new Guid("79afcb01-d8f3-4fe0-9fa2-fd95b72c615f"),
-                            FullName = "Хидрообезсерване на бензин-1 и Хидроочистка-2",
-                            Name = "ХО 2"
-                        },
-                        new
-                        {
-                            Id = new Guid("50465de6-39bd-4370-9e51-b7f60f56130a"),
-                            ComplexId = new Guid("79afcb01-d8f3-4fe0-9fa2-fd95b72c615f"),
-                            FullName = "Хидроочистка-5",
-                            Name = "ХО 5"
-                        },
-                        new
-                        {
-                            Id = new Guid("e90898e2-831b-4266-8d4c-014cffefcf56"),
-                            ComplexId = new Guid("125b8f04-7c38-4d1b-b39e-6d750e7bd037"),
-                            FullName = "Химично обезсоляване на води и оборотно водоснабдяване",
-                            Name = "ХВО"
-                        },
-                        new
-                        {
-                            Id = new Guid("c05340da-e358-47f7-822e-bde8030f456a"),
-                            ComplexId = new Guid("79afcb01-d8f3-4fe0-9fa2-fd95b72c615f"),
-                            FullName = "Централно газофракциониране и хидрообезсерване",
-                            Name = "ЦГФИ"
-                        },
-                        new
-                        {
-                            Id = new Guid("1b3e962a-ab8f-4fec-87d3-3221edb3bad0"),
-                            ComplexId = new Guid("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
-                            FullName = "Производство на битуми и резервоарен парк за тъмни горива",
-                            Name = "БИ"
-                        });
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.ProductionComplex", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -462,46 +329,35 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.ToTable("ProductionComplexes");
 
                     b.HasComment("Модел на производствените комплекси");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
-                            FullName = "Дълбочинна преработка на нефт",
-                            IsDeleted = false,
-                            Name = "ДПН"
-                        },
-                        new
-                        {
-                            Id = new Guid("125b8f04-7c38-4d1b-b39e-6d750e7bd037"),
-                            FullName = "Енергиен",
-                            IsDeleted = false,
-                            Name = "Eн"
-                        },
-                        new
-                        {
-                            Id = new Guid("bd922bb0-94af-4bf0-9a99-2431661a27b6"),
-                            FullName = "Полипропилен",
-                            IsDeleted = false,
-                            Name = "ППр"
-                        },
-                        new
-                        {
-                            Id = new Guid("79afcb01-d8f3-4fe0-9fa2-fd95b72c615f"),
-                            FullName = "Първична преработка на нефт",
-                            IsDeleted = false,
-                            Name = "ППН"
-                        },
-                        new
-                        {
-                            Id = new Guid("fe306aa1-f678-4e94-9d86-308ed58fd305"),
-                            FullName = "Транспорт и съхранение на нефтопродукти и Пристанищен Терминал",
-                            IsDeleted = false,
-                            Name = "ТСНП и ПТ"
-                        });
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasComment("Идентификационен ключ");
+
+                    b.Property<Guid>("InstalationId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasComment("Id на инсталация");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasComment("Наименование на технологичната позиция");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InstalationId");
+
+                    b.ToTable("TechnologicalPositions");
+
+                    b.HasComment("Модел на технологична позиция");
+                });
+
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.SafeAssignmentDocumentModels.SafeAssignmentDocument", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -574,7 +430,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasComment("Модел на нарядите");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.ChangedSchedule", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.StaffsModels.ChangedSchedule", b =>
                 {
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2")
@@ -599,7 +455,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasComment("Модел на сменния график");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.WorkingShift", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.StaffsModels.WorkingShift", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -625,207 +481,6 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.ToTable("WorkingShifts");
 
                     b.HasComment("Модел на смените");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d"),
-                            EndTime = new DateTime(1, 1, 1, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            ShiftName = "Р",
-                            StartTime = new DateTime(1, 1, 1, 7, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda"),
-                            EndTime = new DateTime(1, 1, 1, 19, 0, 0, 0, DateTimeKind.Unspecified),
-                            ShiftName = "1",
-                            StartTime = new DateTime(1, 1, 1, 7, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2"),
-                            EndTime = new DateTime(1, 1, 2, 7, 0, 0, 0, DateTimeKind.Unspecified),
-                            ShiftName = "2",
-                            StartTime = new DateTime(1, 1, 1, 19, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
-                });
-
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasComment("Идентификационен ключ");
-
-                    b.Property<Guid>("InstalationId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasComment("Id на инсталация");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasComment("Наименование на технологичната позиция");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InstalationId");
-
-                    b.ToTable("TechnologicalPositions");
-
-                    b.HasComment("Модел на технологична позиция");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("0c5e037a-4ad6-4ada-a3c8-bf8aa34b90ee"),
-                            InstalationId = new Guid("13d901bf-8203-4280-ae70-24eef3fed196"),
-                            Name = "MJ 401 A"
-                        },
-                        new
-                        {
-                            Id = new Guid("0da0c03c-eb4a-44dd-bb47-2438d7cd128b"),
-                            InstalationId = new Guid("13d901bf-8203-4280-ae70-24eef3fed196"),
-                            Name = "MJ 401 B"
-                        },
-                        new
-                        {
-                            Id = new Guid("3e61213e-5e51-4848-a916-51d45fb55dd9"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "B5"
-                        },
-                        new
-                        {
-                            Id = new Guid("e4914783-4d0f-4afa-b34e-9cbbf7953558"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "Н102-2"
-                        },
-                        new
-                        {
-                            Id = new Guid("ab117d29-20b6-400a-9747-0f8d1b8d098f"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "Н102-P"
-                        },
-                        new
-                        {
-                            Id = new Guid("936edbb9-9444-44cd-89f3-80fb27d70e9a"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "ЦК 201-1"
-                        },
-                        new
-                        {
-                            Id = new Guid("15d1308a-2e55-467c-b251-ee4b38262723"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "В 403"
-                        },
-                        new
-                        {
-                            Id = new Guid("7fcd955b-a234-4f5e-bb1d-68afd2374038"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "ЦК 201-2"
-                        },
-                        new
-                        {
-                            Id = new Guid("f48f6af8-4aa4-423f-b24f-9fbdfc4b0b39"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "Н102-1"
-                        },
-                        new
-                        {
-                            Id = new Guid("465a93ad-50e3-4b59-991a-1b9d1c04cf4e"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "В7"
-                        },
-                        new
-                        {
-                            Id = new Guid("1a452cb1-b1d1-4b48-9159-badcc40ba590"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "В6"
-                        },
-                        new
-                        {
-                            Id = new Guid("2c107550-7b23-4478-af9b-448d50d65a23"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "В102"
-                        },
-                        new
-                        {
-                            Id = new Guid("cd394570-be68-4b7f-8ee3-d9dc13caaf60"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "ЦП1"
-                        },
-                        new
-                        {
-                            Id = new Guid("6e7763d6-a561-4407-b95a-bcc0ec3ec42b"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "ЦП2"
-                        },
-                        new
-                        {
-                            Id = new Guid("6cc1db50-1604-4e5a-94de-cc3087cee06e"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "Н 210-3"
-                        },
-                        new
-                        {
-                            Id = new Guid("3a7e4c0e-6b25-4707-874d-953d619e7d93"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "Н 109"
-                        },
-                        new
-                        {
-                            Id = new Guid("1b1b7597-8065-4b33-8b7e-eb4fae5d4603"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "ПК101Р"
-                        },
-                        new
-                        {
-                            Id = new Guid("0487b9c4-ceca-47d0-9ea5-4ef33d9262c2"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "Н 109-1"
-                        },
-                        new
-                        {
-                            Id = new Guid("d926a392-d513-45a2-ada8-fe5a05ece6eb"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "ЦК 301"
-                        },
-                        new
-                        {
-                            Id = new Guid("a77de888-4132-4f2c-b0f7-bb7ffac78bf0"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "ЦК 301 Р"
-                        },
-                        new
-                        {
-                            Id = new Guid("1272bde9-d132-4a76-8be1-da94f41100e6"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "Н 109-2"
-                        },
-                        new
-                        {
-                            Id = new Guid("9ed832f2-c9b9-4bcf-b05f-388fe35c794d"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "ПК101"
-                        },
-                        new
-                        {
-                            Id = new Guid("c36b152f-e0e7-47b6-8776-ca90537b3b59"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "Н 109-Р"
-                        },
-                        new
-                        {
-                            Id = new Guid("2b1bca55-1492-4688-a530-04f88917888b"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "ЦП 3"
-                        },
-                        new
-                        {
-                            Id = new Guid("ace79e04-4547-4161-8212-dda77d678a42"),
-                            InstalationId = new Guid("973994a0-3ee2-4aba-b422-bc12be18040c"),
-                            Name = "ЦП 4"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -839,7 +494,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", null)
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -848,7 +503,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", null)
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -863,7 +518,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", null)
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -872,22 +527,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", null)
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUserPlantInstalation", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUserPlantInstalation", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation", "Instalation")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.FactoryModels.PlantInstalation", "Instalation")
                         .WithMany("ApplicationUserPlantInstalations")
                         .HasForeignKey("InstalationId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "ApplicationUser")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "ApplicationUser")
                         .WithMany("ApplicationUserPlantInstalations")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -898,9 +553,9 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.Navigation("Instalation");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.PlantInstalation", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex", "Complex")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.FactoryModels.ProductionComplex", "Complex")
                         .WithMany("PlantInstalations")
                         .HasForeignKey("ComplexId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -909,19 +564,30 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.Navigation("Complex");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "ElectricianAppliedVoltage")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.FactoryModels.PlantInstalation", "Instalation")
+                        .WithMany("TechnologicalPositions")
+                        .HasForeignKey("InstalationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Instalation");
+                });
+
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.SafeAssignmentDocumentModels.SafeAssignmentDocument", b =>
+                {
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "ElectricianAppliedVoltage")
                         .WithMany("ElectriciansAppliedsVoltage")
                         .HasForeignKey("ElectricianAppliedVoltageId");
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "PersonRequestedOpeningOrder")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "PersonRequestedOpeningOrder")
                         .WithMany("PersonsRequestedsOpeningOrders")
                         .HasForeignKey("PersonRequestedOpeningOrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "PersonRequestedVoltageSupply")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "PersonRequestedVoltageSupply")
                         .WithMany("PersonsRequestedsVoltageSupply")
                         .HasForeignKey("PersonRequestedVoltageSupplyId");
 
@@ -931,11 +597,11 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "ЕlectricianClosingOrder")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "ЕlectricianClosingOrder")
                         .WithMany("ЕlectriciansClosingOrders")
                         .HasForeignKey("ЕlectricianClosingOrderId");
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "ЕlectricianOpeningOrder")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "ЕlectricianOpeningOrder")
                         .WithMany("ЕlectriciansOpeningOrders")
                         .HasForeignKey("ЕlectricianOpeningOrderId");
 
@@ -952,15 +618,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.Navigation("ЕlectricianOpeningOrder");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.ChangedSchedule", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.StaffsModels.ChangedSchedule", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "ApplicationUser")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "ApplicationUser")
                         .WithMany("ChangedsSchedules")
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.WorkingShift", "Shift")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.StaffsModels.WorkingShift", "Shift")
                         .WithMany()
                         .HasForeignKey("ShiftId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -971,18 +637,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.Navigation("Shift");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition", b =>
-                {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation", "Instalation")
-                        .WithMany("TechnologicalPositions")
-                        .HasForeignKey("InstalationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Instalation");
-                });
-
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", b =>
                 {
                     b.Navigation("ApplicationUserPlantInstalations");
 
@@ -999,14 +654,14 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.Navigation("ЕlectriciansOpeningOrders");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.PlantInstalation", b =>
                 {
                     b.Navigation("ApplicationUserPlantInstalations");
 
                     b.Navigation("TechnologicalPositions");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.ProductionComplex", b =>
                 {
                     b.Navigation("PlantInstalations");
                 });

@@ -1,7 +1,6 @@
-﻿namespace SafeAssignmentSystem.DataBase.Data.FactoryModels
+﻿namespace SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels
 {
     using Microsoft.EntityFrameworkCore;
-    using SafeAssignmentSystem.DataBase.Data.Account;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -16,8 +15,8 @@
     {
         public ProductionComplex()
         {
-            this.Id = Guid.NewGuid();
-            this.PlantInstalations = new HashSet<PlantInstalation>();
+            Id = Guid.NewGuid();
+            PlantInstalations = new HashSet<PlantInstalation>();
         }
 
         /// <summary>
@@ -42,6 +41,13 @@
         [Required]
         [StringLength(Name_Max_Length)]
         public string Name { get; set; } = null!;
+
+        /// <summary>
+        /// Указател, показващ дали модела на комплекса е изтрит
+        /// </summary>
+        [Comment("Указател, показващ дали модела на комплекса е изтрит")]
+        [Required]
+        public bool IsDeleted { get; set; }
 
         /// <summary>
         /// Колекция от технологични позиции

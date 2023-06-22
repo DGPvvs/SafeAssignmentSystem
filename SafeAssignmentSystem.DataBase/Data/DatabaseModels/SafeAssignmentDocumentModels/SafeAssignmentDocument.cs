@@ -1,13 +1,13 @@
-﻿namespace SafeAssignmentSystem.DataBase.Data.SafeAssignmentDocumentModels
+﻿namespace SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels
 {
     using Microsoft.EntityFrameworkCore;
-    using SafeAssignmentSystem.DataBase.Data.Account;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.ComponentModel.DataAnnotations;
 
     using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 
     /// <summary>
     /// Модел на нарядите
@@ -17,7 +17,7 @@
     {
         public SafeAssignmentDocument()
         {
-            this.Id = Guid.NewGuid();
+            Id = Guid.NewGuid();
         }
 
         /// <summary>

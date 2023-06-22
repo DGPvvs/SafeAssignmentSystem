@@ -1,9 +1,9 @@
-﻿namespace SafeAssignmentSystem.DataBase.Data.Account
+﻿namespace SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
-    using SafeAssignmentSystem.DataBase.Data.SafeAssignmentDocumentModels;
-    using SafeAssignmentSystem.DataBase.Data.StaffsModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ApplicationUserConstants;

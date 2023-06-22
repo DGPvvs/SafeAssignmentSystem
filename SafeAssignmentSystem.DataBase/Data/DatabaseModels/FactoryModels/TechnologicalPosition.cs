@@ -1,7 +1,8 @@
 ﻿namespace SafeAssignmentSystem.DataBase.Data.FactoryModels
 {
     using Microsoft.EntityFrameworkCore;
-    using SafeAssignmentSystem.DataBase.Data.SafeAssignmentDocumentModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;

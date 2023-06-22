@@ -1,7 +1,8 @@
-﻿namespace SafeAssignmentSystem.DataBase.Data.FactoryModels
+﻿namespace SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels
 {
     using Microsoft.EntityFrameworkCore;
-    using SafeAssignmentSystem.DataBase.Data.Account;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
+    using SafeAssignmentSystem.DataBase.Data.FactoryModels;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -17,9 +18,9 @@
     {
         public PlantInstalation()
         {
-            this.Id = Guid.NewGuid();
-            this.TechnologicalPositions = new HashSet<TechnologicalPosition>();
-            this.ApplicationUserPlantInstalations = new HashSet<ApplicationUserPlantInstalation>();
+            Id = Guid.NewGuid();
+            TechnologicalPositions = new HashSet<TechnologicalPosition>();
+            ApplicationUserPlantInstalations = new HashSet<ApplicationUserPlantInstalation>();
         }
 
         /// <summary>

@@ -2,10 +2,12 @@
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
-    using SafeAssignmentSystem.DataBase.Data.Account;
+    using SafeAssignmentSystem.DataBase.Data.Configuration;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
-    using SafeAssignmentSystem.DataBase.Data.SafeAssignmentDocumentModels;
-    using SafeAssignmentSystem.DataBase.Data.StaffsModels;
 
     public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -26,7 +28,7 @@
 
         public DbSet<ApplicationUserPlantInstalation> ApplicationUserPlantInstalations { get; set; } = null!;
 
-        public DbSet<SafeAssignmentDocument> SafeAssignmentDocuments { get; set; }
+        public DbSet<SafeAssignmentDocument> SafeAssignmentDocuments { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
@@ -46,6 +48,15 @@
                 .HasOne(x => x.Instalation)
                 .WithMany(b => b.ApplicationUserPlantInstalations)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<ProductionComplex>()
+                .Property(p => p.IsDeleted)
+                .HasDefaultValue(false);
+
+            modelBuilder.ApplyConfiguration(new ProductionComplexConfiguration());
+            modelBuilder.ApplyConfiguration(new PlantInstalationConfiguration());
+            modelBuilder.ApplyConfiguration(new TechnologicalPositionConfiguration());
+            modelBuilder.ApplyConfiguration(new WorkingShiftConfiguration());            
 
             base.OnModelCreating(modelBuilder);
 		}
