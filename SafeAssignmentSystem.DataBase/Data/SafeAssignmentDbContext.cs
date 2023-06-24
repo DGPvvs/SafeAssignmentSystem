@@ -33,19 +33,20 @@
         public DbSet<SafeAssignmentDocument> SafeAssignmentDocuments { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-		{            
+		{
+            // Конфигуриране на моделите на базата
             modelBuilder.ApplyConfiguration(new ChangedScheduleEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ApplicationUserPlantInstalationEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ProductionComplexEntityConfigure());
 
+            // Зареждане на тестовите данни в базата
             modelBuilder.ApplyConfiguration(new ProductionComplexSeeder());
             modelBuilder.ApplyConfiguration(new PlantInstalationSeeder());
             modelBuilder.ApplyConfiguration(new TechnologicalPositionSeeder());
             modelBuilder.ApplyConfiguration(new WorkingShiftSeeder());
             modelBuilder.ApplyConfiguration(new ApplicationUserSeeder());
             modelBuilder.ApplyConfiguration(new ChangedScheduleSeede());
-
-            
+            modelBuilder.ApplyConfiguration(new ApplicationUserPlantInstalationSeeder());
 
             base.OnModelCreating(modelBuilder);
 		}

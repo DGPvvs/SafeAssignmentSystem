@@ -2,6 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using System;
     using System.Collections.Generic;
@@ -10,7 +11,7 @@
     {
         public void Configure(EntityTypeBuilder<WorkingShift> builder)
         {
-            builder.HasData(new WorkingShiftSeederData().SeedWorkingShift());
+            builder.HasData(new SeedsData().SeedWorkingShift());
         }
     }
 }

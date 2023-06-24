@@ -3,6 +3,7 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using OfficeOpenXml;
+    using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using System.Collections.Generic;
@@ -10,21 +11,18 @@
     internal class ChangedScheduleSeede : IEntityTypeConfiguration<ChangedSchedule>
     {
         public void Configure(EntityTypeBuilder<ChangedSchedule> builder)
-        {
-            
+        {            
             builder.HasData(this.CreateChangedSchedule());
         }
 
         private IEnumerable<ChangedSchedule> CreateChangedSchedule()
         {
-            //if (System.Diagnostics.Debugger.IsAttached == false) System.Diagnostics.Debugger.Launch();
-
             var schedulesModel = this.Reader(new List<ChangedScheduleTransferModel>());
 
             List<ChangedSchedule> schedules = new List<ChangedSchedule>();
 
-            IEnumerable<ApplicationUser> users = new UserSeerData().SeedUsers();
-            IEnumerable<WorkingShift> workingShifts = new WorkingShiftSeederData().SeedWorkingShift();
+            IEnumerable<ApplicationUser> users = new SeedsData().SeedUsers();
+            IEnumerable<WorkingShift> workingShifts = new SeedsData().SeedWorkingShift();
 
             DateTime currentDate = DateTime.Now;
 

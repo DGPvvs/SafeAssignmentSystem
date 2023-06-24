@@ -1,10 +1,10 @@
-﻿namespace SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed
+﻿namespace SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData
 {
     public class ChangedScheduleTransferModel
     {
         public ChangedScheduleTransferModel(int daysInMonth)
         {
-            this.MonthlyDistribution = new string[daysInMonth];
+            MonthlyDistribution = new string[daysInMonth];
         }
 
         public int UseNumber { get; set; }

@@ -3,6 +3,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using System.Collections.Generic;
 
@@ -17,7 +18,7 @@
         {
             const string Password = "Aa123456";
 
-            IEnumerable<ApplicationUser> users = new UserSeerData().SeedUsers();
+            IEnumerable<ApplicationUser> users = new SeedsData().SeedUsers();
 
             PasswordHasher<ApplicationUser> hasher = new PasswordHasher<ApplicationUser>();
 
