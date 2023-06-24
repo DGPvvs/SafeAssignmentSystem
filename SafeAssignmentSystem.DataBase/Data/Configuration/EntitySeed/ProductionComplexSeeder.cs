@@ -1,4 +1,4 @@
-﻿namespace SafeAssignmentSystem.DataBase.Data.Configuration
+﻿namespace SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -6,11 +6,11 @@
     using System;
     using System.Collections.Generic;
 
-    internal class ProductionComplexConfiguration : IEntityTypeConfiguration<ProductionComplex>
+    internal class ProductionComplexSeeder : IEntityTypeConfiguration<ProductionComplex>
     {
         public void Configure(EntityTypeBuilder<ProductionComplex> builder)
         {
-            builder.HasData(this.SeedComplex());
+            builder.HasData(SeedComplex());
         }
 
         private IEnumerable<ProductionComplex> SeedComplex() =>

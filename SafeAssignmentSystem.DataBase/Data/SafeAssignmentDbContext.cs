@@ -3,12 +3,14 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using SafeAssignmentSystem.DataBase.Data.Configuration;
+    using SafeAssignmentSystem.DataBase.Data.Configuration.EntityConfiguration;
+    using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
-
+        
     public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser>
     {
         public SafeAssignmentDbContext(DbContextOptions<SafeAssignmentDbContext> options)
@@ -31,32 +33,19 @@
         public DbSet<SafeAssignmentDocument> SafeAssignmentDocuments { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-		{
-			modelBuilder.Entity<ChangedSchedule>().HasKey(ck => new
-            {
-                ck.Date,
-                ck.ApplicationUserId
-            });
+		{            
+            modelBuilder.ApplyConfiguration(new ChangedScheduleEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ApplicationUserPlantInstalationEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductionComplexEntityConfigure());
 
-            modelBuilder.Entity<ApplicationUserPlantInstalation>().HasKey(ui => new
-            {
-                ui.UserId,
-                ui.InstalationId
-            });
+            modelBuilder.ApplyConfiguration(new ProductionComplexSeeder());
+            modelBuilder.ApplyConfiguration(new PlantInstalationSeeder());
+            modelBuilder.ApplyConfiguration(new TechnologicalPositionSeeder());
+            modelBuilder.ApplyConfiguration(new WorkingShiftSeeder());
+            modelBuilder.ApplyConfiguration(new ApplicationUserSeeder());
+            modelBuilder.ApplyConfiguration(new ChangedScheduleSeede());
 
-            modelBuilder.Entity<ApplicationUserPlantInstalation>()
-                .HasOne(x => x.Instalation)
-                .WithMany(b => b.ApplicationUserPlantInstalations)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            modelBuilder.Entity<ProductionComplex>()
-                .Property(p => p.IsDeleted)
-                .HasDefaultValue(false);
-
-            modelBuilder.ApplyConfiguration(new ProductionComplexConfiguration());
-            modelBuilder.ApplyConfiguration(new PlantInstalationConfiguration());
-            modelBuilder.ApplyConfiguration(new TechnologicalPositionConfiguration());
-            modelBuilder.ApplyConfiguration(new WorkingShiftConfiguration());            
+            
 
             base.OnModelCreating(modelBuilder);
 		}

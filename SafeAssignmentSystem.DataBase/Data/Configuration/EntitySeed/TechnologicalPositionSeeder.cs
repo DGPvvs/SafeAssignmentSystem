@@ -1,4 +1,4 @@
-﻿namespace SafeAssignmentSystem.DataBase.Data.Configuration
+﻿namespace SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -6,11 +6,11 @@
     using System;
     using System.Collections.Generic;
 
-    internal class TechnologicalPositionConfiguration : IEntityTypeConfiguration<TechnologicalPosition>
+    internal class TechnologicalPositionSeeder : IEntityTypeConfiguration<TechnologicalPosition>
     {
         public void Configure(EntityTypeBuilder<TechnologicalPosition> builder)
         {
-            builder.HasData(this.SeedTechnologicalPosition());
+            builder.HasData(SeedTechnologicalPosition());
         }
 
         private IEnumerable<TechnologicalPosition> SeedTechnologicalPosition() =>

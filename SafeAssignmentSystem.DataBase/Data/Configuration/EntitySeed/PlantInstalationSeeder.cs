@@ -1,4 +1,4 @@
-﻿namespace SafeAssignmentSystem.DataBase.Data.Configuration
+﻿namespace SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -6,11 +6,11 @@
     using System;
     using System.Collections.Generic;
 
-    internal class PlantInstalationConfiguration : IEntityTypeConfiguration<PlantInstalation>
+    internal class PlantInstalationSeeder : IEntityTypeConfiguration<PlantInstalation>
     {
         public void Configure(EntityTypeBuilder<PlantInstalation> builder)
         {
-            builder.HasData(this.SeedPlantInstalation());
+            builder.HasData(SeedPlantInstalation());
         }
 
         private IEnumerable<PlantInstalation> SeedPlantInstalation() =>
