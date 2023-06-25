@@ -2,6 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using Microsoft.Extensions.FileProviders;
     using OfficeOpenXml;
     using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
@@ -57,11 +58,10 @@
         }
 
         private IEnumerable<ChangedScheduleTransferModel> Reader(IList<ChangedScheduleTransferModel> model)
-        {            
-            
-            string PathSeedFile = Directory.GetCurrentDirectory() + @"\wwwroot\Seed.xlsx";
+        {
+			string PathSeedFile = Directory.GetCurrentDirectory() + @"\wwwroot\Seed.xlsx";
 
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+			ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             try
             {
                 using (var stream = File.Open(PathSeedFile, FileMode.Open, FileAccess.Read))

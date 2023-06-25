@@ -12,8 +12,8 @@ using SafeAssignmentSystem.Core.Data;
 namespace SafeAssignmentSystem.DataBase.Migrations
 {
     [DbContext(typeof(SafeAssignmentDbContext))]
-    [Migration("20230621201237_AddSafeAssignmentDocumentTableDbSet")]
-    partial class AddSafeAssignmentDocumentTableDbSet
+    [Migration("20230625191813_InitTables")]
+    partial class InitTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -161,7 +161,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -244,7 +244,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasComment("Модел на потребителите");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUserPlantInstalation", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUserPlantInstalation", b =>
                 {
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)")
@@ -267,7 +267,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasComment("Свързваща таблица между потребителите и инсталациите");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.PlantInstalation", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -299,7 +299,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasComment("Модел на инсталациите");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.ProductionComplex", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -311,6 +311,10 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)")
                         .HasComment("Пълно наименование на комплекса");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasComment("Указател, показващ дали модела на комплекса е изтрит");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -325,33 +329,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasComment("Модел на производствените комплекси");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasComment("Идентификационен ключ");
-
-                    b.Property<Guid>("InstalationId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasComment("Id на инсталация");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasComment("Наименование на технологичната позиция");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InstalationId");
-
-                    b.ToTable("TechnologicalPositions");
-
-                    b.HasComment("Модел на технологична позиция");
-                });
-
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.SafeAssignmentDocumentModels.SafeAssignmentDocument", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -424,7 +402,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasComment("Модел на нарядите");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.StaffsModels.ChangedSchedule", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.ChangedSchedule", b =>
                 {
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2")
@@ -449,7 +427,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasComment("Модел на сменния график");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.StaffsModels.WorkingShift", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.WorkingShift", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -477,6 +455,32 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasComment("Модел на смените");
                 });
 
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasComment("Идентификационен ключ");
+
+                    b.Property<Guid>("InstalationId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasComment("Id на инсталация");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasComment("Наименование на технологичната позиция");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InstalationId");
+
+                    b.ToTable("TechnologicalPositions");
+
+                    b.HasComment("Модел на технологична позиция");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -488,7 +492,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", null)
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -497,7 +501,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", null)
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -512,7 +516,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", null)
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -521,22 +525,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", null)
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUserPlantInstalation", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUserPlantInstalation", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.FactoryModels.PlantInstalation", "Instalation")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation", "Instalation")
                         .WithMany("ApplicationUserPlantInstalations")
                         .HasForeignKey("InstalationId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "ApplicationUser")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "ApplicationUser")
                         .WithMany("ApplicationUserPlantInstalations")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -547,9 +551,9 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.Navigation("Instalation");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.PlantInstalation", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.FactoryModels.ProductionComplex", "Complex")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex", "Complex")
                         .WithMany("PlantInstalations")
                         .HasForeignKey("ComplexId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -558,30 +562,19 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.Navigation("Complex");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.FactoryModels.PlantInstalation", "Instalation")
-                        .WithMany("TechnologicalPositions")
-                        .HasForeignKey("InstalationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Instalation");
-                });
-
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.SafeAssignmentDocumentModels.SafeAssignmentDocument", b =>
-                {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "ElectricianAppliedVoltage")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "ElectricianAppliedVoltage")
                         .WithMany("ElectriciansAppliedsVoltage")
                         .HasForeignKey("ElectricianAppliedVoltageId");
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "PersonRequestedOpeningOrder")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "PersonRequestedOpeningOrder")
                         .WithMany("PersonsRequestedsOpeningOrders")
                         .HasForeignKey("PersonRequestedOpeningOrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "PersonRequestedVoltageSupply")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "PersonRequestedVoltageSupply")
                         .WithMany("PersonsRequestedsVoltageSupply")
                         .HasForeignKey("PersonRequestedVoltageSupplyId");
 
@@ -591,11 +584,11 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "ЕlectricianClosingOrder")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "ЕlectricianClosingOrder")
                         .WithMany("ЕlectriciansClosingOrders")
                         .HasForeignKey("ЕlectricianClosingOrderId");
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "ЕlectricianOpeningOrder")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "ЕlectricianOpeningOrder")
                         .WithMany("ЕlectriciansOpeningOrders")
                         .HasForeignKey("ЕlectricianOpeningOrderId");
 
@@ -612,15 +605,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.Navigation("ЕlectricianOpeningOrder");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.StaffsModels.ChangedSchedule", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.ChangedSchedule", b =>
                 {
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", "ApplicationUser")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", "ApplicationUser")
                         .WithMany("ChangedsSchedules")
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SafeAssignmentSystem.DataBase.Data.StaffsModels.WorkingShift", "Shift")
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.WorkingShift", "Shift")
                         .WithMany()
                         .HasForeignKey("ShiftId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -631,7 +624,18 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.Navigation("Shift");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.Account.ApplicationUser", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition", b =>
+                {
+                    b.HasOne("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation", "Instalation")
+                        .WithMany("TechnologicalPositions")
+                        .HasForeignKey("InstalationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Instalation");
+                });
+
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser", b =>
                 {
                     b.Navigation("ApplicationUserPlantInstalations");
 
@@ -648,14 +652,14 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.Navigation("ЕlectriciansOpeningOrders");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.PlantInstalation", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation", b =>
                 {
                     b.Navigation("ApplicationUserPlantInstalations");
 
                     b.Navigation("TechnologicalPositions");
                 });
 
-            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.FactoryModels.ProductionComplex", b =>
+            modelBuilder.Entity("SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex", b =>
                 {
                     b.Navigation("PlantInstalations");
                 });

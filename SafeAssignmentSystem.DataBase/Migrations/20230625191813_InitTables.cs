@@ -58,7 +58,8 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Идентификационен ключ"),
                     FullName = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false, comment: "Пълно наименование на комплекса"),
-                    Name = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false, comment: "Съкратено наименование на комплекса")
+                    Name = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false, comment: "Съкратено наименование на комплекса"),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, comment: "Указател, показващ дали модела на комплекса е изтрит")
                 },
                 constraints: table =>
                 {
@@ -239,7 +240,8 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false, comment: "Id на потребител"),
-                    InstalationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Id на инсталация")
+                    InstalationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Id на инсталация"),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false, comment: "Поле указващо дали записът е изтрит")
                 },
                 constraints: table =>
                 {
@@ -279,21 +281,59 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 comment: "Модел на технологична позиция");
 
             migrationBuilder.CreateTable(
-                name: "SafeAssignmentDocument",
+                name: "SafeAssignmentDocuments",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TechnologicalPositionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Идентификационен ключ"),
+                    Number = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false, comment: "Номер на наряд според вътрешнонарядната номерация"),
+                    TechnologicalPositionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Id на технологична позиция"),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false, comment: "Състояние на наряда"),
+                    OpeningDate = table.Column<DateTime>(type: "datetime2", nullable: false, comment: "Дата и час на откриване на наряда"),
+                    PersonRequestedOpeningOrderId = table.Column<string>(type: "nvarchar(450)", nullable: false, comment: "Id на потребител, поискал откриване на наряда"),
+                    ЕlectricianOpeningOrderId = table.Column<string>(type: "nvarchar(450)", nullable: true, comment: "Id на потребител открил наряда"),
+                    ClosingDate = table.Column<DateTime>(type: "datetime2", nullable: true, comment: "Дата и час на закриване на наряда"),
+                    ЕlectricianClosingOrderId = table.Column<string>(type: "nvarchar(450)", nullable: true, comment: "Id на потребител закрил наряда"),
+                    PersonRequestedVoltageSupplyId = table.Column<string>(type: "nvarchar(450)", nullable: true, comment: "Id на потребител поискал подаване на напрежение"),
+                    ElectricianAppliedVoltageId = table.Column<string>(type: "nvarchar(450)", nullable: true, comment: "Id на потребител подал напрежение"),
+                    IsAppliedVoltage = table.Column<bool>(type: "bit", nullable: false, comment: "Състояние на технологичната позиция")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SafeAssignmentDocument", x => x.Id);
+                    table.PrimaryKey("PK_SafeAssignmentDocuments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SafeAssignmentDocument_TechnologicalPositions_TechnologicalPositionId",
+                        name: "FK_SafeAssignmentDocuments_AspNetUsers_ЕlectricianClosingOrderId",
+                        column: x => x.ЕlectricianClosingOrderId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_SafeAssignmentDocuments_AspNetUsers_ЕlectricianOpeningOrderId",
+                        column: x => x.ЕlectricianOpeningOrderId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_SafeAssignmentDocuments_AspNetUsers_ElectricianAppliedVoltageId",
+                        column: x => x.ElectricianAppliedVoltageId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_SafeAssignmentDocuments_AspNetUsers_PersonRequestedOpeningOrderId",
+                        column: x => x.PersonRequestedOpeningOrderId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SafeAssignmentDocuments_AspNetUsers_PersonRequestedVoltageSupplyId",
+                        column: x => x.PersonRequestedVoltageSupplyId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_SafeAssignmentDocuments_TechnologicalPositions_TechnologicalPositionId",
                         column: x => x.TechnologicalPositionId,
                         principalTable: "TechnologicalPositions",
-                        principalColumn: "Id");
-                });
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                },
+                comment: "Модел на нарядите");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ApplicationUserPlantInstalations_InstalationId",
@@ -355,8 +395,33 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 column: "ComplexId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SafeAssignmentDocument_TechnologicalPositionId",
-                table: "SafeAssignmentDocument",
+                name: "IX_SafeAssignmentDocuments_ЕlectricianClosingOrderId",
+                table: "SafeAssignmentDocuments",
+                column: "ЕlectricianClosingOrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SafeAssignmentDocuments_ЕlectricianOpeningOrderId",
+                table: "SafeAssignmentDocuments",
+                column: "ЕlectricianOpeningOrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SafeAssignmentDocuments_ElectricianAppliedVoltageId",
+                table: "SafeAssignmentDocuments",
+                column: "ElectricianAppliedVoltageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SafeAssignmentDocuments_PersonRequestedOpeningOrderId",
+                table: "SafeAssignmentDocuments",
+                column: "PersonRequestedOpeningOrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SafeAssignmentDocuments_PersonRequestedVoltageSupplyId",
+                table: "SafeAssignmentDocuments",
+                column: "PersonRequestedVoltageSupplyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SafeAssignmentDocuments_TechnologicalPositionId",
+                table: "SafeAssignmentDocuments",
                 column: "TechnologicalPositionId");
 
             migrationBuilder.CreateIndex(
@@ -389,16 +454,16 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 name: "ChangedsSchedules");
 
             migrationBuilder.DropTable(
-                name: "SafeAssignmentDocument");
+                name: "SafeAssignmentDocuments");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "WorkingShifts");
 
             migrationBuilder.DropTable(
-                name: "WorkingShifts");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "TechnologicalPositions");

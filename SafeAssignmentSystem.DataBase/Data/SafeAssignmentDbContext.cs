@@ -37,7 +37,6 @@
             // Конфигуриране на моделите на базата
             modelBuilder.ApplyConfiguration(new ChangedScheduleEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ApplicationUserPlantInstalationEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductionComplexEntityConfigure());
 
             // Зареждане на тестовите данни в базата
             modelBuilder.ApplyConfiguration(new ProductionComplexSeeder());

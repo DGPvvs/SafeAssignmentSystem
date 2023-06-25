@@ -24,12 +24,20 @@ namespace SafeAssignmentSystem
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            //builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-            //   .AddEntityFrameworkStores<SafeAssignmentDbContext>();
-            //builder.Services.AddControllersWithViews();
-
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                .AddEntityFrameworkStores<SafeAssignmentDbContext>();
+
+
+            //builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+            //{
+            //    options.SignIn.RequireConfirmedAccount = builder.Configuration.GetValue<bool>("Identity:SingIn:RequireConfirmedAccount");
+            //    options.Password.RequireDigit = builder.Configuration.GetValue<bool>("Identity:Password:RequireDigit");
+            //    options.Password.RequireLowercase = builder.Configuration.GetValue<bool>("Identity:Password:RequireLowercase");
+            //    options.Password.RequireUppercase = builder.Configuration.GetValue<bool>("Identity:Password:RequireUppercase");
+            //    options.Password.RequiredLength = builder.Configuration.GetValue<int>("Identity:Password:RequiredLength"); 
+            //})
+            //   .AddEntityFrameworkStores<SafeAssignmentDbContext>();
+
             builder.Services.AddControllersWithViews();
 
 
