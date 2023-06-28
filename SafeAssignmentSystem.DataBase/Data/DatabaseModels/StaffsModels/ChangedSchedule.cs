@@ -26,7 +26,7 @@
         [Comment("Id на потребител който е на смяна(оператор или дежурен електромонтьор)")]
         [Required]
         [ForeignKey(nameof(ApplicationUser))]
-        public string ApplicationUserId { get; set; } = null!;
+        public Guid ApplicationUserId { get; set; }
 
         /// <summary>
         /// Кореспондиращо поле сочещо към потребител

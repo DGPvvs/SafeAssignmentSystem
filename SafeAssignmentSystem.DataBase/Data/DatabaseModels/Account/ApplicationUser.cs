@@ -12,7 +12,7 @@
     /// Модел на потребителите
     /// </summary>
     [Comment("Модел на потребителите")]
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser<Guid>
     {
         public ApplicationUser()
         {

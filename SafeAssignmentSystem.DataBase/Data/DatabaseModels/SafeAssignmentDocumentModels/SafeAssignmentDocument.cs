@@ -71,7 +71,7 @@
         [Comment("Id на потребител, поискал откриване на наряда")]
         [ForeignKey(nameof(PersonRequestedOpeningOrder))]
         [Required]
-        public string PersonRequestedOpeningOrderId { get; set; } = null!;
+        public Guid PersonRequestedOpeningOrderId { get; set; }
 
         /// <summary>
         /// Кореспондиращо поле на потребителя, поискал откриването на наряда
@@ -85,7 +85,7 @@
         /// </summary>
         [Comment("Id на потребител открил наряда")]
         [ForeignKey(nameof(ЕlectricianOpeningOrder))]
-        public string? ЕlectricianOpeningOrderId { get; set; }
+        public Guid? ЕlectricianOpeningOrderId { get; set; }
 
         /// <summary>
         /// Кореспондиращо поле на потребител открил наряда
@@ -104,7 +104,7 @@
         /// </summary>
         [Comment("Id на потребител закрил наряда")]
         [ForeignKey(nameof(ЕlectricianClosingOrder))]
-        public string? ЕlectricianClosingOrderId { get; set; }
+        public Guid? ЕlectricianClosingOrderId { get; set; }
 
         /// <summary>
         /// Кореспондиращо поле на потребител закрил наряда
@@ -117,7 +117,7 @@
         /// </summary>
         [Comment("Id на потребител поискал подаване на напрежение")]
         [ForeignKey(nameof(PersonRequestedVoltageSupply))]
-        public string? PersonRequestedVoltageSupplyId { get; set; }
+        public Guid? PersonRequestedVoltageSupplyId { get; set; }
 
         /// <summary>
         /// Кореспондиращо поле на потребител поискал подаване на напрежение
@@ -130,7 +130,7 @@
         /// </summary>
         [Comment("Id на потребител подал напрежение")]
         [ForeignKey(nameof(ElectricianAppliedVoltage))]
-        public string? ElectricianAppliedVoltageId { get; set; }
+        public Guid? ElectricianAppliedVoltageId { get; set; }
 
         /// <summary>
         /// Кореспондиращо поле на потребител подал напрежение

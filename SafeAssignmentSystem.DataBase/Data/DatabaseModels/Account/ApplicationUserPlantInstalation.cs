@@ -18,7 +18,7 @@
         [Comment("Id на потребител")]
         [Required]
         [ForeignKey(nameof(ApplicationUser))]
-        public string UserId { get; set; } = null!;
+        public Guid UserId { get; set; }
 
         /// <summary>
         /// Кореспондиращо поле съдържащо потребител
