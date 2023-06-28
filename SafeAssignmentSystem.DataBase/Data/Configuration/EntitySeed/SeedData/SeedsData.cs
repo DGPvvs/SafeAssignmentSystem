@@ -6,8 +6,33 @@
 	using SafeAssignmentSystem.DataBase.Data.FactoryModels;
 	using System.Collections.Generic;
 
-	public class SeedsData
+	using static SafeAssignmentSystem.Common.Notification.RoleConstants;
+
+
+    public class SeedsData
 	{
+		public IEnumerable<ApplicationRole> SeedRole() =>
+			new List<ApplicationRole>()
+			{
+				new ApplicationRole()
+				{
+					Id = Guid.Parse("b6d9e0b1-7844-40dd-bd53-cee6cf8f3b62"),
+					Name = Administrator
+				},
+
+                new ApplicationRole()
+                {
+                    Id = Guid.Parse("26d978a0-e222-4209-a204-f632f093e657"),
+                    Name = Operator
+                },
+
+                new ApplicationRole()
+                {
+                    Id = Guid.Parse("8a08f81e-e7db-44e8-b639-653d22648577"),
+                    Name = Electrician
+                }
+            };
+
 		public IEnumerable<ApplicationUser> SeedUsers() =>
 			new List<ApplicationUser>()
 			{

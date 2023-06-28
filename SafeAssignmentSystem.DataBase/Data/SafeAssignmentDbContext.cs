@@ -12,8 +12,10 @@
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
         
-    public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
-    {
+    public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
+
+		//public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
+	{
         public SafeAssignmentDbContext(DbContextOptions<SafeAssignmentDbContext> options)
             : base(options)
         {

@@ -26,7 +26,8 @@
             {
                 user.NormalizedUserName = user.UserName.ToUpper();
                 user.PasswordHash = hasher.HashPassword(user, Password);
-            }
+                user.SecurityStamp = Guid.NewGuid().ToString();
+			}
 
             return users;
         }

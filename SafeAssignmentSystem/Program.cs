@@ -26,7 +26,8 @@ namespace SafeAssignmentSystem
 
 			//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
 			builder.Services.AddDefaultIdentity<ApplicationUser>()
-				.AddRoles<IdentityRole<Guid>>()
+				.AddRoles<ApplicationRole>()
+				//.AddRoles<IdentityRole<Guid>>()
 				.AddEntityFrameworkStores<SafeAssignmentDbContext>();
 
 			//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
