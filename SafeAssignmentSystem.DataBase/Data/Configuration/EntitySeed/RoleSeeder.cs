@@ -2,14 +2,26 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
-    using System;
 
     internal class RoleSeeder : IEntityTypeConfiguration<ApplicationRole>
     {
         public void Configure(EntityTypeBuilder<ApplicationRole> builder)
         {
-            throw new NotImplementedException();
+            builder.HasData(CreateRoles());
+        }
+
+        private IEnumerable<ApplicationRole> CreateRoles()
+        {
+            IEnumerable<ApplicationRole> roles = new SeedsData().SeedRole();
+
+            foreach (var role in roles)
+            {
+                role.NormalizedName = role.Name.ToUpper();
+            }
+
+            return roles;
         }
     }
 }

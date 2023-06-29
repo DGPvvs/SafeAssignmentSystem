@@ -1,6 +1,5 @@
 ﻿namespace SafeAssignmentSystem.Core.Data
 {
-    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using SafeAssignmentSystem.DataBase.Data.Configuration;
@@ -11,7 +10,7 @@
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
-        
+
     public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
 
 		//public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
@@ -46,7 +45,9 @@
             modelBuilder.ApplyConfiguration(new PlantInstalationSeeder());
             modelBuilder.ApplyConfiguration(new TechnologicalPositionSeeder());
             modelBuilder.ApplyConfiguration(new WorkingShiftSeeder());
+            modelBuilder.ApplyConfiguration(new RoleSeeder());
             modelBuilder.ApplyConfiguration(new ApplicationUserSeeder());
+            modelBuilder.ApplyConfiguration(new UserRoleSeeder());
             modelBuilder.ApplyConfiguration(new ChangedScheduleSeede());
             modelBuilder.ApplyConfiguration(new ApplicationUserPlantInstalationSeeder());
 
