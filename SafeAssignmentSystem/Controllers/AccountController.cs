@@ -4,6 +4,10 @@
 	using Microsoft.AspNetCore.Identity;
 	using Microsoft.AspNetCore.Mvc;
 	using SafeAssignmentSystem.Controllers.AbstractControlers;
+	using SafeAssignmentSystem.Core.Contracts;
+	using SafeAssignmentSystem.Core.Models.StatusModels;
+	using SafeAssignmentSystem.Core.Models.TransferModels;
+	using SafeAssignmentSystem.Core.Service;
 	using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 	using SafeAssignmentSystem.Models;
 
@@ -11,15 +15,16 @@
 	{
 		private readonly UserManager<ApplicationUser> userManager;
 		private readonly SignInManager<ApplicationUser> signInManager;
-		//private readonly RoleManager<IdentityRole> roleManager;
-		//private readonly AccountService accountService;
-
-		public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)//, RoleManager<IdentityRole> roleManager)//, AccountService accountService)
+		private readonly IAccountService accountService;
+        
+        public AccountController(
+			UserManager<ApplicationUser> userManager,
+			SignInManager<ApplicationUser> signInManager,
+            IAccountService accountService)
 		{
 			this.userManager = userManager;
 			this.signInManager = signInManager;
-			//this.roleManager = roleManager;
-			//this.accountService = accountService;
+			this.accountService = accountService;
 		}
 
 		[HttpGet]
@@ -53,10 +58,18 @@
 				{
 					if (!(model.ReturnUrl is null))
 					{
-						return Redirect(model.ReturnUrl);
-					}
+                        var userPermis = new UserTransferModel()
+                        {
+                            UserName = model.UserName
+                        };
 
-					return RedirectToAction("Index", "Home");
+                        StatusUserModel userStatus = await this.accountService.LoginPermissionAsync(userPermis);
+
+                        return Redirect(model.ReturnUrl);
+					}				
+
+
+                    return RedirectToAction("Index", "Home");
 				}
 			}
 

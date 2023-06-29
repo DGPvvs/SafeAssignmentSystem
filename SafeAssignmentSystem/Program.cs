@@ -23,20 +23,11 @@ namespace SafeAssignmentSystem
 
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
-			//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            			
 			builder.Services.AddDefaultIdentity<ApplicationUser>()
 				.AddRoles<ApplicationRole>()
-				//.AddRoles<IdentityRole<Guid>>()
 				.AddEntityFrameworkStores<SafeAssignmentDbContext>();
-
-			//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-			//   .AddEntityFrameworkStores<SafeAssignmentDbContext>();
-			//.AddRoleManager<ApplicationUser>();
-
-			//builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
-			//	.AddEntityFrameworkStores<SafeAssignmentDbContext>()
-			//	.AddDefaultTokenProviders();
+			
 
             builder.Services.Configure<IdentityOptions>(options =>
             {
@@ -47,23 +38,16 @@ namespace SafeAssignmentSystem
                 options.Password.RequiredLength = builder.Configuration.GetValue<int>("Identity:Password:RequiredLength");
             });
 
-
-            //builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
-            //         {
-            //             options.SignIn.RequireConfirmedAccount = builder.Configuration.GetValue<bool>("Identity:SingIn:RequireConfirmedAccount");
-            //             options.Password.RequireDigit = builder.Configuration.GetValue<bool>("Identity:Password:RequireDigit");
-            //             options.Password.RequireLowercase = builder.Configuration.GetValue<bool>("Identity:Password:RequireLowercase");
-            //             options.Password.RequireUppercase = builder.Configuration.GetValue<bool>("Identity:Password:RequireUppercase");
-            //             options.Password.RequiredLength = builder.Configuration.GetValue<int>("Identity:Password:RequiredLength");
-            //         })
-            //            .AddEntityFrameworkStores<SafeAssignmentDbContext>();
-
             builder.Services.AddControllersWithViews();
 
-
-
-            builder.Services.AddControllersWithViews();
             builder.Services.AddApplicationServices();
+
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/Login";
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
