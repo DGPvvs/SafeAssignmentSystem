@@ -72,13 +72,15 @@
 
                     if (result.Succeeded)
                     {
-                        if (!(model.ReturnUrl is null))
+						this.TempData[Success_Message] = userStatus.Description;
+
+						if (!(model.ReturnUrl is null))
                         {
                             return Redirect(model.ReturnUrl);
                         }
                     }
 
-                    this.TempData[Success_Message] = userStatus.Description;
+                    
                     return RedirectToAction("Index", "Home");
                 }
             }

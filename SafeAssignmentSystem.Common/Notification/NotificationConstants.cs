@@ -4,10 +4,10 @@
 
     public static class NotificationConstants
     {
-        public const string Error_Message = "ErrorMessage";
-        public const string Warning_Message = "WarningMessage";
-        public const string Information_Message = "InfoMessage";
-        public const string Success_Message = "SuccessMessage";
+        public const string Error_Message = "Error_Message";
+        public const string Warning_Message = "Warning_Message";
+        public const string Information_Message = "Info_Message";
+        public const string Success_Message = "Success_Message";
 
         public const string User_Not_Found = "Потребителят не е намерен!";
         public const string User_Not_Permision_For_Work = "Потребителят не е на смяна!";
