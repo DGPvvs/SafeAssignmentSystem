@@ -1,8 +1,31 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity;
+@using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
+@using static SafeAssignmentSystem.Common.Notification.RoleConstants;
+
+@inject UserManager<ApplicationUser> UserManager;
+@inject RoleManager<ApplicationRole> RoleManager;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @{
+        if (User.IsInRole(Administrator))
+        {
+            <h1 class="display-4">АДМИНИСТРАТОР</h1>
+            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        }
+        else if (User.IsInRole(Operator))
+        {
+                            <h1 class="display-4">ОПЕРАТОР</h1>
+                    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        }
+        else if (User.IsInRole(Electrician))
+        {
+                                    <h1 class="display-4">ДЕЖУРЕН ЕЛТЕХНИК</h1>
+                            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        }
+    }
+    
 </div>
