@@ -2,21 +2,21 @@
 @{
 	if (TempData.ContainsKey(Error_Message))
 	{
-		<script>toastr.error('@TempData[Error_Message]')</script>		
+		<script>toastr.error('@TempData[Error_Message]');</script>		
 	}
 
 	if (TempData.ContainsKey(Warning_Message))
 	{
-		<script>toastr.warning('@TempData[Warning_Message]')</script>
+		<script>toastr.warning('@TempData[Warning_Message]');</script>
 	}
 
 	if (TempData.ContainsKey(Information_Message))
 	{
-		<script>toastr.info('@TempData[Information_Message]')</script>
+		<script>toastr.info('@TempData[Information_Message]');</script>
 	}
 
 	if (TempData.ContainsKey(Success_Message))
 	{
-		<script>toastr.success('@TempData[Success_Message]')</script>
+		<script>toastr.success('@TempData[Success_Message]');</script>
 	}
 }

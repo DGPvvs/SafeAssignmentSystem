@@ -20,7 +20,7 @@
         [HttpGet]
         public IActionResult Index()
         {
-            if (!(User?.Identity?.IsAuthenticated) ?? true)
+            if (!(User?.Identity?.IsAuthenticated ?? true))
             {
                 return RedirectToAction("Login", "Account");
             }

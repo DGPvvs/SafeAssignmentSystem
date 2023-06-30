@@ -11,7 +11,9 @@
 	using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 	using SafeAssignmentSystem.Models;
 
-	public class AccountController : BaseController
+    using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
+
+    public class AccountController : BaseController
 	{
 		private readonly UserManager<ApplicationUser> userManager;
 		private readonly SignInManager<ApplicationUser> signInManager;
@@ -36,47 +38,63 @@
 				ReturnUrl = returnUrl
 			};
 
-			return View(model);
+            if (User?.Identity?.IsAuthenticated ?? false)
+            {
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            return View(model);
 		}
 
 		[HttpPost]
 		[AllowAnonymous]
 		public async Task<IActionResult> Login(LoginViewModel model)
 		{
-			if (!ModelState.IsValid)
-			{
-				return View(model);
-			}
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
-			var user = await this.userManager.FindByNameAsync(model.UserName);
+            var userPermis = new UserTransferModel()
+            {
+                UserName = model.UserName
+            };
 
-			if (!(user is null))
-			{
-				var result = await this.signInManager.PasswordSignInAsync(user, model.Password, false, false);
+            StatusUserModel userStatus = await this.accountService.LoginPermissionAsync(userPermis);            
 
-				if (result.Succeeded)
-				{
-					if (!(model.ReturnUrl is null))
-					{
-                        var userPermis = new UserTransferModel()
+            if (userStatus.Success)
+            {
+                var user = await this.userManager.FindByNameAsync(model.UserName);
+
+                if (!(user is null))
+                {
+                    var result = await this.signInManager.PasswordSignInAsync(user, model.Password, false, false);
+
+                    if (result.Succeeded)
+                    {
+                        if (!(model.ReturnUrl is null))
                         {
-                            UserName = model.UserName
-                        };
+                            return Redirect(model.ReturnUrl);
+                        }
+                    }
 
-                        StatusUserModel userStatus = await this.accountService.LoginPermissionAsync(userPermis);
-
-                        return Redirect(model.ReturnUrl);
-					}				
-
-
+                    this.TempData[Success_Message] = userStatus.Description;
                     return RedirectToAction("Index", "Home");
-				}
-			}
+                }
+            }
 
-			ModelState.AddModelError(string.Empty, "Невалидно логване!");
+            this.TempData[Error_Message] = userStatus.Description;
 
-			return View(model);
+            ModelState.AddModelError(string.Empty, "Невалидно логване!");
+
+            return View(model);
 		}
 
-	}
+        public async Task<IActionResult> Logout()
+        {
+            await this.signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
+        }
+    }
 }

@@ -1,5 +1,7 @@
 ﻿namespace SafeAssignmentSystem.Common.Notification
 {
+    using System;
+
     public static class NotificationConstants
     {
         public const string Error_Message = "ErrorMessage";
@@ -9,8 +11,6 @@
 
         public const string User_Not_Found = "Потребителят не е намерен!";
         public const string User_Not_Permision_For_Work = "Потребителят не е на смяна!";
-        public const string User_Success = "Потребителят има разрешение!";
-
-
+        public const string User_Success = "Потребителят има разрешение!";        
     }
 }
