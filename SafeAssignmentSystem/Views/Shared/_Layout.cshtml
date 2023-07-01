@@ -1,4 +1,9 @@
-﻿@using static SafeAssignmentSystem.Common.Notification.RoleConstants;
+﻿@using Microsoft.AspNetCore.Identity;
+@using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
+
+@using static SafeAssignmentSystem.Common.Notification.RoleConstants;
+
+@inject SignInManager<ApplicationUser> SignInManager;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,29 +48,47 @@
                         @{
                             if (User.IsInRole(Administrator))
                             {
-                    <h1 class="display-4">АДМИНИСТРАТОР</h1>
-                    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+                                <h5 class="display-10">АДМИНИСТРАТОР</h5>
+                                <partial name="_AdminMenuPartial"/>
                             }
                             else if (User.IsInRole(Operator))
                             {
-                                    <h1 class="display-4">ОПЕРАТОР</h1>
-                            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+                                <h5 class="display-4">ОПЕРАТОР</h5>
+                                <partial name="_OperatorMenuPartial" />
                             }
                             else if (User.IsInRole(Electrician))
                             {
-                                            <h1 class="display-4">ДЕЖУРЕН ЕЛТЕХНИК</h1>
-                                    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+                                <h5 class="display-4">ДЕЖУРЕН ЕЛТЕХНИК</h5>
+                                <partial name="_ElectricianMenuPartial" />
+                            }
+
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <div class="row">
+                                    <nav class="nav nav-pills">
+                                        <a class="nav-link bg-danger text-dark"
+                                            asp-controller="Account"
+                                            asp-action="ChangePassword">
+                                            Смяна на парола
+                                        </a>
+                                    </nav>
+                                </div>
                             }
                         }
                         <partial name="_LoginPartial" />
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="content">
-                        @RenderBody()
-                    </div>
+                    @RenderBody()
+                    @*<div class="content">
+                        
+                    </div>*@
                 </div>
             </div>
+            @*@RenderBody()*@
+            
+           
+            
             @*@RenderBody()*@
         </main>
     </div>

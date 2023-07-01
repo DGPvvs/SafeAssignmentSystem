@@ -98,5 +98,17 @@
 
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            return this.RedirectToAction("Index", "Home");
+        }
     }
 }
