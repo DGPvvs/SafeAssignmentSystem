@@ -10,7 +10,7 @@
 	using SafeAssignmentSystem.Core.Service;
 	using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 	using SafeAssignmentSystem.Models;
-
+    using System.Text;
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
 
     public class AccountController : BaseController
@@ -43,7 +43,7 @@
                 return this.RedirectToAction("Index", "Home");
             }
 
-            return View(model);
+            return this.View(model);
 		}
 
 		[HttpPost]
@@ -52,7 +52,7 @@
 		{
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return this.View(model);
             }
 
             var userPermis = new UserTransferModel()
@@ -76,12 +76,11 @@
 
 						if (!(model.ReturnUrl is null))
                         {
-                            return Redirect(model.ReturnUrl);
+                            return this.Redirect(model.ReturnUrl);
                         }
                     }
-
                     
-                    return RedirectToAction("Index", "Home");
+                    return this.RedirectToAction("Index", "Home");
                 }
             }
 
@@ -89,25 +88,66 @@
 
             ModelState.AddModelError(string.Empty, "Невалидно логване!");
 
-            return View(model);
+            return this.View(model);
 		}
 
         public async Task<IActionResult> Logout()
         {
             await this.signInManager.SignOutAsync();
 
-            return RedirectToAction("Index", "Home");
+            return this.RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
-        public IActionResult ChangePassword()
+        public async Task<IActionResult> ChangePassword()
         {
-            return View();
+            var user = await userManager.GetUserAsync(User);
+
+            if (user is null)
+            {
+                this.TempData[Error_Message] = User_Not_Found;
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            ChangePasswordViewModel model = new ChangePasswordViewModel();
+
+            return this.View(model);
         }
 
         [HttpPost]
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                 this.View();
+            }
+
+            var user = await userManager.GetUserAsync(User);
+
+            if (user is null)
+            {
+                this.TempData[Error_Message] = User_Not_Found;
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            var changePasswordResult = await userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+
+            if (!changePasswordResult.Succeeded)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (var error in changePasswordResult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                    sb.AppendLine(error.Description);
+                }
+
+                this.TempData[Error_Message] = sb.ToString().TrimEnd();
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            await signInManager.RefreshSignInAsync(user);
+
+            this.TempData[Success_Message] = User_Change_Password_Success;
             return this.RedirectToAction("Index", "Home");
         }
     }

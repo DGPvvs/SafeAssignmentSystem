@@ -11,6 +11,8 @@
 
         public const string User_Not_Found = "Потребителят не е намерен!";
         public const string User_Not_Permision_For_Work = "Потребителят не е на смяна!";
-        public const string User_Success = "Потребителят има разрешение!";        
+        public const string User_Success = "Потребителят има разрешение!";
+        public const string User_Change_Password_Success = "Успешно променихте паролата си!";
+        public const string User_Change_Password_Not_Allow = "Не успяхте да променихте паролата си!";
     }
 }
