@@ -80,7 +80,7 @@
                     var tSpan = shift.Start - time.referenceDateTime;
                     var startTime = shift.Date + tSpan;
 
-                    tSpan = shift.End - time.referenceDateTime; 
+                    tSpan = shift.End - time.referenceDateTime;
                     var endTime = shift.Date + tSpan;
 
                     if (currentDateTime >= startTime && currentDateTime <= endTime)
@@ -94,71 +94,7 @@
 
             return result;
         }
-
-
-
-
-
-
-
-        
-
-DateTime referenceDateTime = new DateTime(1, 1, 1, 0, 0, 0);
-
-
-
-
-///
-//StatusUserModel result = new StatusUserModel();
-
-//            var userPermis = await this.userManager.FindByNameAsync(user.UserName);
-
-//            if (userPermis is null)
-//            {
-//                result.Success = false;
-//                result.Description = User_Not_Found;
-//                return result;
-//            }
-
-//            string userRoles = new List<string>(await this.userManager.GetRolesAsync(userPermis)).First();
-
-//            if (userRoles == Administrator)
-//            {
-//                result.Success = true;
-//                result.Description = User_Success;
-//                return result;
-//            }
-
-//            if (userRoles == Operator || userRoles == Electrician)
-//            {
-//                DateTime currentDateTime = DateTime.Now;
-//                DateTime date = currentDateTime.Date;
-
-//                var shift = await this.context.ChangedsSchedules
-//                    .Where(cs => cs.ApplicationUserId == userPermis.Id && cs.Date.Date == date)
-//                    .Select(cs => new UserShiftTransferModel()
-//                    {
-//                        Start = cs.Shift.StartTime,
-//                        End = cs.Shift.EndTime,
-//                        Date = cs.Date
-//                    })
-//                    .ToListAsync();
-
-//                //if (shift.Count > 0)
-//                //{
-//                //    var start = DateTime.Parse(shift.First().Date.Add(TimeSpan.Parse(shift.First().Start)));
-
-//                //}
-                    
-
-
-//            }
-
-            
-
-//            //var userShifft = this.userManager
-//            throw new NotImplementedException();
-        }
+    }
 }
-    
+
 

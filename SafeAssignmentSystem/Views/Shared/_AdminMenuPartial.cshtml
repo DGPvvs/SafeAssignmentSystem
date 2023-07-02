@@ -5,21 +5,13 @@
 }
 
 
-
 <div class="bs-example">
-    
-
     <div class="row">
         <div class="col-md-3">
             <!-- Dropright menu -->
             <div class="btn-group dropend">
-                @*<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Dropright</button>*@
                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Менажиране на потребители</button>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Action</a>
-                    <a href="#" class="dropdown-item">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Separated link</a>
                 </div>
             </div>
         </div>
@@ -29,46 +21,92 @@
         <div class="col-md-3">
             <!-- Dropright menu -->
             <div class="btn-group dropend">
-                <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown">Менажиране на инсталации и оборудване</button>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Action</a>
-                    <a href="#" class="dropdown-item">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Separated link</a>
-                </div>
+                <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown">Менажиране на инсталации и оборудване</button>                
+                <ul class="dropdown-menu multi-level">
+                    <li class="nav-item dropdown">                        
+                        <a class="nav-link btn-warning text-dark dropdown-toggle"                            
+                            asp-controller="Plants"
+                            asp-action="ComplexCreate">
+                            Създаване на комплекс
+                        </a>
+                        <a class="btn btn-warning dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Редактиране на комплекс
+                        </a>
+                        <a class="btn btn-warning dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Изтриване на комплекс
+                        </a>
+                        <a class="btn btn-info dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Създаване на инсталация
+                        </a>
+                        <a class="btn btn-info dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Редактиране на инсталация
+                        </a>
+                        <!--TODO За бъдещ размисъл и реализация ако е необходимо-->
+                        @*<a class="btn btn-info dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Изтриване на инсталация
+                        </a>*@
+                        <a class="btn btn-primary dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Създаване на технологична позиция
+                        </a>
+                        <a class="btn btn-primary dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Редактиране на технологична позиция
+                        </a>
+                        <!--TODO За бъдещ размисъл и реализация ако е необходимо-->
+                        @*<a class="btn btn-primary dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Изтриване на технологична позиция
+                        </a>*@
+                    </li>
+                </ul>                
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-3">
             <!-- Dropright menu -->
             <div class="btn-group dropend">
                 <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown">Менажиране на сменни графици</button>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Action</a>
-                    <a href="#" class="dropdown-item">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Separated link</a>
-                </div>
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-3">
             <!-- Dropright menu -->
             <div class="btn-group dropend">
                 <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">Изготвяне на справки</button>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Action</a>
-                    <a href="#" class="dropdown-item">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Separated link</a>
-                </div>
             </div>
         </div>
     </div>
+</div>   
 
-    
-</div>
