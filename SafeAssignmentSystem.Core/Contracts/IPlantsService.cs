@@ -8,5 +8,9 @@
         public Task AddComplexAsync(ComplexTransferModel model);
 
         public Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync();
-    }
+
+        public Task<ComplexTransferModel> GetComplexByIdAsync(Guid id);
+
+        public Task EditComplexAsync(ComplexTransferModel model);
+	}
 }

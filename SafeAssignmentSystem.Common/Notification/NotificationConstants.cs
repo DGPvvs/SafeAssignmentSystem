@@ -15,5 +15,8 @@
 
         public const string New_Complex_Add_Fail = "Новият комплекс не беше добавен!";
         public const string New_Complex_Add_User_Success = "Новият комплекс е добавен успешно!";
-    }
+        public const string Complex_Find_Fail = "Комплекса не беше намерен!";
+		public const string Complex_Edit_Exist_In_Deleted = "Комплекс с такива имена вече има сред изтритите комплекси!";
+
+	}
 }

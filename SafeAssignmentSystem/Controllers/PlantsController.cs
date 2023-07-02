@@ -79,10 +79,61 @@
             return this.View(viewModel);
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> EditComplex(Guid id)
         {
-            return this.RedirectToAction("Index", "Home");
+            var transfer = await this.plantsService.GetComplexByIdAsync(id);
+
+            if (transfer is null)
+            {
+                this.TempData[Error_Message] = Complex_Find_Fail;
+                ModelState.AddModelError(string.Empty, Complex_Find_Fail);
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            var model = new EditComplexViewModel()
+            {
+                Id = transfer.Id,
+                Name = transfer.Name,
+                FullName = transfer.FullName
+            };
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditComplex(EditComplexViewModel model)
+        {
+			if (!ModelState.IsValid)
+			{
+				return this.View(model);
+			}
+
+			ComplexTransferModel transfer = new ComplexTransferModel()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                FullName = model.FullName
+            };
+
+			try
+			{
+                await this.plantsService.EditComplexAsync(transfer);
+
+				return RedirectToAction("Index", "Home");
+			}
+			catch (IdentityЕxception ie)
+			{
+				this.TempData[Error_Message] = ie.Message;
+				ModelState.AddModelError(string.Empty, ie.Message);
+				return View(model);
+			}
+			catch (Exception)
+			{
+				this.TempData[Error_Message] = New_Complex_Add_Fail;
+				ModelState.AddModelError(string.Empty, New_Complex_Add_Fail);
+				return View(model);
+			}
         }
 
         [HttpPost]
