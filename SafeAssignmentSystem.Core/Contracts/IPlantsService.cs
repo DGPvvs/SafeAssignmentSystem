@@ -6,5 +6,7 @@
     public interface IPlantsService
     {
         public Task AddComplexAsync(ComplexTransferModel model);
+
+        public Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync();
     }
 }

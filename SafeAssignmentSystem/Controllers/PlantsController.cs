@@ -60,5 +60,35 @@
                 return View(model);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> AllComplex()
+        {
+            var model = await this.plantsService.GetAllComplexAsync();
+
+            var viewModel = model.
+                Select(c => new EditComplexViewModel()
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    FullName = c.FullName,
+                    CountPlant = c.PlantInstalations.Count
+                })
+                .ToList();
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditComplex(Guid id)
+        {
+            return this.RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteComplex(Guid id)
+        {
+            return this.RedirectToAction("Index", "Home");
+        }
     }
 }
