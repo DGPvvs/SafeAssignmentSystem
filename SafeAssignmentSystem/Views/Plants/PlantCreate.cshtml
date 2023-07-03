@@ -1,0 +1,45 @@
+﻿@using SafeAssignmentSystem.Models.FactoriesViewModels;
+@model PlantViewModel
+
+@{
+    ViewBag.Title = "Добавяне на инсталация";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form asp-action="Add" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.FullName" class="form-label">Пълно наименование на инсталацията</label>
+                <input asp-for="@Model.FullName" class="form-control" aria-required="true" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>            
+            <div class="mb-3">
+                <label asp-for="@Model.Name" class="form-label">Съкратено наименование на инсталацията</label>
+                <input asp-for="@Model.Name" class="form-control" aria-required="true" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.ComplexId" class="form-label">Комплекс</label>
+                <select asp-for="@Model.ComplexId" class="form-control">
+                    @foreach (var complex in Model.Complexes)
+                    {
+                                <option value="@complex.Id">@complex.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="ComplexId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-info" type="submit" value="Добавяне на инсталация" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+}

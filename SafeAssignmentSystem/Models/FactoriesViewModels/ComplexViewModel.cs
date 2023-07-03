@@ -1,11 +1,12 @@
 ﻿namespace SafeAssignmentSystem.Models.FactoriesViewModels
 {
-    using Microsoft.EntityFrameworkCore;
-    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
     using System.ComponentModel.DataAnnotations;
 
     using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ProductionComplexConstants;
 
+    /// <summary>
+    /// Модел на данните за комплекс
+    /// </summary>
     public class ComplexViewModel
     {
         /// <summary>

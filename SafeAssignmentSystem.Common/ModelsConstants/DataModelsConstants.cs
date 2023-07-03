@@ -47,9 +47,24 @@
             public const int FullName_Max_Length = 150;
 
             /// <summary>
+            /// Минимална дължина на пълното наименование на инсталация
+            /// </summary>
+            public const int FullName_Min_Length = 5;
+
+            /// <summary>
             /// Максимална дължина на съкратеното наименование на инсталация
             /// </summary>
             public const int Name_Max_Length = 15;
+
+            /// <summary>
+            /// Минимална дължина на съкратеното наименование на инсталация
+            /// </summary>
+            public const int Name_Min_Length = 3;
+
+            /// <summary>
+            /// Съобщение за грешка при неправилно въвеждане на име
+            /// </summary>
+            public const string Error_Message_Name = "Името трябва да е дълго между {2} и {1} символа.";
         }
 
         /// <summary>

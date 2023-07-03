@@ -10,6 +10,9 @@
 
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
 
+    /// <summary>
+    /// Контролер менажиращ таблиците с комплекси, инсталации и технологични позиции
+    /// </summary>
     public class PlantsController : BasePlantsController
     {
         private readonly IPlantsService plantsService;
@@ -19,6 +22,10 @@
             this.plantsService = plantsService;
         }
 
+        /// <summary>
+        /// Екшън опериращ с изображението за създаване на комплекс
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ComplexCreate()
         {
@@ -27,6 +34,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Екшън валидиращ данните при създаването на комплекс
+        /// </summary>
+        /// <param name="model">Модел на данните при създаване на комплекс</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> ComplexCreate(ComplexViewModel model)
         {
@@ -106,36 +118,36 @@
         [HttpPost]
         public async Task<IActionResult> EditComplex(EditComplexViewModel model)
         {
-			if (!ModelState.IsValid)
-			{
-				return this.View(model);
-			}
+            if (!ModelState.IsValid)
+            {
+                return this.View(model);
+            }
 
-			ComplexTransferModel transfer = new ComplexTransferModel()
+            ComplexTransferModel transfer = new ComplexTransferModel()
             {
                 Id = model.Id,
                 Name = model.Name,
                 FullName = model.FullName
             };
 
-			try
-			{
+            try
+            {
                 await this.plantsService.EditComplexAsync(transfer);
 
-				return this.RedirectToAction("AllComplex", "Plants");
-			}
-			catch (IdentityЕxception ie)
-			{
-				this.TempData[Error_Message] = ie.Message;
-				ModelState.AddModelError(string.Empty, ie.Message);
-				return View(model);
-			}
-			catch (Exception)
-			{
-				this.TempData[Error_Message] = New_Complex_Add_Fail;
-				ModelState.AddModelError(string.Empty, New_Complex_Add_Fail);
-				return View(model);
-			}
+                return this.RedirectToAction("AllComplex", "Plants");
+            }
+            catch (IdentityЕxception ie)
+            {
+                this.TempData[Error_Message] = ie.Message;
+                ModelState.AddModelError(string.Empty, ie.Message);
+                return View(model);
+            }
+            catch (Exception)
+            {
+                this.TempData[Error_Message] = New_Complex_Add_Fail;
+                ModelState.AddModelError(string.Empty, New_Complex_Add_Fail);
+                return View(model);
+            }
         }
 
         [HttpGet]
@@ -145,21 +157,21 @@
             {
                 await this.plantsService.DeleteComplexAsync(id, true);
 
-				return this.RedirectToAction("AllComplex", "Plants");
-			}
+                return this.RedirectToAction("AllComplex", "Plants");
+            }
             catch (NotEmptyException nee)
             {
-				this.TempData[Error_Message] = nee.Message;
-				ModelState.AddModelError(string.Empty, nee.Message);
-				return this.RedirectToAction("AllComplex", "Plants");
-			}
-			catch (Exception)
+                this.TempData[Error_Message] = nee.Message;
+                ModelState.AddModelError(string.Empty, nee.Message);
+                return this.RedirectToAction("AllComplex", "Plants");
+            }
+            catch (Exception)
             {
-				this.TempData[Error_Message] = Complex_Delete_Fail;
-				ModelState.AddModelError(string.Empty, Complex_Delete_Fail);
-				return this.RedirectToAction("AllComplex", "Plants");
-			}
-		}
+                this.TempData[Error_Message] = Complex_Delete_Fail;
+                ModelState.AddModelError(string.Empty, Complex_Delete_Fail);
+                return this.RedirectToAction("AllComplex", "Plants");
+            }
+        }
 
         [HttpGet]
         public async Task<IActionResult> AllDeletedComplex()
@@ -172,7 +184,7 @@
                     Id = c.Id,
                     Name = c.Name,
                     FullName = c.FullName,
-                    CountPlant = c.PlantInstalations.Count                    
+                    CountPlant = c.PlantInstalations.Count
                 })
                 .OrderBy(c => c.Name)
                 .ToList();
@@ -180,6 +192,7 @@
             return this.View(viewModel);
         }
 
+        [HttpGet]
         public async Task<IActionResult> ComplexRecovery(Guid id)
         {
             try
@@ -200,6 +213,27 @@
                 ModelState.AddModelError(string.Empty, Complex_Undelete_Fail);
                 return this.RedirectToAction("AllComplex", "Plants");
             }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> PlantCreate()
+        {
+            var complexes = await this.plantsService.GetAllComplexAsync(false);
+
+            var keysComplexes = complexes
+                .Select(c => new KeyComplexViewModel()
+                {
+                    Id = c.Id,
+                    Name = c.Name
+                })
+                .ToList();
+
+            var model = new PlantViewModel()
+            {
+                Complexes = keysComplexes
+            };
+
+            return this.View(model);
         }
     }
 }
