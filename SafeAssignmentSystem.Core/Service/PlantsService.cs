@@ -1,6 +1,7 @@
 ﻿namespace SafeAssignmentSystem.Core.Service
 {
     using Microsoft.EntityFrameworkCore;
+    using SafeAssignmentSystem.Common.Exceptions;
     using SafeAssignmentSystem.Common.Exeptions;
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Data;
@@ -13,7 +14,7 @@
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
 
 
-	public class PlantsService : IPlantsService
+    public class PlantsService : IPlantsService
     {
         private readonly SafeAssignmentDbContext context;
 
@@ -55,6 +56,25 @@
             await this.context.SaveChangesAsync();
         }
 
+		public async Task DeleteComplexAsync(Guid id, bool isDel)
+		{
+			var entity = await GetCompByIdAsync(id);
+
+            if (entity is null)
+            {
+                throw new NullReferenceException();
+			}
+
+            if (entity.PlantInstalations.Count > 0)
+            {
+                throw new NotEmptyException(Complex_Has_Plant);
+			}
+
+			entity.IsDeleted = isDel;
+
+            await this.context.SaveChangesAsync();
+		}
+
 		public async Task EditComplexAsync(ComplexTransferModel model)
 		{
             var alreadyExist = await this.context.ProductionComplexes
@@ -73,8 +93,7 @@
 				throw new IdentityЕxception(Complex_Edit_Exist_In_Deleted);
 			}
 
-			var entity = await this.context.ProductionComplexes
-					.FirstOrDefaultAsync(c => c.Id == model.Id);
+            var entity = await GetCompByIdAsync(model.Id);
 
 			entity.Name = model.Name;
 			entity.FullName = model.FullName;
@@ -82,10 +101,10 @@
 			await this.context.SaveChangesAsync();
 		}
 
-		public async Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync()
+		public async Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync(bool isDel)
         {
             return await this.context.ProductionComplexes
-                .Where(c => !c.IsDeleted)
+                .Where(c => c.IsDeleted == isDel)
                 .AsNoTracking()
                 .Select(c => new ComplexTransferModel()
                 {
@@ -114,5 +133,13 @@
 
             return result;            
         }
-    }
+
+        private async Task<ProductionComplex> GetCompByIdAsync(Guid id)
+        {
+			var result = await this.context.ProductionComplexes
+				.FirstOrDefaultAsync(c => c.Id == id);
+
+			return result;
+		}
+	}
 }

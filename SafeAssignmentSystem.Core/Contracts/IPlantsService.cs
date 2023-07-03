@@ -7,10 +7,12 @@
     {
         public Task AddComplexAsync(ComplexTransferModel model);
 
-        public Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync();
+        public Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync(bool isDel);
 
         public Task<ComplexTransferModel> GetComplexByIdAsync(Guid id);
 
         public Task EditComplexAsync(ComplexTransferModel model);
+
+		public Task DeleteComplexAsync(Guid id, bool isDel);
 	}
 }

@@ -148,8 +148,14 @@
                 {
                     Id = Guid.Parse("8a08f81e-e7db-44e8-b639-653d22648577"),
                     Name = Electrician
-                }
-            };
+                },
+
+				new ApplicationRole()
+				{
+					Id = Guid.Parse("237cb180-758f-465b-8d7d-bff014cf77b8"),
+					Name = NoRole
+				}				
+			};
 
 		public IEnumerable<ApplicationUser> SeedUsers() =>
 			new List<ApplicationUser>()

@@ -40,11 +40,12 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-1">
+    <div class="container-fluid">
+        <main role="main" class="pb-1">                
             <div class="row">
                 <div class="col-md-3">
                     <div class="sidebar">
+                    
                         @{
                             if (User.IsInRole(Administrator))
                             {

@@ -1,6 +1,7 @@
 ﻿namespace SafeAssignmentSystem.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using SafeAssignmentSystem.Common.Exceptions;
     using SafeAssignmentSystem.Common.Exeptions;
     using SafeAssignmentSystem.Controllers.AbstractControlers;
     using SafeAssignmentSystem.Core.Contracts;
@@ -64,7 +65,7 @@
         [HttpGet]
         public async Task<IActionResult> AllComplex()
         {
-            var model = await this.plantsService.GetAllComplexAsync();
+            var model = await this.plantsService.GetAllComplexAsync(false);
 
             var viewModel = model.
                 Select(c => new EditComplexViewModel()
@@ -74,6 +75,7 @@
                     FullName = c.FullName,
                     CountPlant = c.PlantInstalations.Count
                 })
+                .OrderBy(c => c.Name)
                 .ToList();
 
             return this.View(viewModel);
@@ -88,7 +90,7 @@
             {
                 this.TempData[Error_Message] = Complex_Find_Fail;
                 ModelState.AddModelError(string.Empty, Complex_Find_Fail);
-                return this.RedirectToAction("Index", "Home");
+                return this.RedirectToAction("AllComplex", "Plants");
             }
 
             var model = new EditComplexViewModel()
@@ -120,7 +122,7 @@
 			{
                 await this.plantsService.EditComplexAsync(transfer);
 
-				return RedirectToAction("Index", "Home");
+				return this.RedirectToAction("AllComplex", "Plants");
 			}
 			catch (IdentityЕxception ie)
 			{
@@ -136,10 +138,68 @@
 			}
         }
 
-        [HttpPost]
-        public async Task<IActionResult> DeleteComplex(Guid id)
+        [HttpGet]
+        public async Task<IActionResult> DelComplex(Guid id)
         {
-            return this.RedirectToAction("Index", "Home");
+            try
+            {
+                await this.plantsService.DeleteComplexAsync(id, true);
+
+				return this.RedirectToAction("AllComplex", "Plants");
+			}
+            catch (NotEmptyException nee)
+            {
+				this.TempData[Error_Message] = nee.Message;
+				ModelState.AddModelError(string.Empty, nee.Message);
+				return this.RedirectToAction("AllComplex", "Plants");
+			}
+			catch (Exception)
+            {
+				this.TempData[Error_Message] = Complex_Delete_Fail;
+				ModelState.AddModelError(string.Empty, Complex_Delete_Fail);
+				return this.RedirectToAction("AllComplex", "Plants");
+			}
+		}
+
+        [HttpGet]
+        public async Task<IActionResult> AllDeletedComplex()
+        {
+            var model = await this.plantsService.GetAllComplexAsync(true);
+
+            var viewModel = model.
+                Select(c => new EditComplexViewModel()
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    FullName = c.FullName,
+                    CountPlant = c.PlantInstalations.Count                    
+                })
+                .OrderBy(c => c.Name)
+                .ToList();
+
+            return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> ComplexRecovery(Guid id)
+        {
+            try
+            {
+                await this.plantsService.DeleteComplexAsync(id, false);
+
+                return this.RedirectToAction("AllComplex", "Plants");
+            }
+            catch (NotEmptyException nee)
+            {
+                this.TempData[Error_Message] = nee.Message;
+                ModelState.AddModelError(string.Empty, nee.Message);
+                return this.RedirectToAction("AllComplex", "Plants");
+            }
+            catch (Exception)
+            {
+                this.TempData[Error_Message] = Complex_Undelete_Fail;
+                ModelState.AddModelError(string.Empty, Complex_Undelete_Fail);
+                return this.RedirectToAction("AllComplex", "Plants");
+            }
         }
     }
 }

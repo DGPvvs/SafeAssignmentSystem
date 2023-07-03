@@ -5,5 +5,6 @@
         public const string Administrator = "Admin";
         public const string Operator = "Operator";
         public const string Electrician = "Electrician";
-    }
+		public const string NoRole = "NoRole";
+	}
 }
