@@ -27,7 +27,7 @@
                 <select asp-for="@Model.ComplexId" class="form-control">
                     @foreach (var complex in Model.Complexes)
                     {
-                                <option value="@complex.Id">@complex.Name</option>
+                        <option value="@complex.KvP.Key">@complex.KvP.Value</option>
                     }
                 </select>
                 <span asp-validation-for="ComplexId" class="text-danger"></span>

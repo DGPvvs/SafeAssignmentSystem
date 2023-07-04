@@ -1,14 +1,14 @@
 ﻿namespace SafeAssignmentSystem.Models.FactoriesViewModels
 {
     using System.ComponentModel.DataAnnotations;
-
+    using SafeAssignmentSystem.Models.CommonViewModels;
     using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.PlantInstalationConstants;
 
     public class PlantViewModel
     {
         public PlantViewModel()
         {
-            this.Complexes = new List<KeyComplexViewModel>();
+            this.Complexes = new List<KeyValuePairViewModel>();
         }
 
         /// <summary>
@@ -35,6 +35,6 @@
         /// Колекция от модели на комплекси
         /// </summary>        
         [Required]
-        public IList<KeyComplexViewModel> Complexes { get; set; } = null!;
+        public IList<KeyValuePairViewModel> Complexes { get; set; } = null!;
     }
 }

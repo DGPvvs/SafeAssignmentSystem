@@ -6,6 +6,7 @@
     using SafeAssignmentSystem.Controllers.AbstractControlers;
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels;
+    using SafeAssignmentSystem.Models.CommonViewModels;
     using SafeAssignmentSystem.Models.FactoriesViewModels;
 
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
@@ -221,11 +222,7 @@
             var complexes = await this.plantsService.GetAllComplexAsync(false);
 
             var keysComplexes = complexes
-                .Select(c => new KeyComplexViewModel()
-                {
-                    Id = c.Id,
-                    Name = c.Name
-                })
+                .Select(c => new KeyValuePairViewModel(c.Id, c.Name))
                 .ToList();
 
             var model = new PlantViewModel()
