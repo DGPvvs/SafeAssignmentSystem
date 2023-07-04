@@ -14,5 +14,10 @@
         public Task EditComplexAsync(ComplexTransferModel model);
 
 		public Task DeleteComplexAsync(Guid id, bool isDel);
-	}
+
+        public Task AddPlantAsync(PlantTransferModel model);
+
+        public Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel);
+        public Task<PlantTransferModel> GetPlantByIdAsync(Guid id);
+    }
 }

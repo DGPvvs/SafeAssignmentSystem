@@ -12,6 +12,7 @@
     using System.Threading.Tasks;
 
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
+    using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
 
 
     public class PlantsService : IPlantsService
@@ -30,7 +31,7 @@
 
             if (!(alreadyDeleted is null))
             {
-                alreadyDeleted.IsDeleted = false;
+                alreadyDeleted.IsDeleted = IsDeletedCondition.NotDeleted;
                 await this.context.SaveChangesAsync();
                 return;
             }
@@ -56,7 +57,30 @@
             await this.context.SaveChangesAsync();
         }
 
-		public async Task DeleteComplexAsync(Guid id, bool isDel)
+        public async Task AddPlantAsync(PlantTransferModel model)
+        {
+            var duplicate = await this.context.PlantInstalations
+                .Where(c => c.Name == model.Name || c.FullName == model.FullName)
+                .ToListAsync();
+
+            if (duplicate.Any())
+            {
+                throw new IdentityЕxception();
+            }
+
+            var entity = new PlantInstalation()
+            {
+                FullName = model.FullName,
+                Name = model.Name,
+                ComplexId = model.ComplexId
+            };
+
+            await this.context.PlantInstalations.AddAsync(entity);
+
+            await this.context.SaveChangesAsync();
+        }
+
+        public async Task DeleteComplexAsync(Guid id, bool isDel)
 		{
 			var entity = await GetCompByIdAsync(id);
 
@@ -117,6 +141,20 @@
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel)
+        {
+            return await this.context.PlantInstalations
+                .AsNoTracking()
+                .Select(c => new PlantTransferModel()
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    FullName = c.FullName,
+                    ComplexName = c.Complex.Name
+                })
+                .ToListAsync();
+        }
+
         public async Task<ComplexTransferModel> GetComplexByIdAsync(Guid id)
         {
             var result = await this.context.ProductionComplexes
@@ -132,6 +170,22 @@
                 .FirstOrDefaultAsync(c => c.Id == id);
 
             return result;            
+        }
+
+        public async Task<PlantTransferModel> GetPlantByIdAsync(Guid id)
+        {
+            var result = await this.context.PlantInstalations
+                .Where(c => c.Id == id)
+                .Select(c => new PlantTransferModel()
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    FullName = c.FullName,
+                    ComplexName = c.Complex.Name
+                })
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            return result;
         }
 
         private async Task<ProductionComplex> GetCompByIdAsync(Guid id)

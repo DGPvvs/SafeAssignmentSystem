@@ -59,7 +59,7 @@
             /// <summary>
             /// Минимална дължина на съкратеното наименование на инсталация
             /// </summary>
-            public const int Name_Min_Length = 3;
+            public const int Name_Min_Length = 2;
 
             /// <summary>
             /// Съобщение за грешка при неправилно въвеждане на име
