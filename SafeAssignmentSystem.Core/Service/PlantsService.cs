@@ -13,7 +13,7 @@
 
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
-
+    using SafeAssignmentSystem.DataBase.Data.FactoryModels;
 
     public class PlantsService : IPlantsService
     {
@@ -76,6 +76,28 @@
             };
 
             await this.context.PlantInstalations.AddAsync(entity);
+
+            await this.context.SaveChangesAsync();
+        }
+
+        public async Task AddTechnologicalPositionAsync(TechnologicalPositionTransferModel model)
+        {
+            var duplicate = await this.context.TechnologicalPositions
+                .Where(i => i.InstalationId == model.InstalationId)
+                .FirstOrDefaultAsync(tp => tp.Name == model.Name);
+
+            if (!(duplicate is null))
+            {
+                throw new IdentityЕxception();
+            }
+
+            var entity = new TechnologicalPosition()
+            {
+                Name = model.Name,
+                InstalationId = model.InstalationId
+            };
+
+            await this.context.TechnologicalPositions.AddAsync(entity);
 
             await this.context.SaveChangesAsync();
         }

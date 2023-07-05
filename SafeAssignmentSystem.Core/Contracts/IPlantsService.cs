@@ -18,8 +18,11 @@
         public Task AddPlantAsync(PlantTransferModel model);
 
         public Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel);
+
         public Task<PlantTransferModel> GetPlantByIdAsync(Guid id);
 
         public Task EditPlantAsync(PlantTransferModel model);
+
+        public Task AddTechnologicalPositionAsync(TechnologicalPositionTransferModel model);
     }
 }

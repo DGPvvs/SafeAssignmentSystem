@@ -33,7 +33,7 @@
             /// <summary>
             /// Съобщение за грешка при неправилно въвеждане на име
             /// </summary>
-            public const string Error_Message_Name = "Името трябва да е дълго между {2} и {1} символа.";
+            public const string Error_Message_Name = "Името на комплекса трябва да е дълго между {2} и {1} символа.";
         }
 
         /// <summary>
@@ -64,7 +64,7 @@
             /// <summary>
             /// Съобщение за грешка при неправилно въвеждане на име
             /// </summary>
-            public const string Error_Message_Name = "Името трябва да е дълго между {2} и {1} символа.";
+            public const string Error_Message_Name = "Името на инсталацията трябва да е дълго между {2} и {1} символа.";
         }
 
         /// <summary>
@@ -76,6 +76,16 @@
             /// Максимална дължина на наименование на технологична позиция
             /// </summary>
             public const int Name_Max_Length = 20;
+
+            /// <summary>
+            /// Минимална дължина на наименование на технологична позиция
+            /// </summary>
+            public const int Name_Min_Length = 2;
+
+            /// <summary>
+            /// Съобщение за грешка при неправилно въвеждане на име
+            /// </summary>
+            public const string Error_Message_Name = "Името на технологичната позиция трябва да е дълго между {2} и {1} символа.";
         }
 
 		/// <summary>

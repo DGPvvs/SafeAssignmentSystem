@@ -1,0 +1,40 @@
+﻿@using SafeAssignmentSystem.Models.FactoriesViewModels;
+@model TechnologicalPositionViewModel
+
+@{
+    ViewBag.Title = "Добавяне на технологична позиция";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form asp-action="TechnologicalPositionCreate" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.Name" class="form-label">Наименование на технологичната позиция</label>
+                <input asp-for="@Model.Name" class="form-control" aria-required="true" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.InstalationId" class="form-label">Инсталация</label>
+                <select asp-for="@Model.InstalationId" class="form-control">
+                    @foreach (var instalation in Model.Instalations)
+                    {
+                                    <option value="@instalation.KvP.Key">@instalation.KvP.Value</option>
+                    }
+                </select>
+                <span asp-validation-for="InstalationId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-info" type="submit" value="Добавяне на технологична позиция" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+            <partial name="_ValidationScriptsPartial" />
+}

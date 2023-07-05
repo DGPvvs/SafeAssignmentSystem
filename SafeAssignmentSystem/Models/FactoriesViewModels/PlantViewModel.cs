@@ -32,7 +32,7 @@
         public Guid ComplexId { get; set; }
 
         /// <summary>
-        /// Колекция от модели на комплекси
+        /// Колекция от ключ - име на комплекси
         /// </summary>        
         //[Required]
         public IEnumerable<KeyValuePairViewModel> Complexes { get; set; } = null!;

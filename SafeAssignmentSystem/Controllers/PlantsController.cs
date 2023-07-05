@@ -60,7 +60,7 @@
             {
                 await this.plantsService.AddComplexAsync(transfer);
 
-                this.TempData[Error_Message] = New_Complex_Add_Success;
+                this.TempData[Success_Message] = New_Complex_Add_Success;
                 return RedirectToAction("Index", "Home");
             }
             catch (IdentityЕxception ie)
@@ -254,7 +254,7 @@
             {
                 await this.plantsService.AddPlantAsync(transfer);
 
-                this.TempData[Error_Message] = New_Plant_Add_Success;
+                this.TempData[Success_Message] = New_Plant_Add_Success;
                 return RedirectToAction("Index", "Home");
             }
             catch (IdentityЕxception ie)
@@ -353,6 +353,55 @@
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> TechnologicalPositionCreate()
+        {
+            var model = new TechnologicalPositionViewModel()
+            {
+                Instalations = await this.GetInstalationsPairAsync(IsDeletedCondition.NotDeleted)
+            };
+
+            return this.View(model);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> TechnologicalPositionCreate(TechnologicalPositionViewModel model)
+        {
+            model.Instalations = await this.GetInstalationsPairAsync(IsDeletedCondition.NotDeleted);
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            TechnologicalPositionTransferModel transfer = new TechnologicalPositionTransferModel()
+            {
+                Name = model.Name,
+                InstalationId = model.InstalationId
+            };
+
+            try
+            {
+                await this.plantsService.AddTechnologicalPositionAsync(transfer);
+
+                this.TempData[Success_Message] = New_TechnologicalPosition_Add_Success;
+                return RedirectToAction("Index", "Home");
+            }
+            catch (IdentityЕxception ie)
+            {
+                this.TempData[Error_Message] = ie.Message;
+                ModelState.AddModelError(string.Empty, ie.Message);
+                return View(model);
+            }
+            catch (Exception)
+            {
+                this.TempData[Error_Message] = New_TechnologicalPosition_Add_Fail;
+                ModelState.AddModelError(string.Empty, New_Complex_Add_Fail);
+                return View(model);
+            }
+        }        
+
         private async Task<IEnumerable<KeyValuePairViewModel>> GetComplexPairAsync(bool isDel)
         {
             var complexes = await this.plantsService.GetAllComplexAsync(isDel);
@@ -363,6 +412,14 @@
                 .ToList();
         }
 
+        private async Task<IEnumerable<KeyValuePairViewModel>> GetInstalationsPairAsync(bool isDel)
+        {
+            var instalations = await this.plantsService.GetAllPlantsAsync(isDel);
 
+            return instalations
+                .OrderBy(c => c.Name)
+                .Select(c => new KeyValuePairViewModel(c.Id, c.Name))
+                .ToList();
+        }
     }
 }

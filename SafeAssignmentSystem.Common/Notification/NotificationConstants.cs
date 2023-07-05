@@ -25,5 +25,9 @@
         public const string New_Plant_Add_Success = "Новата инсталация е добавена успешно!";
         public const string Plant_Find_Fail = "Инсталацията не беше намерена!";
 
+        public const string New_TechnologicalPosition_Add_Fail = "Новата технологична позиция не беше добавена!";
+        public const string New_TechnologicalPosition_Add_Success = "Новата технологична позиция е добавена успешно!";
+        public const string TechnologicalPosition_Find_Fail = "Технологичната позиция не беше намерена!";
+
     }
 }
