@@ -117,7 +117,7 @@
 				throw new IdentityЕxception(Complex_Edit_Exist_In_Deleted);
 			}
 
-            var entity = await GetCompByIdAsync(model.Id);
+            var entity = await this.GetCompByIdAsync(model.Id);
 
 			entity.Name = model.Name;
 			entity.FullName = model.FullName;
@@ -125,7 +125,26 @@
 			await this.context.SaveChangesAsync();
 		}
 
-		public async Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync(bool isDel)
+        public async Task EditPlantAsync(PlantTransferModel model)
+        {
+            var alreadyExist = await this.context.PlantInstalations
+                .FirstOrDefaultAsync(c => c.Name == model.Name && c.FullName == model.FullName);
+
+            if (!(alreadyExist is null))
+            {
+                throw new IdentityЕxception();
+            }
+
+            var entity = await GetPlnByIdAsync(model.Id);
+
+            entity.Name = model.Name;
+            entity.FullName = model.FullName;
+            entity.ComplexId = model.ComplexId;
+
+            await this.context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync(bool isDel)
         {
             return await this.context.ProductionComplexes
                 .Where(c => c.IsDeleted == isDel)
@@ -188,12 +207,12 @@
             return result;
         }
 
-        private async Task<ProductionComplex> GetCompByIdAsync(Guid id)
-        {
-			var result = await this.context.ProductionComplexes
-				.FirstOrDefaultAsync(c => c.Id == id);
+        private async Task<ProductionComplex> GetCompByIdAsync(Guid id) => await this.context
+            .ProductionComplexes
+            .FirstOrDefaultAsync(c => c.Id == id);
 
-			return result;
-		}
-	}
+        private async Task<PlantInstalation> GetPlnByIdAsync(Guid id) => await this.context
+            .PlantInstalations
+            .FirstOrDefaultAsync(c => c.Id == id);
+    }
 }

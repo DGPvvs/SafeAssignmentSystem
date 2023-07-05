@@ -34,7 +34,7 @@
         /// <summary>
         /// Колекция от модели на комплекси
         /// </summary>        
-        [Required]
+        //[Required]
         public IEnumerable<KeyValuePairViewModel> Complexes { get; set; } = null!;
     }
 }

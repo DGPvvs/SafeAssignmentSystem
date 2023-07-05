@@ -17,9 +17,9 @@
         public const string New_Complex_Add_Success = "Новият комплекс е добавен успешно!";
         public const string Complex_Find_Fail = "Комплекса не беше намерен!";
 		public const string Complex_Edit_Exist_In_Deleted = "Комплекс с такива имена вече има сред изтритите комплекси!";
-		public const string Complex_Delete_Fail = "Комплека не беше изтрит!";
-        public const string Complex_Undelete_Fail = "Комплека не беше възстановен!";
-        public const string Complex_Has_Plant = "Комплека не може да бъде изтрит защото има свързани с него инсталации!";
+		public const string Complex_Delete_Fail = "Комплекса не беше изтрит!";
+        public const string Complex_Undelete_Fail = "Комплекса не беше възстановен!";
+        public const string Complex_Has_Plant = "Комплекса не може да бъде изтрит защото има свързани с него инсталации!";
 
         public const string New_Plant_Add_Fail = "Новата инсталация не беше добавена!";
         public const string New_Plant_Add_Success = "Новата инсталация е добавена успешно!";

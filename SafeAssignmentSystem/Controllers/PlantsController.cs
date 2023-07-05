@@ -317,40 +317,41 @@
         [HttpPost]
         public async Task<IActionResult> EditPlant(EditPlantViewModel model)
         {
-            throw new NotImplementedException();
             if (!ModelState.IsValid)
             {
+                model.Complexes = await this.GetComplexPairAsync(IsDeletedCondition.NotDeleted);
                 return this.View(model);
             }
 
-            ComplexTransferModel transfer = new ComplexTransferModel()
+            PlantTransferModel transfer = new PlantTransferModel()
             {
                 Id = model.Id,
                 Name = model.Name,
-                FullName = model.FullName
+                FullName = model.FullName,
+                ComplexId = model.ComplexId
             };
 
             try
             {
-                await this.plantsService.EditComplexAsync(transfer);
+                await this.plantsService.EditPlantAsync(transfer);
 
-                return this.RedirectToAction("AllComplex", "Plants");
+                return this.RedirectToAction("AllPlants", "Plants");
             }
             catch (IdentityЕxception ie)
             {
                 this.TempData[Error_Message] = ie.Message;
                 ModelState.AddModelError(string.Empty, ie.Message);
+                model.Complexes = await this.GetComplexPairAsync(IsDeletedCondition.NotDeleted);
                 return View(model);
             }
             catch (Exception)
             {
-                this.TempData[Error_Message] = New_Complex_Add_Fail;
-                ModelState.AddModelError(string.Empty, New_Complex_Add_Fail);
+                this.TempData[Error_Message] = Plant_Find_Fail;
+                ModelState.AddModelError(string.Empty, Plant_Find_Fail);
+                model.Complexes = await this.GetComplexPairAsync(IsDeletedCondition.NotDeleted);
                 return View(model);
             }
         }
-
-
 
         private async Task<IEnumerable<KeyValuePairViewModel>> GetComplexPairAsync(bool isDel)
         {
