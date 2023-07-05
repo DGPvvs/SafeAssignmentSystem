@@ -307,6 +307,7 @@
                 Id = transfer.Id,
                 Name = transfer.Name,
                 FullName = transfer.FullName,
+                ComplexName = transfer.ComplexName,
                 Complexes = await this.GetComplexPairAsync(IsDeletedCondition.NotDeleted)
             };
 
@@ -356,7 +357,8 @@
             var complexes = await this.plantsService.GetAllComplexAsync(isDel);
 
             return complexes
-                .Select(c => new KeyValuePairViewModel(c.Id, c.Name))
+                .OrderBy (c => c.Name)
+                .Select(c => new KeyValuePairViewModel(c.Id, c.Name))                
                 .ToList();
         }
 

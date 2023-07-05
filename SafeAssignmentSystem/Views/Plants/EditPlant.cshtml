@@ -1,5 +1,5 @@
 ﻿@using SafeAssignmentSystem.Models.FactoriesViewModels;
-@model PlantViewModel
+@model EditPlantViewModel
 
 @{
     ViewBag.Title = "Редактиране на инсталация";
@@ -25,9 +25,14 @@
             <div class="mb-3">
                 <label asp-for="@Model.ComplexId" class="form-label">Комплекс</label>
                 <select asp-for="@Model.ComplexId" class="form-control">
+                    <option selected>@Model.ComplexName</option>
+
                     @foreach (var complex in Model.Complexes)
                     {
+                        if (complex.KvP.Value != Model.ComplexName)
+                        {
                             <option value="@complex.KvP.Key">@complex.KvP.Value</option>
+                        }                        
                     }
                 </select>
                 <span asp-validation-for="ComplexId" class="text-danger"></span>
