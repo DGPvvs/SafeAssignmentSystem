@@ -400,7 +400,70 @@
                 ModelState.AddModelError(string.Empty, New_Complex_Add_Fail);
                 return View(model);
             }
-        }        
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditTechnologicalPosition(Guid id)
+        {
+            //var transfer = await this.plantsService.GetPlantByIdAsync(id);
+
+            //if (transfer is null)
+            //{
+            //    this.TempData[Error_Message] = Plant_Find_Fail;
+            //    ModelState.AddModelError(string.Empty, Plant_Find_Fail);
+            //    return this.RedirectToAction("AllPlants", "Plants");
+            //}
+
+            //var model = new EditTechnologicalPositionViewModel()
+            //{
+            //    Id = transfer.Id,
+            //    Name = transfer.Name,
+            //    Instalations = await this.GetInstalationsPairAsync(IsDeletedCondition.NotDeleted)
+            //};
+
+            return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditTechnologicalPosition(EditTechnologicalPositionViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                model.Instalations = await this.GetInstalationsPairAsync(IsDeletedCondition.NotDeleted);
+                return this.View(model);
+            }
+
+            TechnologicalPositionTransferModel transfer = new TechnologicalPositionTransferModel()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                InstalationId = model.InstalationId
+            };
+
+            try
+            {
+                //await this.plantsService.EditPlantAsync(transfer);
+
+                return this.RedirectToAction("AllPlants", "Plants");
+            }
+            catch (IdentityЕxception ie)
+            {
+                this.TempData[Error_Message] = ie.Message;
+                ModelState.AddModelError(string.Empty, ie.Message);
+                //model.Complexes = await this.GetComplexPairAsync(IsDeletedCondition.NotDeleted);
+                return View(model);
+            }
+            catch (Exception)
+            {
+                this.TempData[Error_Message] = Plant_Find_Fail;
+                ModelState.AddModelError(string.Empty, Plant_Find_Fail);
+                //model.Complexes = await this.GetComplexPairAsync(IsDeletedCondition.NotDeleted);
+                return View(model);
+            }
+        }
+
+
+        
 
         private async Task<IEnumerable<KeyValuePairViewModel>> GetComplexPairAsync(bool isDel)
         {

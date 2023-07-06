@@ -8,7 +8,7 @@
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Комплекс към който се чесле инсталацията
+        /// Комплекс към който се чесли инсталацията
         /// </summary>
         public string ComplexName { get; set; } = null!;
     }

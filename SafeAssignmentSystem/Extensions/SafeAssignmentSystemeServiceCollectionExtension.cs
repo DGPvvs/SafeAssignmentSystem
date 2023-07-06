@@ -10,7 +10,9 @@
 		{			
 			services.AddScoped<IRepository, Repository>();
 			services.AddScoped<IAccountService, AccountService>();
-            services.AddScoped<IPlantsService, PlantsService>();            
+            services.AddScoped<IPlantsService, PlantsService>();
+            services.AddScoped<IChoisPlantsService, ChoisPlantsService>();
+            
             return services;
 		}
 	}

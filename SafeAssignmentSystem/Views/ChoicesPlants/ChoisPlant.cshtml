@@ -1,0 +1,50 @@
+﻿@using SafeAssignmentSystem.Models.ChoisViewModels;
+@model ChoisPlantViewModel
+@{
+    bool isFirst = true;
+}
+
+
+<form asp-action="ChoisPlant" method="post">
+
+    <div class="visually-hidden">            
+
+                <label asp-for="@Model.RedirectAction" class="form-label"></label>
+                <input asp-for="@Model.RedirectAction" class="form-control" aria-required="true" />
+                <span asp-validation-for="RedirectAction" class="text-danger"></span>
+
+                
+            </div>
+
+            <div class="visually-hidden">
+                <label asp-for="@Model.RedirectController" class="form-label"></label>
+                <input asp-for="@Model.RedirectController" class="form-control" aria-required="true" />
+                <span asp-validation-for="RedirectController" class="text-danger"></span>
+            </div>
+
+    @foreach (var plant in Model.Plants)
+    {
+        <div class="form-check">
+            @if (isFirst)
+            {
+                <input type="radio" class="form-check-input" value="@plant.Id" asp-for="@Model.Id" checked>
+                        <div class="visually-hidden">@(isFirst = false)</div>
+            }
+            else
+            {
+                <input type="radio" class="form-check-input" value="@plant.Id" asp-for="@Model.Id">
+            }
+
+                <label asp-for="@plant.Id" class="form-check-label">@plant.Name</label>
+            <span asp-validation-for="@Model.Id" class="text-danger"></span>
+        </div>        
+    }
+
+    
+
+    <button type="submit" class="btn btn-primary mt-3">Избор на инсталация</button>
+  </form>
+
+@section Scripts {
+            <partial name="_ValidationScriptsPartial" />
+}
