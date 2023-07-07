@@ -166,6 +166,25 @@
             await this.context.SaveChangesAsync();
         }
 
+        public async Task EditTechnologicalPositionAsync(TechnologicalPositionTransferModel model)
+        {
+            var duplicate = await this.context.TechnologicalPositions
+                .Where(i => i.InstalationId == model.InstalationId)
+                .FirstOrDefaultAsync(tp => tp.Name == model.Name);
+
+            if (!(duplicate is null))
+            {
+                throw new IdentityЕxception();
+            }
+
+            var entity = await GetTechnPositionByIdAsync(model.Id);
+
+            entity.Name = model.Name;
+            entity.InstalationId = model.InstalationId;
+
+            await this.context.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync(bool isDel)
         {
             return await this.context.ProductionComplexes
@@ -192,6 +211,21 @@
                     Name = c.Name,
                     FullName = c.FullName,
                     ComplexName = c.Complex.Name
+                })
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<TechnologicalPositionTransferModel>> GetAllPositionInPlantByIdAsync(Guid id, bool isDel)
+        {
+            return await this.context.TechnologicalPositions
+                .AsNoTracking()
+                .Where(tp => tp.InstalationId == id)
+                .Select(tp => new TechnologicalPositionTransferModel()
+                {
+                    Id = tp.Id,
+                    Name = tp.Name,
+                    InstalationName = tp.Instalation.FullName,
+                    ComplexName = tp.Instalation.Complex.FullName
                 })
                 .ToListAsync();
         }
@@ -229,6 +263,24 @@
             return result;
         }
 
+        public async Task<TechnologicalPositionTransferModel> GetTechnologicalPositionByIdAsync(Guid id)
+        {
+            var result = await this.context.TechnologicalPositions
+                .Where(tp => tp.Id == id)
+                .Select(tp => new TechnologicalPositionTransferModel()
+                {
+                    Id = tp.Id,
+                    Name = tp.Name,
+                    InstalationId = tp.InstalationId,
+                    InstalationName = tp.Instalation.Name,
+                    ComplexName = tp.Instalation.Complex.FullName
+                })
+                .FirstOrDefaultAsync(tp => tp.Id == id);
+
+            return result;
+
+        }
+
         private async Task<ProductionComplex> GetCompByIdAsync(Guid id) => await this.context
             .ProductionComplexes
             .FirstOrDefaultAsync(c => c.Id == id);
@@ -236,5 +288,9 @@
         private async Task<PlantInstalation> GetPlnByIdAsync(Guid id) => await this.context
             .PlantInstalations
             .FirstOrDefaultAsync(c => c.Id == id);
+
+        private async Task<TechnologicalPosition> GetTechnPositionByIdAsync(Guid id) => await this.context
+            .TechnologicalPositions
+            .FirstOrDefaultAsync(tp => tp.Id == id);
     }
 }

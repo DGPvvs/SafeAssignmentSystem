@@ -49,11 +49,18 @@
         [HttpPost]
         public async Task<IActionResult> ChoisPlant(ChoisPlantViewModel model)
         {
+            var plants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted);
+
             if (!this.ModelState.IsValid)
             {
-                var plants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted);
+                model.Plants = plants.Select(p => new EditPlantViewModel()
+                {
+                    Id = p.Id,
+                    Name = p.Name
+                })
+                .ToList();
 
-                return View(plants);
+                return View(model);
             }
 
             return RedirectToAction(model.RedirectAction, model.RedirectController, new { @id = model.Id });

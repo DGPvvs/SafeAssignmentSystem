@@ -6,7 +6,7 @@
     using static SafeAssignmentSystem.Common.Notification.RoleConstants;
 
     [Authorize(Roles = Administrator)]
-    public class BasePlantsController : Controller
+     public abstract class BasePlantsController : AntiforgeryController
     {
     }
 }

@@ -8,8 +8,13 @@
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Инсталация към който се чесли технологичната позиция
+        /// Инсталация към който се числи технологичната позиция
         /// </summary>
         public string PlantName { get; set; } = null!;
+
+        /// <summary>
+        /// Комплекс към който се числи инсталацията
+        /// </summary>
+        public string ComplexName { get; set; } = null!;
     }
 }

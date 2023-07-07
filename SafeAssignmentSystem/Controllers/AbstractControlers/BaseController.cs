@@ -5,8 +5,8 @@
 	using Microsoft.AspNetCore.Mvc.Filters;
 
 	[Authorize]
-	public class BaseController : Controller
-	{
+	public abstract class BaseController : AntiforgeryController
+    {
 		public string UserFirstName
 		{
 			get

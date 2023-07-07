@@ -403,25 +403,47 @@
         }
 
         [HttpGet]
+        public async Task<IActionResult> AllTechnologicalPosition(Guid id)
+        {
+            var model = await this.plantsService.GetAllPositionInPlantByIdAsync(id, IsDeletedCondition.NotDeleted);
+
+            var viewModel = model.
+                Select(tp => new EditTechnologicalPositionViewModel()
+                {
+                    Id = tp.Id,
+                    Name = tp.Name,
+                    PlantName = tp.InstalationName,
+                    ComplexName = tp.ComplexName                    
+                })
+                .OrderBy(c => c.Name)
+                .ToList();
+
+            return this.View(viewModel);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> EditTechnologicalPosition(Guid id)
         {
-            //var transfer = await this.plantsService.GetPlantByIdAsync(id);
+            var transfer = await this.plantsService.GetTechnologicalPositionByIdAsync(id);
 
-            //if (transfer is null)
-            //{
-            //    this.TempData[Error_Message] = Plant_Find_Fail;
-            //    ModelState.AddModelError(string.Empty, Plant_Find_Fail);
-            //    return this.RedirectToAction("AllPlants", "Plants");
-            //}
+            if (transfer is null)
+            {
+                this.TempData[Error_Message] = TechnologicalPosition_Find_Fail;
+                ModelState.AddModelError(string.Empty, TechnologicalPosition_Find_Fail);
+                return this.RedirectToAction("AllTechnologicalPosition", "Plants");
+            }
 
-            //var model = new EditTechnologicalPositionViewModel()
-            //{
-            //    Id = transfer.Id,
-            //    Name = transfer.Name,
-            //    Instalations = await this.GetInstalationsPairAsync(IsDeletedCondition.NotDeleted)
-            //};
+            var model = new EditTechnologicalPositionViewModel()
+            {
+                Id = transfer.Id,
+                Name = transfer.Name,
+                ComplexName = transfer.ComplexName,
+                InstalationId = transfer.InstalationId,
+                PlantName = transfer.InstalationName,
+                Instalations = await this.GetInstalationsPairAsync(IsDeletedCondition.NotDeleted)
+            };
 
-            return this.View();
+            return this.View(model);
         }
 
         [HttpPost]
@@ -442,28 +464,25 @@
 
             try
             {
-                //await this.plantsService.EditPlantAsync(transfer);
+                await this.plantsService.EditTechnologicalPositionAsync(transfer);
 
-                return this.RedirectToAction("AllPlants", "Plants");
+                return this.RedirectToAction("Index", "Home");
             }
             catch (IdentityЕxception ie)
             {
                 this.TempData[Error_Message] = ie.Message;
                 ModelState.AddModelError(string.Empty, ie.Message);
-                //model.Complexes = await this.GetComplexPairAsync(IsDeletedCondition.NotDeleted);
+                model.Instalations = await this.GetInstalationsPairAsync(IsDeletedCondition.NotDeleted);
                 return View(model);
             }
             catch (Exception)
             {
-                this.TempData[Error_Message] = Plant_Find_Fail;
-                ModelState.AddModelError(string.Empty, Plant_Find_Fail);
-                //model.Complexes = await this.GetComplexPairAsync(IsDeletedCondition.NotDeleted);
+                this.TempData[Error_Message] = TechnologicalPosition_Find_Fail;
+                ModelState.AddModelError(string.Empty, TechnologicalPosition_Find_Fail);
+                model.Instalations = await this.GetInstalationsPairAsync(IsDeletedCondition.NotDeleted);
                 return View(model);
             }
-        }
-
-
-        
+        }        
 
         private async Task<IEnumerable<KeyValuePairViewModel>> GetComplexPairAsync(bool isDel)
         {

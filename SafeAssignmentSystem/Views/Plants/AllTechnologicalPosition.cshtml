@@ -1,0 +1,29 @@
+﻿@using SafeAssignmentSystem.Models.FactoriesViewModels;
+@model IEnumerable<EditTechnologicalPositionViewModel>
+@{
+    string instalationName = (Model.Count() > 0) ? Model.First().PlantName : string.Empty;
+    ViewBag.Title = $"Всички технологични позиции в инсталация {instalationName}";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    @foreach (var technPosition in Model)
+    {
+                <div class="card col-4">
+                    <div class="card-body">
+                        <h5 class="card-title mt-1">@technPosition.Name</h5>
+                        <p class="mb-0">@technPosition.PlantName</p>
+                        <p class="mb-0">Комплекс: @technPosition.ComplexName</p>
+                    </div>
+                    <a asp-controller="Plants"
+                    asp-action="EditTechnologicalPosition"
+					asp-route-id="@technPosition.Id"
+					class="btn btn-primary mb-3 p-2">
+                        Редактиране на технологична позиция
+                    </a>
+                </div>
+    }
+</div>

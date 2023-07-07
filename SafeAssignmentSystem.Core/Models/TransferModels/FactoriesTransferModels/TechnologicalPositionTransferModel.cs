@@ -23,5 +23,10 @@
         /// Кратко наименование на инсталация
         /// </summary>
         public string InstalationName { get; set; } = null!;
+
+        /// <summary>
+        /// Комплекс към който се числи инсталацията
+        /// </summary>
+        public string ComplexName { get; set; } = null!;
     }
 }

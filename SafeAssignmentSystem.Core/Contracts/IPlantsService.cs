@@ -24,5 +24,11 @@
         public Task EditPlantAsync(PlantTransferModel model);
 
         public Task AddTechnologicalPositionAsync(TechnologicalPositionTransferModel model);
+
+        public Task<IEnumerable<TechnologicalPositionTransferModel>> GetAllPositionInPlantByIdAsync(Guid id, bool isDel);
+
+        public Task<TechnologicalPositionTransferModel> GetTechnologicalPositionByIdAsync(Guid id);
+
+        public Task EditTechnologicalPositionAsync(TechnologicalPositionTransferModel model);
     }
 }
