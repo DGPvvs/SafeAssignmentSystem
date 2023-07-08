@@ -7,7 +7,9 @@
     using SafeAssignmentSystem.Core.Data;
     using SafeAssignmentSystem.Core.Models.StatusModels;
     using SafeAssignmentSystem.Core.Models.TransferModels;
+    using SafeAssignmentSystem.DataBase.Data.Common;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -17,18 +19,18 @@
 
     public class AccountService : IAccountService
     {
-        private readonly SafeAssignmentDbContext context;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<ApplicationRole> roleManager;
+        private readonly IRepository repo;
 
         public AccountService(
-            SafeAssignmentDbContext context,
             UserManager<ApplicationUser> userManager,
-            RoleManager<ApplicationRole> roleManager)
+            RoleManager<ApplicationRole> roleManager,
+            IRepository repo)
         {
-            this.context = context;
             this.userManager = userManager;
             this.roleManager = roleManager;
+            this.repo = repo;
         }
 
         public async Task<StatusUserModel> LoginPermissionAsync(UserTransferModel user)
@@ -63,7 +65,7 @@
                 DateTime date = currentDateTime.Date;
                 InstantConstants time = new InstantConstants();
 
-                var shifts = await this.context.ChangedsSchedules
+                var shifts = await this.repo.AllReadonly<ChangedSchedule>()
                     .Where(cs => cs.ApplicationUserId == userPermis.Id && cs.Date.Date == date)
                     .Select(cs => new UserShiftTransferModel()
                     {

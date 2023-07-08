@@ -10,6 +10,7 @@
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
+    using System.Diagnostics;
 
     public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
 
@@ -48,6 +49,7 @@
             modelBuilder.ApplyConfiguration(new RoleSeeder());
             modelBuilder.ApplyConfiguration(new ApplicationUserSeeder());
             modelBuilder.ApplyConfiguration(new UserRoleSeeder());
+            //Debugger.Launch();
             modelBuilder.ApplyConfiguration(new ChangedScheduleSeede());
             modelBuilder.ApplyConfiguration(new ApplicationUserPlantInstalationSeeder());
 

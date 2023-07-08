@@ -35,7 +35,7 @@
 		{
 			var model = new LoginViewModel()
 			{
-				ReturnUrl = returnUrl
+				ReturnUrl = returnUrl!
 			};
 
             if (User?.Identity?.IsAuthenticated ?? false)

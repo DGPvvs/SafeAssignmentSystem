@@ -32,21 +32,21 @@ namespace SafeAssignmentSystem.DataBase.Data.Common
 			return Context.Set<T>();
 		}
 
-		public async Task<IEnumerable<T>> ExecuteProc<T>(string procedureName, params object[] args) where T : class
-		{
-			return await Context.Set<T>().FromSqlRaw("/*NO LOAD BALANCE*/ select * from " + procedureName, args).ToListAsync();
-		}
+        public async Task<IEnumerable<T>> ExecuteProc<T>(string procedureName, params object[] args) where T : class
+        {
+            return await Context.Set<T>().FromSqlRaw($"/*NO LOAD BALANCE*/ select * from {procedureName}", args).ToListAsync();
+        }
 
-		public async Task<IEnumerable<T>> ExecuteSQL<T>(string query, params object[] args) where T : class
-		{
-			return await Context.Set<T>().FromSqlRaw("/*NO LOAD BALANCE*/ " + query, args).ToListAsync();
-		}
+        public async Task<IEnumerable<T>> ExecuteSQL<T>(string query, params object[] args) where T : class
+        {
+            return await Context.Set<T>().FromSqlRaw($"/*NO LOAD BALANCE*/ {query}", args).ToListAsync();
+        }
 
-		/// <summary>
-		/// Adds entity to the database
-		/// </summary>
-		/// <param name="entity">Entity to add</param>
-		public async Task AddAsync<T>(T entity) where T : class
+        /// <summary>
+        /// Adds entity to the database
+        /// </summary>
+        /// <param name="entity">Entity to add</param>
+        public async Task AddAsync<T>(T entity) where T : class
 		{
 			await DbSet<T>().AddAsync(entity);
 		}

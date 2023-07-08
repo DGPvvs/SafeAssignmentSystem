@@ -14,29 +14,34 @@
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
+    using SafeAssignmentSystem.DataBase.Data.Common;
 
     public class PlantsService : IPlantsService
     {
         private readonly SafeAssignmentDbContext context;
+        private readonly IRepository repo;
 
-        public PlantsService(SafeAssignmentDbContext context)
+        public PlantsService(
+            SafeAssignmentDbContext context,
+            IRepository repo)
         {
             this.context = context;
+            this.repo = repo;
         }
 
         public async Task AddComplexAsync(ComplexTransferModel model)
         {
-            var alreadyDeleted = await this.context.ProductionComplexes
+            var alreadyDeleted = await this.repo.All<ProductionComplex>()
                 .FirstOrDefaultAsync(c => (c.Name == model.Name || c.FullName == model.FullName) && c.IsDeleted);
 
             if (!(alreadyDeleted is null))
             {
                 alreadyDeleted.IsDeleted = IsDeletedCondition.NotDeleted;
-                await this.context.SaveChangesAsync();
+                await this.repo.SaveChangesAsync();
                 return;
             }
 
-            var duplicate = await this.context.ProductionComplexes
+            var duplicate = await this.repo.AllReadonly<ProductionComplex>()
                 .Where(c => c.Name == model.Name || c.FullName == model.FullName)
                 .ToListAsync();
 
@@ -52,9 +57,9 @@
                 IsDeleted = model.IsDeleted
             };           
 
-            await this.context.ProductionComplexes.AddAsync(entity);
+            await this.repo.AddAsync(entity);
 
-            await this.context.SaveChangesAsync();
+            await this.repo.SaveChangesAsync();
         }
 
         public async Task AddPlantAsync(PlantTransferModel model)
@@ -141,7 +146,7 @@
 
             var entity = await this.GetCompByIdAsync(model.Id);
 
-			entity.Name = model.Name;
+			entity!.Name = model.Name;
 			entity.FullName = model.FullName;
 
 			await this.context.SaveChangesAsync();
@@ -159,7 +164,7 @@
 
             var entity = await GetPlnByIdAsync(model.Id);
 
-            entity.Name = model.Name;
+            entity!.Name = model.Name;
             entity.FullName = model.FullName;
             entity.ComplexId = model.ComplexId;
 
@@ -179,7 +184,7 @@
 
             var entity = await GetTechnPositionByIdAsync(model.Id);
 
-            entity.Name = model.Name;
+            entity!.Name = model.Name;
             entity.InstalationId = model.InstalationId;
 
             await this.context.SaveChangesAsync();
@@ -244,7 +249,7 @@
                 })
                 .FirstOrDefaultAsync(c => c.Id == id);
 
-            return result;            
+            return result!;            
         }
 
         public async Task<PlantTransferModel> GetPlantByIdAsync(Guid id)
@@ -260,7 +265,7 @@
                 })
                 .FirstOrDefaultAsync(c => c.Id == id);
 
-            return result;
+            return result!;
         }
 
         public async Task<TechnologicalPositionTransferModel> GetTechnologicalPositionByIdAsync(Guid id)
@@ -277,19 +282,19 @@
                 })
                 .FirstOrDefaultAsync(tp => tp.Id == id);
 
-            return result;
+            return result!;
 
         }
 
-        private async Task<ProductionComplex> GetCompByIdAsync(Guid id) => await this.context
+        private async Task<ProductionComplex?> GetCompByIdAsync(Guid id) => await this.context
             .ProductionComplexes
             .FirstOrDefaultAsync(c => c.Id == id);
 
-        private async Task<PlantInstalation> GetPlnByIdAsync(Guid id) => await this.context
+        private async Task<PlantInstalation?> GetPlnByIdAsync(Guid id) => await this.context
             .PlantInstalations
             .FirstOrDefaultAsync(c => c.Id == id);
 
-        private async Task<TechnologicalPosition> GetTechnPositionByIdAsync(Guid id) => await this.context
+        private async Task<TechnologicalPosition?> GetTechnPositionByIdAsync(Guid id) => await this.context
             .TechnologicalPositions
             .FirstOrDefaultAsync(tp => tp.Id == id);
     }

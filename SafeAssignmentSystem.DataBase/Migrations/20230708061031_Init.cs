@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SafeAssignmentSystem.DataBase.Migrations
 {
-    public partial class BuildDataBase : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,7 +21,8 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
-                });
+                },
+                comment: "Модел на ролите");
 
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",

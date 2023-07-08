@@ -25,7 +25,7 @@
             IEnumerable<ApplicationUser> users = new SeedsData().SeedUsers();
             IEnumerable<WorkingShift> workingShifts = new SeedsData().SeedWorkingShift();
 
-            DateTime currentDate = DateTime.Now;
+            DateTime currentDate = DateTime.Now.Date;
 
             foreach (var schedule in schedulesModel)
             {
