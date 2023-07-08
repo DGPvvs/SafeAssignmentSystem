@@ -11,8 +11,20 @@
             <!-- Dropright menu -->
             <div class="btn-group dropend">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Менажиране на потребители</button>
-                <div class="dropdown-menu">
-                </div>
+                <ul class="dropdown-menu multi-level" >
+                    <li class="nav-item dropdown">
+                        <a class="nav-link btn-success text-white dropdown-toggle"                            
+                            asp-controller="Account"
+                            asp-action="Register">
+                            Регистрация на нов потребител
+                        </a>
+                        <a class="nav-link btn-info text-dark dropdown-toggle"                            
+                            asp-controller="Plants"
+                            asp-action="ComplexCreate">
+                            Редакция на регистриран потребител
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

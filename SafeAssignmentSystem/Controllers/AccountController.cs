@@ -1,32 +1,44 @@
 ﻿namespace SafeAssignmentSystem.Controllers
 {
-	using Microsoft.AspNetCore.Authorization;
-	using Microsoft.AspNetCore.Identity;
-	using Microsoft.AspNetCore.Mvc;
-	using SafeAssignmentSystem.Controllers.AbstractControlers;
-	using SafeAssignmentSystem.Core.Contracts;
-	using SafeAssignmentSystem.Core.Models.StatusModels;
-	using SafeAssignmentSystem.Core.Models.TransferModels;
-	using SafeAssignmentSystem.Core.Service;
-	using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
-	using SafeAssignmentSystem.Models;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using SafeAssignmentSystem.Controllers.AbstractControlers;
+    using SafeAssignmentSystem.Core.Contracts;
+    using SafeAssignmentSystem.Core.Models.StatusModels;
+    using SafeAssignmentSystem.Core.Models.TransferModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
+    using SafeAssignmentSystem.Models.AccountViewModels;
+    using SafeAssignmentSystem.Models.ChoisViewModels;
+    using SafeAssignmentSystem.Models.CommonViewModels;
     using System.Text;
+
+    using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
+    using static SafeAssignmentSystem.Common.Notification.RoleConstants;
 
     public class AccountController : BaseController
 	{
 		private readonly UserManager<ApplicationUser> userManager;
 		private readonly SignInManager<ApplicationUser> signInManager;
+        private readonly RoleManager<ApplicationRole> roleManager;
 		private readonly IAccountService accountService;
+        private readonly IPlantsService plantsService;
+
         
         public AccountController(
 			UserManager<ApplicationUser> userManager,
 			SignInManager<ApplicationUser> signInManager,
-            IAccountService accountService)
+            RoleManager<ApplicationRole> roleManager,
+            IAccountService accountService,
+            IPlantsService plantsService)
 		{
 			this.userManager = userManager;
 			this.signInManager = signInManager;
+            this.roleManager = roleManager;
 			this.accountService = accountService;
+            this.plantsService = plantsService;
 		}
 
 		[HttpGet]
@@ -90,6 +102,82 @@
 
             return this.View(model);
 		}
+
+        [HttpGet]
+        [Authorize(Roles = Administrator)]
+        public async Task<IActionResult> Register(string? returnUrl = "/")
+        {
+            var roles = await this.roleManager.Roles.ToListAsync();
+            var allPlants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted);
+
+            var model = new RegisterViewModel()
+            {
+                Instalations = allPlants.Select(p => new CheckBoxViewModel()
+                {
+                    Name = p.Name,
+                    Id = p.Id,
+                    Selected = false
+                })
+                .ToList(),
+                Roles = roles.Select(r => new KeyValuePairViewModel(r.Id, r.Name))                
+            };            
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = Administrator)]
+        public IActionResult Register(RegisterViewModel model)
+        {
+            return View(model);
+
+            //returnUrl ??= Url.Content("~/");
+            //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            //if (ModelState.IsValid)
+            //{
+            //    var user = CreateUser();
+
+            //    await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+            //    await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+            //    var result = await _userManager.CreateAsync(user, Input.Password);
+
+            //    if (result.Succeeded)
+            //    {
+            //        _logger.LogInformation("User created a new account with password.");
+
+            //        var userId = await _userManager.GetUserIdAsync(user);
+            //        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            //        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+            //        var callbackUrl = Url.Page(
+            //            "/Account/ConfirmEmail",
+            //        pageHandler: null,
+            //        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
+            //            protocol: Request.Scheme);
+
+            //        await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+            //            $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+            //        if (_userManager.Options.SignIn.RequireConfirmedAccount)
+            //        {
+            //            return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+            //        }
+            //        else
+            //        {
+            //            await _signInManager.SignInAsync(user, isPersistent: false);
+            //            return LocalRedirect(returnUrl);
+            //        }
+            //    }
+            //    foreach (var error in result.Errors)
+            //    {
+            //        ModelState.AddModelError(string.Empty, error.Description);
+            //    }
+            //}
+
+            //// If we got this far, something failed, redisplay form
+            //return Page();
+        }
+
+
 
         public async Task<IActionResult> Logout()
         {

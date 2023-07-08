@@ -1,4 +1,4 @@
-﻿namespace SafeAssignmentSystem.Models
+﻿namespace SafeAssignmentSystem.Models.AccountViewModels
 {
     using System.ComponentModel.DataAnnotations;
 

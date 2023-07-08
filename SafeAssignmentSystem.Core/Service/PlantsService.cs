@@ -29,6 +29,15 @@
             this.repo = repo;
         }
 
+        /// <summary>
+        /// Добавяне на нов комплекс в базата.
+        /// Ако комплекса вече е бил създаван, но е изтрит, се възстановява от изтритите комплекси.
+        /// </summary>
+        /// <param name="model">Трансферен модел на данните за комплекс.</param>
+        /// <returns></returns>
+        /// <exception cref="IdentityЕxception">Изключение за идентичност. 
+        /// Предизвиква се ако вече съществува комплекс с такива имена.
+        /// </exception>
         public async Task AddComplexAsync(ComplexTransferModel model)
         {
             var alreadyDeleted = await this.repo.All<ProductionComplex>()
@@ -62,9 +71,17 @@
             await this.repo.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Добавяне на нова инсталация в базата.
+        /// </summary>
+        /// <param name="model">Трансферен модел на данните за инсталация.</param>
+        /// <returns></returns>
+        /// <exception cref="IdentityЕxception">Изключение за идентичност. 
+        /// Предизвиква се ако вече съществува инсталация с такива имена.
+        /// </exception>
         public async Task AddPlantAsync(PlantTransferModel model)
         {
-            var duplicate = await this.context.PlantInstalations
+            var duplicate = await this.repo.AllReadonly<PlantInstalation>()
                 .Where(c => c.Name == model.Name || c.FullName == model.FullName)
                 .ToListAsync();
 
@@ -80,14 +97,22 @@
                 ComplexId = model.ComplexId
             };
 
-            await this.context.PlantInstalations.AddAsync(entity);
+            await this.repo.AddAsync(entity);
 
-            await this.context.SaveChangesAsync();
+            await this.repo.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Добавяне на нова технологична позиция в базата.
+        /// </summary>
+        /// <param name="model">Трансферен модел на данните за технологична позиция.</param>
+        /// <returns></returns>
+        /// <exception cref="IdentityЕxception">Изключение за идентичност. 
+        /// Предизвиква се ако в инсталацията вече съществува технологична позиция с такова име.
+        /// </exception>
         public async Task AddTechnologicalPositionAsync(TechnologicalPositionTransferModel model)
         {
-            var duplicate = await this.context.TechnologicalPositions
+            var duplicate = await this.repo.AllReadonly<TechnologicalPosition>()
                 .Where(i => i.InstalationId == model.InstalationId)
                 .FirstOrDefaultAsync(tp => tp.Name == model.Name);
 
@@ -102,9 +127,9 @@
                 InstalationId = model.InstalationId
             };
 
-            await this.context.TechnologicalPositions.AddAsync(entity);
+            await this.repo.AddAsync(entity);
 
-            await this.context.SaveChangesAsync();
+            await this.repo.SaveChangesAsync();
         }
 
         public async Task DeleteComplexAsync(Guid id, bool isDel)
