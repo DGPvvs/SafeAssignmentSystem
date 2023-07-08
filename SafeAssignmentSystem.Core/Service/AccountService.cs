@@ -7,8 +7,10 @@
     using SafeAssignmentSystem.Core.Data;
     using SafeAssignmentSystem.Core.Models.StatusModels;
     using SafeAssignmentSystem.Core.Models.TransferModels;
+    using SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels;
     using SafeAssignmentSystem.DataBase.Data.Common;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using System;
     using System.Collections.Generic;
@@ -93,6 +95,73 @@
                     }
                 }
             }
+
+            return result;
+        }
+
+        public async Task<StatusUserModel> RegisterUserAsync(RegisterUserTransferModel model)
+        {
+            StatusUserModel result = new StatusUserModel()
+            {
+                Success = false,
+                Description = User_Registration_Fail
+            };
+
+            var user = await this.userManager.FindByNameAsync(model.UserName);
+
+            if (!(user is null))
+            {
+                result.Description = User_Already_Exists;
+                return result;
+            }
+
+            var duplicateNum = await this.userManager.Users.FirstOrDefaultAsync(u => u.UserWorkNumber == model.UserWorkNumber);
+
+            if (!(duplicateNum is null))
+            {
+                result.Description = User_WorkNumber_Already_Exists;
+
+                return result;
+            }
+
+            var newUser = new ApplicationUser()
+            {
+                UserName = model.UserName,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                UserWorkNumber = model.UserWorkNumber
+            };
+
+            var createStatus = await this.userManager.CreateAsync(newUser, model.Password);
+
+            user = await this.userManager.FindByNameAsync(model.UserName);
+
+            var roleAddResult = await this.userManager.AddToRoleAsync(user, model.Role);
+
+            if (!roleAddResult.Succeeded) 
+            {
+                await this.userManager.DeleteAsync(user);
+                result.Description = User_Registration_Fail;
+
+                return result;
+            }
+
+            foreach (var instalation in model.Instalations)
+            {
+                var inst = await this.repo.All<PlantInstalation>(pi => pi.Name == instalation).FirstAsync();
+
+                ApplicationUserPlantInstalation applicationUserPlantInstalation = new ApplicationUserPlantInstalation()
+                {
+                    ApplicationUser = user,
+                    Instalation = inst,
+                    IsActive = true
+                };
+
+                await this.repo.AddAsync(applicationUserPlantInstalation);
+                await this.repo.SaveChangesAsync();
+            }
+
+            result.Success = true;
 
             return result;
         }

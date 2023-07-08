@@ -12,7 +12,8 @@ namespace SafeAssignmentSystem.Models.AccountViewModels
     {
         public RegisterViewModel()
         {
-            this.InstalationsIds = new List<Guid>();
+            this.Instalations = new List<CheckBoxViewModel>();
+            this.Roles = new List<KeyValuePairViewModel>();
         }
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace SafeAssignmentSystem.Models.AccountViewModels
         /// Табелен номер на потребителя
         /// </summary>
         [Required]
-        public string UserWorkNumber { get; set; }
+        public int UserWorkNumber { get; set; }
 
         /// <summary>
         /// Нова парола
@@ -64,12 +65,7 @@ namespace SafeAssignmentSystem.Models.AccountViewModels
         /// Роля
         /// </summary>
         [Required]
-        public Guid RoleId { get; set; }
-
-        /// <summary>
-        /// Списък с инсталациите за които потребителят отговаря
-        /// </summary>
-        public IEnumerable<Guid> InstalationsIds { get; set; }
+        public string Role { get; set; }
 
         /// <summary>
         /// Списък с възможните инсталации

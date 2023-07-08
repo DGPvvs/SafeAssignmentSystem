@@ -1,16 +1,12 @@
 ﻿namespace SafeAssignmentSystem.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Routing;
-    using SafeAssignmentSystem.Common.Notification;
     using SafeAssignmentSystem.Controllers.AbstractControlers;
     using SafeAssignmentSystem.Core.Contracts;
-    using SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels;
     using SafeAssignmentSystem.Models.ChoisViewModels;
     using SafeAssignmentSystem.Models.FactoriesViewModels;
     using System;
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
-    using static System.Collections.Specialized.BitVector32;
 
     public class ChoicesPlantsController : BaseChoicesPlantsController
     {

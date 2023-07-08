@@ -14,10 +14,10 @@
         public static class ApplicationUserConstants
         {
             public const int FirstName_Max_Length = 20;
-            public const int FirstName_Min_Length = 5;
+            public const int FirstName_Min_Length = 3;
             
             public const int LastName_Max_Length = 20;
-            public const int LastName_Min_Length = 5;
+            public const int LastName_Min_Length = 3;
         }
     }
 }

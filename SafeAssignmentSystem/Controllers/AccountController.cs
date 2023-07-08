@@ -8,6 +8,7 @@
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Models.StatusModels;
     using SafeAssignmentSystem.Core.Models.TransferModels;
+    using SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.Models.AccountViewModels;
     using SafeAssignmentSystem.Models.ChoisViewModels;
@@ -127,57 +128,39 @@
 
         [HttpPost]
         [Authorize(Roles = Administrator)]
-        public IActionResult Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            return View(model);
+            var transfer = new RegisterUserTransferModel()
+            {
+                UserName = model.UserName,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                UserWorkNumber = model.UserWorkNumber,
+                Password = model.Password,
+                Role = model.Role,
+                Instalations = model.Instalations
+                    .Where(i => i.Selected)
+                    .Select(i => i.Name)
+                    .ToList()
+            };
 
-            //returnUrl ??= Url.Content("~/");
-            //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-            //if (ModelState.IsValid)
-            //{
-            //    var user = CreateUser();
 
-            //    await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-            //    await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-            //    var result = await _userManager.CreateAsync(user, Input.Password);
+            StatusUserModel userStatus = await this.accountService.RegisterUserAsync(transfer);
+            
 
-            //    if (result.Succeeded)
-            //    {
-            //        _logger.LogInformation("User created a new account with password.");
+            if (!userStatus.Success)
+            {
+                this.TempData[Error_Message] = userStatus.Description;
+                ModelState.AddModelError(string.Empty, userStatus.Description);                
+            }
+            else
+            {
+                this.TempData[Success_Message] = User_Registration_Success;
+                ModelState.AddModelError(string.Empty, User_Registration_Success);
+            }
 
-            //        var userId = await _userManager.GetUserIdAsync(user);
-            //        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            //        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-            //        var callbackUrl = Url.Page(
-            //            "/Account/ConfirmEmail",
-            //        pageHandler: null,
-            //        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-            //            protocol: Request.Scheme);
-
-            //        await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-            //            $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
-            //        if (_userManager.Options.SignIn.RequireConfirmedAccount)
-            //        {
-            //            return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
-            //        }
-            //        else
-            //        {
-            //            await _signInManager.SignInAsync(user, isPersistent: false);
-            //            return LocalRedirect(returnUrl);
-            //        }
-            //    }
-            //    foreach (var error in result.Errors)
-            //    {
-            //        ModelState.AddModelError(string.Empty, error.Description);
-            //    }
-            //}
-
-            //// If we got this far, something failed, redisplay form
-            //return Page();
+            return this.RedirectToAction("Index", "Home");
         }
-
-
 
         public async Task<IActionResult> Logout()
         {

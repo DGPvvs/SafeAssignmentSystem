@@ -12,6 +12,10 @@
         public const string User_Success = "Потребителят има разрешение!";
         public const string User_Change_Password_Success = "Успешно променихте паролата си!";
         public const string User_Change_Password_Not_Allow = "Не успяхте да променихте паролата си!";
+        public const string User_Already_Exists = "Вече има такова потребителско име!";
+        public const string User_WorkNumber_Already_Exists = "Вече има потребител с такъв номер!";
+        public const string User_Registration_Fail = "Не успяхте да направите регистрация!";
+        public const string User_Registration_Success = "Успешно направихте регистрация!";
 
         public const string New_Complex_Add_Fail = "Новият комплекс не беше добавен!";
         public const string New_Complex_Add_Success = "Новият комплекс е добавен успешно!";
