@@ -16,6 +16,8 @@
         public const string User_WorkNumber_Already_Exists = "Вече има потребител с такъв номер!";
         public const string User_Registration_Fail = "Не успяхте да направите регистрация!";
         public const string User_Registration_Success = "Успешно направихте регистрация!";
+        public const string User_Cant_Edit_Youself = "Потребителят не може да редактира сам себе си!";
+
 
         public const string New_Complex_Add_Fail = "Новият комплекс не беше добавен!";
         public const string New_Complex_Add_Success = "Новият комплекс е добавен успешно!";

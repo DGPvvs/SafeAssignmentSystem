@@ -1,24 +1,32 @@
 ﻿namespace SafeAssignmentSystem.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using SafeAssignmentSystem.Controllers.AbstractControlers;
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Models.ChoisViewModels;
     using SafeAssignmentSystem.Models.FactoriesViewModels;
     using System;
-    using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
+    using System.Data;
 
-    public class ChoicesPlantsController : BaseChoicesPlantsController
+    using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
+    using static SafeAssignmentSystem.Common.Notification.RoleConstants;
+    using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
+
+    public class ChoicesController : BaseChoicesPlantsController
     {
         private readonly IPlantsService plantsService;
         private readonly IChoisPlantsService choisPlantsService;
+        private readonly IAccountService accountService;
 
-        public ChoicesPlantsController(
+        public ChoicesController(
             IPlantsService plantsService,
-            IChoisPlantsService choisPlantsService)
+            IChoisPlantsService choisPlantsService,
+            IAccountService accountService)
         {
             this.plantsService = plantsService;
             this.choisPlantsService = choisPlantsService;
+            this.accountService = accountService;
         }
 
         [HttpGet]
@@ -63,9 +71,41 @@
         }
 
         [HttpGet]
+        [Authorize(Roles = Administrator)]
         public async Task<IActionResult> ChoisAccount(string controller, string action, string data)
         {
+            var userName = User?.Identity?.Name;
 
+            var allUsers = await this.accountService.GetAllUsers(userName!);
+            
+            var s = data.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
+            var model = new ChoisAccountViewModel()
+            {
+                RedirectAction = s[1],
+                RedirectController = s[0],
+                AllUsers = allUsers
+                .Select(u => u.UserName)
+                .ToList()
+            };
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = Administrator)]
+        public async Task<IActionResult> ChoisAccount(ChoisAccountViewModel model)
+        {
+            var currentUserName = User?.Identity?.Name;
+
+            if (currentUserName == model.User)
+            {
+                this.TempData[Error_Message] = User_Cant_Edit_Youself;
+                ModelState.AddModelError(string.Empty, User_Cant_Edit_Youself);
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            return this.RedirectToAction(model.RedirectAction, model.RedirectController, new { userName = model.User});
         }
     }
 }

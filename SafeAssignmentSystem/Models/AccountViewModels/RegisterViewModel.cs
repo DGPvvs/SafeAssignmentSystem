@@ -1,10 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using SafeAssignmentSystem.Models.CommonViewModels;
 using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
-
-using static SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants;
 using static SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ApplicationUserConstants;
-using SafeAssignmentSystem.Models.CommonViewModels;
+using static SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants;
 
 namespace SafeAssignmentSystem.Models.AccountViewModels
 {
@@ -65,7 +62,7 @@ namespace SafeAssignmentSystem.Models.AccountViewModels
         /// Роля
         /// </summary>
         [Required]
-        public string Role { get; set; }
+        public string Role { get; set; } = null!;
 
         /// <summary>
         /// Списък с възможните инсталации

@@ -22,17 +22,31 @@
     public class AccountService : IAccountService
     {
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
         private readonly RoleManager<ApplicationRole> roleManager;
         private readonly IRepository repo;
 
         public AccountService(
             UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
             RoleManager<ApplicationRole> roleManager,
             IRepository repo)
         {
             this.userManager = userManager;
+            this.signInManager = signInManager;
             this.roleManager = roleManager;
             this.repo = repo;
+        }
+
+        public async Task<IEnumerable<UserTransferModel>> GetAllUsers(string currentUserName)
+        {            
+            return await this.userManager.Users
+                .Where(u => u.UserName != currentUserName)
+                .Select(u => new UserTransferModel()
+                {
+                    UserName = u.UserName
+                })
+                .ToListAsync();
         }
 
         public async Task<StatusUserModel> LoginPermissionAsync(UserTransferModel user)

@@ -1,0 +1,50 @@
+﻿@using SafeAssignmentSystem.Models.ChoisViewModels;
+@model ChoisAccountViewModel
+@{
+    bool isFirst = true;
+}
+
+
+<form asp-action="ChoisAccount" method="post">
+
+    <div class="visually-hidden">            
+
+                <label asp-for="@Model.RedirectAction" class="form-label"></label>
+                <input asp-for="@Model.RedirectAction" class="form-control" aria-required="true" />
+                <span asp-validation-for="RedirectAction" class="text-danger"></span>
+
+
+            </div>
+
+            <div class="visually-hidden">
+                <label asp-for="@Model.RedirectController" class="form-label"></label>
+                <input asp-for="@Model.RedirectController" class="form-control" aria-required="true" />
+                <span asp-validation-for="RedirectController" class="text-danger"></span>
+            </div>
+
+    @foreach (var user in Model.AllUsers)
+    {
+            <div class="form-check">
+            @if (isFirst)
+            {
+                                <input type="radio" class="form-check-input" value="@user" asp-for="@Model.User" checked>
+                                <div class="visually-hidden">@(isFirst = false)</div>
+            }
+            else
+            {
+                                        <input type="radio" class="form-check-input" value="@user" asp-for="@Model.User">
+            }
+
+                                <label asp-for="@Model.User" class="form-check-label">@user</label>
+                    <span asp-validation-for="@Model.User" class="text-danger"></span>
+            </div>        
+    }
+
+
+
+    <button type="submit" class="btn btn-primary mt-3">Избор на потребител</button>
+  </form>
+
+@section Scripts {
+                <partial name="_ValidationScriptsPartial" />
+}

@@ -7,6 +7,7 @@
 
     public interface IAccountService
     {
+        public Task<IEnumerable<UserTransferModel>> GetAllUsers(string currentUserName);
         public Task<StatusUserModel> LoginPermissionAsync(UserTransferModel user);
         public Task<StatusUserModel> RegisterUserAsync(RegisterUserTransferModel model);
     }

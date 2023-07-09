@@ -1,20 +1,20 @@
 ﻿namespace SafeAssignmentSystem.Models.ChoisViewModels
 {
-    using SafeAssignmentSystem.Models.AccountViewModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 
     public class ChoisAccountViewModel
     {
         public ChoisAccountViewModel()
         {
-            this.AllUsers = new List<AllUsersViewModel>();
+            this.AllUsers = new List<string>();
         }
 
-        public Guid Id { get; set; }
+        public string User { get; set; } = null!;
 
         public string RedirectController { get; set; } = null!;
 
         public string RedirectAction { get; set; } = null!;
 
-        public IEnumerable<AllUsersViewModel> AllUsers { get; set; } = null!;
+        public IEnumerable<string> AllUsers { get; set; } = null!;
     }
 }

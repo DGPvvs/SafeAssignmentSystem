@@ -11,7 +11,6 @@
     using SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.Models.AccountViewModels;
-    using SafeAssignmentSystem.Models.ChoisViewModels;
     using SafeAssignmentSystem.Models.CommonViewModels;
     using System.Text;
 
@@ -224,8 +223,10 @@
 
         [HttpGet]
         [Authorize(Roles = Administrator)]
-        public async Task<IActionResult> EditAccount()
+        public async Task<IActionResult> EditAccount(string userName)
         {
+            var t = userName;
+
             return this.View();
         }
     }
