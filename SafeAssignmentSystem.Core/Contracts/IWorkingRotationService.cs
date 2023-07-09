@@ -1,12 +1,10 @@
 ﻿namespace SafeAssignmentSystem.Core.Contracts
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
     using System.Threading.Tasks;
 
     public interface IWorkingRotationService
     {
+        public Task AddShiftAsync(ShiftTransferModel transfer);
     }
 }

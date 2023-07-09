@@ -18,7 +18,6 @@
         public const string User_Registration_Success = "Успешно направихте регистрация!";
         public const string User_Cant_Edit_Youself = "Потребителят не може да редактира сам себе си!";
 
-
         public const string New_Complex_Add_Fail = "Новият комплекс не беше добавен!";
         public const string New_Complex_Add_Success = "Новият комплекс е добавен успешно!";
         public const string Complex_Find_Fail = "Комплекса не беше намерен!";
@@ -34,6 +33,11 @@
         public const string New_TechnologicalPosition_Add_Fail = "Новата технологична позиция не беше добавена!";
         public const string New_TechnologicalPosition_Add_Success = "Новата технологична позиция е добавена успешно!";
         public const string TechnologicalPosition_Find_Fail = "Технологичната позиция не беше намерена!";
+
+        public const string Time_Format_Incorect = "Неправилен формат на часа!";
+
+        public const string Shift_Add_Success = "Успешно добавихте нова смяна!";
+        public const string Shift_Add_Fail = "Не успяхте да добавихте нова смяна!";
 
     }
 }

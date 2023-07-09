@@ -8,6 +8,7 @@
     using SafeAssignmentSystem.Core.Models.StatusModels;
     using SafeAssignmentSystem.Core.Models.TransferModels;
     using SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels;
+    using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
     using SafeAssignmentSystem.DataBase.Data.Common;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;

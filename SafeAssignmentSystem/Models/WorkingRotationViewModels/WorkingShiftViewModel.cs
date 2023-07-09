@@ -7,6 +7,12 @@ namespace SafeAssignmentSystem.Models.WorkingRotationViewModels
 {
     public class WorkingShiftViewModel
     {
+        public WorkingShiftViewModel()
+        {
+            this.StartTime = "00:00";
+            this.EndTime = "00:00";
+        }
+
         /// <summary>
         /// Име на смяната
         /// </summary>
@@ -20,7 +26,7 @@ namespace SafeAssignmentSystem.Models.WorkingRotationViewModels
         [Required]
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
-        public TimeOnly StartTime { get; set; }
+        public string StartTime { get; set; } = null!;
 
         /// <summary>
         /// Краен час на смяната
@@ -28,6 +34,6 @@ namespace SafeAssignmentSystem.Models.WorkingRotationViewModels
         [Required]
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
-        public TimeOnly EndTime { get; set; }
+        public string EndTime { get; set; } = null!;
     }
 }
