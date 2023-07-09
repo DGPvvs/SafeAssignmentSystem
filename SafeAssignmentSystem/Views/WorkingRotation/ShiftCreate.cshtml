@@ -1,0 +1,38 @@
+﻿@using SafeAssignmentSystem.Models.WorkingRotationViewModels;
+@model WorkingShiftViewModel
+
+@{
+    ViewBag.Title = "Създаване на смяна";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form asp-action="ShiftCreate" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.ShiftName" class="form-label">Наименование на смяната</label>
+                <input asp-for="@Model.ShiftName" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.ShiftName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.StartTime" class="form-label">Начален час</label>
+                <input asp-for="@Model.StartTime" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.StartTime" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.EndTime" class="form-label">Краен час</label>
+                <input asp-for="@Model.EndTime" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.EndTime" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-warning" type="submit" value="Създаване на смяна" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+                <partial name="_ValidationScriptsPartial" />
+}

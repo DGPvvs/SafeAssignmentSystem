@@ -97,7 +97,12 @@
 			/// Максимална дължина на наименование на смяна
 			/// </summary>
 			public const int ShiftName_Max_Length = 10;
-		}
+
+            /// <summary>
+			/// Минимална дължина на наименование на смяна
+			/// </summary>
+			public const int ShiftName_Min_Length = 1;
+        }
 
         /// <summary>
 		/// Константи описващи модела на потребителите

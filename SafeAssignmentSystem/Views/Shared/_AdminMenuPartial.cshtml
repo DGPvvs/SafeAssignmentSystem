@@ -24,6 +24,12 @@
                             asp-route-data="Account EditAccount">
                             Редакция на потребителски акаунт
                         </a>
+                        <a class="nav-link btn-primary text-white dropdown-toggle"
+                            asp-controller="Choices"
+                            asp-action="ChoisAccount"
+                            asp-route-data="Account EditPassword">
+                            промяна на потребителска парола
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -99,6 +105,33 @@
             <!-- Dropright menu -->
             <div class="btn-group dropend">
                 <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown">Менажиране на сменни графици</button>
+                <ul class="dropdown-menu multi-level">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link btn-info text-dark dropdown-toggle"
+                            asp-controller="Choices"
+                            asp-action="ChoisPlant"
+                            asp-route-data="Plants AllTechnologicalPosition">
+                            Редактиране на технологична позиция
+                        </a>
+                        <a class="nav-link btn-info text-dark dropdown-toggle"
+                            asp-controller="Choices"
+                            asp-action="ChoisPlant"
+                            asp-route-data="Plants AllTechnologicalPosition">
+                            Редактиране на технологична позиция
+                        </a>
+                        <a class="nav-link btn-success text-white dropdown-toggle"
+                            asp-controller="WorkingRotation"
+                            asp-action="ShiftCreate">
+                            Създаване на смяна
+                        </a>
+                        <a class="nav-link btn-success text-white dropdown-toggle"
+                            asp-controller="Choices"
+                            asp-action="ChoisPlant"
+                            asp-route-data="Plants AllTechnologicalPosition">
+                            Редактиране на смяна
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

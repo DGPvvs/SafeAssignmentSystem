@@ -12,7 +12,8 @@
 			services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IPlantsService, PlantsService>();
             services.AddScoped<IChoisPlantsService, ChoisPlantsService>();
-            
+            services.AddScoped<IWorkingRotationService, WorkingRotationService>();
+
             return services;
 		}
 	}

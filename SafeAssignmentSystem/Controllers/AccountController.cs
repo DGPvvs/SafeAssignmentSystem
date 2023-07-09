@@ -229,5 +229,16 @@
 
             return this.View();
         }
+
+        [HttpGet]
+        [Authorize(Roles = Administrator)]
+        public async Task<IActionResult> EditPassword(string userName)
+        {
+            var t = userName;
+
+            return this.View();
+        }
+
+        
     }
 }
