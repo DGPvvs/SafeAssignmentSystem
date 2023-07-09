@@ -61,5 +61,11 @@
 
             return RedirectToAction(model.RedirectAction, model.RedirectController, new { @id = model.Id });
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ChoisAccount(string controller, string action, string data)
+        {
+
+        }
     }
 }

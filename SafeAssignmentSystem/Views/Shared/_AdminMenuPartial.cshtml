@@ -18,10 +18,13 @@
                             asp-action="Register">
                             Регистрация на нов потребител
                         </a>
-                        <a class="nav-link btn-info text-dark dropdown-toggle"                            
-                            asp-controller="Plants"
-                            asp-action="ComplexCreate">
-                            Редакция на регистриран потребител
+                        <a class="nav-link btn-info text-dark dropdown-toggle"
+                            asp-controller="ChoicesPlants"
+                            asp-action="ChoisAccount"
+                            asp-route-data="Plants AllTechnologicalPosition"
+                            asp-controller="Account"
+                            asp-action="EditAccount">
+                            Редакция на потребителски акаунт
                         </a>
                     </li>
                 </ul>

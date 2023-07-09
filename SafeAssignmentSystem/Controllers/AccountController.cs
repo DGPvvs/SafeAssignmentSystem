@@ -221,5 +221,12 @@
             this.TempData[Success_Message] = User_Change_Password_Success;
             return this.RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        [Authorize(Roles = Administrator)]
+        public async Task<IActionResult> EditAccount()
+        {
+            return this.View();
+        }
     }
 }
