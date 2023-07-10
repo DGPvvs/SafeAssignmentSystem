@@ -38,6 +38,8 @@
 
         public const string Shift_Add_Success = "Успешно добавихте нова смяна!";
         public const string Shift_Add_Fail = "Не успяхте да добавихте нова смяна!";
+        public const string Shift_Find_Fail = "Не беше намерена такава смяна!";
+        public const string Shift_Edit_Success = "Успешно редактирахте смяната!";
 
     }
 }

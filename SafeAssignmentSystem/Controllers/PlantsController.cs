@@ -163,7 +163,7 @@
         {
             try
             {
-                await this.plantsService.DeleteComplexAsync(id, IsDeletedCondition.Deleted);
+                await this.plantsService.ChangeDeleteStatusComplexAsync(id, IsDeletedCondition.Deleted);
 
                 return this.RedirectToAction("AllComplex", "Plants");
             }
@@ -205,7 +205,7 @@
         {
             try
             {
-                await this.plantsService.DeleteComplexAsync(id, IsDeletedCondition.NotDeleted);
+                await this.plantsService.ChangeDeleteStatusComplexAsync(id, IsDeletedCondition.NotDeleted);
 
                 return this.RedirectToAction("AllComplex", "Plants");
             }

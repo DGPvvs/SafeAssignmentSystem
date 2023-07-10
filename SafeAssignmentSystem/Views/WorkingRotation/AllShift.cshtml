@@ -1,0 +1,28 @@
+﻿@using SafeAssignmentSystem.Models.WorkingRotationViewModels;
+@model IEnumerable<EditWorkingShiftViewModel>
+@{
+    ViewBag.Title = "Всички смени";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    @foreach (var shift in Model)
+    {
+                <div class="card col-4">
+                    <div class="card-body">
+                            <h5 class="card-title mt-1">@shift.ShiftName</h5>
+                            <p class="mb-0">@shift.StartTime</p>
+                            <p class="mb-0">@shift.EndTime</p>
+                    </div>
+                        <a asp-controller="WorkingRotation"
+                    asp-action="EditlShift"
+					asp-route-id="@shift.Id"
+					class="btn btn-info mb-3 p-2">
+                        Редактиране на смяна
+                    </a>
+                </div>
+    }
+</div>

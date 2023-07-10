@@ -132,7 +132,15 @@
             await this.repo.SaveChangesAsync();
         }
 
-        public async Task DeleteComplexAsync(Guid id, bool isDel)
+        /// <summary>
+        /// Задава стойност на IsDeleted в класа ProductionComplex isDel 
+        /// </summary>
+        /// <param name="id">Идентификационен ключ</param>
+        /// <param name="isDel">Параметър, чиято стойност се сетва в IsDeleted</param>
+        /// <returns></returns>
+        /// <exception cref="NullReferenceException"></exception>
+        /// <exception cref="NotEmptyException"></exception>
+        public async Task ChangeDeleteStatusComplexAsync(Guid id, bool isDel)
 		{
 			var entity = await GetCompByIdAsync(id);
 
@@ -148,7 +156,7 @@
 
 			entity.IsDeleted = isDel;
 
-            await this.context.SaveChangesAsync();
+            await this.repo.SaveChangesAsync();
 		}
 
 		public async Task EditComplexAsync(ComplexTransferModel model)
@@ -311,8 +319,13 @@
 
         }
 
-        private async Task<ProductionComplex?> GetCompByIdAsync(Guid id) => await this.context
-            .ProductionComplexes
+        /// <summary>
+        /// Връца комплекс по зададено Id
+        /// </summary>
+        /// <param name="id">Идентификационен ключ</param>
+        /// <returns></returns>
+        private async Task<ProductionComplex?> GetCompByIdAsync(Guid id) => await this.repo
+            .AllReadonly<ProductionComplex>()
             .FirstOrDefaultAsync(c => c.Id == id);
 
         private async Task<PlantInstalation?> GetPlnByIdAsync(Guid id) => await this.context

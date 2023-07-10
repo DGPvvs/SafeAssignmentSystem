@@ -13,7 +13,7 @@
 
         public Task EditComplexAsync(ComplexTransferModel model);
 
-		public Task DeleteComplexAsync(Guid id, bool isDel);
+		public Task ChangeDeleteStatusComplexAsync(Guid id, bool isDel);
 
         public Task AddPlantAsync(PlantTransferModel model);
 

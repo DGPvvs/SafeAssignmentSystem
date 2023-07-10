@@ -8,6 +8,7 @@
     using SafeAssignmentSystem.DataBase.Data.Common;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using System;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     public class WorkingRotationService : IWorkingRotationService
@@ -51,6 +52,57 @@
 
             await this.repo.AddAsync(entity);
             await this.repo.SaveChangesAsync();
+        }
+
+        public async Task EditShiftAsync(ShiftTransferModel transfer)
+        {
+            var entity = await this.repo.All<WorkingShift>(ws => ws.Id == transfer.Id).FirstOrDefaultAsync();
+
+            if (entity is null)
+            {
+                throw new NullReferenceException();
+            }
+
+            var startTime = new DateTime(1, 1, 1) + transfer.Start.ToTimeSpan();
+            var endTime = new DateTime(1, 1, 1) + transfer.End.ToTimeSpan();
+
+            if (transfer.Start > transfer.End)
+            {
+                endTime = new DateTime(1, 1, 2) + transfer.End.ToTimeSpan();
+            }
+
+            entity.StartTime = startTime;
+            entity.EndTime = endTime;
+
+            await this.repo.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<ShiftTransferModel>> GetAllShiftAsync()
+        {
+            var entity = await this.repo.AllReadonly<WorkingShift>().ToListAsync();
+
+            var result = entity.Select(ws => new ShiftTransferModel()
+            {
+                Id = ws.Id,
+                ShiftName = ws.ShiftName,
+                Start = new TimeOnly(ws.StartTime.Hour, ws.StartTime.Minute),
+                End = new TimeOnly(ws.EndTime.Hour, ws.EndTime.Minute)
+            }).ToList();
+
+            return result;
+        }
+
+        public async Task<ShiftTransferModel> GetShiftByIdAsync(Guid id)
+        {
+            var entity = await this.repo.AllReadonly<WorkingShift>(ws => ws.Id == id).FirstOrDefaultAsync();
+
+            return new ShiftTransferModel()
+            {
+                Id = entity.Id,
+                ShiftName = entity.ShiftName,
+                Start = new TimeOnly(entity.StartTime.Hour, entity.StartTime.Minute),
+                End = new TimeOnly(entity.EndTime.Hour, entity.EndTime.Minute)
+            };
         }
     }
 }
