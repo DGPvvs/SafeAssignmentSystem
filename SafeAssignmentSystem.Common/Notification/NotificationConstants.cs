@@ -1,5 +1,7 @@
 ﻿namespace SafeAssignmentSystem.Common.Notification
 {
+    using System.Globalization;
+
     public static class NotificationConstants
     {
         public const string Error_Message = "Error_Message";
@@ -34,12 +36,12 @@
         public const string New_TechnologicalPosition_Add_Success = "Новата технологична позиция е добавена успешно!";
         public const string TechnologicalPosition_Find_Fail = "Технологичната позиция не беше намерена!";
 
-        public const string Time_Format_Incorect = "Неправилен формат на часа!";
+        public const string Time_Format_Incorect = "Неправилен формат на час!";
+        public const string Date_Format_Incorect = "Неправилен формат на дата!";
 
         public const string Shift_Add_Success = "Успешно добавихте нова смяна!";
         public const string Shift_Add_Fail = "Не успяхте да добавихте нова смяна!";
         public const string Shift_Find_Fail = "Не беше намерена такава смяна!";
         public const string Shift_Edit_Success = "Успешно редактирахте смяната!";
-
     }
 }

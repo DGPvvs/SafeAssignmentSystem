@@ -12,6 +12,7 @@
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
     using static SafeAssignmentSystem.Common.Notification.RoleConstants;
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
+    using System.Globalization;
 
     public class ChoicesController : BaseChoicesPlantsController
     {
@@ -106,6 +107,55 @@
             }
 
             return this.RedirectToAction(model.RedirectAction, model.RedirectController, new { userName = model.User});
+        }
+
+        [HttpGet]
+        [Authorize(Roles = Administrator)]
+        public async Task<IActionResult> ChoisUserAndMonth(string controller, string action, string data)
+        {
+            var userName = User?.Identity?.Name;
+
+            var allUsers = await this.accountService.GetAllUsers(userName!);
+
+            var s = data.Split(" ", StringSplitOptions.RemoveEmptyEntries);            
+
+            var model = new ChoisUserAndMonthViewModel()
+            {
+                RedirectAction = s[1],
+                RedirectController = s[0],
+                Month = string.Empty,
+                AllUsers = allUsers
+                .Select(u => u.UserName)
+                .ToList()
+            };
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = Administrator)]
+        public async Task<IActionResult> ChoisUserAndMonth(ChoisUserAndMonthViewModel model)
+        {
+            var currentUserName = User?.Identity?.Name;
+
+            if (currentUserName == model.User)
+            {
+                this.TempData[Error_Message] = User_Cant_Edit_Youself;
+                ModelState.AddModelError(string.Empty, User_Cant_Edit_Youself);
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            bool successDateConvert = DateOnly.TryParseExact(model.Month, "yyyy-MM-dd", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out DateOnly date);
+
+            if (!successDateConvert)
+            {
+                this.TempData[Error_Message] = Date_Format_Incorect;
+;
+                ModelState.AddModelError(string.Empty, Date_Format_Incorect);
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            return this.RedirectToAction(model.RedirectAction, model.RedirectController, new { userName = model.User, Month = model.Month });
         }
     }
 }

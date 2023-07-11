@@ -1,0 +1,24 @@
+﻿@using SafeAssignmentSystem.Models.ChoisViewModels;
+@model ChoisUserAndMonthViewModel;
+
+@{
+}
+
+<form asp-action="ChoisUserAndMonth" method="post">
+
+    <div class="row">
+        <div class="col-md-3">
+            <partial name="_UsersPartial"/>
+        </div>
+        <div class="col-md-3">
+            <partial name="_ChoisMonthPartial"/>
+        </div>
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary mt-6">Избор на потребител и месец</button>
+  </form>
+
+@section Scripts {
+                    <partial name="_ValidationScriptsPartial" />
+}

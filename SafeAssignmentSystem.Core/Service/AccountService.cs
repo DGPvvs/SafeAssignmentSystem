@@ -149,6 +149,12 @@
 
             var createStatus = await this.userManager.CreateAsync(newUser, model.Password);
 
+            if (!createStatus.Succeeded)
+            {
+                result.Description = createStatus.Errors.First().Code;
+                return result;
+            }
+
             user = await this.userManager.FindByNameAsync(model.UserName);
 
             var roleAddResult = await this.userManager.AddToRoleAsync(user, model.Role);

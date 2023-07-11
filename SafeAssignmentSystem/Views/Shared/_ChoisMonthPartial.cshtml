@@ -1,0 +1,11 @@
+﻿@using SafeAssignmentSystem.Models.ChoisViewModels;
+@model ChoisUserAndMonthViewModel;
+
+@{
+}
+
+<div>
+    <label asp-for="@Model.Month" class="form-label"></label>
+    <input asp-for="@Model.Month" class="form-control" aria-required="true" />
+    <span asp-validation-for="Month" class="text-danger"></span>
+</div>

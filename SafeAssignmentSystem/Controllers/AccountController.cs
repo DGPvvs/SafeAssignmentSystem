@@ -143,9 +143,7 @@
                     .ToList()
             };
 
-
-            StatusUserModel userStatus = await this.accountService.RegisterUserAsync(transfer);
-            
+            StatusUserModel? userStatus = userStatus = await this.accountService.RegisterUserAsync(transfer);
 
             if (!userStatus.Success)
             {
@@ -155,7 +153,6 @@
             else
             {
                 this.TempData[Success_Message] = User_Registration_Success;
-                ModelState.AddModelError(string.Empty, User_Registration_Success);
             }
 
             return this.RedirectToAction("Index", "Home");

@@ -171,5 +171,11 @@
                 return View(model);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EditChangedSchedule(string userName, string month)
+        {
+            return this.View();
+        }
     }
 }
