@@ -115,7 +115,7 @@
         {
             var userName = User?.Identity?.Name;
 
-            var allUsers = await this.accountService.GetAllUsers(userName!);
+            var allUsers = await this.accountService.GetAllUsersWhithRole(userName!);
 
             var s = data.Split(" ", StringSplitOptions.RemoveEmptyEntries);            
 
@@ -123,7 +123,7 @@
             {
                 RedirectAction = s[1],
                 RedirectController = s[0],
-                Month = string.Empty,
+                Date = string.Empty,
                 AllUsers = allUsers
                 .Select(u => u.UserName)
                 .ToList()
@@ -137,6 +137,7 @@
         public async Task<IActionResult> ChoisUserAndMonth(ChoisUserAndMonthViewModel model)
         {
             var currentUserName = User?.Identity?.Name;
+            
 
             if (currentUserName == model.User)
             {
@@ -145,17 +146,19 @@
                 return this.RedirectToAction("Index", "Home");
             }
 
-            bool successDateConvert = DateOnly.TryParseExact(model.Month, "yyyy-MM-dd", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out DateOnly date);
+
+
+            bool successDateConvert = DateOnly.TryParseExact(model.Date, "yyyy-MM-dd", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out DateOnly date);
 
             if (!successDateConvert)
             {
                 this.TempData[Error_Message] = Date_Format_Incorect;
-;
+
                 ModelState.AddModelError(string.Empty, Date_Format_Incorect);
                 return this.RedirectToAction("Index", "Home");
             }
 
-            return this.RedirectToAction(model.RedirectAction, model.RedirectController, new { userName = model.User, Month = model.Month });
+            return this.RedirectToAction(model.RedirectAction, model.RedirectController, new { userName = model.User, model.Date });
         }
     }
 }

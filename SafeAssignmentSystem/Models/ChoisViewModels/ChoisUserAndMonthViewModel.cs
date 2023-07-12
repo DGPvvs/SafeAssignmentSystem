@@ -1,7 +1,6 @@
 ﻿namespace SafeAssignmentSystem.Models.ChoisViewModels
 {
     using System.ComponentModel.DataAnnotations;
-    using System.Globalization;
 
     public class ChoisUserAndMonthViewModel : ChoisAccountViewModel
     {
@@ -10,7 +9,7 @@
         /// </summary>
         [Required]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true)]
-        public string Month { get; set; } = null!;
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public string Date { get; set; } = null!;
     }
 }

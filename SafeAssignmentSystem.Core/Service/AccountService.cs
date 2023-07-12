@@ -50,6 +50,32 @@
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<UserTransferModel>> GetAllUsersWhithRole(string currentUserName)
+        {
+            var operatorsUsers = await this.userManager.GetUsersInRoleAsync(Operator);
+            var electriciansUsers = await this.userManager.GetUsersInRoleAsync(Electrician);
+
+            List<UserTransferModel> result = new List<UserTransferModel>();
+
+            foreach (var user in operatorsUsers)
+            {
+                result.Add(new UserTransferModel()
+                {
+                    UserName = user.UserName
+                });
+            }
+
+            foreach (var user in electriciansUsers)
+            {
+                result.Add(new UserTransferModel()
+                {
+                    UserName = user.UserName
+                });
+            }
+
+            return result;
+        }
+
         public async Task<StatusUserModel> LoginPermissionAsync(UserTransferModel user)
         {
 

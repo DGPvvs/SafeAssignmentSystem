@@ -2,6 +2,8 @@
 {
     using Microsoft.EntityFrameworkCore;
     using SafeAssignmentSystem.Common.Exeptions;
+    using SafeAssignmentSystem.Common.Notification;
+    using SafeAssignmentSystem.Common.Overrides;
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Data;
     using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
@@ -103,6 +105,29 @@
                 Start = new TimeOnly(entity.StartTime.Hour, entity.StartTime.Minute),
                 End = new TimeOnly(entity.EndTime.Hour, entity.EndTime.Minute)
             };
+        }
+
+        public async Task<IEnumerable<EditUserShiftTransferModel>> GetUserShiftsPerPeriod(Guid userId, AppDateOnly date)
+        {
+            InstantConstants baseTime = new InstantConstants();
+
+            DateTime startDate = baseTime.referenceDateTime.AddYears(date.DateOnly.Year - 1).AddMonths(date.DateOnly.Month - 1);
+
+            //date = date.AddMonths(1);
+            DateTime endDate = baseTime.referenceDateTime.AddYears(date.DateOnly.Year - 1).AddMonths(date.DateOnly.Month);
+
+            var result = await this.repo.AllReadonly<ChangedSchedule>()
+                .Where(cs => cs.ApplicationUserId == userId && (cs.Date >= startDate && cs.Date < endDate))
+                .Select(cs => new EditUserShiftTransferModel()
+                {
+                    UserId = cs.ApplicationUserId,
+                    Date = cs.Date,
+                    ShiftName = cs.Shift.ShiftName,
+                    ShiftId = cs.ShiftId
+                })
+                .ToListAsync();
+
+            return result;
         }
     }
 }

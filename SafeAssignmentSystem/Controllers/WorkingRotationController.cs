@@ -1,11 +1,16 @@
 ﻿namespace SafeAssignmentSystem.Controllers
 {
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using SafeAssignmentSystem.Common.Exeptions;
+    using SafeAssignmentSystem.Common.Overrides;
     using SafeAssignmentSystem.Controllers.AbstractControlers;
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
+    using SafeAssignmentSystem.Models.CommonViewModels;
     using SafeAssignmentSystem.Models.WorkingRotationViewModels;
+    using System;
     using System.Globalization;
 
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
@@ -13,10 +18,14 @@
     public class WorkingRotationController : BaseWorkingRotationController
     {
         private readonly IWorkingRotationService workingRotationService;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public WorkingRotationController(IWorkingRotationService workingRotationService)
+        public WorkingRotationController(
+            IWorkingRotationService workingRotationService,
+            UserManager<ApplicationUser> userManager)
         {
             this.workingRotationService = workingRotationService;
+            this.userManager = userManager;
         }
 
         [HttpGet]
@@ -173,9 +182,77 @@
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditChangedSchedule(string userName, string month)
+        public async Task<IActionResult> EditChangedSchedule(string userName, string date)
         {
-            return this.View();
+            var user = await this.userManager.FindByNameAsync(userName);
+
+            if (user is null)
+            {
+                this.TempData[Error_Message] = User_Not_Found;
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            DateOnly.TryParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out DateOnly datModel);
+
+            AppDateOnly dat = new AppDateOnly(datModel);
+
+            var userShiftsPerPeriod = await this.workingRotationService.GetUserShiftsPerPeriod(user.Id, dat);
+
+            var shiftsList = await this.workingRotationService.GetAllShiftAsync();
+
+            List<ShiftsViewModel> shifts = shiftsList
+                .OrderBy(s => s.ShiftName)
+                .Select(s => new ShiftsViewModel()
+                {
+                    ShiftId = s.Id,
+                    ShiftName = s.ShiftName
+                })
+            .ToList();
+
+            shifts.Insert(0, new ShiftsViewModel()
+            {
+                ShiftName = string.Empty
+            });
+
+            DateOnly day = new DateOnly(dat.DateOnly.Year, dat.DateOnly.Month, 1);
+            DateOnly endDate = new DateOnly(dat.DateOnly.Year, dat.DateOnly.Month + 1, 1);
+
+            List<ShiftsViewModel> userShifts = new List<ShiftsViewModel>();
+
+            while (day < endDate)
+            {
+                var userShift = userShiftsPerPeriod.FirstOrDefault(s => s.Date.Year == day.Year &&
+                    s.Date.Month == day.Month &&
+                    s.Date.Day == day.Day);
+
+                ShiftsViewModel shift = new ShiftsViewModel()
+                {
+                    Date = day
+                };
+
+                if (!(userShift is null))
+                {
+                    shift.ShiftName = userShift.ShiftName;
+                    shift.ShiftId = userShift.ShiftId;
+                }
+
+                userShifts.Add(shift);
+
+                day = day.AddDays(1);
+            }
+
+            CreateShiftScheduleViewModel model = new CreateShiftScheduleViewModel()
+            {
+                UserName = user.UserName,
+                UserFullName = $"{user.FirstName} {user.LastName}",
+                Month = dat.ToString(),
+                Year = dat.DateOnly.Year,
+                UserShifts = userShifts,
+                ShiftsNames = shifts.Select(x => new KeyValuePairViewModel(x.ShiftId, x.ShiftName))
+            };
+
+
+            return this.View(model);
         }
     }
 }
