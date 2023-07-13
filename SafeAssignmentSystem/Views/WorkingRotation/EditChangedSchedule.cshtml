@@ -7,3 +7,56 @@
 }
 
 <h1 class="text-danger">Да взема всички данни за смените на избрания потребител за избраният месец</h1>
+
+<div class="row mt-3">
+    <h2>Сменен график за месец @Model.Month @Model.Year</h2>
+    <p>На @Model.UserFullName</p>  
+    <form asp-action="EditChangedSchedule" method="post">
+        <table class="table">  @*table-striped*@
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Смяна</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < Model.UserShifts.Count; i++)
+                {
+                    <tr>
+                        <td>
+                                <p>@Model.UserShifts[i].Date</p>
+                        </td>
+                        <td>
+                            <div class="mb-3">
+                                    <label asp-for="@Model.ShiftsNames" class="form-label">Смяна: @Model.UserShifts[i].ShiftName</label>
+                            <select asp-for="@Model.ShiftsNames" class="form-control">
+                                @foreach (var shift in Model.ShiftsNames)
+                                {
+                                    if (shift.KvP.Value == Model.UserShifts[i].ShiftName)
+                                    {
+                                        <option value="@shift.KvP.Key" selected>@shift.KvP.Value</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@shift.KvP.Key">@shift.KvP.Value</option>
+                                    }
+                                    
+                                }
+                            </select>
+                                <span asp-validation-for="@Model.UserShifts[i]" class="text-danger"></span>
+                            </div>
+                                <input type="hidden" asp-for="@Model.UserShifts[i].Date" />
+                                        <input type="hidden" asp-for="@Model.UserShifts[i].ShiftId" />
+                                        <input type="hidden" asp-for="@Model.UserShifts[i].ShiftName" />
+                        </td>
+                     </tr>
+                         
+                }
+            </tbody>
+        </table>
+
+        <div class="mb-3">
+            <input class="btn btn-info" type="submit" value="Редактиране" />
+        </div>
+    </form>
+</div>

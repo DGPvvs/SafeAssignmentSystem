@@ -220,8 +220,8 @@
                 UserFullName = $"{user.FirstName} {user.LastName}",
                 Month = dat.ToString(),
                 Year = dat.DateOnly.Year,
-                UserShifts = userShiftsPerPeriod,
-                ShiftsNames = shifts.Select(x => new KeyValuePairViewModel(x.ShiftId, x.ShiftName))
+                UserShifts = userShiftsPerPeriod.ToList(),
+                ShiftsNames = shifts.Select(x => new KeyValuePairViewModel(x.ShiftId, x.ShiftName)).ToList()
             };
 
             return this.View(model);

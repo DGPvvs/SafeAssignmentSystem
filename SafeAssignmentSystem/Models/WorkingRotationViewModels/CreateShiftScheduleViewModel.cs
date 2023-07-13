@@ -25,9 +25,9 @@
         public int Year { get; set; }
 
         [Required]
-        public IEnumerable<ShiftsTransferModel> UserShifts { get; set; }
+        public List<ShiftsTransferModel> UserShifts { get; set; }
 
         [Required]
-        public IEnumerable<KeyValuePairViewModel> ShiftsNames { get; set; }
+        public List<KeyValuePairViewModel> ShiftsNames { get; set; }
     }
 }
