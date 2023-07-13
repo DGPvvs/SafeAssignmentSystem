@@ -1,5 +1,6 @@
 ﻿namespace SafeAssignmentSystem.Models.WorkingRotationViewModels
 {
+    using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
     using SafeAssignmentSystem.Models.CommonViewModels;
     using System.ComponentModel.DataAnnotations;
 
@@ -7,7 +8,7 @@
     {
         public CreateShiftScheduleViewModel()
         {
-            this.UserShifts = new List<ShiftsViewModel>();
+            this.UserShifts = new List<ShiftsTransferModel>();
             this.ShiftsNames = new List<KeyValuePairViewModel>();
         }
 
@@ -24,7 +25,7 @@
         public int Year { get; set; }
 
         [Required]
-        public IEnumerable<ShiftsViewModel> UserShifts { get; set; }
+        public IEnumerable<ShiftsTransferModel> UserShifts { get; set; }
 
         [Required]
         public IEnumerable<KeyValuePairViewModel> ShiftsNames { get; set; }

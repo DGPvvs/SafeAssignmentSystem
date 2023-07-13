@@ -214,45 +214,28 @@
                 ShiftName = string.Empty
             });
 
-            DateOnly day = new DateOnly(dat.DateOnly.Year, dat.DateOnly.Month, 1);
-            DateOnly endDate = new DateOnly(dat.DateOnly.Year, dat.DateOnly.Month + 1, 1);
-
-            List<ShiftsViewModel> userShifts = new List<ShiftsViewModel>();
-
-            while (day < endDate)
-            {
-                var userShift = userShiftsPerPeriod.FirstOrDefault(s => s.Date.Year == day.Year &&
-                    s.Date.Month == day.Month &&
-                    s.Date.Day == day.Day);
-
-                ShiftsViewModel shift = new ShiftsViewModel()
-                {
-                    Date = day
-                };
-
-                if (!(userShift is null))
-                {
-                    shift.ShiftName = userShift.ShiftName;
-                    shift.ShiftId = userShift.ShiftId;
-                }
-
-                userShifts.Add(shift);
-
-                day = day.AddDays(1);
-            }
-
             CreateShiftScheduleViewModel model = new CreateShiftScheduleViewModel()
             {
                 UserName = user.UserName,
                 UserFullName = $"{user.FirstName} {user.LastName}",
                 Month = dat.ToString(),
                 Year = dat.DateOnly.Year,
-                UserShifts = userShifts,
+                UserShifts = userShiftsPerPeriod,
                 ShiftsNames = shifts.Select(x => new KeyValuePairViewModel(x.ShiftId, x.ShiftName))
             };
 
-
             return this.View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditChangedSchedule(CreateShiftScheduleViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+
+            }
+
+            return this.RedirectToAction("Index", "Home");
         }
     }
 }

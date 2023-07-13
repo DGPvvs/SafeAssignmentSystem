@@ -107,16 +107,15 @@
             };
         }
 
-        public async Task<IEnumerable<EditUserShiftTransferModel>> GetUserShiftsPerPeriod(Guid userId, AppDateOnly date)
+        public async Task<IEnumerable<ShiftsTransferModel>> GetUserShiftsPerPeriod(Guid userId, AppDateOnly date)
         {
             InstantConstants baseTime = new InstantConstants();
 
             DateTime startDate = baseTime.referenceDateTime.AddYears(date.DateOnly.Year - 1).AddMonths(date.DateOnly.Month - 1);
 
-            //date = date.AddMonths(1);
             DateTime endDate = baseTime.referenceDateTime.AddYears(date.DateOnly.Year - 1).AddMonths(date.DateOnly.Month);
 
-            var result = await this.repo.AllReadonly<ChangedSchedule>()
+            var userShiftsPerPeriod = await this.repo.AllReadonly<ChangedSchedule>()
                 .Where(cs => cs.ApplicationUserId == userId && (cs.Date >= startDate && cs.Date < endDate))
                 .Select(cs => new EditUserShiftTransferModel()
                 {
@@ -127,7 +126,36 @@
                 })
                 .ToListAsync();
 
-            return result;
+            //DateOnly day = new DateOnly(dat.DateOnly.Year, dat.DateOnly.Month, 1);
+            //DateOnly endDate = new DateOnly(dat.DateOnly.Year, dat.DateOnly.Month + 1, 1);
+
+
+
+            List<ShiftsTransferModel> userShifts = new List<ShiftsTransferModel>();
+
+            while (startDate < endDate)
+            {
+                var userShift = userShiftsPerPeriod.FirstOrDefault(s => s.Date.Year == startDate.Year &&
+                    s.Date.Month == startDate.Month &&
+                    s.Date.Day == startDate.Day);
+
+                ShiftsTransferModel shift = new ShiftsTransferModel()
+                {
+                    Date = DateOnly.FromDateTime(startDate)
+                };
+
+                if (!(userShift is null))
+                {
+                    shift.ShiftName = userShift.ShiftName;
+                    shift.ShiftId = userShift.ShiftId;
+                }
+
+                userShifts.Add(shift);
+
+                startDate = startDate.AddDays(1);
+            }
+
+            return userShifts;
         }
     }
 }

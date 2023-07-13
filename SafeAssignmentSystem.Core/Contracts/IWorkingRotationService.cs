@@ -11,6 +11,6 @@
         public Task EditShiftAsync(ShiftTransferModel transfer);
         public Task<IEnumerable<ShiftTransferModel>> GetAllShiftAsync();
         public Task<ShiftTransferModel> GetShiftByIdAsync(Guid id);
-        public Task<IEnumerable<EditUserShiftTransferModel>> GetUserShiftsPerPeriod(Guid userId, AppDateOnly date);
+        public Task<IEnumerable<ShiftsTransferModel>> GetUserShiftsPerPeriod(Guid userId, AppDateOnly date);
     }
 }
