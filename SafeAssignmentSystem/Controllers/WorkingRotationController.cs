@@ -6,6 +6,7 @@
     using SafeAssignmentSystem.Common.Overrides;
     using SafeAssignmentSystem.Controllers.AbstractControlers;
     using SafeAssignmentSystem.Core.Contracts;
+    using SafeAssignmentSystem.Core.Models.StatusModels;
     using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.Models.CommonViewModels;
@@ -44,7 +45,7 @@
                 return this.View(model);
             }
 
-            bool successTimeConvert = TimeOnly.TryParseExact(model.StartTime, "HH:mm", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out TimeOnly startTime);
+            bool successTimeConvert = TimeOnly.TryParseExact(model.StartTime, Time_Format, CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out TimeOnly startTime);
 
             if (!successTimeConvert)
             {
@@ -53,7 +54,7 @@
                 return View(model);
             }
 
-            successTimeConvert = TimeOnly.TryParseExact(model.EndTime, "HH:mm", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out TimeOnly endTime);
+            successTimeConvert = TimeOnly.TryParseExact(model.EndTime, Time_Format, CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out TimeOnly endTime);
 
             if (!successTimeConvert)
             {
@@ -100,8 +101,8 @@
                 {
                     Id = ws.Id,
                     ShiftName = ws.ShiftName,
-                    EndTime = ws.End.ToString("HH:mm"),
-                    StartTime = ws.Start.ToString("HH:mm")
+                    EndTime = ws.End.ToString(Time_Format),
+                    StartTime = ws.Start.ToString(Time_Format)
                 })
                 .OrderBy(ws => ws.ShiftName)
                 .ToList();
@@ -140,7 +141,7 @@
                 return this.View(model);
             }
 
-            bool successTimeConvert = TimeOnly.TryParseExact(model.StartTime, "HH:mm", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out TimeOnly startTime);
+            bool successTimeConvert = TimeOnly.TryParseExact(model.StartTime, Time_Format, CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out TimeOnly startTime);
 
             if (!successTimeConvert)
             {
@@ -149,7 +150,7 @@
                 return View(model);
             }
 
-            successTimeConvert = TimeOnly.TryParseExact(model.EndTime, "HH:mm", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out TimeOnly endTime);
+            successTimeConvert = TimeOnly.TryParseExact(model.EndTime, Time_Format, CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out TimeOnly endTime);
 
             if (!successTimeConvert)
             {
@@ -192,11 +193,11 @@
                 return this.RedirectToAction("Index", "Home");
             }
 
-            DateOnly.TryParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out DateOnly datModel);
+            DateOnly.TryParseExact(date, Date_Format, CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out DateOnly datModel);
 
             AppDateOnly dat = new AppDateOnly(datModel);
 
-            var userShiftsPerPeriod = await this.workingRotationService.GetUserShiftsPerPeriod(user.Id, dat);
+            var userShiftsPerPeriod = await this.workingRotationService.GetUserShiftsPerPeriodAsync(user.Id, dat);
 
             var shiftsList = await this.workingRotationService.GetAllShiftAsync();
 
@@ -224,7 +225,7 @@
                 {
                     ShiftName = x.ShiftName,
                     ShiftId = x.ShiftId,
-                    Date = x.Date.ToString()
+                    Date = x.Date.ToString(Date_Display_Format)
                 }).ToList(),
                 ShiftsNames = shifts.Select(x => new KeyValuePairViewModel(x.ShiftId, x.ShiftName)).ToList()
             };
@@ -237,10 +238,31 @@
         {
             if (!ModelState.IsValid)
             {
+				this.TempData[Error_Message] = Shift_Roptatin_Edit_Fail;
+				ModelState.AddModelError(string.Empty, Shift_Roptatin_Edit_Fail);
 
-            }
+				return this.RedirectToAction("Index", "Home");
+			}
 
-            return this.RedirectToAction("Index", "Home");
+            var user = await this.userManager.FindByNameAsync(model.UserName);
+
+            DateOnly period = DateOnly.ParseExact(model.UserShifts[0].Date, Date_Display_Format, CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None);
+
+			var transfer = model.UserShifts
+                .Where(us => us.ShiftId != Guid.Empty)
+                .Select(us => new ShiftsTransferModel()
+                {
+                    Date = DateOnly.ParseExact(us.Date, Date_Display_Format, CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None),
+                    ShiftId = us.ShiftId
+                })
+                .ToList();
+
+            StatusModel status = await this.workingRotationService.ModifyNewShiftsRotationAsync(user.Id, period, transfer);
+
+			this.TempData[Success_Message] = status.Description;
+			ModelState.AddModelError(string.Empty, status.Description);
+
+			return this.RedirectToAction("Index", "Home");
         }
     }
 }

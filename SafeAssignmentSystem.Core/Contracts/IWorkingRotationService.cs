@@ -1,9 +1,11 @@
 ﻿namespace SafeAssignmentSystem.Core.Contracts
 {
     using SafeAssignmentSystem.Common.Overrides;
-    using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
+	using SafeAssignmentSystem.Core.Models.StatusModels;
+	using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
     using System;
-    using System.Threading.Tasks;
+	using System.Collections.Generic;
+	using System.Threading.Tasks;
 
     public interface IWorkingRotationService
     {
@@ -11,6 +13,7 @@
         public Task EditShiftAsync(ShiftTransferModel transfer);
         public Task<IEnumerable<ShiftTransferModel>> GetAllShiftAsync();
         public Task<ShiftTransferModel> GetShiftByIdAsync(Guid id);
-        public Task<IList<ShiftsTransferModel>> GetUserShiftsPerPeriod(Guid userId, AppDateOnly date);
-    }
+        public Task<IList<ShiftsTransferModel>> GetUserShiftsPerPeriodAsync(Guid userId, AppDateOnly date);
+		Task<StatusModel> ModifyNewShiftsRotationAsync(Guid id, DateOnly period, List<ShiftsTransferModel> transfer);
+	}
 }

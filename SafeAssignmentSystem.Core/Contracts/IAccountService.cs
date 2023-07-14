@@ -9,7 +9,7 @@
     {
         public Task<IEnumerable<UserTransferModel>> GetAllUsers(string currentUserName);
         public Task<IEnumerable<UserTransferModel>> GetAllUsersWhithRole(string currentUserName);
-        public Task<StatusUserModel> LoginPermissionAsync(UserTransferModel user);
-        public Task<StatusUserModel> RegisterUserAsync(RegisterUserTransferModel model);
+        public Task<StatusModel> LoginPermissionAsync(UserTransferModel user);
+        public Task<StatusModel> RegisterUserAsync(RegisterUserTransferModel model);
     }
 }

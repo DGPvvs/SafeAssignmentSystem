@@ -1,156 +1,200 @@
 ﻿namespace SafeAssignmentSystem.Core.Service
 {
-    using Microsoft.EntityFrameworkCore;
-    using SafeAssignmentSystem.Common.Exeptions;
-    using SafeAssignmentSystem.Common.Notification;
-    using SafeAssignmentSystem.Common.Overrides;
-    using SafeAssignmentSystem.Core.Contracts;
-    using SafeAssignmentSystem.Core.Data;
-    using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
-    using SafeAssignmentSystem.DataBase.Data.Common;
-    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
+	using Microsoft.EntityFrameworkCore;
+	using SafeAssignmentSystem.Common.Exeptions;
+	using SafeAssignmentSystem.Common.Notification;
+	using SafeAssignmentSystem.Common.Overrides;
+	using SafeAssignmentSystem.Core.Contracts;
+	using SafeAssignmentSystem.Core.Data;
+	using SafeAssignmentSystem.Core.Models.StatusModels;
+	using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
+	using SafeAssignmentSystem.DataBase.Data.Common;
+	using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
+	using System;
+	using System.Collections.Generic;
+	using System.Threading.Tasks;
 
-    public class WorkingRotationService : IWorkingRotationService
-    {
-        private readonly SafeAssignmentDbContext context;
-        private readonly IRepository repo;
+	using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
 
-        public WorkingRotationService(
-            SafeAssignmentDbContext context,
-            IRepository repo)
-        {
-            this.context = context;
-            this.repo = repo;
-        }
+	public class WorkingRotationService : IWorkingRotationService
+	{
+		private readonly SafeAssignmentDbContext context;
+		private readonly IRepository repo;
 
-        public async Task AddShiftAsync(ShiftTransferModel transfer)
-        {
-            var duplicate = await this.repo
-                .AllReadonly<WorkingShift>(sh => sh.ShiftName == transfer.ShiftName)
-                .FirstOrDefaultAsync();
+		public WorkingRotationService(
+			SafeAssignmentDbContext context,
+			IRepository repo)
+		{
+			this.context = context;
+			this.repo = repo;
+		}
 
-            if (!(duplicate is null))
-            {
-                throw new IdentityЕxception();
-            }
+		public async Task AddShiftAsync(ShiftTransferModel transfer)
+		{
+			var duplicate = await this.repo
+				.AllReadonly<WorkingShift>(sh => sh.ShiftName == transfer.ShiftName)
+				.FirstOrDefaultAsync();
 
-            var startTime = new DateTime(1, 1, 1) + transfer.Start.ToTimeSpan();
-            var endTime = new DateTime(1, 1, 1) + transfer.End.ToTimeSpan();
+			if (!(duplicate is null))
+			{
+				throw new IdentityЕxception();
+			}
 
-            if (transfer.Start > transfer.End)
-            {                
-                endTime = new DateTime(1, 1, 2) + transfer.End.ToTimeSpan();
-            }
+			var startTime = new DateTime(1, 1, 1) + transfer.Start.ToTimeSpan();
+			var endTime = new DateTime(1, 1, 1) + transfer.End.ToTimeSpan();
 
-            var entity = new WorkingShift()
-            {
-                ShiftName = transfer.ShiftName,
-                StartTime = startTime,
-                EndTime = endTime
-            };
+			if (transfer.Start > transfer.End)
+			{
+				endTime = new DateTime(1, 1, 2) + transfer.End.ToTimeSpan();
+			}
 
-            await this.repo.AddAsync(entity);
-            await this.repo.SaveChangesAsync();
-        }
+			var entity = new WorkingShift()
+			{
+				ShiftName = transfer.ShiftName,
+				StartTime = startTime,
+				EndTime = endTime
+			};
 
-        public async Task EditShiftAsync(ShiftTransferModel transfer)
-        {
-            var entity = await this.repo.All<WorkingShift>(ws => ws.Id == transfer.Id).FirstOrDefaultAsync();
+			await this.repo.AddAsync(entity);
+			await this.repo.SaveChangesAsync();
+		}
 
-            if (entity is null)
-            {
-                throw new NullReferenceException();
-            }
+		public async Task EditShiftAsync(ShiftTransferModel transfer)
+		{
+			var entity = await this.repo.All<WorkingShift>(ws => ws.Id == transfer.Id).FirstOrDefaultAsync();
 
-            var startTime = new DateTime(1, 1, 1) + transfer.Start.ToTimeSpan();
-            var endTime = new DateTime(1, 1, 1) + transfer.End.ToTimeSpan();
+			if (entity is null)
+			{
+				throw new NullReferenceException();
+			}
 
-            if (transfer.Start > transfer.End)
-            {
-                endTime = new DateTime(1, 1, 2) + transfer.End.ToTimeSpan();
-            }
+			var startTime = new DateTime(1, 1, 1) + transfer.Start.ToTimeSpan();
+			var endTime = new DateTime(1, 1, 1) + transfer.End.ToTimeSpan();
 
-            entity.StartTime = startTime;
-            entity.EndTime = endTime;
+			if (transfer.Start > transfer.End)
+			{
+				endTime = new DateTime(1, 1, 2) + transfer.End.ToTimeSpan();
+			}
 
-            await this.repo.SaveChangesAsync();
-        }
+			entity.StartTime = startTime;
+			entity.EndTime = endTime;
 
-        public async Task<IEnumerable<ShiftTransferModel>> GetAllShiftAsync()
-        {
-            var entity = await this.repo.AllReadonly<WorkingShift>().ToListAsync();
+			await this.repo.SaveChangesAsync();
+		}
 
-            var result = entity.Select(ws => new ShiftTransferModel()
-            {
-                Id = ws.Id,
-                ShiftName = ws.ShiftName,
-                Start = new TimeOnly(ws.StartTime.Hour, ws.StartTime.Minute),
-                End = new TimeOnly(ws.EndTime.Hour, ws.EndTime.Minute)
-            }).ToList();
+		public async Task<IEnumerable<ShiftTransferModel>> GetAllShiftAsync()
+		{
+			var entity = await this.repo.AllReadonly<WorkingShift>().ToListAsync();
 
-            return result;
-        }
+			var result = entity.Select(ws => new ShiftTransferModel()
+			{
+				Id = ws.Id,
+				ShiftName = ws.ShiftName,
+				Start = new TimeOnly(ws.StartTime.Hour, ws.StartTime.Minute),
+				End = new TimeOnly(ws.EndTime.Hour, ws.EndTime.Minute)
+			}).ToList();
 
-        public async Task<ShiftTransferModel> GetShiftByIdAsync(Guid id)
-        {
-            var entity = await this.repo.AllReadonly<WorkingShift>(ws => ws.Id == id).FirstOrDefaultAsync();
+			return result;
+		}
 
-            return new ShiftTransferModel()
-            {
-                Id = entity.Id,
-                ShiftName = entity.ShiftName,
-                Start = new TimeOnly(entity.StartTime.Hour, entity.StartTime.Minute),
-                End = new TimeOnly(entity.EndTime.Hour, entity.EndTime.Minute)
-            };
-        }
+		public async Task<ShiftTransferModel> GetShiftByIdAsync(Guid id)
+		{
+			var entity = await this.repo.AllReadonly<WorkingShift>(ws => ws.Id == id).FirstOrDefaultAsync();
 
-        public async Task<IList<ShiftsTransferModel>> GetUserShiftsPerPeriod(Guid userId, AppDateOnly date)
-        {
-            InstantConstants baseTime = new InstantConstants();
+			return new ShiftTransferModel()
+			{
+				Id = entity.Id,
+				ShiftName = entity.ShiftName,
+				Start = new TimeOnly(entity.StartTime.Hour, entity.StartTime.Minute),
+				End = new TimeOnly(entity.EndTime.Hour, entity.EndTime.Minute)
+			};
+		}
 
-            DateTime startDate = baseTime.referenceDateTime.AddYears(date.DateOnly.Year - 1).AddMonths(date.DateOnly.Month - 1);
+		public async Task<IList<ShiftsTransferModel>> GetUserShiftsPerPeriodAsync(Guid userId, AppDateOnly date)
+		{
+			InstantConstants baseTime = new InstantConstants();
 
-            DateTime endDate = baseTime.referenceDateTime.AddYears(date.DateOnly.Year - 1).AddMonths(date.DateOnly.Month);
+			DateTime startDate = baseTime.referenceDateTime.AddYears(date.DateOnly.Year - 1).AddMonths(date.DateOnly.Month - 1);
 
-            var userShiftsPerPeriod = await this.repo.AllReadonly<ChangedSchedule>()
-                .Where(cs => cs.ApplicationUserId == userId && (cs.Date >= startDate && cs.Date < endDate))
-                .Select(cs => new EditUserShiftTransferModel()
-                {
-                    UserId = cs.ApplicationUserId,
-                    Date = cs.Date,
-                    ShiftName = cs.Shift.ShiftName,
-                    ShiftId = cs.ShiftId
-                })
-                .ToListAsync();
+			DateTime endDate = baseTime.referenceDateTime.AddYears(date.DateOnly.Year - 1).AddMonths(date.DateOnly.Month);
 
-            List<ShiftsTransferModel> userShifts = new List<ShiftsTransferModel>();
+			var userShiftsPerPeriod = await this.repo.AllReadonly<ChangedSchedule>()
+				.Where(cs => cs.ApplicationUserId == userId && (cs.Date >= startDate && cs.Date < endDate))
+				.Select(cs => new EditUserShiftTransferModel()
+				{
+					UserId = cs.ApplicationUserId,
+					Date = cs.Date,
+					ShiftName = cs.Shift.ShiftName,
+					ShiftId = cs.ShiftId
+				})
+				.ToListAsync();
 
-            while (startDate < endDate)
-            {
-                var userShift = userShiftsPerPeriod.FirstOrDefault(s => s.Date.Year == startDate.Year &&
-                    s.Date.Month == startDate.Month &&
-                    s.Date.Day == startDate.Day);
+			List<ShiftsTransferModel> userShifts = new List<ShiftsTransferModel>();
 
-                ShiftsTransferModel shift = new ShiftsTransferModel()
-                {
-                    Date = DateOnly.FromDateTime(startDate)
-                };
+			while (startDate < endDate)
+			{
+				var userShift = userShiftsPerPeriod.FirstOrDefault(s => s.Date.Year == startDate.Year &&
+					s.Date.Month == startDate.Month &&
+					s.Date.Day == startDate.Day);
 
-                if (!(userShift is null))
-                {
-                    shift.ShiftName = userShift.ShiftName;
-                    shift.ShiftId = userShift.ShiftId;
-                }
+				ShiftsTransferModel shift = new ShiftsTransferModel()
+				{
+					Date = DateOnly.FromDateTime(startDate)
+				};
 
-                userShifts.Add(shift);
+				if (!(userShift is null))
+				{
+					shift.ShiftName = userShift.ShiftName;
+					shift.ShiftId = userShift.ShiftId;
+				}
 
-                startDate = startDate.AddDays(1);
-            }
+				userShifts.Add(shift);
 
-            return userShifts;
-        }
-    }
+				startDate = startDate.AddDays(1);
+			}
+
+			return userShifts;
+		}
+
+		public async Task<StatusModel> ModifyNewShiftsRotationAsync(Guid id, DateOnly period, List<ShiftsTransferModel> transfer)
+		{
+			var result = new StatusModel()
+			{
+				Success = false
+			};
+
+			try
+			{
+				var currentShifts = await this.repo.AllReadonly<ChangedSchedule>()
+				.Where(cs => cs.ApplicationUserId == id &&
+					cs.Date.Year == period.Year &&
+					cs.Date.Month == period.Month)
+				.ToListAsync();
+
+				var adds = transfer
+					.Select(st => new ChangedSchedule()
+					{
+						ApplicationUserId = id,
+						ShiftId = st.ShiftId,
+						Date = new DateTime(st.Date.Year, st.Date.Month, st.Date.Day)
+					})
+					.ToList();
+
+				this.repo.DeleteRange<ChangedSchedule>(currentShifts);
+				await this.repo.AddRangeAsync<ChangedSchedule>(adds);
+				await this.repo.SaveChangesAsync();
+			}
+			catch (Exception)
+			{
+				result.Description = Shift_Roptatin_Edit_Fail;
+
+				return result;
+			}
+
+			result.Success = true;
+			result.Description = Shift_Roptatin_Edit_Success;
+
+			return result;
+		}
+	}
 }

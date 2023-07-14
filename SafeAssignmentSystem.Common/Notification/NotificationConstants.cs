@@ -9,6 +9,10 @@
 
 		public const string Free_Shift = "Почивка";
 
+        public const string Time_Format = "HH:mm";
+		public const string Date_Format = "yyyy-MM-dd";
+		public const string Date_Display_Format = "dd-MM-yyyy";
+
 		public const string User_Not_Found = "Потребителят не е намерен!";
         public const string User_Not_Permision_For_Work = "Потребителят не е на смяна!";
         public const string User_Success = "Потребителят има разрешение!";
@@ -43,5 +47,8 @@
         public const string Shift_Add_Fail = "Не успяхте да добавихте нова смяна!";
         public const string Shift_Find_Fail = "Не беше намерена такава смяна!";
         public const string Shift_Edit_Success = "Успешно редактирахте смяната!";
-    }
+
+		public const string Shift_Roptatin_Edit_Success = "Успешно редактирахте сменният график!";
+		public const string Shift_Roptatin_Edit_Fail = "Не успяхте да редактирате сменния график!";
+	}
 }

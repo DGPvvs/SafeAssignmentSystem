@@ -72,7 +72,7 @@
                 UserName = model.UserName
             };
 
-            StatusUserModel userStatus = await this.accountService.LoginPermissionAsync(userPermis);            
+            StatusModel userStatus = await this.accountService.LoginPermissionAsync(userPermis);            
 
             if (userStatus.Success)
             {
@@ -143,7 +143,7 @@
                     .ToList()
             };
 
-            StatusUserModel? userStatus = userStatus = await this.accountService.RegisterUserAsync(transfer);
+            StatusModel? userStatus = userStatus = await this.accountService.RegisterUserAsync(transfer);
 
             if (!userStatus.Success)
             {

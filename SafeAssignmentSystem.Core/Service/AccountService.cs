@@ -76,10 +76,10 @@
             return result;
         }
 
-        public async Task<StatusUserModel> LoginPermissionAsync(UserTransferModel user)
+        public async Task<StatusModel> LoginPermissionAsync(UserTransferModel user)
         {
 
-            StatusUserModel result = new StatusUserModel()
+            StatusModel result = new StatusModel()
             {
                 Success = false,
                 Description = User_Not_Permision_For_Work
@@ -140,9 +140,9 @@
             return result;
         }
 
-        public async Task<StatusUserModel> RegisterUserAsync(RegisterUserTransferModel model)
+        public async Task<StatusModel> RegisterUserAsync(RegisterUserTransferModel model)
         {
-            StatusUserModel result = new StatusUserModel()
+            StatusModel result = new StatusModel()
             {
                 Success = false,
                 Description = User_Registration_Fail

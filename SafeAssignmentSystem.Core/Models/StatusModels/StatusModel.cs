@@ -1,6 +1,6 @@
 ﻿namespace SafeAssignmentSystem.Core.Models.StatusModels
 {
-    public class StatusUserModel
+    public class StatusModel
     {
         public bool Success { get; set; }
 

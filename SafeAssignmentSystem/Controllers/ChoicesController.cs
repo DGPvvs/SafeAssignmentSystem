@@ -148,7 +148,7 @@
 
 
 
-            bool successDateConvert = DateOnly.TryParseExact(model.Date, "yyyy-MM-dd", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out DateOnly date);
+            bool successDateConvert = DateOnly.TryParseExact(model.Date, Date_Format, CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out DateOnly date);
 
             if (!successDateConvert)
             {
