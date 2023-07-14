@@ -8,7 +8,7 @@
     {
         public CreateShiftScheduleViewModel()
         {
-            this.UserShifts = new List<ShiftsTransferModel>();
+            this.UserShifts = new List<ShiftsViewModel>();
             this.ShiftsNames = new List<KeyValuePairViewModel>();
         }
 
@@ -25,9 +25,9 @@
         public int Year { get; set; }
 
         [Required]
-        public List<ShiftsTransferModel> UserShifts { get; set; }
+        public IList<ShiftsViewModel> UserShifts { get; set; }
 
         [Required]
-        public List<KeyValuePairViewModel> ShiftsNames { get; set; }
+        public IList<KeyValuePairViewModel> ShiftsNames { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 ﻿namespace SafeAssignmentSystem.Models.WorkingRotationViewModels
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class ShiftsViewModel
     {
         public ShiftsViewModel()
@@ -8,10 +10,12 @@
             this.ShiftName = string.Empty;
         }
 
-        public DateOnly Date { get; set; }
+        [Required]
+        public string Date { get; set; } = null!;
 
         public string ShiftName { get; set; }
 
+        [Required]
         public Guid ShiftId { get; set; }
     }
 }

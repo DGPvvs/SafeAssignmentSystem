@@ -211,7 +211,7 @@
 
             shifts.Insert(0, new ShiftsViewModel()
             {
-                ShiftName = string.Empty
+                ShiftName = Free_Shift
             });
 
             CreateShiftScheduleViewModel model = new CreateShiftScheduleViewModel()
@@ -220,7 +220,12 @@
                 UserFullName = $"{user.FirstName} {user.LastName}",
                 Month = dat.ToString(),
                 Year = dat.DateOnly.Year,
-                UserShifts = userShiftsPerPeriod.ToList(),
+                UserShifts = userShiftsPerPeriod.Select(x => new ShiftsViewModel()
+                {
+                    ShiftName = x.ShiftName,
+                    ShiftId = x.ShiftId,
+                    Date = x.Date.ToString()
+                }).ToList(),
                 ShiftsNames = shifts.Select(x => new KeyValuePairViewModel(x.ShiftId, x.ShiftName)).ToList()
             };
 
@@ -228,7 +233,7 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditChangedSchedule(CreateShiftScheduleViewModel model)
+        public async Task<IActionResult> EditChangedSchedule(ShiftScheduleViewModel model)
         {
             if (!ModelState.IsValid)
             {

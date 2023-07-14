@@ -107,7 +107,7 @@
             };
         }
 
-        public async Task<IEnumerable<ShiftsTransferModel>> GetUserShiftsPerPeriod(Guid userId, AppDateOnly date)
+        public async Task<IList<ShiftsTransferModel>> GetUserShiftsPerPeriod(Guid userId, AppDateOnly date)
         {
             InstantConstants baseTime = new InstantConstants();
 
@@ -125,11 +125,6 @@
                     ShiftId = cs.ShiftId
                 })
                 .ToListAsync();
-
-            //DateOnly day = new DateOnly(dat.DateOnly.Year, dat.DateOnly.Month, 1);
-            //DateOnly endDate = new DateOnly(dat.DateOnly.Year, dat.DateOnly.Month + 1, 1);
-
-
 
             List<ShiftsTransferModel> userShifts = new List<ShiftsTransferModel>();
 
