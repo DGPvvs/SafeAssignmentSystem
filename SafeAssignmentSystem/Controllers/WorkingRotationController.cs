@@ -1,5 +1,6 @@
 ﻿namespace SafeAssignmentSystem.Controllers
 {
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using SafeAssignmentSystem.Common.Exeptions;
@@ -263,6 +264,24 @@
 			ModelState.AddModelError(string.Empty, status.Description);
 
 			return this.RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet] //("LoadFromFile")
+        public IActionResult LoadFromFile()
+        {            
+            return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LoadFromFile(IFormFile file)
+        {
+            var filePath = Path.GetTempFileName(); 
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return Ok(new { filePath });
         }
     }
 }

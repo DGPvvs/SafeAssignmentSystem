@@ -8,22 +8,29 @@
 <div class="bs-example">
     <div class="row">
         <div class="col-md-3">
-            <!-- Dropright menu -->
+            <!-- Менажиране на потребители -->
+
             <div class="btn-group dropend">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Менажиране на потребители</button>
                 <ul class="dropdown-menu multi-level" >
                     <li class="nav-item dropdown">
+
+                        <!-- Регистрация на нов потребител -->
                         <a class="nav-link btn-success text-white dropdown-toggle"                            
                             asp-controller="Account"
                             asp-action="Register">
                             Регистрация на нов потребител
                         </a>
+
+                        <!-- Редакция на потребителски акаунт -->
                         <a class="nav-link btn-info text-dark dropdown-toggle"
                             asp-controller="Choices"
                             asp-action="ChoisAccount"
                             asp-route-data="Account EditAccount">
                             Редакция на потребителски акаунт
                         </a>
+
+                        <!-- Промяна на потребителска парола -->
                         <a class="nav-link btn-primary text-white dropdown-toggle"
                             asp-controller="Choices"
                             asp-action="ChoisAccount"
@@ -38,31 +45,42 @@
 
     <div class="row">
         <div class="col-md-3">
-            <!-- Dropright menu -->
+
+            <!-- Менажиране на инсталации и оборудване -->
             <div class="btn-group dropend">
                 <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown">Менажиране на инсталации и оборудване</button>                
                 <ul class="dropdown-menu multi-level">
                     <li class="nav-item dropdown">                        
+
+                        <!-- Създаване на комплекс -->
                         <a class="nav-link btn-warning text-dark dropdown-toggle"                            
                             asp-controller="Plants"
                             asp-action="ComplexCreate">
                             Създаване на комплекс
                         </a>
+
+                        <!-- Редактиране на комплекс -->
                         <a class="nav-link btn-warning text-dark dropdown-toggle"
                             asp-controller="Plants"
                             asp-action="AllComplex">
                             Редактиране на комплекс
                         </a>
+
+                        <!-- Възстановяване на изтрит комплекс -->
                         <a class="nav-link btn-warning text-dark dropdown-toggle"
                             asp-controller="Plants"
                             asp-action="AllDeletedComplex">
                             Възстановяване на изтрит комплекс
                         </a>
+
+                        <!-- Създаване на инсталация -->
                         <a class="nav-link btn-info text-dark dropdown-toggle"
                             asp-controller="Plants"
                             asp-action="PlantCreate">
                             Създаване на инсталация
                         </a>
+
+                        <!-- Редактиране на инсталация -->
                         <a class="nav-link btn-info text-dark dropdown-toggle"
                             asp-controller="Plants"
                             asp-action="AllPlants">
@@ -76,11 +94,15 @@
                             aria-expanded="false">
                             Изтриване на инсталация
                         </a>*@
+
+                        <!-- Създаване на технологична позиция -->
                         <a class="nav-link btn-primary text-white dropdown-toggle"
                             asp-controller="Plants"
                             asp-action="TechnologicalPositionCreate">
                             Създаване на технологична позиция
                         </a>
+
+                        <!-- Редактиране на технологична позиция -->
                         <a class="nav-link btn-primary text-white dropdown-toggle"
                             asp-controller="Choices"
                             asp-action="ChoisPlant"
@@ -102,28 +124,36 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <!-- Dropright menu -->
+
+            <!-- Менажиране на сменни графици -->
             <div class="btn-group dropend">
                 <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown">Менажиране на сменни графици</button>
                 <ul class="dropdown-menu multi-level">
                     <li class="nav-item dropdown">
+
+                        <!-- Редактиране на сменният график на потребител -->
                         <a class="nav-link btn-info text-dark dropdown-toggle"
                             asp-controller="Choices"
                             asp-action="ChoisUserAndMonth"
                             asp-route-data="WorkingRotation EditChangedSchedule">
                             Редактиране на сменният график на потребител
                         </a>
+
+                        <!-- Зареждане на сменен график от файл -->
                         <a class="nav-link btn-info text-dark dropdown-toggle"
-                            asp-controller="Choices"
-                            asp-action="ChoisPlant"
-                            asp-route-data="WorkingRotationController EditChangedSchedule">
+                            asp-controller="WorkingRotation"
+                            asp-action="LoadFromFile">
                             Зареждане на сменен график от файл
                         </a>
+
+                        <!-- Създаване на смяна -->
                         <a class="nav-link btn-success text-white dropdown-toggle"
                             asp-controller="WorkingRotation"
                             asp-action="ShiftCreate">
                             Създаване на смяна
                         </a>
+
+                        <!-- Редактиране на смяна -->
                         <a class="nav-link btn-success text-white dropdown-toggle"
                             asp-controller="WorkingRotation"
                             asp-action="AllShift">

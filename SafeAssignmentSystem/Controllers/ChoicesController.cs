@@ -8,11 +8,11 @@
     using SafeAssignmentSystem.Models.FactoriesViewModels;
     using System;
     using System.Data;
+    using System.Globalization;
 
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
     using static SafeAssignmentSystem.Common.Notification.RoleConstants;
-    using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
-    using System.Globalization;
+    using static SafeAssignmentSystem.Common.Notification.NotificationConstants;    
 
     public class ChoicesController : BaseChoicesPlantsController
     {
