@@ -3,6 +3,7 @@
     using Microsoft.AspNetCore.Http;
     using System.Collections.Generic;
     using SafeAssignmentSystem.Core.Models.TransferModels;
+    using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
 
     public interface IReader
     {

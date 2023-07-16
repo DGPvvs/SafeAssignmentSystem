@@ -1,37 +1,46 @@
 ﻿namespace SafeAssignmentSystem.Core.Service
 {
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.EntityFrameworkCore;
+	using Microsoft.AspNetCore.Http;
+	using Microsoft.AspNetCore.Identity;
+	using Microsoft.EntityFrameworkCore;
 	using SafeAssignmentSystem.Common.Exeptions;
-	using SafeAssignmentSystem.Common.IO.Contracts;
 	using SafeAssignmentSystem.Common.Notification;
 	using SafeAssignmentSystem.Common.Overrides;
 	using SafeAssignmentSystem.Core.Contracts;
 	using SafeAssignmentSystem.Core.Data;
 	using SafeAssignmentSystem.Core.IO;
 	using SafeAssignmentSystem.Core.Models.StatusModels;
-	using SafeAssignmentSystem.Core.Models.TransferModels;
 	using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
 	using SafeAssignmentSystem.DataBase.Data.Common;
+	using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 	using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
 	using System;
 	using System.Collections.Generic;
+	using System.Security.Cryptography.Xml;
 	using System.Threading.Tasks;
 
+
 	using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
+
 
 	public class WorkingRotationService : IWorkingRotationService
 	{
 		private readonly SafeAssignmentDbContext context;
+		private readonly UserManager<ApplicationUser> userManager;
 		private readonly IRepository repo;
+		private readonly IAccountService accountService;
 
 
         public WorkingRotationService(
 			SafeAssignmentDbContext context,
-			IRepository repo)
+            UserManager<ApplicationUser> userManager,
+        IRepository repo,
+            IAccountService accountService)
 		{
 			this.context = context;
+			this.userManager = userManager;
 			this.repo = repo;
+			this.accountService = accountService;
 		}
 
 		public async Task AddShiftAsync(ShiftTransferModel transfer)
@@ -202,7 +211,7 @@
 			return result;
 		}
 
-        public async Task<StatusModel> SetWorkingRotation(IFormFile file)
+        public async Task<StatusModel> SetWorkingRotation(IFormFile file, string userName)
         {
             var result = new StatusModel()
             {
@@ -213,8 +222,53 @@
 
 			try
 			{
-				var loadingData = reader.ReadData(file, new List<ChangedScheduleTransferModel>());
-			}
+				var loadingData = reader.ReadData(file, new List<Models.TransferModels.ChangedScheduleTransferModel>());  
+
+                var operatorUsers = await this.userManager.GetUsersInRoleAsync(RoleConstants.Operator);
+                var electricianUsers = await this.userManager.GetUsersInRoleAsync(RoleConstants.Electrician);
+
+                var workingShifts = await this.GetAllShiftAsync();
+
+				foreach (var shiftGrafik in loadingData)
+				{
+					var user = operatorUsers.FirstOrDefault(u => u.UserWorkNumber == shiftGrafik.UseNumber);
+
+					if (user is null)
+					{
+						user = electricianUsers.FirstOrDefault(u => u.UserWorkNumber == shiftGrafik.UseNumber);
+                    }                    
+
+                    if (!(user is null))
+					{
+                        List<ShiftsTransferModel> schedules = new List<ShiftsTransferModel>();
+						var period = shiftGrafik.Date;
+
+                        for (int i = 0; i < shiftGrafik.MonthlyDistribution.Length; i++)
+						{
+                            var shiftForDay = shiftGrafik.MonthlyDistribution[i];
+
+							var shift = workingShifts.FirstOrDefault(ws => ws.ShiftName.ToUpper().Equals(shiftForDay.ToUpper()));
+
+                            if (!(shift is null))
+							{
+								var date = new DateOnly(shiftGrafik.Date.Year, shiftGrafik.Date.Month, shiftGrafik.Date.Day + i);
+                                ShiftsTransferModel newChangedSchedule = new ShiftsTransferModel()
+								{
+									ShiftId = shift.Id,
+									Date = date
+								};
+
+								schedules.Add(newChangedSchedule);
+							}
+						}
+
+						result = await this.ModifyNewShiftsRotationAsync(user.Id, period, schedules);
+                    }					
+                }
+
+				result.Success = true;
+				result.Description = Shift_Roptatin_Edit_Success;
+            }
 			catch (Exception)
 			{
 				result.Description = Shift_Roptatin_Edit_Fail;
@@ -223,4 +277,31 @@
 			return result;
         }
     }
+
+    //private IEnumerable<ChangedSchedule> CreateChangedSchedule()
+    //{
+
+
+    //    
+
+    //    foreach (var schedule in schedulesModel)
+    //    {
+            
+
+    //        if (!(user is null))
+    //        {
+    //            for (int i = 0; i < schedule.MonthlyDistribution.Length; i++)
+    //            {
+    //                
+    //                var shift = workingShifts
+    //                    .FirstOrDefault(ws => ws.ShiftName.ToUpper().Equals(shiftForDay.ToUpper()));
+
+    //                
+    //            }
+    //        }
+    //    }
+
+    //    return schedules;
+    //}
+
 }

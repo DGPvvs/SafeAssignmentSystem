@@ -4,17 +4,15 @@
     using OfficeOpenXml;
     using SafeAssignmentSystem.Common.IO.Contracts;
     using SafeAssignmentSystem.Core.Models.TransferModels;
+    using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class LoadWorkingRotationFromFile : IReader
     {
         public IEnumerable<ChangedScheduleTransferModel> ReadData(IFormFile file, IList<ChangedScheduleTransferModel> model)
         {
-            var filePath = Path.GetTempFileName();
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             try
             {

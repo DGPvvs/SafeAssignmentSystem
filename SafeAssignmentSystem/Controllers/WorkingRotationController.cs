@@ -299,8 +299,10 @@
 
                 return this.View();
             }
+            
+            var user = await this.userManager.GetUserAsync(User);
 
-            StatusModel status = await this.workingRotationService.SetWorkingRotation(file);
+            StatusModel status = await this.workingRotationService.SetWorkingRotation(file, user.UserName);
 
             if (!status.Success)
             {

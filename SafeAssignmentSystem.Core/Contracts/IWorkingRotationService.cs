@@ -4,6 +4,7 @@
     using SafeAssignmentSystem.Common.Overrides;
 	using SafeAssignmentSystem.Core.Models.StatusModels;
 	using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using System;
 	using System.Collections.Generic;
 	using System.Threading.Tasks;
@@ -16,6 +17,6 @@
         public Task<ShiftTransferModel> GetShiftByIdAsync(Guid id);
         public Task<IList<ShiftsTransferModel>> GetUserShiftsPerPeriodAsync(Guid userId, AppDateOnly date);
 		public Task<StatusModel> ModifyNewShiftsRotationAsync(Guid id, DateOnly period, List<ShiftsTransferModel> transfer);
-        public Task<StatusModel> SetWorkingRotation(IFormFile file);
+        public Task<StatusModel> SetWorkingRotation(IFormFile file, string userName);
     }
 }
