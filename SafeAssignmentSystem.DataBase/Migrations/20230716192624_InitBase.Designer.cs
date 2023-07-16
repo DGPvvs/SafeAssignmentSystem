@@ -12,8 +12,8 @@ using SafeAssignmentSystem.Core.Data;
 namespace SafeAssignmentSystem.DataBase.Migrations
 {
     [DbContext(typeof(SafeAssignmentDbContext))]
-    [Migration("20230708061031_Init")]
-    partial class Init
+    [Migration("20230716192624_InitBase")]
+    partial class InitBase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -345,14 +345,6 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasComment("Id на потребител подал напрежение");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit")
-                        .HasComment("Състояние на наряда");
-
-                    b.Property<bool>("IsAppliedVoltage")
-                        .HasColumnType("bit")
-                        .HasComment("Състояние на технологичната позиция");
-
                     b.Property<string>("Number")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -370,6 +362,10 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.Property<Guid?>("PersonRequestedVoltageSupplyId")
                         .HasColumnType("uniqueidentifier")
                         .HasComment("Id на потребител поискал подаване на напрежение");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasComment("Статус на наряда");
 
                     b.Property<Guid>("TechnologicalPositionId")
                         .HasColumnType("uniqueidentifier")

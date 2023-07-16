@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SafeAssignmentSystem.DataBase.Migrations
 {
-    public partial class Init : Migration
+    public partial class InitBase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -288,7 +288,6 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Идентификационен ключ"),
                     Number = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false, comment: "Номер на наряд според вътрешнонарядната номерация"),
                     TechnologicalPositionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Id на технологична позиция"),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false, comment: "Състояние на наряда"),
                     OpeningDate = table.Column<DateTime>(type: "datetime2", nullable: false, comment: "Дата и час на откриване на наряда"),
                     PersonRequestedOpeningOrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Id на потребител, поискал откриване на наряда"),
                     ЕlectricianOpeningOrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: true, comment: "Id на потребител открил наряда"),
@@ -296,7 +295,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     ЕlectricianClosingOrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: true, comment: "Id на потребител закрил наряда"),
                     PersonRequestedVoltageSupplyId = table.Column<Guid>(type: "uniqueidentifier", nullable: true, comment: "Id на потребител поискал подаване на напрежение"),
                     ElectricianAppliedVoltageId = table.Column<Guid>(type: "uniqueidentifier", nullable: true, comment: "Id на потребител подал напрежение"),
-                    IsAppliedVoltage = table.Column<bool>(type: "bit", nullable: false, comment: "Състояние на технологичната позиция")
+                    Status = table.Column<int>(type: "int", nullable: false, comment: "Статус на наряда")
                 },
                 constraints: table =>
                 {

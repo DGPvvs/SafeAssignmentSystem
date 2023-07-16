@@ -8,6 +8,7 @@
 
     using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
+    using SafeAssignmentSystem.Common.Enums;
 
     /// <summary>
     /// Модел на нарядите
@@ -47,16 +48,7 @@
         /// </summary>
         [Comment("Кореспондиращо поле на технологична позиция")]
         [Required]
-        public virtual TechnologicalPosition TechnologicalPosition { get; set; } = null!;
-
-        /// <summary>
-        /// Състояние на наряда
-        /// true – наряда е открит
-        /// false – наряда не е открит или е закрит
-        /// </summary>
-        [Comment("Състояние на наряда")]
-        [Required]
-        public bool IsActive { get; set; }
+        public virtual TechnologicalPosition TechnologicalPosition { get; set; } = null!;        
 
         /// <summary>
         /// Дата и час на откриване на наряда
@@ -139,12 +131,10 @@
         public virtual ApplicationUser? ElectricianAppliedVoltage { get; set; }
 
         /// <summary>
-        /// Състояние на технологичната позиция
-        /// true – подадено напрежение
-        /// false – свалено напрежение
+        /// Поле указващо статуса на наряда
         /// </summary>
-        [Comment("Състояние на технологичната позиция")]
         [Required]
-        public bool IsAppliedVoltage { get; set; }
+        [Comment("Статус на наряда")]
+        public StatusFlagsEnum Status { get; set; }
     }
 }
