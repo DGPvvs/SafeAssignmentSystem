@@ -260,8 +260,16 @@
 
             StatusModel status = await this.workingRotationService.ModifyNewShiftsRotationAsync(user.Id, period, transfer);
 
-			this.TempData[Success_Message] = status.Description;
-			ModelState.AddModelError(string.Empty, status.Description);
+            if (!status.Success)
+            {
+                this.TempData[Error_Message] = status.Description;
+                ModelState.AddModelError(string.Empty, status.Description);
+            }
+            else
+            {
+                this.TempData[Success_Message] = status.Description;
+                ModelState.AddModelError(string.Empty, status.Description);
+            }			
 
 			return this.RedirectToAction("Index", "Home");
         }
@@ -275,13 +283,37 @@
         [HttpPost]
         public async Task<IActionResult> LoadFromFile(IFormFile file)
         {
-            var filePath = Path.GetTempFileName(); 
-            using (var stream = new FileStream(filePath, FileMode.Create))
+            if (file is null)
             {
-                await file.CopyToAsync(stream);
+                this.TempData[Error_Message] = File_Missing;
+                ModelState.AddModelError(string.Empty, File_Missing);
+
+                return this.View();
             }
 
-            return Ok(new { filePath });
+            var fileName = file.FileName;
+            if (!fileName.EndsWith("xlsx"))
+            {
+                this.TempData[Error_Message] = File_Wrong_Format;
+                ModelState.AddModelError(string.Empty, File_Wrong_Format);
+
+                return this.View();
+            }
+
+            StatusModel status = await this.workingRotationService.SetWorkingRotation(file);
+
+            if (!status.Success)
+            {
+                this.TempData[Error_Message] = Shift_Roptatin_Edit_Fail;
+                ModelState.AddModelError(string.Empty, Shift_Roptatin_Edit_Fail);
+            }
+            else
+            {
+                this.TempData[Success_Message] = status.Description;
+                ModelState.AddModelError(string.Empty, status.Description);
+            }            
+
+            return this.RedirectToAction("Index", "Home");
         }
     }
 }

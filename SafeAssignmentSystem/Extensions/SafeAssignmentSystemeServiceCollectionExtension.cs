@@ -1,8 +1,11 @@
 ﻿namespace Microsoft.Extensions.DependencyInjection
 {
+	using SafeAssignmentSystem.Common.IO.Contracts;
 	using SafeAssignmentSystem.Core.Contracts;
+	using SafeAssignmentSystem.Core.IO;
 	using SafeAssignmentSystem.Core.Service;
 	using SafeAssignmentSystem.DataBase.Data.Common;
+	using System.Data;
 
 	public static class SafeAssignmentSystemeServiceCollectionExtension
 	{

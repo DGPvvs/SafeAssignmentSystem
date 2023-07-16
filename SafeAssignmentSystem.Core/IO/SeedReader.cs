@@ -9,17 +9,10 @@
 
     internal class SeedReader : IReader
     {
-        private readonly IList<ChangedScheduleTransferModel> model;
-
-        public SeedReader(IList<ChangedScheduleTransferModel> model)
-        {
-            this.model = model;
-        }
-
-        public IEnumerable<ChangedScheduleTransferModel> Reader(IFormFile file)        
+        public IEnumerable<ChangedScheduleTransferModel> ReadData(IFormFile file, IList<ChangedScheduleTransferModel> model)
         {
             const string PathSeedFile = @"../../../../SafeAssignmentSystem.DataBase/bin/Debug/Debug/Seed.xlsx";
-            
+
             using (var stream = File.Open(PathSeedFile, FileMode.Open, FileAccess.Read))
             {
                 ExcelPackage package = new ExcelPackage();

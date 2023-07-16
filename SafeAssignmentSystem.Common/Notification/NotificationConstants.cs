@@ -50,5 +50,8 @@
 
 		public const string Shift_Roptatin_Edit_Success = "Успешно редактирахте сменният график!";
 		public const string Shift_Roptatin_Edit_Fail = "Не успяхте да редактирате сменния график!";
-	}
+
+        public const string File_Missing = "Не сте избрали файл!";
+        public const string File_Wrong_Format = "Избраният файл не е с правилният формат!";
+    }
 }

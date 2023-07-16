@@ -94,11 +94,10 @@
                         }
                     }
                 }
-
             }
             catch (IOException ioe)
             {
-
+                throw ioe;
             }
 
             return model;

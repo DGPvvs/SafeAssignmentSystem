@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using SafeAssignmentSystem.Core.Models.TransferModels;
 
-    internal interface IReader
+    public interface IReader
     {
-        public IEnumerable<ChangedScheduleTransferModel> Reader(IFormFile file);
+        public IEnumerable<ChangedScheduleTransferModel> ReadData(IFormFile file, IList<ChangedScheduleTransferModel> model);
     }
 }

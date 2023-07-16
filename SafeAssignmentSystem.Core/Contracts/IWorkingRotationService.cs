@@ -1,5 +1,6 @@
 ﻿namespace SafeAssignmentSystem.Core.Contracts
 {
+    using Microsoft.AspNetCore.Http;
     using SafeAssignmentSystem.Common.Overrides;
 	using SafeAssignmentSystem.Core.Models.StatusModels;
 	using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
@@ -14,6 +15,7 @@
         public Task<IEnumerable<ShiftTransferModel>> GetAllShiftAsync();
         public Task<ShiftTransferModel> GetShiftByIdAsync(Guid id);
         public Task<IList<ShiftsTransferModel>> GetUserShiftsPerPeriodAsync(Guid userId, AppDateOnly date);
-		Task<StatusModel> ModifyNewShiftsRotationAsync(Guid id, DateOnly period, List<ShiftsTransferModel> transfer);
-	}
+		public Task<StatusModel> ModifyNewShiftsRotationAsync(Guid id, DateOnly period, List<ShiftsTransferModel> transfer);
+        public Task<StatusModel> SetWorkingRotation(IFormFile file);
+    }
 }

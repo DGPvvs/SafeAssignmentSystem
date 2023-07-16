@@ -9,6 +9,8 @@
 
         public int UseNumber { get; set; }
 
+        public DateOnly Date { get; set; }
+
         public string[] MonthlyDistribution { get; set; }
     }
 }
