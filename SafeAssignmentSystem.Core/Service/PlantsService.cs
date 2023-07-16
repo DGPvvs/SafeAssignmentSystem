@@ -18,14 +18,10 @@
 
     public class PlantsService : IPlantsService
     {
-        private readonly SafeAssignmentDbContext context;
         private readonly IRepository repo;
 
-        public PlantsService(
-            SafeAssignmentDbContext context,
-            IRepository repo)
+        public PlantsService(IRepository repo)
         {
-            this.context = context;
             this.repo = repo;
         }
 
@@ -159,9 +155,15 @@
             await this.repo.SaveChangesAsync();
 		}
 
+        /// <summary>
+        /// Редактиране на комплекс
+        /// </summary>
+        /// <param name="model">Модел на сомплекса, който се редактира</param>
+        /// <returns></returns>
+        /// <exception cref="IdentityЕxception"></exception>
 		public async Task EditComplexAsync(ComplexTransferModel model)
 		{
-            var alreadyExist = await this.context.ProductionComplexes
+            var alreadyExist = await this.repo.AllReadonly<ProductionComplex>()
                 .FirstOrDefaultAsync(c => c.Name == model.Name && c.FullName == model.FullName && !c.IsDeleted);
 
             if (!(alreadyExist is null))
@@ -169,7 +171,7 @@
 				throw new IdentityЕxception();
 			}
 
-			alreadyExist = await this.context.ProductionComplexes
+			alreadyExist = await this.repo.AllReadonly<ProductionComplex>()
 				.FirstOrDefaultAsync(c => c.Name == model.Name && c.FullName == model.FullName && c.IsDeleted);
 
             if (!(alreadyExist is null))
@@ -182,12 +184,18 @@
 			entity!.Name = model.Name;
 			entity.FullName = model.FullName;
 
-			await this.context.SaveChangesAsync();
+			await this.repo.SaveChangesAsync();
 		}
 
+        /// <summary>
+        /// Редактиране на инсталация
+        /// </summary>
+        /// <param name="model">Модел на инсталацията, която се редактира</param>
+        /// <returns></returns>
+        /// <exception cref="IdentityЕxception"></exception>
         public async Task EditPlantAsync(PlantTransferModel model)
         {
-            var alreadyExist = await this.context.PlantInstalations
+            var alreadyExist = await this.repo.AllReadonly<PlantInstalation>()
                 .FirstOrDefaultAsync(c => c.Name == model.Name && c.FullName == model.FullName);
 
             if (!(alreadyExist is null))
@@ -201,12 +209,18 @@
             entity.FullName = model.FullName;
             entity.ComplexId = model.ComplexId;
 
-            await this.context.SaveChangesAsync();
+            await this.repo.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Редакция на технологична позиция
+        /// </summary>
+        /// <param name="model">Модел на технологичната позиция, която се редактира</param>
+        /// <returns></returns>
+        /// <exception cref="IdentityЕxception"></exception>
         public async Task EditTechnologicalPositionAsync(TechnologicalPositionTransferModel model)
         {
-            var duplicate = await this.context.TechnologicalPositions
+            var duplicate = await this.repo.AllReadonly<TechnologicalPosition>()
                 .Where(i => i.InstalationId == model.InstalationId)
                 .FirstOrDefaultAsync(tp => tp.Name == model.Name);
 
@@ -220,12 +234,19 @@
             entity!.Name = model.Name;
             entity.InstalationId = model.InstalationId;
 
-            await this.context.SaveChangesAsync();
+            await this.repo.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Връща списък с комплекси в зависимост от параметъра isDel
+        /// ако isDel = false, връща списък на неизтритите комплекси
+        /// ако isDel = true, връща списък с изтритите комплекси
+        /// </summary>
+        /// <param name="isDel"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync(bool isDel)
         {
-            return await this.context.ProductionComplexes
+            return await this.repo.AllReadonly<ProductionComplex>()
                 .Where(c => c.IsDeleted == isDel)
                 .AsNoTracking()
                 .Select(c => new ComplexTransferModel()
@@ -239,9 +260,14 @@
                 .ToListAsync();
         }
 
+        /// <summary>
+        /// Връща списък с инсталациите
+        /// </summary>
+        /// <param name="isDel"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel)
         {
-            return await this.context.PlantInstalations
+            return await this.repo.AllReadonly<PlantInstalation>()
                 .AsNoTracking()
                 .Select(c => new PlantTransferModel()
                 {
@@ -253,9 +279,16 @@
                 .ToListAsync();
         }
 
+        /// <summary>
+        /// Връща списък с технологичните позиции в инсталация
+        /// сочена от id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="isDel"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<TechnologicalPositionTransferModel>> GetAllPositionInPlantByIdAsync(Guid id, bool isDel)
         {
-            return await this.context.TechnologicalPositions
+            return await this.repo.AllReadonly<TechnologicalPosition>()
                 .AsNoTracking()
                 .Where(tp => tp.InstalationId == id)
                 .Select(tp => new TechnologicalPositionTransferModel()
@@ -268,9 +301,14 @@
                 .ToListAsync();
         }
 
+        /// <summary>
+        /// Връща комплекс със зададеното id в трансферният модел на комплексите
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ComplexTransferModel> GetComplexByIdAsync(Guid id)
         {
-            var result = await this.context.ProductionComplexes
+            var result = await this.repo.AllReadonly<ProductionComplex>()
                 .Where(c => c.Id == id)
                 .Select(c => new ComplexTransferModel()
                 {
@@ -285,9 +323,14 @@
             return result!;            
         }
 
+        /// <summary>
+        /// Връща инсталация със зададеното id в трансферният модел на инсталациите
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<PlantTransferModel> GetPlantByIdAsync(Guid id)
         {
-            var result = await this.context.PlantInstalations
+            var result = await this.repo.AllReadonly<PlantInstalation>()
                 .Where(c => c.Id == id)
                 .Select(c => new PlantTransferModel()
                 {
@@ -301,9 +344,14 @@
             return result!;
         }
 
+        /// <summary>
+        /// Връща технологичната позиция със зададеното id в трансферният модел на технологичните позиции
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<TechnologicalPositionTransferModel> GetTechnologicalPositionByIdAsync(Guid id)
         {
-            var result = await this.context.TechnologicalPositions
+            var result = await this.repo.AllReadonly<TechnologicalPosition>()
                 .Where(tp => tp.Id == id)
                 .Select(tp => new TechnologicalPositionTransferModel()
                 {
@@ -328,12 +376,22 @@
             .AllReadonly<ProductionComplex>()
             .FirstOrDefaultAsync(c => c.Id == id);
 
-        private async Task<PlantInstalation?> GetPlnByIdAsync(Guid id) => await this.context
-            .PlantInstalations
+        /// <summary>
+        /// Връща инсталация по зададено id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private async Task<PlantInstalation?> GetPlnByIdAsync(Guid id) => await this.repo
+            .AllReadonly<PlantInstalation>()
             .FirstOrDefaultAsync(c => c.Id == id);
 
-        private async Task<TechnologicalPosition?> GetTechnPositionByIdAsync(Guid id) => await this.context
-            .TechnologicalPositions
+        /// <summary>
+        /// Връща технологична позиция по зададено id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private async Task<TechnologicalPosition?> GetTechnPositionByIdAsync(Guid id) => await this.repo
+            .AllReadonly<TechnologicalPosition>()
             .FirstOrDefaultAsync(tp => tp.Id == id);
     }
 }

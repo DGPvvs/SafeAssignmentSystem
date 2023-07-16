@@ -16,7 +16,6 @@
 	using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
 	using System;
 	using System.Collections.Generic;
-	using System.Security.Cryptography.Xml;
 	using System.Threading.Tasks;
 
 
@@ -25,19 +24,16 @@
 
 	public class WorkingRotationService : IWorkingRotationService
 	{
-		private readonly SafeAssignmentDbContext context;
 		private readonly UserManager<ApplicationUser> userManager;
 		private readonly IRepository repo;
 		private readonly IAccountService accountService;
 
 
         public WorkingRotationService(
-			SafeAssignmentDbContext context,
             UserManager<ApplicationUser> userManager,
         IRepository repo,
             IAccountService accountService)
 		{
-			this.context = context;
 			this.userManager = userManager;
 			this.repo = repo;
 			this.accountService = accountService;
@@ -277,31 +273,4 @@
 			return result;
         }
     }
-
-    //private IEnumerable<ChangedSchedule> CreateChangedSchedule()
-    //{
-
-
-    //    
-
-    //    foreach (var schedule in schedulesModel)
-    //    {
-            
-
-    //        if (!(user is null))
-    //        {
-    //            for (int i = 0; i < schedule.MonthlyDistribution.Length; i++)
-    //            {
-    //                
-    //                var shift = workingShifts
-    //                    .FirstOrDefault(ws => ws.ShiftName.ToUpper().Equals(shiftForDay.ToUpper()));
-
-    //                
-    //            }
-    //        }
-    //    }
-
-    //    return schedules;
-    //}
-
 }
