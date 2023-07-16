@@ -3,3 +3,44 @@
 *@
 @{
 }
+
+<div class="bs-example">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Менажиране на наряди -->
+
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Менажиране на наряди</button>
+                <ul class="dropdown-menu multi-level" >
+                    <li class="nav-item dropdown">
+                        <!-- Завеждане на наряд -->
+                        <a class="nav-link btn-success text-white dropdown-toggle"                            
+                            asp-controller="Account"
+                            asp-action="Register">
+                            Завеждане на наряд
+                        </a>
+
+                        <!-- Искане за подаване на напрежение -->
+                        <a class="nav-link btn-info text-dark dropdown-toggle"
+                            asp-controller="Choices"
+                            asp-action="ChoisAccount"
+                            asp-route-data="Account EditAccount">
+                            Искане за подаване на напрежение
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Изготвяне на справки -->
+
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">Изготвяне на справки</button>
+            </div>
+        </div>
+    </div>
+
+</div>
