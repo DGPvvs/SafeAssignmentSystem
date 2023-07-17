@@ -12,19 +12,24 @@
 
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
     using static SafeAssignmentSystem.Common.Notification.RoleConstants;
-    using static SafeAssignmentSystem.Common.Notification.NotificationConstants;    
+    using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
+    using Microsoft.AspNetCore.Identity;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 
     public class ChoicesController : BaseChoicesPlantsController
     {
+        private readonly UserManager<ApplicationUser> userManager;
         private readonly IPlantsService plantsService;
         private readonly IChoisPlantsService choisPlantsService;
         private readonly IAccountService accountService;
 
         public ChoicesController(
+            UserManager<ApplicationUser> userManager,
             IPlantsService plantsService,
             IChoisPlantsService choisPlantsService,
             IAccountService accountService)
         {
+            this.userManager = userManager;
             this.plantsService = plantsService;
             this.choisPlantsService = choisPlantsService;
             this.accountService = accountService;
@@ -33,7 +38,8 @@
         [HttpGet]
         public async Task<IActionResult> ChoisPlant(string controller, string action, string data)
         {
-            var plants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted);
+            var user = await this.userManager.FindByIdAsync(User.Id());
+            var plants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, user);
             var s = data.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
             var model = new ChoisPlantViewModel()
@@ -54,7 +60,8 @@
         [HttpPost]
         public async Task<IActionResult> ChoisPlant(ChoisPlantViewModel model)
         {
-            var plants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted);
+            var user = await this.userManager.FindByIdAsync(User.Id());
+            var plants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, user);
 
             if (!this.ModelState.IsValid)
             {

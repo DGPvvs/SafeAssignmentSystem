@@ -11,16 +11,22 @@
 
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
+    using Microsoft.AspNetCore.Identity;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 
     /// <summary>
     /// Контролер менажиращ таблиците с комплекси, инсталации и технологични позиции
     /// </summary>
     public class PlantsController : BasePlantsController
     {
+        private readonly UserManager<ApplicationUser> userManager;
         private readonly IPlantsService plantsService;
 
-        public PlantsController(IPlantsService plantsService)
+        public PlantsController(
+            UserManager<ApplicationUser> userManager,
+            IPlantsService plantsService)
         {
+            this.userManager = userManager;
             this.plantsService = plantsService;
         }
 
@@ -275,7 +281,8 @@
         [HttpGet]
         public async Task<IActionResult> AllPlants()
         {
-            var model = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted);
+            var user = await this.userManager.FindByIdAsync(User.Id());
+            var model = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, user);
 
             var viewModel = model.
                 Select(c => new EditPlantViewModel()
@@ -497,7 +504,8 @@
 
         private async Task<IEnumerable<KeyValuePairViewModel>> GetInstalationsPairAsync(bool isDel)
         {
-            var instalations = await this.plantsService.GetAllPlantsAsync(isDel);
+            var user = await this.userManager.FindByIdAsync(User.Id());
+            var instalations = await this.plantsService.GetAllPlantsAsync(isDel, user);
 
             return instalations
                 .OrderBy(c => c.Name)

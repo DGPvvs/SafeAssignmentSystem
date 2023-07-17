@@ -1,28 +1,33 @@
 ﻿namespace SafeAssignmentSystem.Core.Service
 {
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using SafeAssignmentSystem.Common.Exceptions;
     using SafeAssignmentSystem.Common.Exeptions;
+    using SafeAssignmentSystem.Common.Notification;
     using SafeAssignmentSystem.Core.Contracts;
-    using SafeAssignmentSystem.Core.Data;
     using SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels;
+    using SafeAssignmentSystem.DataBase.Data.Common;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
+    using SafeAssignmentSystem.DataBase.Data.FactoryModels;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
-    using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
-    using SafeAssignmentSystem.DataBase.Data.FactoryModels;
-    using SafeAssignmentSystem.DataBase.Data.Common;
+    using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
 
     public class PlantsService : IPlantsService
     {
+        private readonly UserManager<ApplicationUser> userManager;
         private readonly IRepository repo;
 
-        public PlantsService(IRepository repo)
+        public PlantsService(
+            UserManager<ApplicationUser> userManager,
+            IRepository repo)
         {
             this.repo = repo;
+            this.userManager = userManager;
         }
 
         /// <summary>
@@ -60,7 +65,7 @@
                 FullName = model.FullName,
                 Name = model.Name,
                 IsDeleted = model.IsDeleted
-            };           
+            };
 
             await this.repo.AddAsync(entity);
 
@@ -137,23 +142,23 @@
         /// <exception cref="NullReferenceException"></exception>
         /// <exception cref="NotEmptyException"></exception>
         public async Task ChangeDeleteStatusComplexAsync(Guid id, bool isDel)
-		{
-			var entity = await GetCompByIdAsync(id);
+        {
+            var entity = await GetCompByIdAsync(id);
 
             if (entity is null)
             {
                 throw new NullReferenceException();
-			}
+            }
 
             if (entity.PlantInstalations.Count > 0)
             {
                 throw new NotEmptyException(Complex_Has_Plant);
-			}
+            }
 
-			entity.IsDeleted = isDel;
+            entity.IsDeleted = isDel;
 
             await this.repo.SaveChangesAsync();
-		}
+        }
 
         /// <summary>
         /// Редактиране на комплекс
@@ -162,30 +167,30 @@
         /// <returns></returns>
         /// <exception cref="IdentityЕxception"></exception>
 		public async Task EditComplexAsync(ComplexTransferModel model)
-		{
+        {
             var alreadyExist = await this.repo.AllReadonly<ProductionComplex>()
                 .FirstOrDefaultAsync(c => c.Name == model.Name && c.FullName == model.FullName && !c.IsDeleted);
 
             if (!(alreadyExist is null))
             {
-				throw new IdentityЕxception();
-			}
+                throw new IdentityЕxception();
+            }
 
-			alreadyExist = await this.repo.AllReadonly<ProductionComplex>()
-				.FirstOrDefaultAsync(c => c.Name == model.Name && c.FullName == model.FullName && c.IsDeleted);
+            alreadyExist = await this.repo.AllReadonly<ProductionComplex>()
+                .FirstOrDefaultAsync(c => c.Name == model.Name && c.FullName == model.FullName && c.IsDeleted);
 
             if (!(alreadyExist is null))
             {
-				throw new IdentityЕxception(Complex_Edit_Exist_In_Deleted);
-			}
+                throw new IdentityЕxception(Complex_Edit_Exist_In_Deleted);
+            }
 
             var entity = await this.GetCompByIdAsync(model.Id);
 
-			entity!.Name = model.Name;
-			entity.FullName = model.FullName;
+            entity!.Name = model.Name;
+            entity.FullName = model.FullName;
 
-			await this.repo.SaveChangesAsync();
-		}
+            await this.repo.SaveChangesAsync();
+        }
 
         /// <summary>
         /// Редактиране на инсталация
@@ -260,23 +265,63 @@
                 .ToListAsync();
         }
 
+        ///// <summary>
+        ///// Връща списък с инсталациите
+        ///// </summary>
+        ///// <param name="isDel"></param>
+        ///// <returns></returns>
+        //public async Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel)
+        //{
+        //    return await this.repo.AllReadonly<PlantInstalation>()
+        //        .AsNoTracking()
+        //        .Select(c => new PlantTransferModel()
+        //        {
+        //            Id = c.Id,
+        //            Name = c.Name,
+        //            FullName = c.FullName,
+        //            ComplexName = c.Complex.Name
+        //        })
+        //        .ToListAsync();
+        //}
+
         /// <summary>
         /// Връща списък с инсталациите
+        /// в зависимост от ролята на потребителя
         /// </summary>
         /// <param name="isDel"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel)
+        public async Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel, ApplicationUser user)
         {
-            return await this.repo.AllReadonly<PlantInstalation>()
-                .AsNoTracking()
-                .Select(c => new PlantTransferModel()
-                {
-                    Id = c.Id,
-                    Name = c.Name,
-                    FullName = c.FullName,
-                    ComplexName = c.Complex.Name
-                })
-                .ToListAsync();
+            var roleFlag = new List<string>(await this.userManager.GetRolesAsync(user)).FirstOrDefault();
+
+            bool isValidUser = (!(roleFlag is null) && (roleFlag == RoleConstants.Operator || roleFlag == RoleConstants.Electrician));
+
+            if (isValidUser)
+            {
+                return await this.repo.AllReadonly<ApplicationUserPlantInstalation>()
+                    .Where(au => au.UserId == user.Id)
+                    .Select(au => new PlantTransferModel()
+                    {
+                        Id = au.Instalation.Id,
+                        Name = au.Instalation.Name,
+                        FullName = au.Instalation.FullName,
+                        ComplexName = au.Instalation.Complex.Name
+                    })
+                    .ToListAsync();
+            }
+            else
+            {
+                return await this.repo.AllReadonly<PlantInstalation>()
+                    .AsNoTracking()
+                    .Select(c => new PlantTransferModel()
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        FullName = c.FullName,
+                        ComplexName = c.Complex.Name
+                    })
+                    .ToListAsync();
+            }
         }
 
         /// <summary>
@@ -320,7 +365,7 @@
                 })
                 .FirstOrDefaultAsync(c => c.Id == id);
 
-            return result!;            
+            return result!;
         }
 
         /// <summary>

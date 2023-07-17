@@ -129,6 +129,16 @@
             /// Максимална дължина на номера на наряда
             /// </summary>
             public const int Number_Max_Length = 200;
+
+            /// <summary>
+            /// Минимална дължина на номера на наряда
+            /// </summary>
+            public const int Number_Min_Length = 10;
+
+            /// <summary>
+            /// Съобщение за грешка при неправилно въвеждане на номер
+            /// </summary>
+            public const string Error_Message_Number = "Номера на наряда трябва да е дълго между {2} и {1} символа.";
         }
     }
 }

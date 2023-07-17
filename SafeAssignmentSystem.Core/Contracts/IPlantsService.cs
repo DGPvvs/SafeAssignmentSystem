@@ -1,6 +1,7 @@
 ﻿namespace SafeAssignmentSystem.Core.Contracts
 {
     using SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using System.Threading.Tasks;
 
     public interface IPlantsService
@@ -17,7 +18,7 @@
 
         public Task AddPlantAsync(PlantTransferModel model);
 
-        public Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel);
+        public Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel, ApplicationUser user);
 
         public Task<PlantTransferModel> GetPlantByIdAsync(Guid id);
 

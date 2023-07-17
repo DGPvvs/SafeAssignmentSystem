@@ -107,8 +107,9 @@
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> Register(string? returnUrl = "/")
         {
+            var user = await this.userManager.FindByIdAsync(User.Id());
             var roles = await this.roleManager.Roles.ToListAsync();
-            var allPlants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted);
+            var allPlants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, user);
 
             var model = new RegisterViewModel()
             {
