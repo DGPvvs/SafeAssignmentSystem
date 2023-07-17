@@ -2,11 +2,8 @@
 {
     using Microsoft.AspNetCore.Authorization;
 
-    using static SafeAssignmentSystem.Common.Notification.RoleConstants;
-
-
-    [Authorize(Roles = $"{Operator}, {Electrician}")]
-    public abstract class BaseSafeAssignmentController : AntiforgeryController
+    [Authorize]
+    public class BaseSafeAssignmentController : AntiforgeryController
     {
     }
 }

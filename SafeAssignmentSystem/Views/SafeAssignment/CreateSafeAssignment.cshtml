@@ -1,6 +1,39 @@
 ﻿@using SafeAssignmentSystem.Models.SafeAssignmentViewModels;
 @model SafeAssignmentOrderingViewModel;
+
 @{
+    ViewBag.Title = $"Завеждане на нов наряд за инсталация: {Model.PlantInstalationName}";
 }
 
-<h2 class="text-danger">Тук ще направя изгледа за завеждане на наряд</h2>
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form asp-action="CreateSafeAssignment" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.Number" class="form-label">Номер на наряд</label>
+                <input asp-for="@Model.Number" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Number" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.TechnologicalPositionId" class="form-label">Технологична позиция</label>
+                <select asp-for="@Model.TechnologicalPositionId" class="form-control">
+                    @foreach (var position in Model.TechnologicalPositions)
+                    {
+                        <option value="@position.KvP.Key">@position.KvP.Value</option>
+                    }
+                </select>
+                <span asp-validation-for="@Model.TechnologicalPositionId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-info" type="submit" value="Завеждане на наряд" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+                <partial name="_ValidationScriptsPartial" />
+}

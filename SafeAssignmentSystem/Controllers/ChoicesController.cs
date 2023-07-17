@@ -75,7 +75,7 @@
                 return View(model);
             }
 
-            return RedirectToAction(model.RedirectAction, model.RedirectController, new { @id = model.Id });
+            return RedirectToAction(model.RedirectAction, model.RedirectController, new { plantId = model.Id });
         }
 
         [HttpGet]
