@@ -12,8 +12,8 @@ using SafeAssignmentSystem.Core.Data;
 namespace SafeAssignmentSystem.DataBase.Migrations
 {
     [DbContext(typeof(SafeAssignmentDbContext))]
-    [Migration("20230716192624_InitBase")]
-    partial class InitBase
+    [Migration("20230717195859_InitBasaTables")]
+    partial class InitBasaTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -351,7 +351,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         .HasColumnType("nvarchar(200)")
                         .HasComment("Номер на наряд според вътрешнонарядната номерация");
 
-                    b.Property<DateTime>("OpeningDate")
+                    b.Property<DateTime?>("OpeningDate")
                         .HasColumnType("datetime2")
                         .HasComment("Дата и час на откриване на наряда");
 

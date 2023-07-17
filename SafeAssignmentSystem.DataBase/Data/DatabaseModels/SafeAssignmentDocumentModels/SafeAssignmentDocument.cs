@@ -54,8 +54,7 @@
         /// Дата и час на откриване на наряда
         /// </summary>
         [Comment("Дата и час на откриване на наряда")]
-        [Required]
-        public DateTime OpeningDate { get; set; }
+        public DateTime? OpeningDate { get; set; }
 
         /// <summary>
         /// Id на потребител, поискал откриване на наряда

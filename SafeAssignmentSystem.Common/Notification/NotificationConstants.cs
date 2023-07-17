@@ -53,5 +53,8 @@
 
         public const string File_Missing = "Не сте избрали файл!";
         public const string File_Wrong_Format = "Избраният файл не е с правилният формат!";
+
+        public const string Create_SafeAssignment_Document_Fail = "Наряда не беше регистриран!";
+        public const string Create_SafeAssignment_Document_Success = "Успешно регистрирахте наряда!";
     }
 }
