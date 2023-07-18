@@ -76,6 +76,13 @@
             return result;
         }
 
+        public async Task<bool> HasUserPremisionForPlant(Guid userId, Guid plantId) => await this.repo
+            .AllReadonly<ApplicationUserPlantInstalation>()
+            .Where(ai => ai.UserId == userId
+                && ai.InstalationId == plantId
+                && ai.IsActive)
+            .AnyAsync();
+
         public async Task<StatusModel> LoginPermissionAsync(UserTransferModel user)
         {
 

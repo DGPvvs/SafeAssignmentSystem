@@ -21,15 +21,18 @@
 		private readonly UserManager<ApplicationUser> userManager;
 		private readonly IPlantsService plantsService;
 		private readonly ISafeAssignmentService safeAssignmentService;
+		private readonly IAccountService accountService;
 
         public SafeAssignmentController(
 			UserManager<ApplicationUser> userManager,
 			IPlantsService plantsService,
-            ISafeAssignmentService safeAssignmentService)
+            ISafeAssignmentService safeAssignmentService,
+            IAccountService accountService)
 		{
 			this.userManager = userManager;
 			this.plantsService = plantsService;
 			this.safeAssignmentService = safeAssignmentService;
+			this.accountService = accountService;
 		}
 
 		[Authorize(Roles = $"{Operator}")]
@@ -42,6 +45,7 @@
 			var model = new SafeAssignmentOrderingViewModel()
 			{
 				PlantInstalationName = plant.FullName,
+                PlantInstalationId = plant.Id,
                 TechnologicalPositions = positions.Select(tp => new KeyValuePairViewModel(tp.Id, tp.Name)).ToList() 
 			};
 
@@ -60,7 +64,13 @@
                 return this.RedirectToAction("Index", "Home");
             }
 
-			var transfer = new SafeAssignmentTransferModel()
+            if (!(await this.accountService.HasUserPremisionForPlant(user.Id, model.PlantInstalationId)))
+            {
+                this.TempData[Error_Message] = User_Not_Permision;
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            var transfer = new SafeAssignmentTransferModel()
 			{
 				Number = model.Number,
 				TechnologicalPositionId = model.TechnologicalPositionId,

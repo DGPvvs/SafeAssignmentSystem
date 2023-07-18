@@ -26,6 +26,11 @@
                 </select>
                 <span asp-validation-for="@Model.TechnologicalPositionId" class="text-danger"></span>
             </div>
+            <div class="visually-hidden">
+                <label asp-for="@Model.PlantInstalationId" class="form-label"></label>
+                <input asp-for="@Model.PlantInstalationId" class="form-control" aria-required="false" />
+                <span asp-validation-for="PlantInstalationId" class="text-danger"></span>                
+            </div>
             <div class="mb-3">
                 <input class="btn btn-info" type="submit" value="Завеждане на наряд" />
             </div>

@@ -265,25 +265,6 @@
                 .ToListAsync();
         }
 
-        ///// <summary>
-        ///// Връща списък с инсталациите
-        ///// </summary>
-        ///// <param name="isDel"></param>
-        ///// <returns></returns>
-        //public async Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel)
-        //{
-        //    return await this.repo.AllReadonly<PlantInstalation>()
-        //        .AsNoTracking()
-        //        .Select(c => new PlantTransferModel()
-        //        {
-        //            Id = c.Id,
-        //            Name = c.Name,
-        //            FullName = c.FullName,
-        //            ComplexName = c.Complex.Name
-        //        })
-        //        .ToListAsync();
-        //}
-
         /// <summary>
         /// Връща списък с инсталациите
         /// в зависимост от ролята на потребителя
@@ -299,7 +280,8 @@
             if (isValidUser)
             {
                 return await this.repo.AllReadonly<ApplicationUserPlantInstalation>()
-                    .Where(au => au.UserId == user.Id)
+                    .Where(au => au.UserId == user.Id && au.IsActive)
+                    .AsNoTracking()
                     .Select(au => new PlantTransferModel()
                     {
                         Id = au.Instalation.Id,

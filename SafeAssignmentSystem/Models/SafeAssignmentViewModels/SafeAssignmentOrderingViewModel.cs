@@ -32,6 +32,12 @@
         public string PlantInstalationName { get; set; } = null!;
 
         /// <summary>
+        /// Идентификатор на инсталация
+        /// </summary>
+        [Required]
+        public Guid PlantInstalationId { get; set; }
+
+        /// <summary>
         /// Колекция от технологичните позиции за инсталацията
         /// </summary>
         [Required]
