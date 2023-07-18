@@ -8,10 +8,12 @@
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Models.StatusModels;
     using SafeAssignmentSystem.Core.Models.TransferModels;
+    using SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels;
     using SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.Models.AccountViewModels;
     using SafeAssignmentSystem.Models.CommonViewModels;
+    using System.Data;
     using System.Text;
 
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
@@ -19,36 +21,36 @@
     using static SafeAssignmentSystem.Common.Notification.RoleConstants;
 
     public class AccountController : BaseController
-	{
-		private readonly UserManager<ApplicationUser> userManager;
-		private readonly SignInManager<ApplicationUser> signInManager;
+    {
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
         private readonly RoleManager<ApplicationRole> roleManager;
-		private readonly IAccountService accountService;
+        private readonly IAccountService accountService;
         private readonly IPlantsService plantsService;
 
-        
+
         public AccountController(
-			UserManager<ApplicationUser> userManager,
-			SignInManager<ApplicationUser> signInManager,
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
             RoleManager<ApplicationRole> roleManager,
             IAccountService accountService,
             IPlantsService plantsService)
-		{
-			this.userManager = userManager;
-			this.signInManager = signInManager;
+        {
+            this.userManager = userManager;
+            this.signInManager = signInManager;
             this.roleManager = roleManager;
-			this.accountService = accountService;
+            this.accountService = accountService;
             this.plantsService = plantsService;
-		}
+        }
 
-		[HttpGet]
-		[AllowAnonymous]
-		public IActionResult Login(string? returnUrl = "/")
-		{
-			var model = new LoginViewModel()
-			{
-				ReturnUrl = returnUrl!
-			};
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Login(string? returnUrl = "/")
+        {
+            var model = new LoginViewModel()
+            {
+                ReturnUrl = returnUrl!
+            };
 
             if (User?.Identity?.IsAuthenticated ?? false)
             {
@@ -56,12 +58,12 @@
             }
 
             return this.View(model);
-		}
+        }
 
-		[HttpPost]
-		[AllowAnonymous]
-		public async Task<IActionResult> Login(LoginViewModel model)
-		{
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
             if (!ModelState.IsValid)
             {
                 return this.View(model);
@@ -72,7 +74,7 @@
                 UserName = model.UserName
             };
 
-            StatusModel userStatus = await this.accountService.LoginPermissionAsync(userPermis);            
+            StatusModel userStatus = await this.accountService.LoginPermissionAsync(userPermis);
 
             if (userStatus.Success)
             {
@@ -84,14 +86,14 @@
 
                     if (result.Succeeded)
                     {
-						this.TempData[Success_Message] = userStatus.Description;
+                        this.TempData[Success_Message] = userStatus.Description;
 
-						if (!(model.ReturnUrl is null))
+                        if (!(model.ReturnUrl is null))
                         {
                             return this.Redirect(model.ReturnUrl);
                         }
                     }
-                    
+
                     return this.RedirectToAction("Index", "Home");
                 }
             }
@@ -101,7 +103,7 @@
             ModelState.AddModelError(string.Empty, "Невалидно логване!");
 
             return this.View(model);
-		}
+        }
 
         [HttpGet]
         [Authorize(Roles = Administrator)]
@@ -120,8 +122,10 @@
                     Selected = false
                 })
                 .ToList(),
-                Roles = roles.Select(r => new KeyValuePairViewModel(r.Id, r.Name))                
-            };            
+                Roles = roles
+                    .OrderBy(r => r.Name)
+                    .Select(r => new KeyValuePairViewModel(r.Id, r.Name))
+            };
 
             return this.View(model);
         }
@@ -149,7 +153,7 @@
             if (!userStatus.Success)
             {
                 this.TempData[Error_Message] = userStatus.Description;
-                ModelState.AddModelError(string.Empty, userStatus.Description);                
+                ModelState.AddModelError(string.Empty, userStatus.Description);
             }
             else
             {
@@ -187,7 +191,7 @@
         {
             if (!ModelState.IsValid)
             {
-                 this.View();
+                this.View();
             }
 
             var user = await userManager.GetUserAsync(User);
@@ -223,9 +227,67 @@
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> EditAccount(string userName)
         {
-            var t = userName;
+            var admin = await this.userManager.FindByIdAsync(User.Id());
+            var editUser = await this.userManager.FindByNameAsync(userName);
 
-            return this.View();
+            if (editUser is null)
+            {
+                this.TempData[Error_Message] = User_Not_Found;
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            var allRoles = await this.roleManager.Roles.ToListAsync();
+            var allPlants = new List<PlantTransferModel>(await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, admin));
+
+            var currentRoles = await this.userManager.GetRolesAsync(editUser);
+            var currentRole = currentRoles.First();
+            var currentPlants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, editUser);
+
+            var model = new EditRegisterViewModel()
+            {
+                Id = editUser.Id,
+                Role = currentRole,
+                UserName = editUser.UserName,
+                FirstName = editUser.FirstName,
+                LastName = editUser.LastName,
+                UserWorkNumber = editUser.UserWorkNumber,
+                Instalations = allPlants.Select(p => new CheckBoxViewModel()
+                {
+                    Name = p.Name,
+                    Id = p.Id,
+                    Selected = false
+                })
+                .ToList(),
+                Roles = allRoles
+                    .OrderBy(r => r.Name)
+                    .Select(r => new KeyValuePairViewModel(r.Id, r.Name))
+            };
+
+            foreach (var plant in currentPlants)
+            {
+                int index = 0;
+                bool isExitLoop = false;
+
+                while (!isExitLoop && index < model.Instalations.Count)
+                {
+                    if (plant.Id.Equals(model.Instalations[index].Id))
+                    {
+                        model.Instalations[index].Selected = true;
+                        isExitLoop = true;
+                    }
+
+                    index++;
+                }                
+            }
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = Administrator)]
+        public async Task<IActionResult> EditAccount(EditRegisterViewModel model)
+        {
+            return this.RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -237,6 +299,6 @@
             return this.View();
         }
 
-        
+
     }
 }
