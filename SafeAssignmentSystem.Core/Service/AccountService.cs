@@ -40,7 +40,7 @@
         }
 
         public async Task<IEnumerable<UserTransferModel>> GetAllUsers(string currentUserName)
-        {            
+        {
             return await this.userManager.Users
                 .Where(u => u.UserName != currentUserName)
                 .Select(u => new UserTransferModel()
@@ -192,7 +192,7 @@
 
             var roleAddResult = await this.userManager.AddToRoleAsync(user, model.Role);
 
-            if (!roleAddResult.Succeeded) 
+            if (!roleAddResult.Succeeded)
             {
                 await this.userManager.DeleteAsync(user);
                 result.Description = User_Registration_Fail;
@@ -200,20 +200,27 @@
                 return result;
             }
 
+            var applicationUsersPlantInstalations = new List<ApplicationUserPlantInstalation>();
+
             foreach (var instalation in model.Instalations)
             {
-                var inst = await this.repo.All<PlantInstalation>(pi => pi.Name == instalation).FirstAsync();
+                var inst = await this.repo.All<PlantInstalation>(pi => pi.Name == instalation).FirstOrDefaultAsync();
 
-                ApplicationUserPlantInstalation applicationUserPlantInstalation = new ApplicationUserPlantInstalation()
+                if (!(inst is null))
                 {
-                    ApplicationUser = user,
-                    Instalation = inst,
-                    IsActive = true
-                };
+                    var applicationUserPlantInstalation = new ApplicationUserPlantInstalation()
+                    {
+                        ApplicationUser = user,
+                        Instalation = inst,
+                        IsActive = true
+                    };
 
-                await this.repo.AddAsync(applicationUserPlantInstalation);
-                await this.repo.SaveChangesAsync();
+                    applicationUsersPlantInstalations.Add(applicationUserPlantInstalation);
+                }
             }
+
+            await this.repo.AddRangeAsync(applicationUsersPlantInstalations);
+            await this.repo.SaveChangesAsync();
 
             result.Success = true;
 

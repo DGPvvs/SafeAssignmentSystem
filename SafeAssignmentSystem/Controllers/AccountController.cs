@@ -287,6 +287,19 @@
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> EditAccount(EditRegisterViewModel model)
         {
+            var transfer = new RegisterUserTransferModel()
+            {
+                Id = model.Id,
+                UserName = model.UserName,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                UserWorkNumber = model.UserWorkNumber,
+                Role = model.Role,
+                Instalations = model.Instalations
+                    .Where(i => i.Selected)
+                    .Select(i => i.Name)
+                    .ToList()
+            };
             return this.RedirectToAction("Index", "Home");
         }
 

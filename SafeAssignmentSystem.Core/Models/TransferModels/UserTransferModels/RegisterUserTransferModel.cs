@@ -10,6 +10,11 @@
         }
 
         /// <summary>
+        /// Идентификатор на потребител
+        /// </summary>
+        public Guid Id { get; set; }
+
+        /// <summary>
         /// Потребителско име
         /// </summary>
         public string UserName { get; set; } = null!;
