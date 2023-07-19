@@ -275,7 +275,7 @@
         {
             var roleFlag = new List<string>(await this.userManager.GetRolesAsync(user)).FirstOrDefault();
 
-            bool isValidUser = (!(roleFlag is null) && (roleFlag == RoleConstants.Operator || roleFlag == RoleConstants.Electrician));
+            bool isValidUser = (!(roleFlag is null) && (roleFlag != RoleConstants.Administrator));
 
             if (isValidUser)
             {

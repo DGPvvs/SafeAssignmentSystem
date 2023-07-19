@@ -14,6 +14,7 @@
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -37,6 +38,120 @@
             this.signInManager = signInManager;
             this.roleManager = roleManager;
             this.repo = repo;
+        }
+
+        public async Task<StatusModel> EditAccount(RegisterUserTransferModel model, string AdministratorUserName)
+        {
+            StatusModel result = new StatusModel()
+            {
+                Success = false,
+                Description = User_Edit_Account_Fail
+            };
+
+            var user = await this.userManager.FindByIdAsync(model.Id.ToString());
+
+            if (user is null)
+            {
+                result.Description = User_Not_Registred;
+                return result;
+            }
+
+            if (user.UserName == AdministratorUserName)
+            {
+                result.Description = User_Cant_Edit_Youself;
+                return result;
+            }
+
+            var duplicateNum = await this.userManager.Users.FirstOrDefaultAsync(u => u.UserWorkNumber == model.UserWorkNumber);
+
+            if ((!(duplicateNum is null)) && (duplicateNum.Id != user.Id))
+            {
+                result.Description = User_WorkNumber_Already_Exists;
+                return result;
+            }
+
+            var duplicateUserName = await this.userManager.Users.FirstOrDefaultAsync(u => u.UserName == model.UserName);
+
+            if ((!(duplicateUserName is null)) && (duplicateUserName.Id != user.Id))
+            {
+                result.Description = User_Already_Exists;
+                return result;
+            }
+
+            user.UserName = model.UserName;
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.UserWorkNumber = model.UserWorkNumber;
+            user.ConcurrencyStamp = Guid.NewGuid().ToString();
+
+            try
+            {
+                var roles = await this.userManager.GetRolesAsync(user);
+                var role = roles.FirstOrDefault();
+
+                var plantsPermis = await this.repo.All<ApplicationUserPlantInstalation>()
+                    .Where(au => au.UserId == user.Id)
+                    .ToListAsync();
+
+                foreach (var plantPermis in plantsPermis)
+                {
+                    plantPermis.IsActive = false;
+                }
+
+                Queue<Guid> plantsIds = new Queue<Guid>(model.Instalations);
+
+                var newPlantsPermis = new List<ApplicationUserPlantInstalation>();
+
+                while (plantsIds.Count > 0)
+                {
+                    int index = 0;
+                    bool isLoopExit = false;
+
+                    Guid plantId = plantsIds.Dequeue();
+
+                    while (!isLoopExit && index < plantsPermis.Count)
+                    {
+                        if (plantId == plantsPermis[index].InstalationId)
+                        {
+                            plantsPermis[index].IsActive = true;
+                            isLoopExit = true;
+                        }
+
+                        index++;
+                    }
+
+                    if (!isLoopExit)
+                    {
+                        newPlantsPermis.Add(new ApplicationUserPlantInstalation()
+                        {
+                            UserId = user.Id,
+                            ApplicationUser = user,
+                            InstalationId = plantId,
+                            IsActive = true
+                        });
+                    }
+                }
+
+                this.repo.UpdateRange<ApplicationUserPlantInstalation>(plantsPermis);
+
+                if (!string.IsNullOrEmpty(role))
+                {
+                    await this.userManager.RemoveFromRoleAsync(user, role);
+                }
+                var r = await this.userManager.AddToRoleAsync(user, model.Role);
+
+                await this.repo.AddRangeAsync(newPlantsPermis);
+                await this.repo.SaveChangesAsync();
+
+                result.Success = true;
+                result.Description = User_Edit_Account_Success;
+            }
+            catch (Exception e)
+            {
+                result.Description = User_Edit_Account_Fail;
+            }
+
+            return result;
         }
 
         public async Task<IEnumerable<UserTransferModel>> GetAllUsers(string currentUserName)
@@ -202,9 +317,9 @@
 
             var applicationUsersPlantInstalations = new List<ApplicationUserPlantInstalation>();
 
-            foreach (var instalation in model.Instalations)
+            foreach (var instalationId in model.Instalations)
             {
-                var inst = await this.repo.All<PlantInstalation>(pi => pi.Name == instalation).FirstOrDefaultAsync();
+                var inst = await this.repo.All<PlantInstalation>(pi => pi.Id == instalationId).FirstOrDefaultAsync();
 
                 if (!(inst is null))
                 {

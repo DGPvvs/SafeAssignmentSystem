@@ -144,7 +144,7 @@
                 Role = model.Role,
                 Instalations = model.Instalations
                     .Where(i => i.Selected)
-                    .Select(i => i.Name)
+                    .Select(i => i.Id)
                     .ToList()
             };
 
@@ -240,7 +240,7 @@
             var allPlants = new List<PlantTransferModel>(await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, admin));
 
             var currentRoles = await this.userManager.GetRolesAsync(editUser);
-            var currentRole = currentRoles.First();
+            var currentRole = currentRoles.FirstOrDefault();
             var currentPlants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, editUser);
 
             var model = new EditRegisterViewModel()
@@ -297,9 +297,21 @@
                 Role = model.Role,
                 Instalations = model.Instalations
                     .Where(i => i.Selected)
-                    .Select(i => i.Name)
+                    .Select(i => i.Id)
                     .ToList()
             };
+
+            var result = await this.accountService.EditAccount(transfer, User.Id());
+
+            if (result.Success)
+            {
+                this.TempData[Success_Message] = result.Description;
+            }
+            else
+            {
+                this.TempData[Error_Message] = result.Description;
+            }
+
             return this.RedirectToAction("Index", "Home");
         }
 

@@ -6,7 +6,7 @@
     {
         public RegisterUserTransferModel()
         {
-            this.Instalations = new List<string>();
+            this.Instalations = new List<Guid>();
         }
 
         /// <summary>
@@ -47,6 +47,6 @@
         /// <summary>
         /// Списък с възможните инсталации
         /// </summary>
-        public IList<string> Instalations { get; set; }
+        public IList<Guid> Instalations { get; set; }
     }
 }

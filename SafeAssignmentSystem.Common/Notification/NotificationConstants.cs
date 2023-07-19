@@ -18,12 +18,15 @@
         public const string User_Success = "Потребителят има разрешение!";
         public const string User_Change_Password_Success = "Успешно променихте паролата си!";
         public const string User_Change_Password_Not_Allow = "Не успяхте да променихте паролата си!";
-        public const string User_Already_Exists = "Вече има такова потребителско име!";
-        public const string User_WorkNumber_Already_Exists = "Вече има потребител с такъв номер!";
+        public const string User_Already_Exists = "Вече има потребител с такова име!";
+        public const string User_WorkNumber_Already_Exists = "Вече има потребител с такъв табелен номер!";
         public const string User_Registration_Fail = "Не успяхте да направите регистрация!";
         public const string User_Registration_Success = "Успешно направихте регистрация!";
         public const string User_Cant_Edit_Youself = "Потребителят не може да редактира сам себе си!";
+        public const string User_Edit_Account_Success = "Успешно редактирахте потребителския профил!";
+        public const string User_Edit_Account_Fail = "Не успяхте да редактирате потребителският профил!";
         public const string User_Not_Permision = "Потребителят няма допуск до съоръженията в инсталацията!";
+        public const string User_Not_Registred = "Потребителят, който се опитвате да редактирате, не е регистриран";
 
         public const string New_Complex_Add_Fail = "Новият комплекс не беше добавен!";
         public const string New_Complex_Add_Success = "Новият комплекс е добавен успешно!";

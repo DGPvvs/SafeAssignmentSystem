@@ -8,6 +8,7 @@
 
     public interface IAccountService
     {
+        public Task<StatusModel> EditAccount(RegisterUserTransferModel model, string AdministratorUserName);
         public Task<IEnumerable<UserTransferModel>> GetAllUsers(string currentUserName);
         public Task<IEnumerable<UserTransferModel>> GetAllUsersWhithRole(string currentUserName);
         public Task<bool> HasUserPremisionForPlant(Guid userId, Guid plantId);
