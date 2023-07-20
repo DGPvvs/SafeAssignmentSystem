@@ -4,6 +4,7 @@
 	using Microsoft.AspNetCore.Identity;
 	using Microsoft.EntityFrameworkCore;
 	using SafeAssignmentSystem.Common.Exeptions;
+	using SafeAssignmentSystem.Common.IO.Contracts;
 	using SafeAssignmentSystem.Common.Notification;
 	using SafeAssignmentSystem.Common.Overrides;
 	using SafeAssignmentSystem.Core.Contracts;
@@ -26,16 +27,19 @@
 		private readonly UserManager<ApplicationUser> userManager;
 		private readonly IRepository repo;
 		private readonly IAccountService accountService;
+        private readonly IReader reader;
 
 
         public WorkingRotationService(
             UserManager<ApplicationUser> userManager,
         IRepository repo,
-            IAccountService accountService)
+            IAccountService accountService,
+            IReader reader)
 		{
 			this.userManager = userManager;
 			this.repo = repo;
 			this.accountService = accountService;
+			this.reader = reader;
 		}
 
 		public async Task AddShiftAsync(ShiftTransferModel transfer)
@@ -213,11 +217,11 @@
                 Success = false
             };
 
-			var reader = new LoadWorkingRotationFromFile();
+			//var reader = new LoadWorkingRotationFromFile();
 
 			try
 			{
-				var loadingData = reader.ReadData(file, new List<Models.TransferModels.ChangedScheduleTransferModel>());  
+				var loadingData = this.reader.ReadData(file, new List<Models.TransferModels.ChangedScheduleTransferModel>());  
 
                 var operatorUsers = await this.userManager.GetUsersInRoleAsync(RoleConstants.Operator);
                 var electricianUsers = await this.userManager.GetUsersInRoleAsync(RoleConstants.Electrician);

@@ -100,7 +100,7 @@
 
                 Queue<Guid> plantsIds = new Queue<Guid>(model.Instalations);
 
-                var newPlantsPermis = new List<ApplicationUserPlantInstalation>();
+                List<ApplicationUserPlantInstalation> newPlantsPermis = new List<ApplicationUserPlantInstalation>();
 
                 while (plantsIds.Count > 0)
                 {
@@ -138,7 +138,7 @@
                 {
                     await this.userManager.RemoveFromRoleAsync(user, role);
                 }
-                var r = await this.userManager.AddToRoleAsync(user, model.Role);
+                await this.userManager.AddToRoleAsync(user, model.Role);
 
                 await this.repo.AddRangeAsync(newPlantsPermis);
                 await this.repo.SaveChangesAsync();

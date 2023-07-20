@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SafeAssignmentSystem.Common</name>
+    </assembly>
+    <members>
+        <member name="F:SafeAssignmentSystem.Common.Enums.StatusFlagsEnum.Created">
+            <summary>
+            Наряда е създаден
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Enums.StatusFlagsEnum.Opening">
+            <summary>
+            Нарядът е открит
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Enums.StatusFlagsEnum.Closing">
+            <summary>
+            Нарядът е закрит
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Enums.StatusFlagsEnum.Required">
+            <summary>
+            Поискано е подаване на напрежение
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Enums.StatusFlagsEnum.Archived">
+            <summary>
+            Подадено е напрежение. Наряда е архивиран
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.Exeptions.IdentityЕxception">
+            <summary>
+            Изключение за идентичност.
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants">
+            <summary>
+            Константи описващи моделите от базата данни
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ProductionComplexConstants">
+            <summary>
+            Константи описващи модела на производство
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ProductionComplexConstants.FullName_Max_Length">
+            <summary>
+            Максимална дължина на пълното наименование на комплекса
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ProductionComplexConstants.FullName_Min_Length">
+            <summary>
+            Минимална дължина на пълното наименование на комплекса
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ProductionComplexConstants.Name_Max_Length">
+            <summary>
+            Максимална дължина на съкратеното наименование на комплекса
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ProductionComplexConstants.Name_Min_Length">
+            <summary>
+            Минимална дължина на съкратеното наименование на комплекса
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ProductionComplexConstants.Error_Message_Name">
+            <summary>
+            Съобщение за грешка при неправилно въвеждане на име
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.PlantInstalationConstants">
+            <summary>
+            Константи описващи модела на инсталация
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.PlantInstalationConstants.FullName_Max_Length">
+            <summary>
+            Максимална дължина на пълното наименование на инсталация
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.PlantInstalationConstants.FullName_Min_Length">
+            <summary>
+            Минимална дължина на пълното наименование на инсталация
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.PlantInstalationConstants.Name_Max_Length">
+            <summary>
+            Максимална дължина на съкратеното наименование на инсталация
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.PlantInstalationConstants.Name_Min_Length">
+            <summary>
+            Минимална дължина на съкратеното наименование на инсталация
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.PlantInstalationConstants.Error_Message_Name">
+            <summary>
+            Съобщение за грешка при неправилно въвеждане на име
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.TechnologicalPositionConstants">
+            <summary>
+            Константи описващи модела на технологичната позиция
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.TechnologicalPositionConstants.Name_Max_Length">
+            <summary>
+            Максимална дължина на наименование на технологична позиция
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.TechnologicalPositionConstants.Name_Min_Length">
+            <summary>
+            Минимална дължина на наименование на технологична позиция
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.TechnologicalPositionConstants.Error_Message_Name">
+            <summary>
+            Съобщение за грешка при неправилно въвеждане на име
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.WorkingShiftConstants">
+            <summary>
+            Константи описващи модела на смените
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.WorkingShiftConstants.ShiftName_Max_Length">
+            <summary>
+            Максимална дължина на наименование на смяна
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.WorkingShiftConstants.ShiftName_Min_Length">
+            <summary>
+            Минимална дължина на наименование на смяна
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ApplicationUserConstants">
+            <summary>
+            Константи описващи модела на потребителите
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ApplicationUserConstants.FirstName_Max_Length">
+            <summary>
+            Максимална дължина на собственото име на потребителя
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.ApplicationUserConstants.LastName_Max_Length">
+            <summary>
+            Максимална дължина на фамилното име на потребителя
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants">
+            <summary>
+            Константи описващи модела на нарядите
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants.Number_Max_Length">
+            <summary>
+            Максимална дължина на номера на наряда
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants.Number_Min_Length">
+            <summary>
+            Минимална дължина на номера на наряда
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants.Error_Message_Number">
+            <summary>
+            Съобщение за грешка при неправилно въвеждане на номер
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.ConditionConstants.IsDeletedCondition.Deleted">
+            <summary>
+            Елементът е маркиран като изтрит
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.ConditionConstants.IsDeletedCondition.NotDeleted">
+            <summary>
+            Елементът е маркиран като неизтрит
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.ConditionConstants.IsAdminCondition.Is_Admin">
+            <summary>
+            Логнатият потребител е администратор
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.ConditionConstants.IsAdminCondition.Is_Not_Admin">
+            <summary>
+            Логнатият потребител не е администратор
+            </summary>
+        </member>
+    </members>
+</doc>

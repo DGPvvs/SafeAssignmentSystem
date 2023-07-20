@@ -1,0 +1,548 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SafeAssignmentSystem.DataBase</name>
+    </assembly>
+    <members>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.Common.IRepository">
+            <summary>
+            Abstraction of repository access methods
+            </summary>
+            <typeparam name="T">Repository type / db table</typeparam>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.All``1">
+            <summary>
+            All records in a table
+            </summary>
+            <returns>Queryable expression tree</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.All``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            All records in a table
+            </summary>
+            <returns>Queryable expression tree</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.AllReadonly``1">
+            <summary>
+            The result collection won't be tracked by the context
+            </summary>
+            <returns>Expression tree</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.AllReadonly``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            The result collection won't be tracked by the context
+            </summary>
+            <returns>Expression tree</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.GetByIdAsync``1(System.Object)">
+            <summary>
+            Gets specific record from database by primary key
+            </summary>
+            <param name="id">record identificator</param>
+            <returns>Single record</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.AddAsync``1(``0)">
+            <summary>
+            Adds entity to the database
+            </summary>
+            <param name="entity">Entity to add</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.AddRangeAsync``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Ads collection of entities to the database
+            </summary>
+            <param name="entities">Enumerable list of entities</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.Update``1(``0)">
+            <summary>
+            Updates a record in database
+            </summary>
+            <param name="entity">Entity for record to be updated</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.UpdateRange``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Updates set of records in the database
+            </summary>
+            <param name="entities">Enumerable collection of entities to be updated</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.DeleteAsync``1(System.Object)">
+            <summary>
+            Deletes a record from database
+            </summary>
+            <param name="id">Identificator of record to be deleted</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.Delete``1(``0)">
+            <summary>
+            Deletes a record from database
+            </summary>
+            <param name="entity">Entity representing record to be deleted</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.Detach``1(``0)">
+            <summary>
+            Detaches given entity from the context
+            </summary>
+            <param name="entity">Entity to be detached</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.SaveChangesAsync">
+            <summary>
+            Saves all made changes in trasaction
+            </summary>
+            <returns>Error code</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.Truncate(System.String)">
+            <summary>
+            Truncate table
+            </summary>
+            <param name="table">Table name</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.ChangeTrackerClear">
+            <summary>
+            Undo changes
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.Common.Repository">
+            <summary>
+            Implementation of repository access methods
+            for Relational Database Engine
+            </summary>
+            <typeparam name="T">Type of the data table to which 
+            current reposity is attached</typeparam>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.Common.Repository.Context">
+            <summary>
+            Entity framework DB context holding connection information and properties
+            and tracking entity states 
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.DbSet``1">
+            <summary>
+            Representation of table in database
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.AddAsync``1(``0)">
+            <summary>
+            Adds entity to the database
+            </summary>
+            <param name="entity">Entity to add</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.AddRangeAsync``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Ads collection of entities to the database
+            </summary>
+            <param name="entities">Enumerable list of entities</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.All``1">
+            <summary>
+            All records in a table
+            </summary>
+            <returns>Queryable expression tree</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.AllReadonly``1">
+            <summary>
+            The result collection won't be tracked by the context
+            </summary>
+            <returns>Expression tree</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.DeleteAsync``1(System.Object)">
+            <summary>
+            Deletes a record from database
+            </summary>
+            <param name="id">Identificator of record to be deleted</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.Delete``1(``0)">
+            <summary>
+            Deletes a record from database
+            </summary>
+            <param name="entity">Entity representing record to be deleted</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.Detach``1(``0)">
+            <summary>
+            Detaches given entity from the context
+            </summary>
+            <param name="entity">Entity to be detached</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.Dispose">
+            <summary>
+            Disposing the context when it is not neede
+            Don't have to call this method explicitely
+            Leave it to the IoC container
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.GetByIdAsync``1(System.Object)">
+            <summary>
+            Gets specific record from database by primary key
+            </summary>
+            <param name="id">record identificator</param>
+            <returns>Single record</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.SaveChangesAsync">
+            <summary>
+            Saves all made changes in trasaction
+            </summary>
+            <returns>Error code</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.Update``1(``0)">
+            <summary>
+            Updates a record in database
+            </summary>
+            <param name="entity">Entity for record to be updated</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.UpdateRange``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Updates set of records in the database
+            </summary>
+            <param name="entities">Enumerable collection of entities to be updated</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.Truncate(System.String)">
+            <summary>
+            Truncate table
+            </summary>
+            <param name="table">Table name</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.ChangeTrackerClear">
+            <summary>
+            Undo changes
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationRole">
+            <summary>
+            Модел на ролите
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser">
+            <summary>
+            Модел на потребителите
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.FirstName">
+            <summary>
+            Собствено име на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.LastName">
+            <summary>
+            Фамилно име на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.UserWorkNumber">
+            <summary>
+            Табелен номер на потребителя
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.ApplicationUserPlantInstalations">
+            <summary>
+            Колекция от записи сочещи към свързваща таблица с инсталации
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.ChangedsSchedules">
+            <summary>
+            Колекция от полета сочещи сменният график на потребителя
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.PersonsRequestedsOpeningOrders">
+            <summary>
+            Инверсно пропърти съдържако колекция от лицата (оператори или издаващи наряд)
+            поискали откриване на нарядите
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.ЕlectriciansOpeningOrders">
+            <summary>
+            Инверсно пропърти съдържако колекция от лицата (дежурни електромонтьори)
+            открили нарядите
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.ЕlectriciansClosingOrders">
+            <summary>
+            Инверсно пропърти съдържако колекция от лицата (дежурни електромонтьори)
+            закрили нарядите
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.PersonsRequestedsVoltageSupply">
+            <summary>
+            Инверсно пропърти съдържако колекция от лицата от технологичния персонал, поискали подаване на напрежение
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.ElectriciansAppliedsVoltage">
+            <summary>
+            Инверсно пропърти съдържако колекция от дежурни елмонтьори подали напрежение
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUserPlantInstalation">
+            <summary>
+            Свързваща таблица между потребителите и инсталациите
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUserPlantInstalation.UserId">
+            <summary>
+            Id на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUserPlantInstalation.ApplicationUser">
+            <summary>
+            Кореспондиращо поле съдържащо потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUserPlantInstalation.InstalationId">
+            <summary>
+            Id на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUserPlantInstalation.Instalation">
+            <summary>
+            Кореспондиращо поле съдържащо инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUserPlantInstalation.IsActive">
+            <summary>
+            Поле указващо дали записът е изтрит
+            true - записът е достъпен
+            false - записът не е достъпен
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation">
+            <summary>
+            Модел на инсталациите
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation.Id">
+            <summary>
+            Идентификационен ключ
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation.FullName">
+            <summary>
+            Пълно наименование на инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation.Name">
+            <summary>
+            Съкратено наименование на инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation.ComplexId">
+            <summary>
+            Id на комплекс
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation.Complex">
+            <summary>
+            Кореспондиращо поле съдържащо комплекса
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation.TechnologicalPositions">
+            <summary>
+            Колекция от технологични позиции
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation.ApplicationUserPlantInstalations">
+            <summary>
+            Колекция от записи сочещи към свързваща таблица с потребители
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex">
+            <summary>
+            Модел на производствените комплекси
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex.Id">
+            <summary>
+            Идентификационен ключ
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex.FullName">
+            <summary>
+            Пълно наименование на комплекса
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex.Name">
+            <summary>
+            Съкратено наименование на комплекса
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex.IsDeleted">
+            <summary>
+            Указател, показващ дали модела на комплекса е изтрит
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex.PlantInstalations">
+            <summary>
+            Колекция от технологични позиции
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument">
+            <summary>
+            Модел на нарядите
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.Id">
+            <summary>
+            Идентификационен ключ
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.Number">
+            <summary>
+            Номер на наряд според вътрешнонарядната номерация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.TechnologicalPositionId">
+            <summary>
+            Id на технологична позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.TechnologicalPosition">
+            <summary>
+            Кореспондиращо поле на технологична позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.OpeningDate">
+            <summary>
+            Дата и час на откриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.PersonRequestedOpeningOrderId">
+            <summary>
+            Id на потребител, поискал откриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.PersonRequestedOpeningOrder">
+            <summary>
+            Кореспондиращо поле на потребителя, поискал откриването на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.ЕlectricianOpeningOrderId">
+            <summary>
+            Id на потребител открил наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.ЕlectricianOpeningOrder">
+            <summary>
+            Кореспондиращо поле на потребител открил наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.ClosingDate">
+            <summary>
+            Дата и час на закриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.ЕlectricianClosingOrderId">
+            <summary>
+            Id на потребител закрил наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.ЕlectricianClosingOrder">
+            <summary>
+            Кореспондиращо поле на потребител закрил наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.PersonRequestedVoltageSupplyId">
+            <summary>
+            Id на потребител поискал подаване на напрежение
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.PersonRequestedVoltageSupply">
+            <summary>
+            Кореспондиращо поле на потребител поискал подаване на напрежение
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.ElectricianAppliedVoltageId">
+            <summary>
+            Id на потребител подал напрежение
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.ElectricianAppliedVoltage">
+            <summary>
+            Кореспондиращо поле на потребител подал напрежение
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.Status">
+            <summary>
+            Поле указващо статуса на наряда
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.ChangedSchedule">
+            <summary>
+            Модел на сменния график
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.ChangedSchedule.Date">
+            <summary>
+            Дата
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.ChangedSchedule.ApplicationUserId">
+            <summary>
+            Id на потребител който е на смяна(оператор или дежурен електромонтьор)
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.ChangedSchedule.ApplicationUser">
+            <summary>
+            Кореспондиращо поле сочещо към потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.ChangedSchedule.ShiftId">
+            <summary>
+            Id на смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.ChangedSchedule.Shift">
+            <summary>
+            Кореспондиращо поле сочещо към смяна
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.WorkingShift">
+            <summary>
+            Модел на смените
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.WorkingShift.Id">
+            <summary>
+            Идентификационен ключ
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.WorkingShift.ShiftName">
+            <summary>
+            Име на смяната
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.WorkingShift.StartTime">
+            <summary>
+            Начален час на смяната
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.WorkingShift.EndTime">
+            <summary>
+            Краен час на смяната
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition">
+            <summary>
+            Модел на технологична позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition.Id">
+            <summary>
+            Идентификационен ключ
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition.Name">
+            <summary>
+            Наименование на технологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition.InstalationId">
+            <summary>
+            Id на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition.Instalation">
+            <summary>
+            Кореспондиращо поле съдържащо инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition.SafeAssignmentDocuments">
+            <summary>
+            Колекция от наряди
+            </summary>
+        </member>
+    </members>
+</doc>

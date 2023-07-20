@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SafeAssignmentSystem</name>
+    </assembly>
+    <members>
+        <member name="T:SafeAssignmentSystem.Controllers.ChoicesController">
+            <summary>
+            Контролер за избор
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Controllers.PlantsController">
+            <summary>
+            Контролер менажиращ таблиците с комплекси, инсталации и технологични позиции
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.ComplexCreate">
+            <summary>
+            Действие опериращо с изображението за създаване на комплекс
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.ComplexCreate(SafeAssignmentSystem.Models.FactoriesViewModels.ComplexViewModel)">
+            <summary>
+            Действие валидиращо данните при създаването на комплекс.
+            При коректни данни комплексът се създава.
+            </summary>
+            <param name="model">Модел на данните при създаване на комплекс</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.AllComplex">
+            <summary>
+            Екшън изобразяващ всички неизтрити комплекси
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.EditRegisterViewModel.Id">
+            <summary>
+            Идентификатор на потребител, който ще се редактира
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.UserName">
+            <summary>
+            Потребителско име
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.FirstName">
+            <summary>
+            Собствено име на потребител
+            </summary>        
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.LastName">
+            <summary>
+            Фамилно име на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.UserWorkNumber">
+            <summary>
+            Табелен номер на потребителя
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.Password">
+            <summary>
+            Нова парола
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.ConfirmPassword">
+            <summary>
+            Потвърждение на новата парола
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.Role">
+            <summary>
+            Роля
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.Instalations">
+            <summary>
+            Списък с възможните инсталации
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.Roles">
+            <summary>
+            Списък с роли
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisUserAndMonthViewModel.Date">
+            <summary>
+            Начален час на смяната
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.FactoriesViewModels.ComplexViewModel">
+            <summary>
+            Модел на данните за комплекс
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.ComplexViewModel.FullName">
+            <summary>
+            Пълно наименование на комплекса
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.ComplexViewModel.Name">
+            <summary>
+            Съкратено наименование на комплекса
+            </summary>    
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditComplexViewModel.Id">
+            <summary>
+            Идентификатор на комплекса
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditComplexViewModel.CountPlant">
+            <summary>
+            Брой инсталации свързани с комплекса
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditPlantViewModel.Id">
+            <summary>
+            Идентификатор на инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditPlantViewModel.ComplexName">
+            <summary>
+            Комплекс към който се чесли инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditTechnologicalPositionViewModel.Id">
+            <summary>
+            Идентификатор на технологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditTechnologicalPositionViewModel.PlantName">
+            <summary>
+            Инсталация към който се числи технологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditTechnologicalPositionViewModel.ComplexName">
+            <summary>
+            Комплекс към който се числи инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.PlantViewModel.FullName">
+            <summary>
+            Пълно наименование на инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.PlantViewModel.Name">
+            <summary>
+            Съкратено наименование на инсталацията
+            </summary>        
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.PlantViewModel.ComplexId">
+            <summary>
+            Id на комплекс
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.PlantViewModel.Complexes">
+            <summary>
+            Колекция от ключ - име на комплекси
+            </summary>        
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.TechnologicalPositionViewModel.Name">
+            <summary>
+            Наименование на технологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.TechnologicalPositionViewModel.InstalationId">
+            <summary>
+            Id на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.TechnologicalPositionViewModel.Instalations">
+            <summary>
+            Колекция от ключ - име на инсталации
+            </summary>        
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.Number">
+            <summary>
+            Номер на наряд според вътрешнонарядната номерация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.TechnologicalPositionId">
+            <summary>
+            Идентификатор на технологична позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.PlantInstalationName">
+            <summary>
+            Пълно име на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.PlantInstalationId">
+            <summary>
+            Идентификатор на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.TechnologicalPositions">
+            <summary>
+            Колекция от технологичните позиции за инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.EditWorkingShiftViewModel.Id">
+            <summary>
+            Идентификатор на смяната
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.WorkingShiftViewModel.ShiftName">
+            <summary>
+            Име на смяната
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.WorkingShiftViewModel.StartTime">
+            <summary>
+            Начален час на смяната
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.WorkingShiftViewModel.EndTime">
+            <summary>
+            Краен час на смяната
+            </summary>
+        </member>
+    </members>
+</doc>

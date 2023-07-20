@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-SafeAssignmentSystem-44f875b6-72de-4607-82ed-8b4fcbb8dd27</UserSecretsId>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>SafeAssignmentSystem.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -267,31 +267,17 @@
 
         /// <summary>
         /// Връща списък с инсталациите
-        /// в зависимост от ролята на потребителя
+        /// в зависимост от флага isAdmin
+        /// isAdmin = true - връща всички инсталации
+        /// isAdmin = false - връща само инсталациите достъпни за потребителя с Id = userId
         /// </summary>
-        /// <param name="isDel"></param>
+        /// <param name="userId"></param>
+        /// <param name="isAdmin"></param>
+        /// <param name="isActive"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel, ApplicationUser user)
+        public async Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(Guid userId, bool isAdmin, bool isActive = true)
         {
-            var roleFlag = new List<string>(await this.userManager.GetRolesAsync(user)).FirstOrDefault();
-
-            bool isValidUser = (!(roleFlag is null) && (roleFlag != RoleConstants.Administrator));
-
-            if (isValidUser)
-            {
-                return await this.repo.AllReadonly<ApplicationUserPlantInstalation>()
-                    .Where(au => au.UserId == user.Id && au.IsActive)
-                    .AsNoTracking()
-                    .Select(au => new PlantTransferModel()
-                    {
-                        Id = au.Instalation.Id,
-                        Name = au.Instalation.Name,
-                        FullName = au.Instalation.FullName,
-                        ComplexName = au.Instalation.Complex.Name
-                    })
-                    .ToListAsync();
-            }
-            else
+            if (isAdmin)
             {
                 return await this.repo.AllReadonly<PlantInstalation>()
                     .AsNoTracking()
@@ -304,7 +290,62 @@
                     })
                     .ToListAsync();
             }
+            else
+            {
+                return await this.repo.AllReadonly<ApplicationUserPlantInstalation>()
+                    .Where(au => au.UserId == userId && au.IsActive == isActive)
+                    .AsNoTracking()
+                    .Select(au => new PlantTransferModel()
+                    {
+                        Id = au.Instalation.Id,
+                        Name = au.Instalation.Name,
+                        FullName = au.Instalation.FullName,
+                        ComplexName = au.Instalation.Complex.Name
+                    })
+                    .ToListAsync();
+            }
         }
+
+        ///// <summary>
+        ///// Връща списък с инсталациите
+        ///// в зависимост от ролята на потребителя
+        ///// </summary>
+        ///// <param name="isDel"></param>
+        ///// <returns></returns>
+        //public async Task<IEnumerable<PlantTransferModel>> GetAllPlantsAsync(bool isDel, ApplicationUser user)
+        //{
+        //    var roleFlag = new List<string>(await this.userManager.GetRolesAsync(user)).FirstOrDefault();
+
+        //    bool isValidUser = (!(roleFlag is null) && (roleFlag != RoleConstants.Administrator));
+
+        //    if (isValidUser)
+        //    {
+        //        return await this.repo.AllReadonly<ApplicationUserPlantInstalation>()
+        //            .Where(au => au.UserId == user.Id && au.IsActive)
+        //            .AsNoTracking()
+        //            .Select(au => new PlantTransferModel()
+        //            {
+        //                Id = au.Instalation.Id,
+        //                Name = au.Instalation.Name,
+        //                FullName = au.Instalation.FullName,
+        //                ComplexName = au.Instalation.Complex.Name
+        //            })
+        //            .ToListAsync();
+        //    }
+        //    else
+        //    {
+        //        return await this.repo.AllReadonly<PlantInstalation>()
+        //            .AsNoTracking()
+        //            .Select(c => new PlantTransferModel()
+        //            {
+        //                Id = c.Id,
+        //                Name = c.Name,
+        //                FullName = c.FullName,
+        //                ComplexName = c.Complex.Name
+        //            })
+        //            .ToListAsync();
+        //    }
+        //}
 
         /// <summary>
         /// Връща списък с технологичните позиции в инсталация

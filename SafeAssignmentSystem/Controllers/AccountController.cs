@@ -111,7 +111,7 @@
         {
             var user = await this.userManager.FindByIdAsync(User.Id());
             var roles = await this.roleManager.Roles.ToListAsync();
-            var allPlants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, user);
+            var allPlants = await this.plantsService.GetAllPlantsAsync(user.Id, IsAdminCondition.Is_Admin);
 
             var model = new RegisterViewModel()
             {
@@ -237,11 +237,11 @@
             }
 
             var allRoles = await this.roleManager.Roles.ToListAsync();
-            var allPlants = new List<PlantTransferModel>(await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, admin));
+            var allPlants = new List<PlantTransferModel>(await this.plantsService.GetAllPlantsAsync(admin.Id, IsAdminCondition.Is_Admin));
 
             var currentRoles = await this.userManager.GetRolesAsync(editUser);
             var currentRole = currentRoles.FirstOrDefault();
-            var currentPlants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, editUser);
+            var currentPlants = await this.plantsService.GetAllPlantsAsync(editUser.Id, IsAdminCondition.Is_Not_Admin);
 
             var model = new EditRegisterViewModel()
             {

@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SafeAssignmentSystem.Core</name>
+    </assembly>
+    <members>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.Id">
+            <summary>
+            Идентификационен ключ
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.FullName">
+            <summary>
+            Пълно наименование на инсталацията
+            </summary>        
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.Name">
+            <summary>
+            Съкратено наименование на инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.ComplexId">
+            <summary>
+            Id на комплекс
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.ComplexName">
+            <summary>
+            Кратко наименование на комплекс
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel.Id">
+            <summary>
+            Идентификационен ключ
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel.Name">
+            <summary>
+            Наименование на технологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel.InstalationId">
+            <summary>
+            Id на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel.InstalationName">
+            <summary>
+            Кратко наименование на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel.ComplexName">
+            <summary>
+            Комплекс към който се числи инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.Id">
+            <summary>
+            Идентификационен ключ
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.Number">
+            <summary>
+            Номер на наряд според вътрешнонарядната номерация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.TechnologicalPositionId">
+            <summary>
+            Id на технологична позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.OpeningDate">
+            <summary>
+            Дата на откриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.OpeningTime">
+            <summary>
+            Час на откриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.PersonRequestedOpeningOrderId">
+            <summary>
+            Id на потребител, поискал откриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.ЕlectricianOpeningOrderId">
+            <summary>
+            Id на потребител открил наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.ClosingDate">
+            <summary>
+            Дата на закриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.ClosingTime">
+            <summary>
+            Час на закриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.ЕlectricianClosingOrderId">
+            <summary>
+            Id на потребител закрил наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.PersonRequestedVoltageSupplyId">
+            <summary>
+            Id на потребител поискал подаване на напрежение
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.ElectricianAppliedVoltageId">
+            <summary>
+            Id на потребител подал напрежение
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.Status">
+            <summary>
+            Поле указващо статуса на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.Id">
+            <summary>
+            Идентификатор на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.UserName">
+            <summary>
+            Потребителско име
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.FirstName">
+            <summary>
+            Собствено име на потребител
+            </summary> 
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.LastName">
+            <summary>
+            Фамилно име на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.UserWorkNumber">
+            <summary>
+            Табелен номер на потребителя
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.Password">
+            <summary>
+            Нова парола
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.Role">
+            <summary>
+            Роля
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.Instalations">
+            <summary>
+            Списък с възможните инсталации
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.AddComplexAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel)">
+            <summary>
+            Добавяне на нов комплекс в базата.
+            Ако комплекса вече е бил създаван, но е изтрит, се възстановява от изтритите комплекси.
+            </summary>
+            <param name="model">Трансферен модел на данните за комплекс.</param>
+            <returns></returns>
+            <exception cref="T:SafeAssignmentSystem.Common.Exeptions.IdentityЕxception">Изключение за идентичност. 
+            Предизвиква се ако вече съществува комплекс с такива имена.
+            </exception>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.AddPlantAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel)">
+            <summary>
+            Добавяне на нова инсталация в базата.
+            </summary>
+            <param name="model">Трансферен модел на данните за инсталация.</param>
+            <returns></returns>
+            <exception cref="T:SafeAssignmentSystem.Common.Exeptions.IdentityЕxception">Изключение за идентичност. 
+            Предизвиква се ако вече съществува инсталация с такива имена.
+            </exception>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.AddTechnologicalPositionAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel)">
+            <summary>
+            Добавяне на нова технологична позиция в базата.
+            </summary>
+            <param name="model">Трансферен модел на данните за технологична позиция.</param>
+            <returns></returns>
+            <exception cref="T:SafeAssignmentSystem.Common.Exeptions.IdentityЕxception">Изключение за идентичност. 
+            Предизвиква се ако в инсталацията вече съществува технологична позиция с такова име.
+            </exception>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.ChangeDeleteStatusComplexAsync(System.Guid,System.Boolean)">
+            <summary>
+            Задава стойност на IsDeleted в класа ProductionComplex isDel 
+            </summary>
+            <param name="id">Идентификационен ключ</param>
+            <param name="isDel">Параметър, чиято стойност се сетва в IsDeleted</param>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:SafeAssignmentSystem.Common.Exceptions.NotEmptyException"></exception>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.EditComplexAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel)">
+            <summary>
+            Редактиране на комплекс
+            </summary>
+            <param name="model">Модел на сомплекса, който се редактира</param>
+            <returns></returns>
+            <exception cref="T:SafeAssignmentSystem.Common.Exeptions.IdentityЕxception"></exception>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.EditPlantAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel)">
+            <summary>
+            Редактиране на инсталация
+            </summary>
+            <param name="model">Модел на инсталацията, която се редактира</param>
+            <returns></returns>
+            <exception cref="T:SafeAssignmentSystem.Common.Exeptions.IdentityЕxception"></exception>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.EditTechnologicalPositionAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel)">
+            <summary>
+            Редакция на технологична позиция
+            </summary>
+            <param name="model">Модел на технологичната позиция, която се редактира</param>
+            <returns></returns>
+            <exception cref="T:SafeAssignmentSystem.Common.Exeptions.IdentityЕxception"></exception>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.GetAllComplexAsync(System.Boolean)">
+            <summary>
+            Връща списък с комплекси в зависимост от параметъра isDel
+            ако isDel = false, връща списък на неизтритите комплекси
+            ако isDel = true, връща списък с изтритите комплекси
+            </summary>
+            <param name="isDel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.GetAllPlantsAsync(System.Guid,System.Boolean,System.Boolean)">
+            <summary>
+            Връща списък с инсталациите
+            в зависимост от флага isAdmin
+            isAdmin = true - връща всички инсталации
+            isAdmin = false - връща само инсталациите достъпни за потребителя с Id = userId
+            </summary>
+            <param name="userId"></param>
+            <param name="isAdmin"></param>
+            <param name="isActive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.GetAllPositionInPlantByIdAsync(System.Guid,System.Boolean)">
+            <summary>
+            Връща списък с технологичните позиции в инсталация
+            сочена от id
+            </summary>
+            <param name="id"></param>
+            <param name="isDel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.GetComplexByIdAsync(System.Guid)">
+            <summary>
+            Връща комплекс със зададеното id в трансферният модел на комплексите
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.GetPlantByIdAsync(System.Guid)">
+            <summary>
+            Връща инсталация със зададеното id в трансферният модел на инсталациите
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.GetTechnologicalPositionByIdAsync(System.Guid)">
+            <summary>
+            Връща технологичната позиция със зададеното id в трансферният модел на технологичните позиции
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.GetCompByIdAsync(System.Guid)">
+            <summary>
+            Връца комплекс по зададено Id
+            </summary>
+            <param name="id">Идентификационен ключ</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.GetPlnByIdAsync(System.Guid)">
+            <summary>
+            Връща инсталация по зададено id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.GetTechnPositionByIdAsync(System.Guid)">
+            <summary>
+            Връща технологична позиция по зададено id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

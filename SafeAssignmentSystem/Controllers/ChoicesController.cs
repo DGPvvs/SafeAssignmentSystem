@@ -16,6 +16,9 @@
     using Microsoft.AspNetCore.Identity;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 
+    /// <summary>
+    /// Контролер за избор
+    /// </summary>
     public class ChoicesController : BaseChoicesPlantsController
     {
         private readonly UserManager<ApplicationUser> userManager;
@@ -39,7 +42,7 @@
         public async Task<IActionResult> ChoisPlant(string controller, string action, string data)
         {
             var user = await this.userManager.FindByIdAsync(User.Id());
-            var plants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, user);
+            var plants = await this.plantsService.GetAllPlantsAsync(user.Id, IsAdminCondition.Is_Admin);
             var s = data.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
             var model = new ChoisPlantViewModel()
@@ -61,7 +64,7 @@
         public async Task<IActionResult> ChoisPlant(ChoisPlantViewModel model)
         {
             var user = await this.userManager.FindByIdAsync(User.Id());
-            var plants = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, user);
+            var plants = await this.plantsService.GetAllPlantsAsync(user.Id, IsAdminCondition.Is_Admin);
 
             if (!this.ModelState.IsValid)
             {
@@ -93,6 +96,7 @@
                 RedirectAction = s[1],
                 RedirectController = s[0],
                 AllUsers = allUsers
+                .OrderBy(u => u.UserName)
                 .Select(u => u.UserName)
                 .ToList()
             };
@@ -132,6 +136,7 @@
                 RedirectController = s[0],
                 Date = string.Empty,
                 AllUsers = allUsers
+                .OrderBy(u => u.UserName)
                 .Select(u => u.UserName)
                 .ToList()
             };

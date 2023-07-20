@@ -282,7 +282,7 @@
         public async Task<IActionResult> AllPlants()
         {
             var user = await this.userManager.FindByIdAsync(User.Id());
-            var model = await this.plantsService.GetAllPlantsAsync(IsDeletedCondition.NotDeleted, user);
+            var model = await this.plantsService.GetAllPlantsAsync(user.Id, IsAdminCondition.Is_Admin);
 
             var viewModel = model.
                 Select(c => new EditPlantViewModel()
@@ -505,7 +505,7 @@
         private async Task<IEnumerable<KeyValuePairViewModel>> GetInstalationsPairAsync(bool isDel)
         {
             var user = await this.userManager.FindByIdAsync(User.Id());
-            var instalations = await this.plantsService.GetAllPlantsAsync(isDel, user);
+            var instalations = await this.plantsService.GetAllPlantsAsync(user.Id, IsAdminCondition.Is_Admin);
 
             return instalations
                 .OrderBy(c => c.Name)
