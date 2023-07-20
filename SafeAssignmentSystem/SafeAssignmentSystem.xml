@@ -89,6 +89,31 @@
             Начален час на смяната
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.CommonViewModels.CheckBoxViewModel">
+            <summary>
+            Модел за визуализация на елементи от тип CheckedBox
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.CommonViewModels.CheckBoxViewModel.Id">
+            <summary>
+            Идентификатор на елемента
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.CommonViewModels.CheckBoxViewModel.Name">
+            <summary>
+            Кратко име на елемента
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.CommonViewModels.CheckBoxViewModel.FullName">
+            <summary>
+            Пълно име на елемента
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.CommonViewModels.CheckBoxViewModel.Selected">
+            <summary>
+            Указател показващ дали елемента е избран
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Models.FactoriesViewModels.ComplexViewModel">
             <summary>
             Модел на данните за комплекс
@@ -173,6 +198,11 @@
             <summary>
             Колекция от ключ - име на инсталации
             </summary>        
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOpeningViewModel.PersonRequestedOpeningOrder">
+            <summary>
+            Фамилия на потребител, поискал откриване на наряда
+            </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.Number">
             <summary>

@@ -6,7 +6,7 @@
     {
         public ChoisAccountViewModel()
         {
-            this.AllUsers = new List<string>();
+            this.AllUsers = new List<KeyValuePair<string, string>>();
         }
 
         public string User { get; set; } = null!;
@@ -15,6 +15,6 @@
 
         public string RedirectAction { get; set; } = null!;
 
-        public IEnumerable<string> AllUsers { get; set; } = null!;
+        public IEnumerable<KeyValuePair<string, string>> AllUsers { get; set; } = null!;
     }
 }

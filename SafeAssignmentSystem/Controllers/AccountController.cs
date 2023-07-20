@@ -119,6 +119,7 @@
                 {
                     Name = p.Name,
                     Id = p.Id,
+                    FullName = p.FullName,
                     Selected = false
                 })
                 .ToList(),

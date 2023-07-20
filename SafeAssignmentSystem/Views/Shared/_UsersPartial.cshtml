@@ -20,15 +20,15 @@
             <div class="form-check">
         @if (isFirst)
         {
-                        <input type="radio" class="form-check-input" value="@user" asp-for="@Model.User" checked>
+                        <input type="radio" class="form-check-input" value="@user.Key" asp-for="@Model.User" checked>
                         <div class="visually-hidden">@(isFirst = false)</div>
         }
         else
         {
-                        <input type="radio" class="form-check-input" value="@user" asp-for="@Model.User">
+                        <input type="radio" class="form-check-input" value="@user.Key" asp-for="@Model.User">
         }
 
-                <label asp-for="@Model.User" class="form-check-label">@user</label>
+                <label asp-for="@Model.User" class="form-check-label">@user.Value</label>
                 <span asp-validation-for="@Model.User" class="text-danger"></span>
             </div>        
 }

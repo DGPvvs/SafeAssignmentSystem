@@ -11,9 +11,7 @@
 
         public Guid Id { get; set; }
 
-        public string RedirectController { get; set; } = null!;
-
-        public string RedirectAction { get; set; } = null!; 
+        public string RedirectRouter { get; set; } = null!;
 
         public IEnumerable<EditPlantViewModel> Plants { get; set; } = null!;
     }

@@ -338,7 +338,7 @@
 				new PlantInstalation()
 				{
 					Id = Guid.Parse("4dabf64e-adb1-486a-b208-b07c5fabc440"),
-					FullName = "Водородна",
+					FullName = "Водородна инсталация",
 					Name = "ВИ",
 					ComplexId = Guid.Parse("d90ccba2-389c-4a1a-ac97-5c54340dadd4")
 				},
@@ -386,7 +386,7 @@
 				new PlantInstalation()
 				{
 					Id = Guid.Parse("0d5fc355-ba0d-494e-aa2d-421616e9f651"),
-					FullName = "МТБЕ и хидроочистка-1 и 3",
+					FullName = "МТБЕ и Хидроочистка-1 и 3",
 					Name = "МТБЕ и ХО 1, 3",
 					ComplexId = Guid.Parse("79afcb01-d8f3-4fe0-9fa2-fd95b72c615f"),
 				},
@@ -394,7 +394,7 @@
 				new PlantInstalation()
 				{
 					Id = Guid.Parse("c639c036-bdc1-4e54-9425-c77ab00658a3"),
-					FullName = "Очистни съоръжения",
+					FullName = "Централна пречиствателна станция",
 					Name = "ЦПС",
 					ComplexId = Guid.Parse("125b8f04-7c38-4d1b-b39e-6d750e7bd037"),
 				},
@@ -426,7 +426,7 @@
 				new PlantInstalation()
 				{
 					Id = Guid.Parse("27e67a5e-9def-417e-b479-a3374ac01357"),
-					FullName = "Сярно-кисело алкилиране и абсорбционно газофракциони",
+					FullName = "Сярно-кисело алкилиране и абсорбционно газофракциониране",
 					Name = "СКА",
 					ComplexId = Guid.Parse("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
 				},

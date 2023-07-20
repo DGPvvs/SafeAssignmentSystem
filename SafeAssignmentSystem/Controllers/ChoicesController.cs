@@ -42,17 +42,25 @@
         public async Task<IActionResult> ChoisPlant(string controller, string action, string data)
         {
             var user = await this.userManager.FindByIdAsync(User.Id());
-            var plants = await this.plantsService.GetAllPlantsAsync(user.Id, IsAdminCondition.Is_Admin);
-            var s = data.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            var role = new List<string>(await this.userManager.GetRolesAsync(user)).First();
+
+            bool roleFlag = IsAdminCondition.Is_Not_Admin;
+
+            if (role.Equals(Administrator))
+            {
+                roleFlag = IsAdminCondition.Is_Admin;
+            }
+
+            var plants = await this.plantsService.GetAllPlantsAsync(user.Id, roleFlag);            
 
             var model = new ChoisPlantViewModel()
             {
-                RedirectAction = s[1],
-                RedirectController = s[0],
+                RedirectRouter = data,
                 Plants = plants.Select(p => new EditPlantViewModel()
                 {
                     Id = p.Id,
-                    Name = p.Name                   
+                    Name = p.Name,
+                    FullName = p.FullName
                 })
                 .ToList()
             };
@@ -64,22 +72,43 @@
         public async Task<IActionResult> ChoisPlant(ChoisPlantViewModel model)
         {
             var user = await this.userManager.FindByIdAsync(User.Id());
-            var plants = await this.plantsService.GetAllPlantsAsync(user.Id, IsAdminCondition.Is_Admin);
+
+            var role = new List<string>(await this.userManager.GetRolesAsync(user)).First();
+
+            bool roleFlag = IsAdminCondition.Is_Not_Admin;
+
+            if (role.Equals(Administrator))
+            {
+                roleFlag = IsAdminCondition.Is_Admin;
+            }
+
+            var plants = await this.plantsService.GetAllPlantsAsync(user.Id, roleFlag);
 
             if (!this.ModelState.IsValid)
             {
                 model.Plants = plants.Select(p => new EditPlantViewModel()
                 {
                     Id = p.Id,
-                    Name = p.Name
+                    Name = p.Name,
+                    FullName = p.FullName
                 })
                 .ToList();
 
                 return View(model);
             }
 
-            return RedirectToAction(model.RedirectAction, model.RedirectController, new { plantId = model.Id });
+            var rout = model.RedirectRouter.Split(" ", StringSplitOptions.RemoveEmptyEntries);            
+
+            return RedirectToAction(rout[1], rout[0], new { plantId = model.Id, data = model.RedirectRouter });
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ChoisTechnologicalPosition(Guid plantId, string data)
+        {
+            return this.View();
+        }
+
+        
 
         [HttpGet]
         [Authorize(Roles = Administrator)]
@@ -97,7 +126,7 @@
                 RedirectController = s[0],
                 AllUsers = allUsers
                 .OrderBy(u => u.UserName)
-                .Select(u => u.UserName)
+                .Select(u => new KeyValuePair<string, string>(u.UserName, $"{u.FirstName} {u.LastName} ({u.UserName})"))
                 .ToList()
             };
 
@@ -137,7 +166,7 @@
                 Date = string.Empty,
                 AllUsers = allUsers
                 .OrderBy(u => u.UserName)
-                .Select(u => u.UserName)
+                .Select(u => new KeyValuePair<string, string>(u.UserName, $"{u.FirstName} {u.LastName} ({u.UserName})"))
                 .ToList()
             };
 

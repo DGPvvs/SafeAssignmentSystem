@@ -160,7 +160,9 @@
                 .Where(u => u.UserName != currentUserName)
                 .Select(u => new UserTransferModel()
                 {
-                    UserName = u.UserName
+                    UserName = u.UserName,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName
                 })
                 .ToListAsync();
         }
@@ -176,7 +178,9 @@
             {
                 result.Add(new UserTransferModel()
                 {
-                    UserName = user.UserName
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName
                 });
             }
 

@@ -96,12 +96,13 @@
 		[HttpGet]
 		public IActionResult OpeningSafeAssignment(Guid plantId)
 		{
-			var model = new SafeAssignmentOrderingViewModel()
-			{
+			//var 
+			//var model = new SafeAssignmentOpeningViewModel()
+			//{
 
-			};
+			//};
 
-			return View(model);
+			return View();
 		}
 	}
 }

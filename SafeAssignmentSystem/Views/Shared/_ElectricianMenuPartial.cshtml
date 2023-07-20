@@ -4,72 +4,44 @@
 @{
 }
 
-<div class="container">
-  <div class="row">
-    <h2>Multi level dropdown menu in Bootstrap 3</h2>
-    <hr>
-    <div class="dropdown">
-      <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="#">
-                Dropdown <span class="caret"></span>
-            </a>
-      <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-        <li><a href="#">Some action</a></li>
-        <li><a href="#">Some other action</a></li>
-        <li class="divider"></li>
-        <li class="dropdown-submenu">
-          <a tabindex="-1" href="#">Hover me for more options</a>
-          <ul class="dropdown-menu">
-            <li><a tabindex="-1" href="#">Second level</a></li>
-            <li class="dropdown-submenu">
-              <a href="#">Even More..</a>
-              <ul class="dropdown-menu">
-                <li><a href="#">3rd level</a></li>
-                <li><a href="#">3rd level</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Second level</a></li>
-            <li><a href="#">Second level</a></li>
-          </ul>
-        </li>
-      </ul>
+<div class="bs-example">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Менажиране на наряди -->
+
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Менажиране на наряди</button>
+                <ul class="dropdown-menu multi-level" >
+                    <li class="nav-item dropdown">
+                        <!-- Откриване на наряд -->
+                        <a class="nav-link btn-success text-white dropdown-toggle"                            
+                            asp-controller="Choices"
+                            asp-action="ChoisPlant"
+                            asp-route-data="Choices ChoisTechnologicalPosition SafeAssignment OpeningSafeAssignment">
+                            Откриване на наряд
+                        </a>
+
+                        <!-- Искане за подаване на напрежение -->
+                        <a class="nav-link btn-info text-dark dropdown-toggle"
+                            asp-controller="Choices"
+                            asp-action="ChoisAccount"
+                            asp-route-data="Account EditAccount">
+                            Искане за подаване на напрежение
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-            <div class="container">
-  <h2>Multi-Level Dropdowns</h2>
-  <p>In this example, we have created a .dropdown-submenu class for multi-level dropdowns (see style section above).</p>
-  <p>Note that we have added jQuery to open the multi-level dropdown on click (see script section below).</p>                                        
-  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Tutorials
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a tabindex="-1" href="#">HTML</a></li>
-      <li><a tabindex="-1" href="#">CSS</a></li>
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">New dropdown <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
-          <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
-          <li class="dropdown-submenu">
-            <a class="test" href="#">Another dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">3rd level dropdown</a></li>
-              <li><a href="#">3rd level dropdown</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</div>
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Изготвяне на справки -->
 
-<script>
-$(document).ready(function(){
-  $('.dropdown-submenu a.test').on("click", function(e){
-    $(this).next('ul').toggle();
-    e.stopPropagation();
-    e.preventDefault();
-  });
-});
-</script>
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">Изготвяне на справки</button>
+            </div>
+        </div>
+    </div>
+
+</div>

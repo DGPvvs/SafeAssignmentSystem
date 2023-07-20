@@ -1,13 +1,11 @@
 namespace SafeAssignmentSystem
 {
-    using Humanizer;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.DependencyInjection;
     using SafeAssignmentSystem.Core.Data;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
-    using System.ComponentModel;
     using System;
-    using Microsoft.Extensions.DependencyInjection;
 
     public class Program
     {
