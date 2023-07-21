@@ -2,6 +2,7 @@ namespace SafeAssignmentSystem
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using SafeAssignmentSystem.Core.Data;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
@@ -35,6 +36,7 @@ namespace SafeAssignmentSystem
                 options.Password.RequireUppercase = builder.Configuration.GetValue<bool>("Identity:Password:RequireUppercase");
                 options.Password.RequiredLength = builder.Configuration.GetValue<int>("Identity:Password:RequiredLength");
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(builder.Configuration.GetValue<int>("Identity:Lockout:DefaultLockoutTimeSpan"));
+                options.User.AllowedUserNameCharacters = builder.Configuration.GetValue<string>("Identity:User:AllowedUserNameCharacters");
             });
 
             builder.Services.AddControllersWithViews();

@@ -8,7 +8,7 @@
 <h1>@ViewData["Title"]</h1>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-10">
         <form id="registerForm" method="post">            
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -57,7 +57,9 @@
                     {
                             <li>
                                 <input type="checkbox" asp-for="@Model.Instalations[i].Selected" />
-                                <label asp-for="@Model.Instalations[i].Selected">@Model.Instalations[i].Name</label>
+                                <label asp-for="@Model.Instalations[i].Selected">
+                                    @($"{Model.Instalations[i].Name} ({Model.Instalations[i].FullName})")
+                                </label>
                                 <input type="hidden" asp-for="@Model.Instalations[i].Id" />
                                 <input type="hidden" asp-for="@Model.Instalations[i].Name" />
                             </li>                        

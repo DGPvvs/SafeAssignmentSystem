@@ -237,6 +237,12 @@
                 return this.RedirectToAction("Index", "Home");
             }
 
+            if (admin.Id.Equals(editUser.Id))
+            {
+                this.TempData[Error_Message] = User_Cant_Edit_Youself;
+                return this.RedirectToAction("Index", "Home");
+            }
+
             var allRoles = await this.roleManager.Roles.ToListAsync();
             var allPlants = new List<PlantTransferModel>(await this.plantsService.GetAllPlantsAsync(admin.Id, IsAdminCondition.Is_Admin));
 
@@ -255,6 +261,7 @@
                 Instalations = allPlants.Select(p => new CheckBoxViewModel()
                 {
                     Name = p.Name,
+                    FullName = p.FullName,
                     Id = p.Id,
                     Selected = false
                 })

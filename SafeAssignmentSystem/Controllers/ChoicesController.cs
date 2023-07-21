@@ -15,6 +15,7 @@
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
     using Microsoft.AspNetCore.Identity;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
+    using System.Linq;
 
     /// <summary>
     /// Контролер за избор
@@ -97,9 +98,10 @@
                 return View(model);
             }
 
-            var rout = model.RedirectRouter.Split(" ", StringSplitOptions.RemoveEmptyEntries);            
+            var rout = model.RedirectRouter.Split(" ", StringSplitOptions.RemoveEmptyEntries).ToList();
+            var nextRedirect = string.Join(" ", rout.Skip(2));
 
-            return RedirectToAction(rout[1], rout[0], new { plantId = model.Id, data = model.RedirectRouter });
+            return RedirectToAction(rout[1], rout[0], new { plantId = model.Id, data = nextRedirect });
         }
 
         [HttpGet]
@@ -155,7 +157,7 @@
         {
             var userName = User?.Identity?.Name;
 
-            var allUsers = await this.accountService.GetAllUsersWhithRole(userName!);
+            var allUsers = await this.accountService.GetAllUsers(userName!);
 
             var s = data.Split(" ", StringSplitOptions.RemoveEmptyEntries);            
 
