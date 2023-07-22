@@ -107,7 +107,7 @@
 
             try
             {
-                var transferModel = await this.safeAssignmentService.AllCreatedSafeAssigmentForPosition(positionId);
+                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatus(positionId, StatusFlagsEnum.Created);
                 var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(positionId);
 
                 foreach (var transfer in transferModel)
@@ -144,12 +144,12 @@
             return View(model);
         }
 
-		/// <summary>
-		/// Метод обработващ заявката за откриване на наряд с идентификатор safeAssignmentId 
-		/// </summary>
-		/// <param name="safeAssignmentId">Идентификатор на наряд</param>
-		/// <returns></returns>
-		[Authorize(Roles = $"{Electrician}")]
+        /// <summary>
+        /// Метод обработващ заявката за откриване на наряд с идентификатор safeAssignmentId 
+        /// </summary>
+        /// <param name="id">Идентификатор на наряд</param>
+        /// <returns></returns>
+        [Authorize(Roles = $"{Electrician}")]
 		[HttpGet]
 		public async Task<IActionResult> OpeningSafeAssignmentPost(Guid id)
         {
@@ -187,5 +187,67 @@
 
             return this.RedirectToAction("Index", "Home");
         }
+
+        [Authorize(Roles = $"{Electrician}")]
+        [HttpGet]
+        public async Task<IActionResult> ClosingSafeAssignment(Guid positionId)
+        {
+            var model = new List<SafeAssignmentClosingViewModel>();
+
+            try
+            {
+                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatus(positionId, StatusFlagsEnum.Opening);
+                var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(positionId);
+
+                foreach (var transfer in transferModel)
+                {
+                    var viewModel = new SafeAssignmentClosingViewModel();
+
+                    var user = await this.userManager.FindByIdAsync(transfer.PersonRequestedOpeningOrderId.ToString());
+                    viewModel.PersonRequestedOpeningOrder = user.LastName;
+
+                    user = await this.userManager.FindByIdAsync(transfer.ЕlectricianOpeningOrderId.ToString());
+                    viewModel.ЕlectricianOpeningOrder = user.LastName;
+
+                    viewModel.Id = transfer.Id;
+                    viewModel.Number = transfer.Number;
+                    viewModel.TechnologicalPositionName = positionTransfer.Name;
+                    viewModel.PlantInstalationName = positionTransfer.InstalationName;
+                    viewModel.ComplexName = positionTransfer.ComplexName;
+                    viewModel.OpeningDate = transfer.OpeningDate?.ToString() ?? null;
+                    viewModel.OpeningTime = transfer.OpeningTime?.ToString() ?? null;
+
+                    model.Add(viewModel);
+                }
+
+                model = model.OrderBy(sao => sao.Number).ToList();
+            }
+            catch (TechnologicalPositionException tpe)
+            {
+                this.TempData[Error_Message] = tpe.Message;
+            }
+            catch (Exception)
+            {
+                this.TempData[Error_Message] = Operation_Fail;
+            }
+            finally
+            {
+                this.RedirectToAction("Index", "Home");
+            }
+
+            return View(model);
+        }
+
+		/// <summary>
+		/// Метод обработващ заявката за откриване на наряд с идентификатор safeAssignmentId 
+		/// </summary>
+		/// <param name="id">Идентификатор на наряд</param>
+		/// <returns></returns>
+		[Authorize(Roles = $"{Electrician}")]
+		[HttpGet]
+		public async Task<IActionResult> ClosingSafeAssignmentPost(Guid id)
+        {
+			return this.RedirectToAction("Index", "Home");
+		}		
 	}
 }

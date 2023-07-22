@@ -9,7 +9,9 @@
 
 	using static SafeAssignmentSystem.Common.Notification.RoleConstants;
 
-
+	/// <summary>
+	/// Клас съдържащ моделите на таблиците от базата с тестовите данни 
+	/// </summary>
     public class SeedsData
 	{
         public IEnumerable<IdentityUserRole<Guid>> SeedUsersRole() =>

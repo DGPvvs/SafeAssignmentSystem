@@ -11,7 +11,7 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.AllCreatedSafeAssigmentForPosition(System.Guid)">
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.AllSafeAssigmentForPositionAndStatus(System.Guid,SafeAssignmentSystem.Common.Enums.StatusFlagsEnum)">
             <summary>
             Декларация на метод връщащ всички заведени наряди за технологична позиция
             </summary>
@@ -361,11 +361,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.AllCreatedSafeAssigmentForPosition(System.Guid)">
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.AllSafeAssigmentForPositionAndStatus(System.Guid,SafeAssignmentSystem.Common.Enums.StatusFlagsEnum)">
             <summary>
             Имплементация на метод връщащ всички заведени наряди за технологична позиция
+            и със статус указан от status 
             </summary>
             <param name="positionId">Идентификатор на технологична позиция</param>
+            /// <param name="status">Идентификатор на статус</param>
             <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.CreateSafeAssignment(SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel)">

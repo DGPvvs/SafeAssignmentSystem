@@ -204,6 +204,11 @@
             Undo changes
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.SeedsData">
+            <summary>
+            Клас съдържащ моделите на таблиците от базата с тестовите данни 
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationRole">
             <summary>
             Модел на ролите
@@ -542,6 +547,16 @@
         <member name="P:SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition.SafeAssignmentDocuments">
             <summary>
             Колекция от наряди
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Migrations.SeedTestData">
+            <summary>
+            SeedTestData
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext">
+            <summary>
+            DbContext на приложението
             </summary>
         </member>
     </members>

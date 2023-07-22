@@ -1,5 +1,6 @@
 ﻿namespace SafeAssignmentSystem.Core.Contracts
 {
+    using SafeAssignmentSystem.Common.Enums;
     using SafeAssignmentSystem.Core.Models.StatusModels;
     using SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels;
     using System;
@@ -13,7 +14,7 @@
         /// </summary>
         /// <param name="positionId">Идентификатор на технологична позиция</param>
         /// <returns></returns>
-        public Task<IEnumerable<SafeAssignmentTransferModel>> AllCreatedSafeAssigmentForPosition(Guid positionId);
+        public Task<IEnumerable<SafeAssignmentTransferModel>> AllSafeAssigmentForPositionAndStatus(Guid positionId, StatusFlagsEnum status);
 
         /// <summary>
         /// Декларация на метод завеждащ наряд за позиция, указана в transfer 

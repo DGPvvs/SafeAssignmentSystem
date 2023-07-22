@@ -10,8 +10,10 @@
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
-    using System.Diagnostics;
 
+    /// <summary>
+    /// DbContext на приложението
+    /// </summary>
     public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
 
 		//public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>

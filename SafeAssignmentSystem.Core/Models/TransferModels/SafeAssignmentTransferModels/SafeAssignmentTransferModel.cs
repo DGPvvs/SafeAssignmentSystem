@@ -24,12 +24,12 @@ namespace SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransfer
         /// <summary>
         /// Дата на откриване на наряда
         /// </summary>
-        public DateOnly OpeningDate { get; set; }
+        public DateOnly? OpeningDate { get; set; }
 
         /// <summary>
         /// Час на откриване на наряда
         /// </summary>
-        public TimeOnly OpeningTime { get; set; }
+        public TimeOnly? OpeningTime { get; set; }
 
         /// <summary>
         /// Id на потребител, поискал откриване на наряда

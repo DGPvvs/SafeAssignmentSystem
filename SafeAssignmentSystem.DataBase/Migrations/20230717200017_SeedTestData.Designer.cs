@@ -11,6 +11,9 @@ using SafeAssignmentSystem.Core.Data;
 
 namespace SafeAssignmentSystem.DataBase.Migrations
 {
+    /// <summary>
+    /// SeedTestData
+    /// </summary>
     [DbContext(typeof(SafeAssignmentDbContext))]
     [Migration("20230717200017_SeedTestData")]
     partial class SeedTestData

@@ -91,7 +91,14 @@
             <summary>
             Метод обработващ заявката за откриване на наряд с идентификатор safeAssignmentId 
             </summary>
-            <param name="safeAssignmentId">Идентификатор на наряд</param>
+            <param name="id">Идентификатор на наряд</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.ClosingSafeAssignmentPost(System.Guid)">
+            <summary>
+            Метод обработващ заявката за откриване на наряд с идентификатор safeAssignmentId 
+            </summary>
+            <param name="id">Идентификатор на наряд</param>
             <returns></returns>
         </member>
         <member name="P:SafeAssignmentSystem.Models.AccountViewModels.AllUsersViewModel.Id">
@@ -303,6 +310,21 @@
             <summary>
             Колекция от ключ - име на инсталации
             </summary>        
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentClosingViewModel.ЕlectricianOpeningOrder">
+            <summary>
+            Фамилия на потребител открил наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentClosingViewModel.OpeningDate">
+            <summary>
+            Дата на откриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentClosingViewModel.OpeningTime">
+            <summary>
+            Час на откриване на наряда
+            </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOpeningViewModel.Id">
             <summary>

@@ -23,23 +23,31 @@
             this.repo = repo;
         }
 
-		/// <summary>
-		/// Имплементация на метод връщащ всички заведени наряди за технологична позиция
-		/// </summary>
-		/// <param name="positionId">Идентификатор на технологична позиция</param>
-		/// <returns></returns>
-		public async Task<IEnumerable<SafeAssignmentTransferModel>> AllCreatedSafeAssigmentForPosition(Guid positionId)
+        /// <summary>
+        /// Имплементация на метод връщащ всички заведени наряди за технологична позиция
+        /// и със статус указан от status 
+        /// </summary>
+        /// <param name="positionId">Идентификатор на технологична позиция</param>
+        /// /// <param name="status">Идентификатор на статус</param>
+        /// <returns></returns>
+        public async Task<IEnumerable<SafeAssignmentTransferModel>> AllSafeAssigmentForPositionAndStatus(Guid positionId, StatusFlagsEnum status)
         {
             var transfer = await this.repo.AllReadonly<SafeAssignmentDocument>()
-                .Where(sa => sa.TechnologicalPositionId.Equals(positionId) && sa.Status.Equals(StatusFlagsEnum.Created))
+                .Where(sa => sa.TechnologicalPositionId.Equals(positionId) && sa.Status.Equals(status))
                 .AsNoTracking()
                 .Select(sa => new SafeAssignmentTransferModel()
                 {
                     Id = sa.Id,
                     Number = sa.Number,
                     TechnologicalPositionId = sa.TechnologicalPositionId,
-                    PersonRequestedOpeningOrderId = sa.PersonRequestedOpeningOrderId
-                })
+                    PersonRequestedOpeningOrderId = sa.PersonRequestedOpeningOrderId,
+                    OpeningDate = sa.OpeningDate.Equals(null) ? null : new DateOnly(sa.OpeningDate.Value.Year,
+                                                                                    sa.OpeningDate.Value.Month,
+                                                                                    sa.OpeningDate.Value.Day),
+                    OpeningTime = sa.OpeningDate.Equals(null) ? null : new TimeOnly(sa.OpeningDate.Value.Hour,
+                                                                                    sa.OpeningDate.Value.Minute),
+                    ЕlectricianOpeningOrderId = sa.ЕlectricianOpeningOrderId
+				})
                 .ToListAsync();
 
             return transfer;
