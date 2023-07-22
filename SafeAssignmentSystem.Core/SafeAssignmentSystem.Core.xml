@@ -11,6 +11,13 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.CreateSafeAssignment(SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel)">
+            <summary>
+            Декларация на метод завеждащ наряд за позиция, указана в transfer 
+            </summary>
+            <param name="transfer">Транспортен модел на наряда</param>
+            <returns></returns>
+        </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.Id">
             <summary>
             Идентификационен ключ
@@ -294,6 +301,15 @@
             </summary>
             <param name="id"></param>
             <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.GetPlantByPositionId(System.Guid)">
+            <summary>
+            Връща инсталация, към която се числи технологичната позиция
+            с идентификатор positionId 
+            </summary>
+            <param name="positionId">Идентификатор на технологична позиция</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">Хвърля изключение ако не е намерена технологичната позиция</exception>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.GetTechnologicalPositionByIdAsync(System.Guid)">
             <summary>

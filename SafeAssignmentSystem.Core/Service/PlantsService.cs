@@ -372,6 +372,34 @@
         }
 
         /// <summary>
+        /// Връща инсталация, към която се числи технологичната позиция
+        /// с идентификатор positionId 
+        /// </summary>
+        /// <param name="positionId">Идентификатор на технологична позиция</param>
+        /// <returns></returns>
+        /// <exception cref="Exception">Хвърля изключение ако не е намерена технологичната позиция</exception>
+        public async Task<PlantTransferModel> GetPlantByPositionId(Guid positionId)
+        {
+            var position = await this.repo.AllReadonly<TechnologicalPosition>()
+                .AsNoTracking()
+                .Where(pi => pi.Id.Equals(positionId))
+                .FirstOrDefaultAsync();
+
+            if (position is null)
+            {
+                throw new TechnologicalPositionException();
+            }
+
+            return new PlantTransferModel()
+            {
+                Id = position.Instalation.Id,
+                Name = position.Instalation.Name,
+                FullName = position.Instalation.FullName,
+                ComplexName = position.Instalation.Complex.FullName
+            };
+        }
+
+        /// <summary>
         /// Връща технологичната позиция със зададеното id в трансферният модел на технологичните позиции
         /// </summary>
         /// <param name="id"></param>

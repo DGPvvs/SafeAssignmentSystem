@@ -35,5 +35,7 @@
         public Task<TechnologicalPositionTransferModel> GetTechnologicalPositionByIdAsync(Guid id);
 
         public Task EditTechnologicalPositionAsync(TechnologicalPositionTransferModel model);
+
+        public Task<PlantTransferModel> GetPlantByPositionId(Guid positionId);
     }
 }

@@ -51,6 +51,23 @@
             при инстанциране на изключението
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Common.Exceptions.TechnologicalPositionException">
+            <summary>
+            Изключение за технологична позиция.
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.Exceptions.TechnologicalPositionException.#ctor(System.String)">
+            <summary>
+            Конструктор на изключението TechnologicalPositionException получаващ като параметър съобщение 
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.Exceptions.TechnologicalPositionException.#ctor">
+            <summary>
+            Празен конструктор на изключението TechnologicalPositionException задаващ щатното съобщение на класа
+            при инстанциране на изключението
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants">
             <summary>
             Константи описващи моделите от базата данни

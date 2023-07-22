@@ -7,7 +7,9 @@
         public const string Information_Message = "Info_Message";
         public const string Success_Message = "Success_Message";
 
-		public const string Free_Shift = "Почивка";
+        public const string Operation_Fail = "Неуспешна операция";
+
+        public const string Free_Shift = "Почивка";
 
         public const string Time_Format = "HH:mm";
 		public const string Date_Format = "yyyy-MM-dd";

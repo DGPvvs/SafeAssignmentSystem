@@ -10,6 +10,23 @@
             Всички останали контролери наследяват този контролер
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Controllers.AbstractControlers.BaseController">
+            <summary>
+            Базов контролер за всички логнати потребители
+            Наследява AntiforgeryController 
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Controllers.AbstractControlers.BaseController.UserFirstName">
+            <summary>
+            Пропърти връщащо името на логнатия потребител
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AbstractControlers.BaseController.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Метод изпращащ името на логнатия потребител към изображението
+            </summary>
+            <param name="context"></param>
+        </member>
         <member name="T:SafeAssignmentSystem.Controllers.ChoicesController">
             <summary>
             Контролер за избор
@@ -280,9 +297,24 @@
             Колекция от ключ - име на инсталации
             </summary>        
         </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOpeningViewModel.Id">
+            <summary>
+            Идентификатор на наряд
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOpeningViewModel.PersonRequestedOpeningOrder">
             <summary>
             Фамилия на потребител, поискал откриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOpeningViewModel.TechnologicalPositionName">
+            <summary>
+            Име на технологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOpeningViewModel.ComplexName">
+            <summary>
+            Име на комплекс
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.Number">
