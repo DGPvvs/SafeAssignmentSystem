@@ -4,10 +4,25 @@
         <name>SafeAssignmentSystem</name>
     </assembly>
     <members>
+        <member name="T:SafeAssignmentSystem.Controllers.AbstractControlers.AntiforgeryController">
+            <summary>
+            Основен контролер на WEB слоя на приложението
+            Всички останали контролери наследяват този контролер
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Controllers.ChoicesController">
             <summary>
             Контролер за избор
             </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.ChoisTechnologicalPosition(System.Guid,System.String)">
+            <summary>
+            Get action предаващ модела на технологичните позиции
+            към изгледа за избор на технологична позиция
+            </summary>
+            <param name="plantId">Идентификатор на инсталация</param>
+            <param name="data">Препратка към следващо действие</param>
+            <returns></returns>
         </member>
         <member name="T:SafeAssignmentSystem.Controllers.PlantsController">
             <summary>
@@ -34,9 +49,45 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.EditPlant(System.Guid)">
+            <summary>
+            Get action отговарящ за редакцията на инсталациите
+            </summary>
+            <param name="id">Идентификатор на инсталацията, която ще се редактира</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.EditPlant(SafeAssignmentSystem.Models.FactoriesViewModels.EditPlantViewModel)">
+            <summary>
+            Post action отговарящ за редакцията на инсталация
+            </summary>
+            <param name="model">Модел на данните върнат от изображението</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.OpeningSafeAssignment(System.Guid)">
+            <summary>
+            Get действие зареждащо модела на изображението за откпиване на наряди 
+            </summary>
+            <param name="positionId">Идентификатор на технологигна позиция, за която е заведен наряд</param>
+            <returns></returns>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.AllUsersViewModel.Id">
+            <summary>
+            Поле съдържащо идентификатора на потребител в модела за изгледа показващ потребителите
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.ChangePasswordViewModel.NewPassword">
+            <summary>
+            Поле държащо новата парола в модела за промяна на паролите
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.AccountViewModels.EditRegisterViewModel.Id">
             <summary>
             Идентификатор на потребител, който ще се редактира
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel">
+            <summary>
+            Модел кореспондиращ с изображението за регистрация на нов потребител
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.UserName">
@@ -84,6 +135,21 @@
             Списък с роли
             </summary>
         </member>
+        <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisTechnologicalPositionViewModel.Id">
+            <summary>
+            Идентификатор на избраната технологична позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisTechnologicalPositionViewModel.Redirection">
+            <summary>
+            Поле съдържащо информация за препратка към следващо действие
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisTechnologicalPositionViewModel.TechnologicalPositions">
+            <summary>
+            Колекция от модели на технологични позиции
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisUserAndMonthViewModel.Date">
             <summary>
             Начален час на смяната
@@ -112,6 +178,11 @@
         <member name="P:SafeAssignmentSystem.Models.CommonViewModels.CheckBoxViewModel.Selected">
             <summary>
             Указател показващ дали елемента е избран
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.ErrorViewModel">
+            <summary>
+            Модел кореспондиращ с изображението за визуализиране на грешки на приложението
             </summary>
         </member>
         <member name="T:SafeAssignmentSystem.Models.FactoriesViewModels.ComplexViewModel">
@@ -184,6 +255,16 @@
             Колекция от ключ - име на комплекси
             </summary>        
         </member>
+        <member name="T:SafeAssignmentSystem.Models.FactoriesViewModels.TechnologicalPositionViewModel">
+            <summary>
+            Модел на изображение описващ технологична позиция при създаването на и 
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.FactoriesViewModels.TechnologicalPositionViewModel.#ctor">
+            <summary>
+            Конструктор инициализиращ модела на изображение на технологичната позиция
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.TechnologicalPositionViewModel.Name">
             <summary>
             Наименование на технологичната позиция
@@ -234,6 +315,16 @@
             Идентификатор на смяната
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.WorkingRotationViewModels.WorkingShiftViewModel">
+            <summary>
+            Модел съдържащ данните в изображението за създаване на смени
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.WorkingRotationViewModels.WorkingShiftViewModel.#ctor">
+            <summary>
+            Конструктор задаващ първоначални стойности на полетата StartTime и EndTime  
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.WorkingShiftViewModel.ShiftName">
             <summary>
             Име на смяната
@@ -248,6 +339,18 @@
             <summary>
             Краен час на смяната
             </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Program">
+            <summary>
+            SafeAssignmentSystem 
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Program.Main(System.String[])">
+            <summary>
+            Стартиращ метод на приложението
+            </summary>
+            <param name="args"></param>
+            <exception cref="T:System.InvalidOperationException"></exception>
         </member>
     </members>
 </doc>

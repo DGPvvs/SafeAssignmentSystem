@@ -8,8 +8,16 @@ namespace SafeAssignmentSystem
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using System;
 
+    /// <summary>
+    /// SafeAssignmentSystem 
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Стартиращ метод на приложението
+        /// </summary>
+        /// <param name="args"></param>
+        /// <exception cref="InvalidOperationException"></exception>
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);

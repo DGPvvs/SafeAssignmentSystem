@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Трансферен модел на технологична инсталация
+    /// </summary>
     public class TechnologicalPositionTransferModel
     {
         /// <summary>

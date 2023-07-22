@@ -104,13 +104,41 @@
             return RedirectToAction(rout[1], rout[0], new { plantId = model.Id, data = nextRedirect });
         }
 
+        /// <summary>
+        /// Get action предаващ модела на технологичните позиции
+        /// към изгледа за избор на технологична позиция
+        /// </summary>
+        /// <param name="plantId">Идентификатор на инсталация</param>
+        /// <param name="data">Препратка към следващо действие</param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> ChoisTechnologicalPosition(Guid plantId, string data)
         {
-            return this.View();
+            var transfer = await this.plantsService.GetAllPositionInPlantByIdAsync(plantId, IsDeletedCondition.NotDeleted);
+            ChoisTechnologicalPositionViewModel model = new ChoisTechnologicalPositionViewModel()
+            {
+                Redirection = data,
+                TechnologicalPositions = transfer.Select(tp => new EditTechnologicalPositionViewModel()
+                {
+                    Id = tp.Id,
+                    Name = tp.Name
+                })
+            }; ;
+
+            return this.View(model);
         }
 
-        
+        [HttpPost]
+        public async Task<IActionResult> ChoisTechnologicalPosition(ChoisTechnologicalPositionViewModel model)
+        {
+
+
+            var rout = model.Redirection.Split(" ", StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            return RedirectToAction(rout[1], rout[0], new { positionId = model.Id});
+        }
+
+
 
         [HttpGet]
         [Authorize(Roles = Administrator)]

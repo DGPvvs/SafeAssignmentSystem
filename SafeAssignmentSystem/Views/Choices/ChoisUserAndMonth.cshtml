@@ -2,7 +2,11 @@
 @model ChoisUserAndMonthViewModel;
 
 @{
+    ViewBag.Title = $"Избор на потребител и дата за промяна на сменен график";
 }
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
 
 <form asp-action="ChoisUserAndMonth" method="post">
 

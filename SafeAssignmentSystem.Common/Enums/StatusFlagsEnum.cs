@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Енумератор указващ статуса на наряд
+    /// </summary>
     [Flags]
     public enum StatusFlagsEnum
     {

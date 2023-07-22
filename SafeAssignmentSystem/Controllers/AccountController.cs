@@ -253,7 +253,7 @@
             var model = new EditRegisterViewModel()
             {
                 Id = editUser.Id,
-                Role = currentRole,
+                Role = currentRole!,
                 UserName = editUser.UserName,
                 FirstName = editUser.FirstName,
                 LastName = editUser.LastName,

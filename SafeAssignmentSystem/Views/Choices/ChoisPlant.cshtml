@@ -1,9 +1,13 @@
 ﻿@using SafeAssignmentSystem.Models.ChoisViewModels;
 @model ChoisPlantViewModel
+
 @{
     bool isFirst = true;
+    ViewBag.Title = $"Избор на инсталация";
 }
 
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
 
 <form asp-action="ChoisPlant" method="post">
 

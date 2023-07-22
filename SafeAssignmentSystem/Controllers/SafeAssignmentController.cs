@@ -92,9 +92,14 @@
             return this.RedirectToAction("Index", "Home");
         }
 
+		/// <summary>
+		/// Get действие зареждащо модела на изображението за откпиване на наряди 
+		/// </summary>
+		/// <param name="positionId">Идентификатор на технологигна позиция, за която е заведен наряд</param>
+		/// <returns></returns>
 		[Authorize(Roles = $"{Electrician}")]
 		[HttpGet]
-		public IActionResult OpeningSafeAssignment(Guid plantId)
+		public IActionResult OpeningSafeAssignment(Guid positionId)
 		{
 			//var 
 			//var model = new SafeAssignmentOpeningViewModel()

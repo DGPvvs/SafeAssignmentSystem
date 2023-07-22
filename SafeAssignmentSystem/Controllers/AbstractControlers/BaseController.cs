@@ -4,9 +4,16 @@
 	using Microsoft.AspNetCore.Mvc;
 	using Microsoft.AspNetCore.Mvc.Filters;
 
-	[Authorize]
+    /// <summary>
+    /// Базов контролер за всички логнати потребители
+    /// Наследява AntiforgeryController 
+    /// </summary>
+    [Authorize]
 	public abstract class BaseController : AntiforgeryController
     {
+		/// <summary>
+		/// Пропърти връщащо името на логнатия потребител
+		/// </summary>
 		public string UserFirstName
 		{
 			get
@@ -21,6 +28,10 @@
 			}
 		}
 
+		/// <summary>
+		/// Метод изпращащ името на логнатия потребител към изображението
+		/// </summary>
+		/// <param name="context"></param>
 		public override void OnActionExecuted(ActionExecutedContext context)
 		{
 			if (User?.Identity?.IsAuthenticated ?? false)

@@ -4,8 +4,14 @@
     using System.ComponentModel.DataAnnotations;
     using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.TechnologicalPositionConstants;
 
+    /// <summary>
+    /// Модел на изображение описващ технологична позиция при създаването на и 
+    /// </summary>
     public class TechnologicalPositionViewModel
     {
+        /// <summary>
+        /// Конструктор инициализиращ модела на изображение на технологичната позиция
+        /// </summary>
         public TechnologicalPositionViewModel()
         {
             this.Instalations = new List<KeyValuePairViewModel>();
@@ -28,6 +34,6 @@
         /// Колекция от ключ - име на инсталации
         /// </summary>        
         //[Required]
-        public IEnumerable<KeyValuePairViewModel> Instalations { get; set; } = null!;
+        public IEnumerable<KeyValuePairViewModel> Instalations { get; set; } = null!;        
     }
 }

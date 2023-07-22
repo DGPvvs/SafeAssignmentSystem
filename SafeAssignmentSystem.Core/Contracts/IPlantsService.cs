@@ -5,6 +5,11 @@
 
     public interface IPlantsService
     {
+        /// <summary>
+        /// Деклариране на метода за добавяне на комплекси
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public Task AddComplexAsync(ComplexTransferModel model);
 
         public Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync(bool isDel);

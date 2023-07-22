@@ -1,5 +1,8 @@
 ﻿namespace SafeAssignmentSystem.Common.Notification
 {
+    /// <summary>
+    /// Клас дефиниращ условните константи
+    /// </summary>
     public static class ConditionConstants
     {
         public static class IsDeletedCondition
@@ -15,6 +18,10 @@
             public const bool NotDeleted = false;
         }
 
+        /// <summary>
+        /// Клас дефиниращ константите декфиниращи 
+        /// дали потребителя е администратор или не
+        /// </summary>
         public static class IsAdminCondition
         {
             /// <summary>

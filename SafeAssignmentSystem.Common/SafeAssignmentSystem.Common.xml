@@ -4,6 +4,11 @@
         <name>SafeAssignmentSystem.Common</name>
     </assembly>
     <members>
+        <member name="T:SafeAssignmentSystem.Common.Enums.StatusFlagsEnum">
+            <summary>
+            Енумератор указващ статуса на наряд
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Enums.StatusFlagsEnum.Created">
             <summary>
             Наряда е създаден
@@ -32,6 +37,18 @@
         <member name="T:SafeAssignmentSystem.Common.Exeptions.IdentityЕxception">
             <summary>
             Изключение за идентичност.
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.Exeptions.IdentityЕxception.#ctor(System.String)">
+            <summary>
+            Конструктор на изключението IdentityЕxception получаващ като параметър съобщение 
+            </summary>
+            <param name="message">Съобщението, което получава изключението</param>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.Exeptions.IdentityЕxception.#ctor">
+            <summary>
+            Празен конструктор на изключението IdentityЕxception задаващ щатното съобщение на класа
+            при инстанциране на изключението
             </summary>
         </member>
         <member name="T:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants">
@@ -169,6 +186,16 @@
             Съобщение за грешка при неправилно въвеждане на номер
             </summary>
         </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants.New_Password_Max_Length">
+            <summary>
+            Максимална дължина на паролата
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.Notification.ConditionConstants">
+            <summary>
+            Клас дефиниращ условните константи
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.ConditionConstants.IsDeletedCondition.Deleted">
             <summary>
             Елементът е маркиран като изтрит
@@ -179,6 +206,12 @@
             Елементът е маркиран като неизтрит
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Common.Notification.ConditionConstants.IsAdminCondition">
+            <summary>
+            Клас дефиниращ константите декфиниращи 
+            дали потребителя е администратор или не
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.ConditionConstants.IsAdminCondition.Is_Admin">
             <summary>
             Логнатият потребител е администратор
@@ -187,6 +220,16 @@
         <member name="F:SafeAssignmentSystem.Common.Notification.ConditionConstants.IsAdminCondition.Is_Not_Admin">
             <summary>
             Логнатият потребител не е администратор
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.Notification.InstantConstants">
+            <summary>
+            Клас съдържащ глобални параметри за приложението, които трябва да се инстанцират
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Common.Notification.InstantConstants.referenceDateTime">
+            <summary>
+            Декларация на референтно време
             </summary>
         </member>
     </members>

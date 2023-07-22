@@ -4,6 +4,13 @@
         <name>SafeAssignmentSystem.Core</name>
     </assembly>
     <members>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.AddComplexAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel)">
+            <summary>
+            Деклариране на метода за добавяне на комплекси
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.Id">
             <summary>
             Идентификационен ключ
@@ -27,6 +34,11 @@
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.ComplexName">
             <summary>
             Кратко наименование на комплекс
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel">
+            <summary>
+            Трансферен модел на технологична инсталация
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel.Id">
@@ -158,6 +170,21 @@
             <summary>
             Списък с възможните инсталации
             </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.AccountService.GetAllUsers(System.String)">
+            <summary>
+            Метод връщащ колекция от данните за всички регистрирани
+            потребители с изключение на потребителя currentUserName 
+            </summary>
+            <param name="currentUserName">Име на потребител, който няма да бъде включен във върнатата колекция</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.ChoisPlantsService.#ctor(SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext,SafeAssignmentSystem.Core.Contracts.IPlantsService)">
+            <summary>
+            Конструктор на сървиса менажиращ изборите
+            </summary>
+            <param name="context"></param>
+            <param name="service"></param>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.AddComplexAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel)">
             <summary>

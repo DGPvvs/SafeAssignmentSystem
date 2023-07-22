@@ -1,0 +1,43 @@
+﻿@using SafeAssignmentSystem.Models.ChoisViewModels;
+@model ChoisTechnologicalPositionViewModel
+
+@{
+    bool isFirst = true;
+    ViewBag.Title = $"Избор на технологична позиция";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<form asp-action="ChoisTechnologicalPosition" method="post">
+
+    <div class="visually-hidden">
+        <label asp-for="@Model.Redirection" class="form-label"></label>
+        <input asp-for="@Model.Redirection" class="form-control" aria-required="true" />
+        <span asp-validation-for="@Model.Redirection" class="text-danger"></span>
+    </div>
+
+    @foreach (var position in Model.TechnologicalPositions)
+    {
+        <div class="form-check">
+            @if (isFirst)
+            {
+                <input type="radio" class="form-check-input" value="@position.Id" asp-for="@Model.Id" checked>
+                <div class="visually-hidden">@(isFirst = false)</div>
+            }
+            else
+            {
+                <input type="radio" class="form-check-input" value="@position.Id" asp-for="@Model.Id">
+            }
+
+            <label asp-for="@position.Id" class="form-check-label">@($"{position.Name}")</label>
+            <span asp-validation-for="@Model.Id" class="text-danger"></span>
+        </div>        
+    }
+
+    <button type="submit" class="btn btn-primary mt-3">Избор на технологична позиция</button>
+  </form>
+
+@section Scripts {
+                <partial name="_ValidationScriptsPartial" />
+}

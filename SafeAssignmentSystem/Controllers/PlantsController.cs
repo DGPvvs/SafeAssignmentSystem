@@ -298,6 +298,11 @@
             return this.View(viewModel);
         }
 
+        /// <summary>
+        /// Get action отговарящ за редакцията на инсталациите
+        /// </summary>
+        /// <param name="id">Идентификатор на инсталацията, която ще се редактира</param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> EditPlant(Guid id)
         {            
@@ -322,6 +327,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post action отговарящ за редакцията на инсталация
+        /// </summary>
+        /// <param name="model">Модел на данните върнат от изображението</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> EditPlant(EditPlantViewModel model)
         {

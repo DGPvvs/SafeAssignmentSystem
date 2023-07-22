@@ -4,6 +4,9 @@
     {
         public static class ChangePasswordModelConstants
         {
+            /// <summary>
+            /// Максимална дължина на паролата
+            /// </summary>
             public const int New_Password_Max_Length = 10;
             public const int New_Password_Min_Length = 4;
             public const string New_Password_Error_Message = "Новата парола трябва да е дълга между {2} и {1} символа.";

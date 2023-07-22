@@ -5,8 +5,14 @@ using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.Wor
 namespace SafeAssignmentSystem.Models.WorkingRotationViewModels
 
 {
+    /// <summary>
+    /// Модел съдържащ данните в изображението за създаване на смени
+    /// </summary>
     public class WorkingShiftViewModel
     {
+        /// <summary>
+        /// Конструктор задаващ първоначални стойности на полетата StartTime и EndTime  
+        /// </summary>
         public WorkingShiftViewModel()
         {
             this.StartTime = "00:00";

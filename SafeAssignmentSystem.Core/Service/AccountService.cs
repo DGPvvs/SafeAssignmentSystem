@@ -154,6 +154,12 @@
             return result;
         }
 
+        /// <summary>
+        /// Метод връщащ колекция от данните за всички регистрирани
+        /// потребители с изключение на потребителя currentUserName 
+        /// </summary>
+        /// <param name="currentUserName">Име на потребител, който няма да бъде включен във върнатата колекция</param>
+        /// <returns></returns>
         public async Task<IEnumerable<UserTransferModel>> GetAllUsers(string currentUserName)
         {
             return await this.userManager.Users

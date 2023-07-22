@@ -5,6 +5,9 @@ using static SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.Chan
 
 namespace SafeAssignmentSystem.Models.AccountViewModels
 {
+    /// <summary>
+    /// Модел кореспондиращ с изображението за регистрация на нов потребител
+    /// </summary>
     public class RegisterViewModel
     {
         public RegisterViewModel()

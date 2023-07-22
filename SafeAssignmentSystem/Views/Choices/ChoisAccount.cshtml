@@ -1,7 +1,12 @@
 ﻿@using SafeAssignmentSystem.Models.ChoisViewModels;
 @model ChoisAccountViewModel
 
+@{
+    ViewBag.Title = $"Избор на потребителски акаунт";
+}
 
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
 
 <form asp-action="ChoisAccount" method="post">
     

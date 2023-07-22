@@ -11,6 +11,9 @@
         [Display(Name = "Текуща парола")]
         public string OldPassword { get; set; } = null!;
 
+        /// <summary>
+        /// Поле държащо новата парола в модела за промяна на паролите
+        /// </summary>
         [Required]
         [StringLength(New_Password_Max_Length,
             ErrorMessage = New_Password_Error_Message,
