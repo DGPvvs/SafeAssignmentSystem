@@ -2,25 +2,80 @@
 {
     public static class NotificationConstants
     {
-        public const string Error_Message = "Error_Message";
-        public const string Warning_Message = "Warning_Message";
-        public const string Information_Message = "Info_Message";
-        public const string Success_Message = "Success_Message";
+		/// <summary>
+		/// Error_Message
+		/// </summary>
+		public const string Error_Message = "Error_Message";
 
-        public const string Operation_Fail = "Неуспешна операция";
+		/// <summary>
+		/// Warning_Message
+		/// </summary>
+		public const string Warning_Message = "Warning_Message";
 
-        public const string Free_Shift = "Почивка";
+		/// <summary>
+		/// Info_Message
+		/// </summary>
+		public const string Information_Message = "Info_Message";
 
+		/// <summary>
+		/// Success_Message
+		/// </summary>
+		public const string Success_Message = "Success_Message";
+
+		/// <summary>
+		/// Неуспешна операция
+		/// </summary>
+		public const string Operation_Fail = "Неуспешна операция";
+
+		/// <summary>
+		/// Почивка
+		/// </summary>
+		public const string Free_Shift = "Почивка";
+
+        /// <summary>
+        /// Формат за време
+        /// </summary>
         public const string Time_Format = "HH:mm";
+
+        /// <summary>
+        /// Формат за дата
+        /// </summary>
 		public const string Date_Format = "yyyy-MM-dd";
+
+        /// <summary>
+        /// Формат на дтата за изобразяване в изгледите
+        /// </summary>
 		public const string Date_Display_Format = "dd-MM-yyyy";
 
+		/// <summary>
+		/// Потребителят не е намерен!
+		/// </summary>
 		public const string User_Not_Found = "Потребителят не е намерен!";
-        public const string User_Not_Permision_For_Work = "Потребителят не е на смяна!";
-        public const string User_Success = "Потребителят има разрешение!";
-        public const string User_Change_Password_Success = "Успешно променихте паролата си!";
-        public const string User_Change_Password_Not_Allow = "Не успяхте да променихте паролата си!";
-        public const string User_Already_Exists = "Вече има потребител с такова име!";
+
+		/// <summary>
+		/// Потребителят не е на смяна!
+		/// </summary>
+		public const string User_Not_Permision_For_Work = "Потребителят не е на смяна!";
+
+		/// <summary>
+		/// Потребителят се присъедини успешно!
+		/// </summary>
+		public const string User_Success = "Потребителят се присъедини успешно!";
+
+		/// <summary>
+		/// Успешно променихте паролата си!
+		/// </summary>
+		public const string User_Change_Password_Success = "Успешно променихте паролата си!";
+
+		/// <summary>
+		/// Не успяхте да променихте паролата си!
+		/// </summary>
+		public const string User_Change_Password_Not_Allow = "Не успяхте да променихте паролата си!";
+
+		/// <summary>
+		/// Вече има потребител с такова име!
+		/// </summary>
+		public const string User_Already_Exists = "Вече има потребител с такова име!";
         public const string User_WorkNumber_Already_Exists = "Вече има потребител с такъв табелен номер!";
         public const string User_Registration_Fail = "Не успяхте да направите регистрация!";
         public const string User_Registration_Success = "Успешно направихте регистрация!";
@@ -60,7 +115,34 @@
         public const string File_Missing = "Не сте избрали файл!";
         public const string File_Wrong_Format = "Избраният файл не е с правилният формат!";
 
-        public const string Create_SafeAssignment_Document_Fail = "Наряда не беше регистриран!";
-        public const string Create_SafeAssignment_Document_Success = "Успешно регистрирахте наряда!";
-    }
+		/// <summary>
+		/// Наряда не беше регистриран!
+		/// </summary>
+		public const string Create_SafeAssignment_Document_Fail = "Наряда не беше регистриран!";
+
+		/// <summary>
+		/// Успешно регистрирахте наряда!
+		/// </summary>
+		public const string Create_SafeAssignment_Document_Success = "Успешно регистрирахте наряда!";
+
+		/// <summary>
+		/// Успешно открихте наряда!
+		/// </summary>
+		public const string Opening_SafeAssignment_Document_Success = "Успешно открихте наряда!";
+
+		/// <summary>
+		/// Нарядът, който се опитвате да откриете не е със статус заведен!
+		/// </summary>
+		public const string SafeAssignment_Is_Not_In_Status_Created = "Нарядът, който се опитвате да откриете не е със статус заведен!";
+
+		/// <summary>
+		/// Наряда не беше открит!
+		/// </summary>
+		public const string Opening_SafeAssignment_Document_Fail = "Наряда не беше открит!";
+
+		/// <summary>
+		/// Няма заведен наряд с такъв номер!
+		/// </summary>
+		public const string SafeAssignment_Not_Exist = "Няма заведен наряд с такъв номер!";
+	}
 }

@@ -249,5 +249,110 @@
             Декларация на референтно време
             </summary>
         </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Error_Message">
+            <summary>
+            Error_Message
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Warning_Message">
+            <summary>
+            Warning_Message
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Information_Message">
+            <summary>
+            Info_Message
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Success_Message">
+            <summary>
+            Success_Message
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Operation_Fail">
+            <summary>
+            Неуспешна операция
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Free_Shift">
+            <summary>
+            Почивка
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Time_Format">
+            <summary>
+            Формат за време
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Date_Format">
+            <summary>
+            Формат за дата
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Date_Display_Format">
+            <summary>
+            Формат на дтата за изобразяване в изгледите
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Not_Found">
+            <summary>
+            Потребителят не е намерен!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Not_Permision_For_Work">
+            <summary>
+            Потребителят не е на смяна!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Success">
+            <summary>
+            Потребителят се присъедини успешно!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Change_Password_Success">
+            <summary>
+            Успешно променихте паролата си!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Change_Password_Not_Allow">
+            <summary>
+            Не успяхте да променихте паролата си!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Already_Exists">
+            <summary>
+            Вече има потребител с такова име!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Create_SafeAssignment_Document_Fail">
+            <summary>
+            Наряда не беше регистриран!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Create_SafeAssignment_Document_Success">
+            <summary>
+            Успешно регистрирахте наряда!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Opening_SafeAssignment_Document_Success">
+            <summary>
+            Успешно открихте наряда!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.SafeAssignment_Is_Not_In_Status_Created">
+            <summary>
+            Нарядът, който се опитвате да откриете не е със статус заведен!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Opening_SafeAssignment_Document_Fail">
+            <summary>
+            Наряда не беше открит!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.SafeAssignment_Not_Exist">
+            <summary>
+            Няма заведен наряд с такъв номер!
+            </summary>
+        </member>
     </members>
 </doc>

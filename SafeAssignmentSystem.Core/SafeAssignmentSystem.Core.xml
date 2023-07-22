@@ -11,11 +11,33 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.AllCreatedSafeAssigmentForPosition(System.Guid)">
+            <summary>
+            Декларация на метод връщащ всички заведени наряди за технологична позиция
+            </summary>
+            <param name="positionId">Идентификатор на технологична позиция</param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.CreateSafeAssignment(SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel)">
             <summary>
             Декларация на метод завеждащ наряд за позиция, указана в transfer 
             </summary>
             <param name="transfer">Транспортен модел на наряда</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.GetSafeAssignmentById(System.Guid)">
+            <summary>
+            Декларация на метод връщащ наряд с идентификатор safeAssignmentId
+            </summary>
+            <param name="safeAssignmentId">Идентификатор на наряд</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.OpeningSafeAssignment(System.Guid,System.Guid)">
+            <summary>
+            Декларация на метод откриващ наряд с идентификатор safeAssignmentId
+            </summary>
+            <param name="safeAssignmentId">Идентификатор на наряд</param>
+            <param name="userId">Идентификатор на потребител откриващ наряда</param>
             <returns></returns>
         </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.Id">
@@ -337,6 +359,35 @@
             Връща технологична позиция по зададено id
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.AllCreatedSafeAssigmentForPosition(System.Guid)">
+            <summary>
+            Имплементация на метод връщащ всички заведени наряди за технологична позиция
+            </summary>
+            <param name="positionId">Идентификатор на технологична позиция</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.CreateSafeAssignment(SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel)">
+            <summary>
+            Декларация на метод завеждащ наряд за позиция, указана в transfer 
+            </summary>
+            <param name="transfer">Транспортен модел на наряда</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.GetSafeAssignmentById(System.Guid)">
+            <summary>
+            Имплементация на метод връщащ наряд с идентификатор safeAssignmentId
+            </summary>
+            <param name="safeAssignmentId">Идентификатор на наряд</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.OpeningSafeAssignment(System.Guid,System.Guid)">
+            <summary>
+            Имплементация на метод откриващ наряд с идентификатор safeAssignmentId
+            </summary>
+            <param name="safeAssignmentId">Идентификатор на наряд</param>
+            <param name="userId">Идентификатор на потребител откриващ наряда</param>
             <returns></returns>
         </member>
     </members>

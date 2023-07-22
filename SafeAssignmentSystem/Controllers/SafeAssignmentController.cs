@@ -143,5 +143,49 @@
 
             return View(model);
         }
-    }
+
+		/// <summary>
+		/// Метод обработващ заявката за откриване на наряд с идентификатор safeAssignmentId 
+		/// </summary>
+		/// <param name="safeAssignmentId">Идентификатор на наряд</param>
+		/// <returns></returns>
+		[Authorize(Roles = $"{Electrician}")]
+		[HttpGet]
+		public async Task<IActionResult> OpeningSafeAssignmentPost(Guid id)
+        {
+            try
+            {
+                var safeAssignment = await this.safeAssignmentService.GetSafeAssignmentById(id);
+                var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(safeAssignment.TechnologicalPositionId);
+                var user = await this.userManager.FindByIdAsync(User.Id());
+
+
+                if (!(await this.accountService.HasUserPremisionForPlant(user.Id, positionTransfer.InstalationId)))
+                {
+					this.TempData[Error_Message] = User_Not_Permision;
+					return this.RedirectToAction("Index", "Home");
+				}
+
+                if (!safeAssignment.Status.Equals(StatusFlagsEnum.Created))
+                {
+					this.TempData[Error_Message] = SafeAssignment_Is_Not_In_Status_Created;
+					return this.RedirectToAction("Index", "Home");
+				}
+
+                var result = await this.safeAssignmentService.OpeningSafeAssignment(id, user.Id);
+
+				this.TempData[Success_Message] = Opening_SafeAssignment_Document_Success;
+			}
+            catch (SafeAssignmentNotExistException asne)
+            {
+                this.TempData[Error_Message] = asne.Message;
+            }
+            catch (Exception)
+            {
+				this.TempData[Error_Message] = Opening_SafeAssignment_Document_Fail;
+            }
+
+            return this.RedirectToAction("Index", "Home");
+        }
+	}
 }

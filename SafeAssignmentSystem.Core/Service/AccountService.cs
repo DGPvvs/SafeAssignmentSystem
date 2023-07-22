@@ -205,8 +205,8 @@
 
         public async Task<bool> HasUserPremisionForPlant(Guid userId, Guid plantId) => await this.repo
             .AllReadonly<ApplicationUserPlantInstalation>()
-            .Where(ai => ai.UserId == userId
-                && ai.InstalationId == plantId
+            .Where(ai => ai.UserId.Equals(userId)
+                && ai.InstalationId.Equals(plantId)
                 && ai.IsActive)
             .AnyAsync();
 

@@ -87,6 +87,13 @@
             <param name="positionId">Идентификатор на технологигна позиция, за която е заведен наряд</param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.OpeningSafeAssignmentPost(System.Guid)">
+            <summary>
+            Метод обработващ заявката за откриване на наряд с идентификатор safeAssignmentId 
+            </summary>
+            <param name="safeAssignmentId">Идентификатор на наряд</param>
+            <returns></returns>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.AccountViewModels.AllUsersViewModel.Id">
             <summary>
             Поле съдържащо идентификатора на потребител в модела за изгледа показващ потребителите
