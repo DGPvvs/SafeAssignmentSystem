@@ -138,7 +138,7 @@
             /// <summary>
             /// Съобщение за грешка при неправилно въвеждане на номер
             /// </summary>
-            public const string Error_Message_Number = "Номера на наряда трябва да е дълго между {2} и {1} символа.";
+            public const string Error_Message_Number = "Номера на наряда трябва да е с дължина между {2} и {1} символа.";
         }
     }
 }

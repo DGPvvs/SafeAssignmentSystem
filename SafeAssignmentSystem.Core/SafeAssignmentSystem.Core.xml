@@ -50,6 +50,17 @@
             <param name="userId">Идентификатор на потребител откриващ наряда</param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.RequestedSafeAssignment(System.Guid,System.Guid)">
+            <summary>
+            Декларация на метод създаващ заявка за подаване на напрежение 
+            за технологична позиция с идентификатор positionId
+            и вдигащ статус StatusFlagsEnum.Required на закритите наряди
+            за указаната позиция
+            </summary>
+            <param name="positionId">Идентификатор на позиция</param>
+            <param name="id">Идентификатор на потребител</param>
+            <returns></returns>
+        </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.Id">
             <summary>
             Идентификационен ключ
@@ -409,6 +420,17 @@
             </summary>
             <param name="safeAssignmentId">Идентификатор на наряд</param>
             <param name="userId">Идентификатор на потребител откриващ наряда</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.RequestedSafeAssignment(System.Guid,System.Guid)">
+            <summary>
+            Имплементация на метод създаващ заявка за подаване на напрежение 
+            за технологична позиция с идентификатор positionId
+            и вдигащ статус StatusFlagsEnum.Required на закритите наряди
+            за указаната позиция 
+            </summary>
+            <param name="positionId">Идентификатор на позиция</param>
+            <param name="id">Идентификатор на потребител</param>
             <returns></returns>
         </member>
     </members>

@@ -334,6 +334,16 @@
             Вече има потребител с такъв табелен номер!
             </summary>
         </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Registration_Fail">
+            <summary>
+            Не успяхте да направите регистрация!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Registration_Success">
+            <summary>
+            Успешно направихте регистрация!
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Shift_Roptatin_Edit_Success">
             <summary>
             Успешно редактирахте сменният график!
@@ -397,6 +407,21 @@
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.SafeAssignment_Not_Exist">
             <summary>
             Няма заведен наряд с такъв номер!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.There_Is_Open_Order_For_Position">
+            <summary>
+            Не може да се направи заявка за подаване на напрежение! За исканата позиция има действащ наряд!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Request_SafeAssignment_Document_Success">
+            <summary>
+            Успешно заявихте подаване на напрежение за позицията!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Request_SafeAssignment_Document_Fail">
+            <summary>
+            Заявката не беше направена!
             </summary>
         </member>
     </members>

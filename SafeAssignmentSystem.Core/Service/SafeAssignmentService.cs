@@ -10,6 +10,7 @@
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
     using System;
     using System.Collections.Generic;
+    using System.Net;
     using System.Threading.Tasks;
 
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
@@ -38,7 +39,7 @@
                 .Select(sa => new SafeAssignmentTransferModel()
                 {
                     Id = sa.Id,
-                    Number = sa.Number,
+                    Number = WebUtility.HtmlDecode(sa.Number),
                     TechnologicalPositionId = sa.TechnologicalPositionId,
                     PersonRequestedOpeningOrderId = sa.PersonRequestedOpeningOrderId,
                     OpeningDate = sa.OpeningDate.Equals(null) ? null : new DateOnly(sa.OpeningDate.Value.Year,
@@ -154,7 +155,7 @@
             var result = new SafeAssignmentTransferModel()
             {
                 Id = safeAssignmentId,
-                Number = transfer.Number,
+                Number = WebUtility.HtmlDecode(transfer.Number),
                 TechnologicalPositionId = transfer.TechnologicalPositionId,
                 PersonRequestedOpeningOrderId = transfer.PersonRequestedOpeningOrderId,
 				OpeningDate = transfer.OpeningDate.Equals(null) ? null : new DateOnly(transfer.OpeningDate.Value.Year,
@@ -214,5 +215,48 @@
 
             return result;
 		}
-	}
+
+        /// <summary>
+        /// Имплементация на метод създаващ заявка за подаване на напрежение 
+		/// за технологична позиция с идентификатор positionId
+		/// и вдигащ статус StatusFlagsEnum.Required на закритите наряди
+		/// за указаната позиция 
+        /// </summary>
+        /// <param name="positionId">Идентификатор на позиция</param>
+        /// <param name="id">Идентификатор на потребител</param>
+        /// <returns></returns>
+        public async Task<StatusModel> RequestedSafeAssignment(Guid id, Guid positionId)
+        {
+            StatusModel result = new StatusModel()
+            {
+                Success = false,
+            };
+
+            var safeAssigments = await this.repo.All<SafeAssignmentDocument>()
+                .Where(sa => sa.TechnologicalPositionId.Equals(positionId) && sa.Status.Equals(StatusFlagsEnum.Closing))
+                .ToListAsync();
+
+            foreach (var safeAssigment in safeAssigments)
+            {
+                safeAssigment.PersonRequestedVoltageSupplyId = id;
+                safeAssigment.Status = StatusFlagsEnum.Required;
+            }
+
+            this.repo.UpdateRange(safeAssigments);
+
+            try
+            {
+                await this.repo.SaveChangesAsync();
+
+                result.Success = true;
+                result.Description = Request_SafeAssignment_Document_Success;
+            }
+            catch (Exception)
+            {
+                result.Description = Request_SafeAssignment_Document_Fail;
+            }
+
+            return result;
+        }
+    }
 }

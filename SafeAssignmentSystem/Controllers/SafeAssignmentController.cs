@@ -3,20 +3,19 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using SafeAssignmentSystem.Common.Enums;
+    using SafeAssignmentSystem.Common.Exceptions;
     using SafeAssignmentSystem.Controllers.AbstractControlers;
     using SafeAssignmentSystem.Core.Contracts;
+    using SafeAssignmentSystem.Core.Models.StatusModels;
     using SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.Models.CommonViewModels;
     using SafeAssignmentSystem.Models.SafeAssignmentViewModels;
-
+    using System.Net;
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
-    using static SafeAssignmentSystem.Common.Notification.RoleConstants;
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
-    using SafeAssignmentSystem.Core.Models.StatusModels;
-    using SafeAssignmentSystem.Common.Enums;
-    using System.Security.Cryptography.Xml;
-    using SafeAssignmentSystem.Common.Exceptions;
+    using static SafeAssignmentSystem.Common.Notification.RoleConstants;
 
     public class SafeAssignmentController : BaseSafeAssignmentController
     {
@@ -74,7 +73,7 @@
 
             var transfer = new SafeAssignmentTransferModel()
             {
-                Number = model.Number,
+                Number = WebUtility.HtmlEncode(model.Number),
                 TechnologicalPositionId = model.TechnologicalPositionId,
                 PersonRequestedOpeningOrderId = user.Id,
                 Status = StatusFlagsEnum.Created
@@ -89,6 +88,43 @@
             else
             {
                 this.TempData[Error_Message] = result.Description;
+            }
+
+            return this.RedirectToAction("Index", "Home");
+        }
+
+        [Authorize(Roles = $"{Operator}")]
+        [HttpGet]
+        public async Task<IActionResult> RequestedSafeAssignment(Guid positionId)
+        {
+            try
+            {
+                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatus(positionId, StatusFlagsEnum.Opening);
+
+                if (transferModel.Count() > 0)
+                {
+                    this.TempData[Error_Message] = There_Is_Open_Order_For_Position;
+                    return this.RedirectToAction("Index", "Home");
+                }                
+                                
+                var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(positionId);
+                var user = await this.userManager.FindByIdAsync(User.Id());
+
+                if (!(await this.accountService.HasUserPremisionForPlant(user.Id, positionTransfer.InstalationId)))
+                {
+                    this.TempData[Error_Message] = User_Not_Permision;
+                    return this.RedirectToAction("Index", "Home");
+                }
+
+
+                var result = await this.safeAssignmentService.RequestedSafeAssignment(user.Id, positionId);
+                this.TempData[Success_Message] = result.Description;
+
+            }
+            catch (Exception e)
+            {
+                this.TempData[Error_Message] = e.Message;
+                return this.RedirectToAction("Index", "Home");
             }
 
             return this.RedirectToAction("Index", "Home");

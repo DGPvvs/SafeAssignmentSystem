@@ -84,7 +84,15 @@
 		/// Вече има потребител с такъв табелен номер!
 		/// </summary>
 		public const string User_WorkNumber_Already_Exists = "Вече има потребител с такъв табелен номер!";
+
+        /// <summary>
+        /// Не успяхте да направите регистрация!
+        /// </summary>
         public const string User_Registration_Fail = "Не успяхте да направите регистрация!";
+
+        /// <summary>
+        /// Успешно направихте регистрация!
+        /// </summary>
         public const string User_Registration_Success = "Успешно направихте регистрация!";
         public const string User_Cant_Edit_Youself = "Потребителят не може да редактира сам себе си!";
         public const string User_Edit_Account_Success = "Успешно редактирахте потребителския профил!";
@@ -182,5 +190,20 @@
 		/// Няма заведен наряд с такъв номер!
 		/// </summary>
 		public const string SafeAssignment_Not_Exist = "Няма заведен наряд с такъв номер!";
-	}
+
+        /// <summary>
+        /// Не може да се направи заявка за подаване на напрежение! За исканата позиция има действащ наряд!
+        /// </summary>
+        public const string There_Is_Open_Order_For_Position = "Не може да се направи заявка за подаване на напрежение! За исканата позиция има действащ наряд!";
+
+        /// <summary>
+        /// Успешно заявихте подаване на напрежение за позицията!
+        /// </summary>
+        public const string Request_SafeAssignment_Document_Success = "Успешно заявихте подаване на напрежение за позицията!";
+
+        /// <summary>
+        /// Заявката не беше направена!
+        /// </summary>
+        public const string Request_SafeAssignment_Document_Fail = "Заявката не беше направена!";
+    }
 }

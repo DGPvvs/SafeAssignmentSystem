@@ -47,5 +47,16 @@
 		/// <param name="userId">Идентификатор на потребител откриващ наряда</param>
 		/// <returns></returns>
 		public Task<StatusModel> OpeningSafeAssignment(Guid safeAssignmentId, Guid userId);
-	}
+
+        /// <summary>
+		/// Декларация на метод създаващ заявка за подаване на напрежение 
+		/// за технологична позиция с идентификатор positionId
+		/// и вдигащ статус StatusFlagsEnum.Required на закритите наряди
+		/// за указаната позиция
+		/// </summary>
+		/// <param name="positionId">Идентификатор на позиция</param>
+		/// <param name="id">Идентификатор на потребител</param>
+		/// <returns></returns>
+		public Task<StatusModel> RequestedSafeAssignment(Guid id, Guid positionId);
+    }
 }
