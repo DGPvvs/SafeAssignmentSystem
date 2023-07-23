@@ -54,6 +54,52 @@
         }
 
 		/// <summary>
+		/// Имплементация на метод закриващ наряд с идентификатор safeAssignmentId
+		/// Наряда се закрива от потребител с идентификатор userId 
+		/// </summary>
+		/// <param name="safeAssignmentId"></param>
+		/// <param name="userId"></param>
+		/// <returns></returns>
+		public async Task<StatusModel> ClosingSafeAssignment(Guid safeAssignmentId, Guid userId)
+		{
+			StatusModel result = new StatusModel()
+			{
+				Success = false
+			};
+
+			var safeAssignment = await this.repo.All<SafeAssignmentDocument>()
+				.Where(sa => sa.Id.Equals(safeAssignmentId))
+				.FirstOrDefaultAsync();
+
+			if (safeAssignment is null)
+			{
+				result.Description = SafeAssignment_Not_Exist;
+			}
+			else
+			{
+				safeAssignment.ЕlectricianClosingOrderId = userId;
+				safeAssignment.ClosingDate = DateTime.Now;
+				safeAssignment.Status = StatusFlagsEnum.Closing;
+
+				try
+				{
+					this.repo.Update(safeAssignment);
+					await this.repo.SaveChangesAsync();
+				}
+				catch (Exception)
+				{
+					result.Description = Closing_SafeAssignment_Document_Fail;
+					return result;
+				}
+			}
+
+			result.Success = true;
+			result.Description = Closing_SafeAssignment_Document_Success;
+
+			return result;
+		}
+
+		/// <summary>
 		/// Декларация на метод завеждащ наряд за позиция, указана в transfer 
 		/// </summary>
 		/// <param name="transfer">Транспортен модел на наряда</param>
@@ -111,7 +157,14 @@
                 Number = transfer.Number,
                 TechnologicalPositionId = transfer.TechnologicalPositionId,
                 PersonRequestedOpeningOrderId = transfer.PersonRequestedOpeningOrderId,
-                Status = transfer.Status
+				OpeningDate = transfer.OpeningDate.Equals(null) ? null : new DateOnly(transfer.OpeningDate.Value.Year,
+																					transfer.OpeningDate.Value.Month,
+																					transfer.OpeningDate.Value.Day),
+				OpeningTime = transfer.OpeningDate.Equals(null) ? null : new TimeOnly(transfer.OpeningDate.Value.Hour,
+																					transfer.OpeningDate.Value.Minute),
+				ЕlectricianOpeningOrderId = transfer.ЕlectricianOpeningOrderId,
+
+				Status = transfer.Status
             };
             
             return result;
@@ -136,7 +189,7 @@
 
             if (safeAssignment is null)
             {
-                result.Description = Opening_SafeAssignment_Document_Fail;
+                result.Description = SafeAssignment_Not_Exist;
             }
             else
             {

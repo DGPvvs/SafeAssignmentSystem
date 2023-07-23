@@ -18,6 +18,15 @@
             <param name="positionId">Идентификатор на технологична позиция</param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.ClosingSafeAssignment(System.Guid,System.Guid)">
+            <summary>
+            Декларация на метод закриващ наряд с идентификатор safeAssignmentId
+            Наряда се закрива от потребител с идентификатор userId 
+            </summary>
+            <param name="safeAssignmentId"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.CreateSafeAssignment(SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel)">
             <summary>
             Декларация на метод завеждащ наряд за позиция, указана в transfer 
@@ -35,6 +44,7 @@
         <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.OpeningSafeAssignment(System.Guid,System.Guid)">
             <summary>
             Декларация на метод откриващ наряд с идентификатор safeAssignmentId
+            Наряда се открива от потребител с идентификатор userId 
             </summary>
             <param name="safeAssignmentId">Идентификатор на наряд</param>
             <param name="userId">Идентификатор на потребител откриващ наряда</param>
@@ -368,6 +378,15 @@
             </summary>
             <param name="positionId">Идентификатор на технологична позиция</param>
             /// <param name="status">Идентификатор на статус</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.ClosingSafeAssignment(System.Guid,System.Guid)">
+            <summary>
+            Имплементация на метод закриващ наряд с идентификатор safeAssignmentId
+            Наряда се закрива от потребител с идентификатор userId 
+            </summary>
+            <param name="safeAssignmentId"></param>
+            <param name="userId"></param>
             <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.CreateSafeAssignment(SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel)">

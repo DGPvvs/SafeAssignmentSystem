@@ -89,14 +89,14 @@
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.OpeningSafeAssignmentPost(System.Guid)">
             <summary>
-            Метод обработващ заявката за откриване на наряд с идентификатор safeAssignmentId 
+            Метод обработващ заявката за откриване на наряд с идентификатор id 
             </summary>
             <param name="id">Идентификатор на наряд</param>
             <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.ClosingSafeAssignmentPost(System.Guid)">
             <summary>
-            Метод обработващ заявката за откриване на наряд с идентификатор safeAssignmentId 
+            Метод обработващ заявката за закриване на наряд с идентификатор id 
             </summary>
             <param name="id">Идентификатор на наряд</param>
             <returns></returns>

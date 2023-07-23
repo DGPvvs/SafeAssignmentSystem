@@ -249,6 +249,11 @@
             Декларация на референтно време
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Common.Notification.NotificationConstants">
+            <summary>
+            Клас инициализиращ нотификационни константи
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Error_Message">
             <summary>
             Error_Message
@@ -324,6 +329,31 @@
             Вече има потребител с такова име!
             </summary>
         </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_WorkNumber_Already_Exists">
+            <summary>
+            Вече има потребител с такъв табелен номер!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Shift_Roptatin_Edit_Success">
+            <summary>
+            Успешно редактирахте сменният график!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Shift_Roptatin_Edit_Fail">
+            <summary>
+            Не успяхте да редактирате сменния график!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.File_Missing">
+            <summary>
+            Не сте избрали файл!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.File_Wrong_Format">
+            <summary>
+            Избраният файл не е с правилният формат!
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Create_SafeAssignment_Document_Fail">
             <summary>
             Наряда не беше регистриран!
@@ -347,6 +377,21 @@
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Opening_SafeAssignment_Document_Fail">
             <summary>
             Наряда не беше открит!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Closing_SafeAssignment_Document_Success">
+            <summary>
+            Успешно закрихте наряда!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Closing_SafeAssignment_Document_Fail">
+            <summary>
+            Наряда не беше закрит!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.SafeAssignment_Is_Not_In_Status_Opening">
+            <summary>
+            Нарядът, който се опитвате да закриете не е със статус открит!
             </summary>
         </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.SafeAssignment_Not_Exist">

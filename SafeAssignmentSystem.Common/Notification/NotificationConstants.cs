@@ -1,5 +1,8 @@
 ﻿namespace SafeAssignmentSystem.Common.Notification
 {
+	/// <summary>
+	/// Клас инициализиращ нотификационни константи
+	/// </summary>
     public static class NotificationConstants
     {
 		/// <summary>
@@ -76,7 +79,11 @@
 		/// Вече има потребител с такова име!
 		/// </summary>
 		public const string User_Already_Exists = "Вече има потребител с такова име!";
-        public const string User_WorkNumber_Already_Exists = "Вече има потребител с такъв табелен номер!";
+
+		/// <summary>
+		/// Вече има потребител с такъв табелен номер!
+		/// </summary>
+		public const string User_WorkNumber_Already_Exists = "Вече има потребител с такъв табелен номер!";
         public const string User_Registration_Fail = "Не успяхте да направите регистрация!";
         public const string User_Registration_Success = "Успешно направихте регистрация!";
         public const string User_Cant_Edit_Youself = "Потребителят не може да редактира сам себе си!";
@@ -109,11 +116,27 @@
         public const string Shift_Find_Fail = "Не беше намерена такава смяна!";
         public const string Shift_Edit_Success = "Успешно редактирахте смяната!";
 
+
+		/// <summary>
+		/// Успешно редактирахте сменният график!
+		/// </summary>
 		public const string Shift_Roptatin_Edit_Success = "Успешно редактирахте сменният график!";
+
+		/// <summary>
+		/// Не успяхте да редактирате сменния график!
+		/// </summary>
 		public const string Shift_Roptatin_Edit_Fail = "Не успяхте да редактирате сменния график!";
 
-        public const string File_Missing = "Не сте избрали файл!";
-        public const string File_Wrong_Format = "Избраният файл не е с правилният формат!";
+
+		/// <summary>
+		/// Не сте избрали файл!
+		/// </summary>
+		public const string File_Missing = "Не сте избрали файл!";
+
+		/// <summary>
+		/// Избраният файл не е с правилният формат!
+		/// </summary>
+		public const string File_Wrong_Format = "Избраният файл не е с правилният формат!";
 
 		/// <summary>
 		/// Наряда не беше регистриран!
@@ -133,12 +156,27 @@
 		/// <summary>
 		/// Нарядът, който се опитвате да откриете не е със статус заведен!
 		/// </summary>
-		public const string SafeAssignment_Is_Not_In_Status_Created = "Нарядът, който се опитвате да откриете не е със статус заведен!";
+		public const string SafeAssignment_Is_Not_In_Status_Created = "Нарядът, който се опитвате да откриете не е със статус заведен!";		
 
 		/// <summary>
 		/// Наряда не беше открит!
 		/// </summary>
 		public const string Opening_SafeAssignment_Document_Fail = "Наряда не беше открит!";
+
+		/// <summary>
+		/// Успешно закрихте наряда!
+		/// </summary>
+		public const string Closing_SafeAssignment_Document_Success = "Успешно закрихте наряда!";
+
+		/// <summary>
+		/// Наряда не беше закрит!
+		/// </summary>
+		public const string Closing_SafeAssignment_Document_Fail = "Наряда не беше закрит!";
+
+		/// <summary>
+		/// Нарядът, който се опитвате да закриете не е със статус открит!
+		/// </summary>
+		public const string SafeAssignment_Is_Not_In_Status_Opening = "Нарядът, който се опитвате да закриете не е със статус открит!";
 
 		/// <summary>
 		/// Няма заведен наряд с такъв номер!
