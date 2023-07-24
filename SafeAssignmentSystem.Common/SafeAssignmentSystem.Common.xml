@@ -193,14 +193,29 @@
             Максимална дължина на номера на наряда
             </summary>
         </member>
-        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants.Number_Min_Length">
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants.Number_Length">
             <summary>
-            Минимална дължина на номера на наряда
+            Дължина на номера на наряда
             </summary>
         </member>
-        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants.Error_Message_Number">
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants.Number_Regex_Pattern">
             <summary>
-            Съобщение за грешка при неправилно въвеждане на номер
+            Регекс определящ формата на номерацията на наряда
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants.Error_Message">
+            <summary>
+            Съобщение за грешка при неправилно въвеждане на номер на наряд
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants.Format_Number">
+            <summary>
+            Форматиращ стринг описващ модела на номерация на наряда
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants.Date_Display_Format">
+            <summary>
+            Формат на дтата в номера на наряда
             </summary>
         </member>
         <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants.New_Password_Max_Length">
@@ -342,6 +357,31 @@
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Registration_Success">
             <summary>
             Успешно направихте регистрация!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Cant_Edit_Youself">
+            <summary>
+            Потребителят не може да редактира сам себе си!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Edit_Account_Success">
+            <summary>
+            Успешно редактирахте потребителския профил!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Edit_Account_Fail">
+            <summary>
+            Не успяхте да редактирате потребителският профил!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Not_Permision">
+            <summary>
+            Потребителят няма допуск до съоръженията в инсталацията!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Not_Registred">
+            <summary>
+            Потребителят, който се опитвате да редактирате, не е регистриран
             </summary>
         </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Shift_Roptatin_Edit_Success">

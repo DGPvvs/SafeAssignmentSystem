@@ -80,6 +80,27 @@
             <param name="model">Модел на данните върнат от изображението</param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.CreateSafeAssignment(System.Guid)">
+            <summary>
+            Get действие зареждащо модела на изображението за създаване на наряд 
+            </summary>
+            <param name="plantId">Идентификатор на инсталация</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.CreateSafeAssignment(SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel)">
+            <summary>
+            Post действие зареждащо модела на изображението с данните за създаване на наряд
+            </summary>
+            <param name="model">Модел на данните необходими за създаване на нов наряд</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.AppliedSafeAssignment(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="positionId"></param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.OpeningSafeAssignment(System.Guid)">
             <summary>
             Get действие зареждащо модела на изображението за откпиване на наряди 
@@ -341,11 +362,6 @@
             Име на технологичната позиция
             </summary>
         </member>
-        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOpeningViewModel.ComplexName">
-            <summary>
-            Име на комплекс
-            </summary>
-        </member>
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.Number">
             <summary>
             Номер на наряд според вътрешнонарядната номерация
@@ -356,14 +372,29 @@
             Идентификатор на технологична позиция
             </summary>
         </member>
-        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.PlantInstalationName">
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.FullPlantInstalationName">
             <summary>
             Пълно име на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.PlantInstalationName">
+            <summary>
+            Кратко име на инсталация
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.PlantInstalationId">
             <summary>
             Идентификатор на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.ComplexName">
+            <summary>
+            Кратко име на комплекс
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.FullComplexName">
+            <summary>
+            Пълно име на комплекс
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.TechnologicalPositions">

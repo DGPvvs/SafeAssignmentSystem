@@ -29,7 +29,23 @@
             <div class="visually-hidden">
                 <label asp-for="@Model.PlantInstalationId" class="form-label"></label>
                 <input asp-for="@Model.PlantInstalationId" class="form-control" aria-required="false" />
-                <span asp-validation-for="PlantInstalationId" class="text-danger"></span>                
+                <span asp-validation-for="PlantInstalationId" class="text-danger"></span>
+
+                <label asp-for="@Model.PlantInstalationName" class="form-label"></label>
+                <input asp-for="@Model.PlantInstalationName" class="form-control" aria-required="false" />
+                <span asp-validation-for="@Model.PlantInstalationName" class="text-danger"></span>
+
+                <label asp-for="@Model.FullComplexName" class="form-label"></label>
+                <input asp-for="@Model.FullComplexName" class="form-control" aria-required="false" />
+                <span asp-validation-for="@Model.FullComplexName" class="text-danger"></span>
+
+                <label asp-for="@Model.FullPlantInstalationName" class="form-label"></label>
+                <input asp-for="@Model.FullPlantInstalationName" class="form-control" aria-required="false" />
+                <span asp-validation-for="@Model.FullPlantInstalationName" class="text-danger"></span>
+                
+                <label asp-for="@Model.ComplexName" class="form-label"></label>
+                <input asp-for="@Model.ComplexName" class="form-control" aria-required="false" />
+                <span asp-validation-for="@Model.ComplexName" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <input class="btn btn-info" type="submit" value="Завеждане на наряд" />

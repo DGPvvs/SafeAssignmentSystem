@@ -19,13 +19,7 @@
         /// Име на технологичната позиция
         /// </summary>
         [Required]
-        public string TechnologicalPositionName { get; set; } = null!;
-
-        /// <summary>
-        /// Име на комплекс
-        /// </summary>
-        [Required]
-        public string ComplexName { get; set; } = null!;
+        public string TechnologicalPositionName { get; set; } = null!;        
     }
 }
 

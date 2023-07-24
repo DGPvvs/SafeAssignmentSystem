@@ -16,7 +16,7 @@
         /// Номер на наряд според вътрешнонарядната номерация
         /// </summary>
         [Required]
-        [StringLength(Number_Max_Length, MinimumLength = Number_Min_Length, ErrorMessage = Error_Message_Number)]
+        [RegularExpression(Number_Regex_Pattern, ErrorMessage = Error_Message)]
         public string Number { get; set; } = null!;
 
         /// <summary>
@@ -28,14 +28,30 @@
         /// <summary>
         /// Пълно име на инсталация
         /// </summary>
+        public string FullPlantInstalationName { get; set; } = null!;
+
+        /// <summary>
+        /// Кратко име на инсталация
+        /// </summary>
         [Required]
-        public string PlantInstalationName { get; set; } = null!;
+        public string PlantInstalationName { get; set; }
 
         /// <summary>
         /// Идентификатор на инсталация
         /// </summary>
         [Required]
         public Guid PlantInstalationId { get; set; }
+
+        /// <summary>
+        /// Кратко име на комплекс
+        /// </summary>
+        [Required]
+        public string ComplexName { get; set; } = null!;
+
+        /// <summary>
+        /// Пълно име на комплекс
+        /// </summary>
+        public string FullComplexName { get; set; }
 
         /// <summary>
         /// Колекция от технологичните позиции за инсталацията

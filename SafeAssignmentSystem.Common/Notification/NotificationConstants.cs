@@ -94,10 +94,30 @@
         /// Успешно направихте регистрация!
         /// </summary>
         public const string User_Registration_Success = "Успешно направихте регистрация!";
+
+        /// <summary>
+        /// Потребителят не може да редактира сам себе си!
+        /// </summary>
         public const string User_Cant_Edit_Youself = "Потребителят не може да редактира сам себе си!";
+
+        /// <summary>
+        /// Успешно редактирахте потребителския профил!
+        /// </summary>
         public const string User_Edit_Account_Success = "Успешно редактирахте потребителския профил!";
+
+        /// <summary>
+        /// Не успяхте да редактирате потребителският профил!
+        /// </summary>
         public const string User_Edit_Account_Fail = "Не успяхте да редактирате потребителският профил!";
+
+        /// <summary>
+        /// Потребителят няма допуск до съоръженията в инсталацията!
+        /// </summary>
         public const string User_Not_Permision = "Потребителят няма допуск до съоръженията в инсталацията!";
+
+        /// <summary>
+        /// Потребителят, който се опитвате да редактирате, не е регистриран
+        /// </summary>
         public const string User_Not_Registred = "Потребителят, който се опитвате да редактирате, не е регистриран";
 
         public const string New_Complex_Add_Fail = "Новият комплекс не беше добавен!";

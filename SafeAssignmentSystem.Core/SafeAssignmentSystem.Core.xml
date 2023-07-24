@@ -86,6 +86,11 @@
             Кратко наименование на комплекс
             </summary>
         </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.FullComplexName">
+            <summary>
+            Пълно наименование на комплекс
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel">
             <summary>
             Трансферен модел на технологична инсталация
@@ -402,7 +407,7 @@
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.CreateSafeAssignment(SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel)">
             <summary>
-            Декларация на метод завеждащ наряд за позиция, указана в transfer 
+            Имплементация на метод завеждащ наряд за позиция, указана в transfer 
             </summary>
             <param name="transfer">Транспортен модел на наряда</param>
             <returns></returns>

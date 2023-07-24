@@ -16,6 +16,7 @@
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
     using static SafeAssignmentSystem.Common.Notification.RoleConstants;
+    using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants;
 
     public class SafeAssignmentController : BaseSafeAssignmentController
     {
@@ -36,6 +37,11 @@
             this.accountService = accountService;
         }
 
+        /// <summary>
+        /// Get действие зареждащо модела на изображението за създаване на наряд 
+        /// </summary>
+        /// <param name="plantId">Идентификатор на инсталация</param>
+        /// <returns></returns>
         [Authorize(Roles = $"{Operator}")]
         [HttpGet]
         public async Task<IActionResult> CreateSafeAssignment(Guid plantId)
@@ -45,18 +51,31 @@
 
             var model = new SafeAssignmentOrderingViewModel()
             {
-                PlantInstalationName = plant.FullName,
+                FullPlantInstalationName = plant.FullName,
+                PlantInstalationName = plant.Name,
                 PlantInstalationId = plant.Id,
+                ComplexName = plant.ComplexName,
+                FullComplexName = plant.FullComplexName,
                 TechnologicalPositions = positions.Select(tp => new KeyValuePairViewModel(tp.Id, tp.Name)).ToList()
             };
 
             return View(model);
         }
 
+        /// <summary>
+        /// Post действие зареждащо модела на изображението с данните за създаване на наряд
+        /// </summary>
+        /// <param name="model">Модел на данните необходими за създаване на нов наряд</param>
+        /// <returns></returns>
         [Authorize(Roles = $"{Operator}")]
         [HttpPost]
         public async Task<IActionResult> CreateSafeAssignment(SafeAssignmentOrderingViewModel model)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.RedirectToAction(nameof(CreateSafeAssignment), new { plantId = model.PlantInstalationId });
+            }
+
             var user = await this.userManager.FindByIdAsync(User.Id());
 
             if (user is null)
@@ -71,9 +90,11 @@
                 return this.RedirectToAction("Index", "Home");
             }
 
+            string numberString = string.Format(SafeAssignmentDocumentConstants.Format_Number, model.ComplexName, model.PlantInstalationName, model.Number, DateOnly.FromDateTime(DateTime.Now).ToString(SafeAssignmentDocumentConstants.Date_Display_Format));
+
             var transfer = new SafeAssignmentTransferModel()
             {
-                Number = WebUtility.HtmlEncode(model.Number),
+                Number = WebUtility.HtmlEncode(numberString),
                 TechnologicalPositionId = model.TechnologicalPositionId,
                 PersonRequestedOpeningOrderId = user.Id,
                 Status = StatusFlagsEnum.Created
@@ -129,6 +150,48 @@
 
             return this.RedirectToAction("Index", "Home");
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="positionId"></param>
+        /// <returns></returns>
+        [Authorize(Roles = $"{Electrician}")]
+        [HttpGet]
+        public async Task<IActionResult> AppliedSafeAssignment(Guid positionId)
+        {
+            try
+            {
+                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatus(positionId, StatusFlagsEnum.Opening);
+
+                if (transferModel.Count() > 0)
+                {
+                    this.TempData[Error_Message] = There_Is_Open_Order_For_Position;
+                    return this.RedirectToAction("Index", "Home");
+                }
+
+                var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(positionId);
+                var user = await this.userManager.FindByIdAsync(User.Id());
+
+                if (!(await this.accountService.HasUserPremisionForPlant(user.Id, positionTransfer.InstalationId)))
+                {
+                    this.TempData[Error_Message] = User_Not_Permision;
+                    return this.RedirectToAction("Index", "Home");
+                }
+
+
+                var result = await this.safeAssignmentService.RequestedSafeAssignment(user.Id, positionId);
+                this.TempData[Success_Message] = result.Description;
+
+            }
+            catch (Exception e)
+            {
+                this.TempData[Error_Message] = e.Message;
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            return this.RedirectToAction("Index", "Home");
+        }            
 
         /// <summary>
         /// Get действие зареждащо модела на изображението за откпиване на наряди 

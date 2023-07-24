@@ -128,17 +128,32 @@
             /// <summary>
             /// Максимална дължина на номера на наряда
             /// </summary>
-            public const int Number_Max_Length = 200;
+            public const int Number_Max_Length = 55;
 
             /// <summary>
-            /// Минимална дължина на номера на наряда
+            /// Дължина на номера на наряда
             /// </summary>
-            public const int Number_Min_Length = 10;
+            public const int Number_Length = 4;
 
             /// <summary>
-            /// Съобщение за грешка при неправилно въвеждане на номер
+            /// Регекс определящ формата на номерацията на наряда
             /// </summary>
-            public const string Error_Message_Number = "Номера на наряда трябва да е с дължина между {2} и {1} символа.";
+            public const string Number_Regex_Pattern = "(([0-9])([0-9])([0-9])([0-9]))";
+
+            /// <summary>
+            /// Съобщение за грешка при неправилно въвеждане на номер на наряд
+            /// </summary>
+            public const string Error_Message = "Номерът на наряда трябва да е от 4 цифри";
+
+            /// <summary>
+            /// Форматиращ стринг описващ модела на номерация на наряда
+            /// </summary>
+            public static string  Format_Number = "НР-{0}-{1}-{2}-{3}";
+
+            /// <summary>
+            /// Формат на дтата в номера на наряда
+            /// </summary>
+            public const string Date_Display_Format = "dd.MM.yyyy";
         }
     }
 }

@@ -364,7 +364,8 @@
                     Id = c.Id,
                     Name = c.Name,
                     FullName = c.FullName,
-                    ComplexName = c.Complex.Name
+                    ComplexName = c.Complex.Name,
+                    FullComplexName = c.Complex.FullName
                 })
                 .FirstOrDefaultAsync(c => c.Id == id);
 

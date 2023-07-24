@@ -28,5 +28,10 @@
         /// Кратко наименование на комплекс
         /// </summary>
         public string ComplexName { get; set; } = null!;
+
+        /// <summary>
+        /// Пълно наименование на комплекс
+        /// </summary>
+        public string FullComplexName { get; set; } = null!;
     }
 }
