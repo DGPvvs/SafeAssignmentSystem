@@ -120,11 +120,35 @@
         /// </summary>
         public const string User_Not_Registred = "Потребителят, който се опитвате да редактирате, не е регистриран";
 
+
+        /// <summary>
+        /// Новият комплекс не беше добавен!
+        /// </summary>
         public const string New_Complex_Add_Fail = "Новият комплекс не беше добавен!";
+
+        /// <summary>
+        /// Новият комплекс е добавен успешно!
+        /// </summary>
         public const string New_Complex_Add_Success = "Новият комплекс е добавен успешно!";
+
+        /// <summary>
+        /// Комплекса не беше намерен!
+        /// </summary>
         public const string Complex_Find_Fail = "Комплекса не беше намерен!";
-		public const string Complex_Edit_Exist_In_Deleted = "Комплекс с такива имена вече има сред изтритите комплекси!";
-		public const string Complex_Delete_Fail = "Комплекса не беше изтрит!";
+
+        /// <summary>
+        /// Комплекс с такива имена вече има сред изтритите комплекси!
+        /// </summary>
+        public const string Complex_Edit_Exist_In_Deleted = "Комплекс с такива имена вече има сред изтритите комплекси!";
+
+        /// <summary>
+        /// Комплекса не беше изтрит!
+        /// </summary>
+        public const string Complex_Delete_Fail = "Комплекса не беше изтрит!";
+
+        /// <summary>
+        /// Комплекса не беше възстановен!
+        /// </summary>
         public const string Complex_Undelete_Fail = "Комплекса не беше възстановен!";
         public const string Complex_Has_Plant = "Комплекса не може да бъде изтрит защото има свързани с него инсталации!";
 
@@ -139,9 +163,24 @@
         public const string Time_Format_Incorect = "Неправилен формат на час!";
         public const string Date_Format_Incorect = "Неправилен формат на дата!";
 
+        /// <summary>
+        /// Успешно добавихте нова смяна!
+        /// </summary>
         public const string Shift_Add_Success = "Успешно добавихте нова смяна!";
+
+        /// <summary>
+        /// Не успяхте да добавихте нова смяна!
+        /// </summary>
         public const string Shift_Add_Fail = "Не успяхте да добавихте нова смяна!";
+
+        /// <summary>
+        /// Не беше намерена такава смяна!
+        /// </summary>
         public const string Shift_Find_Fail = "Не беше намерена такава смяна!";
+
+        /// <summary>
+        /// Успешно редактирахте смяната!
+        /// </summary>
         public const string Shift_Edit_Success = "Успешно редактирахте смяната!";
 
 
@@ -222,8 +261,23 @@
         public const string Request_SafeAssignment_Document_Success = "Успешно заявихте подаване на напрежение за позицията!";
 
         /// <summary>
+        /// Позицията е под напрежение! Всички закрити наряди за позицията са архивирани!
+        /// </summary>
+        public const string Archived_SafeAssignment_Document_Success = "Позицията е под напрежение! Всички закрити наряди за позицията са архивирани!";
+
+        /// <summary>
         /// Заявката не беше направена!
         /// </summary>
-        public const string Request_SafeAssignment_Document_Fail = "Заявката не беше направена!";
+        public const string Request_SafeAssignment_Document_Fail = "Заявката за подаване на напрежение на позицията не беше направена!";
+
+        /// <summary>
+        /// Не успяхте да регистрирате подаването на напрежение за позицията!
+        /// </summary>
+        public const string Archived_SafeAssignment_Document_Fail = "Не успяхте да регистрирате подаването на напрежение за позицията!";
+
+        /// <summary>
+        /// Не е постъпило искане за подаване на напрежение за тази позиция!
+        /// </summary>
+        public const string No_Voltage_Request_For_Position = "Не е постъпило искане за подаване на напрежение за тази позиция!";
     }
 }

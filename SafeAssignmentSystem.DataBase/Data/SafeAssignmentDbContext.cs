@@ -15,9 +15,11 @@
     /// DbContext на приложението
     /// </summary>
     public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
-
-		//public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
 	{
+        /// <summary>
+        /// Конструктор на SafeAssignmentDbContext 
+        /// </summary>
+        /// <param name="options"></param>
         public SafeAssignmentDbContext(DbContextOptions<SafeAssignmentDbContext> options)
             : base(options)
         {

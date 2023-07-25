@@ -3,11 +3,11 @@
 namespace SafeAssignmentSystem.DataBase.Data.Common
 	
 {
-	/// <summary>
-	/// Abstraction of repository access methods
-	/// </summary>
-	/// <typeparam name="T">Repository type / db table</typeparam>
-	public interface IRepository : IDisposable
+    /// <summary>    
+    /// Abstraction of repository access methods
+    /// <typeparam name="T">Repository type / db table</typeparam>
+    /// </summary>
+    public interface IRepository : IDisposable
 	{
 		/// <summary>
 		/// All records in a table

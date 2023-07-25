@@ -5,10 +5,10 @@
     </assembly>
     <members>
         <member name="T:SafeAssignmentSystem.DataBase.Data.Common.IRepository">
-            <summary>
+            <summary>    
             Abstraction of repository access methods
-            </summary>
             <typeparam name="T">Repository type / db table</typeparam>
+            </summary>
         </member>
         <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.All``1">
             <summary>
@@ -208,6 +208,12 @@
             <summary>
             Клас съдържащ моделите на таблиците от базата с тестовите данни 
             </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.SeedsData.SeedUsersRole">
+            <summary>
+            Колекция с тестови роли
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationRole">
             <summary>
@@ -558,6 +564,12 @@
             <summary>
             DbContext на приложението
             </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext})">
+            <summary>
+            Конструктор на SafeAssignmentDbContext 
+            </summary>
+            <param name="options"></param>
         </member>
     </members>
 </doc>

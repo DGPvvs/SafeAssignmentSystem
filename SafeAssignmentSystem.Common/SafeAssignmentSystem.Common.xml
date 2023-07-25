@@ -51,6 +51,16 @@
             при инстанциране на изключението
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Common.Exceptions.NotEmptyException">
+            <summary>
+            Прекъсване указващо, че елемента не е празен
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.Exceptions.NotEmptyException.#ctor">
+            <summary>
+            Конструктор задаващ за Message вътрешното съобщение за грешка на изключението
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Common.Exceptions.TechnologicalPositionException">
             <summary>
             Изключение за технологична позиция.
@@ -384,6 +394,56 @@
             Потребителят, който се опитвате да редактирате, не е регистриран
             </summary>
         </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.New_Complex_Add_Fail">
+            <summary>
+            Новият комплекс не беше добавен!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.New_Complex_Add_Success">
+            <summary>
+            Новият комплекс е добавен успешно!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Complex_Find_Fail">
+            <summary>
+            Комплекса не беше намерен!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Complex_Edit_Exist_In_Deleted">
+            <summary>
+            Комплекс с такива имена вече има сред изтритите комплекси!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Complex_Delete_Fail">
+            <summary>
+            Комплекса не беше изтрит!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Complex_Undelete_Fail">
+            <summary>
+            Комплекса не беше възстановен!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Shift_Add_Success">
+            <summary>
+            Успешно добавихте нова смяна!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Shift_Add_Fail">
+            <summary>
+            Не успяхте да добавихте нова смяна!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Shift_Find_Fail">
+            <summary>
+            Не беше намерена такава смяна!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Shift_Edit_Success">
+            <summary>
+            Успешно редактирахте смяната!
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Shift_Roptatin_Edit_Success">
             <summary>
             Успешно редактирахте сменният график!
@@ -459,9 +519,24 @@
             Успешно заявихте подаване на напрежение за позицията!
             </summary>
         </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Archived_SafeAssignment_Document_Success">
+            <summary>
+            Позицията е под напрежение! Всички закрити наряди за позицията са архивирани!
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Request_SafeAssignment_Document_Fail">
             <summary>
             Заявката не беше направена!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Archived_SafeAssignment_Document_Fail">
+            <summary>
+            Не успяхте да регистрирате подаването на напрежение за позицията!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.No_Voltage_Request_For_Position">
+            <summary>
+            Не е постъпило искане за подаване на напрежение за тази позиция!
             </summary>
         </member>
     </members>

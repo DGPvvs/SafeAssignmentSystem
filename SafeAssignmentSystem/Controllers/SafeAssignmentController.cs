@@ -100,7 +100,7 @@
                 Status = StatusFlagsEnum.Created
             };
 
-            StatusModel result = await this.safeAssignmentService.CreateSafeAssignment(transfer);
+            StatusModel result = await this.safeAssignmentService.CreateSafeAssignmentAsync(transfer);
 
             if (result.Success)
             {
@@ -120,7 +120,7 @@
         {
             try
             {
-                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatus(positionId, StatusFlagsEnum.Opening);
+                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(positionId, StatusFlagsEnum.Opening);
 
                 if (transferModel.Count() > 0)
                 {
@@ -138,7 +138,7 @@
                 }
 
 
-                var result = await this.safeAssignmentService.RequestedSafeAssignment(user.Id, positionId);
+                var result = await this.safeAssignmentService.RequestedSafeAssignmentAsync(user.Id, positionId);
                 this.TempData[Success_Message] = result.Description;
 
             }
@@ -152,7 +152,9 @@
         }
 
         /// <summary>
-        /// 
+        /// Get действие за подаване на напрежение на технологична позиция
+        /// с идентификатор positionId ако няма открити наряди за позицията
+        /// Всички наряди със статус изкане за подаване на напрежение получават статус архивирани
         /// </summary>
         /// <param name="positionId"></param>
         /// <returns></returns>
@@ -162,7 +164,16 @@
         {
             try
             {
-                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatus(positionId, StatusFlagsEnum.Opening);
+                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(positionId, StatusFlagsEnum.Required);
+
+                if (transferModel.Count().Equals(0))
+                {
+                    this.TempData[Error_Message] = No_Voltage_Request_For_Position;
+                    return this.RedirectToAction("Index", "Home");
+                }
+
+
+                transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(positionId, StatusFlagsEnum.Opening);
 
                 if (transferModel.Count() > 0)
                 {
@@ -180,7 +191,7 @@
                 }
 
 
-                var result = await this.safeAssignmentService.RequestedSafeAssignment(user.Id, positionId);
+                var result = await this.safeAssignmentService.AppliedSafeAssignmentAsync(user.Id, positionId);
                 this.TempData[Success_Message] = result.Description;
 
             }
@@ -206,7 +217,7 @@
 
             try
             {
-                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatus(positionId, StatusFlagsEnum.Created);
+                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(positionId, StatusFlagsEnum.Created);
                 var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(positionId);
 
                 foreach (var transfer in transferModel)
@@ -254,7 +265,7 @@
         {
             try
             {
-                var safeAssignment = await this.safeAssignmentService.GetSafeAssignmentById(id);
+                var safeAssignment = await this.safeAssignmentService.GetSafeAssignmentByIdAsync(id);
                 var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(safeAssignment.TechnologicalPositionId);
                 var user = await this.userManager.FindByIdAsync(User.Id());
 
@@ -271,7 +282,7 @@
 					return this.RedirectToAction("Index", "Home");
 				}
 
-                var result = await this.safeAssignmentService.OpeningSafeAssignment(id, user.Id);
+                var result = await this.safeAssignmentService.OpeningSafeAssignmentAsync(id, user.Id);
 
 				this.TempData[Success_Message] = Opening_SafeAssignment_Document_Success;
 			}
@@ -295,7 +306,7 @@
 
             try
             {
-                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatus(positionId, StatusFlagsEnum.Opening);
+                var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(positionId, StatusFlagsEnum.Opening);
                 var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(positionId);
 
                 foreach (var transfer in transferModel)
@@ -348,7 +359,7 @@
         {
 			try
 			{
-				var safeAssignment = await this.safeAssignmentService.GetSafeAssignmentById(id);
+				var safeAssignment = await this.safeAssignmentService.GetSafeAssignmentByIdAsync(id);
 				var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(safeAssignment.TechnologicalPositionId);
 				var user = await this.userManager.FindByIdAsync(User.Id());
 
@@ -365,7 +376,7 @@
 					return this.RedirectToAction("Index", "Home");
 				}
 
-				var result = await this.safeAssignmentService.ClosingSafeAssignment(id, user.Id);
+				var result = await this.safeAssignmentService.ClosingSafeAssignmentAsync(id, user.Id);
 
 				this.TempData[Success_Message] = Closing_SafeAssignment_Document_Success;
 			}

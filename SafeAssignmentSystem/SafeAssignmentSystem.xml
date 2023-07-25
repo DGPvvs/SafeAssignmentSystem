@@ -96,7 +96,9 @@
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.AppliedSafeAssignment(System.Guid)">
             <summary>
-            
+            Get действие за подаване на напрежение на технологична позиция
+            с идентификатор positionId ако няма открити наряди за позицията
+            Всички наряди със статус изкане за подаване на напрежение получават статус архивирани
             </summary>
             <param name="positionId"></param>
             <returns></returns>

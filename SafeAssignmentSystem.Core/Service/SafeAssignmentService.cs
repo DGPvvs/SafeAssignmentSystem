@@ -31,7 +31,7 @@
         /// <param name="positionId">Идентификатор на технологична позиция</param>
         /// /// <param name="status">Идентификатор на статус</param>
         /// <returns></returns>
-        public async Task<IEnumerable<SafeAssignmentTransferModel>> AllSafeAssigmentForPositionAndStatus(Guid positionId, StatusFlagsEnum status)
+        public async Task<IEnumerable<SafeAssignmentTransferModel>> AllSafeAssigmentForPositionAndStatusAsync(Guid positionId, StatusFlagsEnum status)
         {
             var transfer = await this.repo.AllReadonly<SafeAssignmentDocument>()
                 .Where(sa => sa.TechnologicalPositionId.Equals(positionId) && sa.Status.Equals(status))
@@ -54,14 +54,74 @@
             return transfer;
         }
 
-		/// <summary>
-		/// Имплементация на метод закриващ наряд с идентификатор safeAssignmentId
-		/// Наряда се закрива от потребител с идентификатор userId 
-		/// </summary>
-		/// <param name="safeAssignmentId"></param>
-		/// <param name="userId"></param>
-		/// <returns></returns>
-		public async Task<StatusModel> ClosingSafeAssignment(Guid safeAssignmentId, Guid userId)
+        /// <summary>
+        /// Имплементация на метод създаващ заявка за подаване на напрежение
+        /// за технологична позиция с идентификатор positionId
+        /// и вдигащ статус StatusFlagsEnum.Archived на закритите наряди
+        /// за указаната позиция
+        /// </summary>
+        /// <param name="id">Идентификатор на потребител</param>
+        /// <param name="positionId">Идентификатор на позиция</param>
+        /// <returns></returns>
+        public async Task<StatusModel> AppliedSafeAssignmentAsync(Guid id, Guid positionId)
+        {
+            StatusModel result = new StatusModel()
+            {
+                Success = false,
+            };
+
+            var safeAssigmentsRequired = await this.repo.All<SafeAssignmentDocument>()
+                .Where(sa => sa.TechnologicalPositionId.Equals(positionId) && sa.Status.Equals(StatusFlagsEnum.Required))
+                .ToListAsync();
+
+            var safeAssigmentsClosed = await this.repo.All<SafeAssignmentDocument>()
+                    .Where(sa => sa.TechnologicalPositionId.Equals(positionId) && sa.Status.Equals(StatusFlagsEnum.Closing))
+                    .ToListAsync();
+
+            if (safeAssigmentsRequired.Count > 0)
+            {
+                foreach (var safeAssigment in safeAssigmentsRequired)
+                {
+                    safeAssigment.ElectricianAppliedVoltageId = id;
+                    safeAssigment.Status = StatusFlagsEnum.Archived;
+                }
+
+                
+                foreach (var safeAssigment in safeAssigmentsClosed)
+                {
+                    safeAssigment.ElectricianAppliedVoltageId = id;
+                    safeAssigment.PersonRequestedVoltageSupplyId = id;
+                    safeAssigment.Status = StatusFlagsEnum.Archived;
+                }
+
+                this.repo.UpdateRange(safeAssigmentsRequired);
+                this.repo.UpdateRange(safeAssigmentsClosed);
+            }           
+
+            try
+            {
+                await this.repo.SaveChangesAsync();
+
+                result.Success = true;
+                result.Description = Archived_SafeAssignment_Document_Success;
+            }
+            catch (Exception)
+            {
+                result.Description = Request_SafeAssignment_Document_Fail;
+            }
+
+            return result;
+
+        }
+
+        /// <summary>
+        /// Имплементация на метод закриващ наряд с идентификатор safeAssignmentId
+        /// Наряда се закрива от потребител с идентификатор userId 
+        /// </summary>
+        /// <param name="safeAssignmentId"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public async Task<StatusModel> ClosingSafeAssignmentAsync(Guid safeAssignmentId, Guid userId)
 		{
 			StatusModel result = new StatusModel()
 			{
@@ -105,7 +165,7 @@
 		/// </summary>
 		/// <param name="transfer">Транспортен модел на наряда</param>
 		/// <returns></returns>
-		public async Task<StatusModel> CreateSafeAssignment(SafeAssignmentTransferModel transfer)
+		public async Task<StatusModel> CreateSafeAssignmentAsync(SafeAssignmentTransferModel transfer)
         {
             StatusModel result = new StatusModel()
             {
@@ -141,7 +201,7 @@
 		/// </summary>
 		/// <param name="safeAssignmentId">Идентификатор на наряд</param>
 		/// <returns></returns>
-		public async Task<SafeAssignmentTransferModel> GetSafeAssignmentById(Guid safeAssignmentId)
+		public async Task<SafeAssignmentTransferModel> GetSafeAssignmentByIdAsync(Guid safeAssignmentId)
 		{
             var transfer = await this.repo.AllReadonly<SafeAssignmentDocument>()
                 .Where(sa => sa.Id.Equals(safeAssignmentId))
@@ -177,7 +237,7 @@
 		/// <param name="safeAssignmentId">Идентификатор на наряд</param>
 		/// <param name="userId">Идентификатор на потребител откриващ наряда</param>
 		/// <returns></returns>
-		public async Task<StatusModel> OpeningSafeAssignment(Guid safeAssignmentId, Guid userId)
+		public async Task<StatusModel> OpeningSafeAssignmentAsync(Guid safeAssignmentId, Guid userId)
 		{
 			StatusModel result = new StatusModel()
 			{
@@ -225,7 +285,7 @@
         /// <param name="positionId">Идентификатор на позиция</param>
         /// <param name="id">Идентификатор на потребител</param>
         /// <returns></returns>
-        public async Task<StatusModel> RequestedSafeAssignment(Guid id, Guid positionId)
+        public async Task<StatusModel> RequestedSafeAssignmentAsync(Guid id, Guid positionId)
         {
             StatusModel result = new StatusModel()
             {

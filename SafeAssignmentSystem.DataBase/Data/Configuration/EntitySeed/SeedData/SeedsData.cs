@@ -14,6 +14,10 @@
 	/// </summary>
     public class SeedsData
 	{
+		/// <summary>
+		/// Колекция с тестови роли
+		/// </summary>
+		/// <returns></returns>
         public IEnumerable<IdentityUserRole<Guid>> SeedUsersRole() =>
             new List<IdentityUserRole<Guid>>()
             {

@@ -11,14 +11,25 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.AllSafeAssigmentForPositionAndStatus(System.Guid,SafeAssignmentSystem.Common.Enums.StatusFlagsEnum)">
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(System.Guid,SafeAssignmentSystem.Common.Enums.StatusFlagsEnum)">
             <summary>
             Декларация на метод връщащ всички заведени наряди за технологична позиция
             </summary>
             <param name="positionId">Идентификатор на технологична позиция</param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.ClosingSafeAssignment(System.Guid,System.Guid)">
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.AppliedSafeAssignmentAsync(System.Guid,System.Guid)">
+            <summary>
+            Декларация на метод създаващ заявка за подаване на напрежение
+            за технологична позиция с идентификатор positionId
+            и вдигащ статус StatusFlagsEnum.Archived на закритите наряди
+            за указаната позиция
+            </summary>
+            <param name="id">Идентификатор на потребител</param>
+            <param name="positionId">Идентификатор на позиция</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.ClosingSafeAssignmentAsync(System.Guid,System.Guid)">
             <summary>
             Декларация на метод закриващ наряд с идентификатор safeAssignmentId
             Наряда се закрива от потребител с идентификатор userId 
@@ -27,21 +38,21 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.CreateSafeAssignment(SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel)">
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.CreateSafeAssignmentAsync(SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel)">
             <summary>
             Декларация на метод завеждащ наряд за позиция, указана в transfer 
             </summary>
             <param name="transfer">Транспортен модел на наряда</param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.GetSafeAssignmentById(System.Guid)">
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.GetSafeAssignmentByIdAsync(System.Guid)">
             <summary>
             Декларация на метод връщащ наряд с идентификатор safeAssignmentId
             </summary>
             <param name="safeAssignmentId">Идентификатор на наряд</param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.OpeningSafeAssignment(System.Guid,System.Guid)">
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.OpeningSafeAssignmentAsync(System.Guid,System.Guid)">
             <summary>
             Декларация на метод откриващ наряд с идентификатор safeAssignmentId
             Наряда се открива от потребител с идентификатор userId 
@@ -50,7 +61,7 @@
             <param name="userId">Идентификатор на потребител откриващ наряда</param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.RequestedSafeAssignment(System.Guid,System.Guid)">
+        <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.RequestedSafeAssignmentAsync(System.Guid,System.Guid)">
             <summary>
             Декларация на метод създаващ заявка за подаване на напрежение 
             за технологична позиция с идентификатор positionId
@@ -387,7 +398,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.AllSafeAssigmentForPositionAndStatus(System.Guid,SafeAssignmentSystem.Common.Enums.StatusFlagsEnum)">
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(System.Guid,SafeAssignmentSystem.Common.Enums.StatusFlagsEnum)">
             <summary>
             Имплементация на метод връщащ всички заведени наряди за технологична позиция
             и със статус указан от status 
@@ -396,7 +407,18 @@
             /// <param name="status">Идентификатор на статус</param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.ClosingSafeAssignment(System.Guid,System.Guid)">
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.AppliedSafeAssignmentAsync(System.Guid,System.Guid)">
+            <summary>
+            Имплементация на метод създаващ заявка за подаване на напрежение
+            за технологична позиция с идентификатор positionId
+            и вдигащ статус StatusFlagsEnum.Archived на закритите наряди
+            за указаната позиция
+            </summary>
+            <param name="id">Идентификатор на потребител</param>
+            <param name="positionId">Идентификатор на позиция</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.ClosingSafeAssignmentAsync(System.Guid,System.Guid)">
             <summary>
             Имплементация на метод закриващ наряд с идентификатор safeAssignmentId
             Наряда се закрива от потребител с идентификатор userId 
@@ -405,21 +427,21 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.CreateSafeAssignment(SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel)">
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.CreateSafeAssignmentAsync(SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel)">
             <summary>
             Имплементация на метод завеждащ наряд за позиция, указана в transfer 
             </summary>
             <param name="transfer">Транспортен модел на наряда</param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.GetSafeAssignmentById(System.Guid)">
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.GetSafeAssignmentByIdAsync(System.Guid)">
             <summary>
             Имплементация на метод връщащ наряд с идентификатор safeAssignmentId
             </summary>
             <param name="safeAssignmentId">Идентификатор на наряд</param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.OpeningSafeAssignment(System.Guid,System.Guid)">
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.OpeningSafeAssignmentAsync(System.Guid,System.Guid)">
             <summary>
             Имплементация на метод откриващ наряд с идентификатор safeAssignmentId
             </summary>
@@ -427,7 +449,7 @@
             <param name="userId">Идентификатор на потребител откриващ наряда</param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.RequestedSafeAssignment(System.Guid,System.Guid)">
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.RequestedSafeAssignmentAsync(System.Guid,System.Guid)">
             <summary>
             Имплементация на метод създаващ заявка за подаване на напрежение 
             за технологична позиция с идентификатор positionId
