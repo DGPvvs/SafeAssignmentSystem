@@ -8,6 +8,11 @@
 	public class NotEmptyException : Exception
 	{
 		private const string Error_Message = "Към елемента има референции от други таблици!";
+
+		/// <summary>
+		/// Конструктор задаващ Message на излючението
+		/// </summary>
+		/// <param name="message"></param>
 		public NotEmptyException(string message) : base(message)
 		{
 

@@ -4,6 +4,9 @@ namespace SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransfer
 {
     using System;
 
+    /// <summary>
+    /// Трансферен модел (DTO) на наряд
+    /// </summary>
     public class SafeAssignmentTransferModel
     {
         /// <summary>

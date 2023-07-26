@@ -66,13 +66,25 @@
                             @if (SignInManager.IsSignedIn(User))
                             {
                                 <div class="row">
-                                    <nav class="nav nav-pills">
-                                        <a class="nav-link bg-danger text-dark dropdown-toggle"
-                                            asp-controller="Account"
-                                            asp-action="ChangePassword">
-                                            Смяна на парола
-                                        </a>
-                                    </nav>
+                                    <div class="col-md-3">
+                                        
+                                        <!-- Справки -->
+                                        <div class="btn-group dropend">
+                                            <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">Изготвяне на справки</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <nav class="nav nav-pills">
+                                            <a class="nav-link bg-danger text-dark dropdown-toggle"
+                                                asp-controller="Account"
+                                                asp-action="ChangePassword">
+                                                Смяна на парола
+                                            </a>
+                                        </nav>
+                                    </div>
                                 </div>
                             }
                         }

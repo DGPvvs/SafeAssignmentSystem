@@ -132,6 +132,11 @@
             Комплекс към който се числи инсталацията
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel">
+            <summary>
+            Трансферен модел (DTO) на наряд
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel.Id">
             <summary>
             Идентификационен ключ

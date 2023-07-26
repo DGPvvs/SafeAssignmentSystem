@@ -2,15 +2,26 @@
 {
 	using System;
 
+	/// <summary>
+	/// Прекъсване указващо, че наряда не е създаден
+	/// </summary>
 	public class SafeAssignmentNotExistException : Exception
 	{
 		private const string Error_Message = "Няма създаден наряд с такъв номер!";
-		public SafeAssignmentNotExistException(string message) : base(message)
+
+        /// <summary>
+        /// Конструктор задаващ Message на излючението
+        /// </summary>
+        /// <param name="message"></param>
+        public SafeAssignmentNotExistException(string message) : base(message)
 		{
 
 		}
 
-		public SafeAssignmentNotExistException() : this(Error_Message)
+        /// <summary>
+        /// Конструктор задаващ за Message вътрешното съобщение за грешка на изключението
+        /// </summary>
+        public SafeAssignmentNotExistException() : this(Error_Message)
 		{
 
 		}

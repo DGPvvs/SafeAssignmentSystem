@@ -56,7 +56,29 @@
             Прекъсване указващо, че елемента не е празен
             </summary>
         </member>
+        <member name="M:SafeAssignmentSystem.Common.Exceptions.NotEmptyException.#ctor(System.String)">
+            <summary>
+            Конструктор задаващ Message на излючението
+            </summary>
+            <param name="message"></param>
+        </member>
         <member name="M:SafeAssignmentSystem.Common.Exceptions.NotEmptyException.#ctor">
+            <summary>
+            Конструктор задаващ за Message вътрешното съобщение за грешка на изключението
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.Exceptions.SafeAssignmentNotExistException">
+            <summary>
+            Прекъсване указващо, че наряда не е създаден
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.Exceptions.SafeAssignmentNotExistException.#ctor(System.String)">
+            <summary>
+            Конструктор задаващ Message на излючението
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.Exceptions.SafeAssignmentNotExistException.#ctor">
             <summary>
             Конструктор задаващ за Message вътрешното съобщение за грешка на изключението
             </summary>
@@ -228,9 +250,19 @@
             Формат на дтата в номера на наряда
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants">
+            <summary>
+            Клас деклариращ константи за моделите на изгледите
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants.New_Password_Max_Length">
             <summary>
             Максимална дължина на паролата
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants.New_Password_Min_Length">
+            <summary>
+            Минимална дължина на паролата
             </summary>
         </member>
         <member name="T:SafeAssignmentSystem.Common.Notification.ConditionConstants">
