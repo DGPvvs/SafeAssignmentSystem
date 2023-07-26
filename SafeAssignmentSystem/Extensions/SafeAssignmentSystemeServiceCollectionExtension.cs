@@ -17,6 +17,7 @@
             services.AddScoped<IWorkingRotationService, WorkingRotationService>();
             services.AddScoped<ISafeAssignmentService, SafeAssignmentService>();
             services.AddScoped<IReader, LoadWorkingRotationFromFile>();
+            services.AddScoped<IReferencesService, ReferencesService>();            
 
             return services;
 		}

@@ -8,7 +8,6 @@
 	using SafeAssignmentSystem.Common.Notification;
 	using SafeAssignmentSystem.Common.Overrides;
 	using SafeAssignmentSystem.Core.Contracts;
-	using SafeAssignmentSystem.Core.IO;
 	using SafeAssignmentSystem.Core.Models.StatusModels;
 	using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
 	using SafeAssignmentSystem.DataBase.Data.Common;
@@ -20,7 +19,6 @@
 
 
 	using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
-
 
 	public class WorkingRotationService : IWorkingRotationService
 	{
@@ -216,8 +214,6 @@
             {
                 Success = false
             };
-
-			//var reader = new LoadWorkingRotationFromFile();
 
 			try
 			{

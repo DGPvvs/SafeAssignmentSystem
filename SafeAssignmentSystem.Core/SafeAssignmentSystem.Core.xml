@@ -4,6 +4,13 @@
         <name>SafeAssignmentSystem.Core</name>
     </assembly>
     <members>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IChoisPlantsService.ChoicesAllPositionInPlantAsync(System.Guid)">
+            <summary>
+            Деклариране на метод селектиращ всички технологични позиции в инсталация с идентификатор plantId
+            </summary>
+            <param name="plantId">Идентификатор на инсталация</param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.AddComplexAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel)">
             <summary>
             Деклариране на метода за добавяне на комплекси
@@ -132,6 +139,51 @@
             Комплекс към който се числи инсталацията
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel">
+            <summary>
+            Трансферен модел пренасящ детайли за технологичната позиция при подготвяне на справки
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.PositionId">
+            <summary>
+            Идентификатор на технологична позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.PositionName">
+            <summary>
+            Име на позицията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.SafeAssignments">
+            <summary>
+            Колекция, съдържаща нарядите към технологичната позиция
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel">
+            <summary>
+            Транспортен модел връщащ детайли за състоянието на всички технологични позиции в дадена инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel.ComlpexFullName">
+            <summary>
+            Пълно име на комплекса в който е технологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel.InstalationFullName">
+            <summary>
+            Пълно име на инсталация в която се намира технологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel.Position">
+            <summary>
+            Колекция от наряди към конкретна технологична позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel.Positions">
+            <summary>
+            Колекция от технологични позиции с детайли за състоянието им 
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel">
             <summary>
             Трансферен модел (DTO) на наряд
@@ -250,12 +302,19 @@
             <param name="currentUserName">Име на потребител, който няма да бъде включен във върнатата колекция</param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Service.ChoisPlantsService.#ctor(SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext,SafeAssignmentSystem.Core.Contracts.IPlantsService)">
+        <member name="M:SafeAssignmentSystem.Core.Service.ChoisPlantsService.#ctor(SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext,SafeAssignmentSystem.Core.Contracts.IPlantsService,SafeAssignmentSystem.DataBase.Data.Common.IRepository)">
             <summary>
             Конструктор на сървиса менажиращ изборите
             </summary>
             <param name="context"></param>
             <param name="service"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.ChoisPlantsService.ChoicesAllPositionInPlantAsync(System.Guid)">
+            <summary>
+            Имплементация на метод селектиращ всички технологични позиции в инсталация с идентификатор plantId
+            </summary>
+            <param name="plantId">Идентификатор на инсталация</param>
+            <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.AddComplexAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel)">
             <summary>

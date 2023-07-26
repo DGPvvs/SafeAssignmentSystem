@@ -71,6 +71,18 @@
                                         <!-- Справки -->
                                         <div class="btn-group dropend">
                                             <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">Изготвяне на справки</button>
+                                            <ul class="dropdown-menu multi-level">
+                                                <li class="nav-item dropdown">
+                                                    
+                                                    <!-- Справка за състояниено на всички позиции в инсталация -->
+                                                    <a class="nav-link btn-success text-white dropdown-toggle"
+                                                        asp-controller="Choices"
+                                                        asp-action="ChoisPlant"
+                                                        asp-route-data="Reference AllTechnologicalPositionCondition">
+                                                        Справка за състояниено на всички позиции в инсталация
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>

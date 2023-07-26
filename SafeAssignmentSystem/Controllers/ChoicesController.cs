@@ -39,6 +39,13 @@
             this.accountService = accountService;
         }
 
+        /// <summary>
+        /// Get действие зареждащо модел за избор на инсталация
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="action"></param>
+        /// <param name="data">Препратка към следващо действие</param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> ChoisPlant(string controller, string action, string data)
         {
@@ -69,6 +76,11 @@
             return View(model);
         }
 
+        /// <summary>
+        /// Post действие получаващо избраната инсталация и предаващо действието нататък
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> ChoisPlant(ChoisPlantViewModel model)
         {
@@ -207,8 +219,7 @@
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> ChoisUserAndMonth(ChoisUserAndMonthViewModel model)
         {
-            var currentUserName = User?.Identity?.Name;
-            
+            var currentUserName = User?.Identity?.Name;            
 
             if (currentUserName == model.User)
             {
@@ -216,8 +227,6 @@
                 ModelState.AddModelError(string.Empty, User_Cant_Edit_Youself);
                 return this.RedirectToAction("Index", "Home");
             }
-
-
 
             bool successDateConvert = DateOnly.TryParseExact(model.Date, Date_Format, CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.None, out DateOnly date);
 

@@ -32,6 +32,22 @@
             Контролер за избор
             </summary>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.ChoisPlant(System.String,System.String,System.String)">
+            <summary>
+            Get действие зареждащо модел за избор на инсталация
+            </summary>
+            <param name="controller"></param>
+            <param name="action"></param>
+            <param name="data">Препратка към следващо действие</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.ChoisPlant(SafeAssignmentSystem.Models.ChoisViewModels.ChoisPlantViewModel)">
+            <summary>
+            Post действие получаващо избраната инсталация и предаващо действието нататък
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.ChoisTechnologicalPosition(System.Guid,System.String)">
             <summary>
             Get action предаващ модела на технологичните позиции
@@ -333,6 +349,56 @@
             <summary>
             Колекция от ключ - име на инсталации
             </summary>        
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.ReferenceViewModel.PositionDetailViewModel">
+            <summary>
+            Визуален модел на детайлите за техтологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.PositionDetailViewModel.Name">
+            <summary>
+            Име на технологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.PositionDetailViewModel.InWork">
+            <summary>
+            Статус: В работа
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.PositionDetailViewModel.Created">
+            <summary>
+            Брой заведени наряди
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.PositionDetailViewModel.Opening">
+            <summary>
+            Брой действащи наряди
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.PositionDetailViewModel.Closing">
+            <summary>
+            Брой закрити наряди
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.PositionDetailViewModel.Required">
+            <summary>
+            Брой заявки за подаване на напрежение
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.PositionsInPlantViewModel.PlantFullName">
+            <summary>
+            Пълно име на инсталацията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.PositionsInPlantViewModel.ComplexFullName">
+            <summary>
+            Пълно име на комплекса
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.PositionsInPlantViewModel.PositionsDetail">
+            <summary>
+            Колекция съдържаща описание на статуса на технологичните позиции
+            </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentClosingViewModel.ЕlectricianOpeningOrder">
             <summary>
