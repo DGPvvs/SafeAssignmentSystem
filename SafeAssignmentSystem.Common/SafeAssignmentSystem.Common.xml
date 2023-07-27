@@ -87,6 +87,22 @@
             Конструктор задаващ за Message вътрешното съобщение за грешка на изключението
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Common.Exceptions.PlantNotFoundException">
+            <summary>
+            Изключение за неоткрита инсталация
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.Exceptions.PlantNotFoundException.#ctor(System.String)">
+            <summary>
+            Конструктор задаващ външно съобщение за грешка
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.Exceptions.PlantNotFoundException.#ctor">
+            <summary>
+            Конструктор задаващ вътрешното съобщение за грешка
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Common.Exceptions.SafeAssignmentNotExistException">
             <summary>
             Прекъсване указващо, че наряда не е създаден
@@ -275,6 +291,11 @@
             Клас деклариращ константи за моделите на изгледите
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants">
+            <summary>
+            Констранти валидиращи модела на изгледа за смяна на паролите
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants.New_Password_Max_Length">
             <summary>
             Максимална дължина на паролата
@@ -283,6 +304,41 @@
         <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants.New_Password_Min_Length">
             <summary>
             Минимална дължина на паролата
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants.New_Password_Error_Message">
+            <summary>
+            Съобщение за грешка при неправилно въведена нова парола
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants.Confirm_Password_Error_Message">
+            <summary>
+            Съобщение за грешка при неправилно повторение на новата парола
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ApplicationUserConstants">
+            <summary>
+            Констранти валидиращи модела на изгледа за регистрация и промяна на имената на потребители
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ApplicationUserConstants.FirstName_Max_Length">
+            <summary>
+            Максимална дължина на първото име на потребител
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ApplicationUserConstants.FirstName_Min_Length">
+            <summary>
+            Минимална дължина на първото име на потребител
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ApplicationUserConstants.LastName_Max_Length">
+            <summary>
+            Максимална дължина на фамилията на потребител
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ApplicationUserConstants.LastName_Min_Length">
+            <summary>
+            Минимална дължина на фамилията на потребител
             </summary>
         </member>
         <member name="T:SafeAssignmentSystem.Common.Notification.ConditionConstants">

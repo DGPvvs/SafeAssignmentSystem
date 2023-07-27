@@ -27,6 +27,11 @@
             </summary>
             <param name="context"></param>
         </member>
+        <member name="T:SafeAssignmentSystem.Controllers.AbstractControlers.BaseReferenceController">
+            <summary>
+            Базов контролер за отчети
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Controllers.ChoicesController">
             <summary>
             Контролер за избор
@@ -98,9 +103,25 @@
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.ReferenceController.AllTechnologicalPositionCondition(System.Guid)">
             <summary>
-            Get метод връщащ информация за технологичните позиции
+            Get метод връщащ информация за всички технологични позиции
+            в инсталацията с идентификатор plantId 
             </summary>
-            <param name="plantId"></param>
+            <param name="plantId">Идентификатор на инсталация</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ReferenceController.AllTechnologicalPositionUnderRepair(System.Guid)">
+            <summary>
+            Get метод връщащ информация за всички технологични позиции в ремонт
+            в инсталацията с идентификатор plantId
+            </summary>
+            <param name="plantId">Идентификатор на инсталация</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ReferenceController.SetInModel(SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel)">
+            <summary>
+            Метод запълващ детайлите за технологичната позиция
+            </summary>
+            <param name="transfer">Трансферен модел с детайлите за технологичните позиции</param>
             <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.CreateSafeAssignment(System.Guid)">
@@ -437,6 +458,16 @@
             Име на технологичната позиция
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel">
+            <summary>
+            Mодел на изображение при регистрация на наряд
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.#ctor">
+            <summary>
+            Конструктор на модела на изображение при регистрация на наряд
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOrderingViewModel.Number">
             <summary>
             Номер на наряд според вътрешнонарядната номерация
@@ -477,9 +508,99 @@
             Колекция от технологичните позиции за инсталацията
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.WorkingRotationViewModels.CreateShiftScheduleViewModel">
+            <summary>
+            Модел на изображението на сменните графици
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.WorkingRotationViewModels.CreateShiftScheduleViewModel.#ctor">
+            <summary>
+            Конструктор на модела на изображението за създаване на сменен график
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.CreateShiftScheduleViewModel.UserName">
+            <summary>
+            Име на акаунт на потребителя
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.CreateShiftScheduleViewModel.UserFullName">
+            <summary>
+            Пълно име на потребителя
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.CreateShiftScheduleViewModel.Month">
+            <summary>
+            Месец от датата на сменният график
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.CreateShiftScheduleViewModel.Year">
+            <summary>
+            Година от датата на сменният график
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.CreateShiftScheduleViewModel.UserShifts">
+            <summary>
+            Списък със сменният график на потребителя
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.CreateShiftScheduleViewModel.ShiftsNames">
+            <summary>
+            Колекция със идентификаторите и имената на смените
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.WorkingRotationViewModels.EditWorkingShiftViewModel">
+            <summary>
+            Модел на изгледа за редакция на смяна
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.EditWorkingShiftViewModel.Id">
             <summary>
             Идентификатор на смяната
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.WorkingRotationViewModels.ShiftScheduleViewModel">
+            <summary>
+            Модел на изгледа на смените на потребителя
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.WorkingRotationViewModels.ShiftScheduleViewModel.#ctor">
+            <summary>
+            Конструктор на модела на изгледа на смените на потребителя
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.ShiftScheduleViewModel.UserName">
+            <summary>
+            Име на акаунт на потребителя
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.ShiftScheduleViewModel.UserShifts">
+            <summary>
+            Списък на смените на потребителя
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.WorkingRotationViewModels.ShiftsViewModel">
+            <summary>
+            Модел на изгледа за смяна
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.WorkingRotationViewModels.ShiftsViewModel.#ctor">
+            <summary>
+            Конструктор на модела на изгледа за смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.ShiftsViewModel.Date">
+            <summary>
+            Дата на смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.ShiftsViewModel.ShiftName">
+            <summary>
+            Име на смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.WorkingRotationViewModels.ShiftsViewModel.ShiftId">
+            <summary>
+            Идентификатор на смяна
             </summary>
         </member>
         <member name="T:SafeAssignmentSystem.Models.WorkingRotationViewModels.WorkingShiftViewModel">
