@@ -117,6 +117,14 @@
             <param name="plantId">Идентификатор на инсталация</param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ReferenceController.AllTechnologicalPositionNoVoltageApplied(System.Guid)">
+            <summary>
+            Get метод връщащ информация за всички технологични позиции в
+            в инсталацията с идентификатор plantId, на които не е подадено напрежение
+            </summary>
+            <param name="plantId">Идентификатор на инсталация</param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Controllers.ReferenceController.SetInModel(SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel)">
             <summary>
             Метод запълващ детайлите за технологичната позиция

@@ -89,6 +89,14 @@
                                                         asp-route-data="Reference AllTechnologicalPositionUnderRepair">
                                                         Справка за оборудването в ремонт в инсталация
                                                     </a>
+
+                                                    <!-- Справка за оборудването на което не е подадено напрежение -->
+                                                    <a class="nav-link btn-warning text-dark dropdown-toggle"
+                                                        asp-controller="Choices"
+                                                        asp-action="ChoisPlant"
+                                                        asp-route-data="Reference AllTechnologicalPositionNoVoltageApplied">
+                                                        Справка за оборудването в инсталацията на което не е подадено напрежение
+                                                    </a>
                                                 </li>
                                             </ul>
                                         </div>

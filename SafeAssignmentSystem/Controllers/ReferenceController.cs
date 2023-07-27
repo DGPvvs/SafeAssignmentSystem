@@ -84,6 +84,34 @@
         }
 
         /// <summary>
+        /// Get метод връщащ информация за всички технологични позиции в
+		/// в инсталацията с идентификатор plantId, на които не е подадено напрежение
+        /// </summary>
+        /// <param name="plantId">Идентификатор на инсталация</param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> AllTechnologicalPositionNoVoltageApplied(Guid plantId)
+        {
+            try
+            {
+                var transfer = await this.referencesService.GetTechnologicalPositionConditionAsync(plantId, FilterCriteria.NoVoltageApplied);
+                var model = this.SetInModel(transfer);
+
+                return View(model);
+            }
+            catch (PlantNotFoundException pnfe)
+            {
+                this.TempData[Error_Message] = pnfe.Message;
+                return this.RedirectToAction("Index", "Home");
+            }
+            catch (Exception e)
+            {
+                this.TempData[Error_Message] = e.Message;
+                return this.RedirectToAction("Index", "Home");
+            }
+        }        
+
+        /// <summary>
         /// Метод запълващ детайлите за технологичната позиция
         /// </summary>
         /// <param name="transfer">Трансферен модел с детайлите за технологичните позиции</param>
