@@ -4,6 +4,26 @@
         <name>SafeAssignmentSystem.Common</name>
     </assembly>
     <members>
+        <member name="T:SafeAssignmentSystem.Common.Enums.FilterCriteria">
+            <summary>
+            Енумератор указващ начина на филтриране при извеждане на списъка на технологичните позиции
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Enums.FilterCriteria.All">
+            <summary>
+            Всички технологични позиции
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Enums.FilterCriteria.UnderRepair">
+            <summary>
+            Технологични прозиции в ремонт
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Enums.FilterCriteria.NoVoltageApplied">
+            <summary>
+            Технологични позиции без напрежение
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Common.Enums.StatusFlagsEnum">
             <summary>
             Енумератор указващ статуса на наряд

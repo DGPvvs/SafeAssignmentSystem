@@ -1,14 +1,13 @@
 ﻿namespace SafeAssignmentSystem.Controllers.AbstractControlers
 {
 	using Microsoft.AspNetCore.Authorization;
-	using Microsoft.AspNetCore.Mvc;
 	using Microsoft.AspNetCore.Mvc.Filters;
 
-    /// <summary>
-    /// Базов контролер за всички логнати потребители
-    /// Наследява AntiforgeryController 
-    /// </summary>
-    [Authorize]
+	/// <summary>
+	/// Базов контролер за всички логнати потребители
+	/// Наследява AntiforgeryController 
+	/// </summary>
+	[Authorize]
 	public abstract class BaseController : AntiforgeryController
     {
 		/// <summary>

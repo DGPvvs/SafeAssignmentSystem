@@ -96,6 +96,13 @@
             <param name="model">Модел на данните върнат от изображението</param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ReferenceController.AllTechnologicalPositionCondition(System.Guid)">
+            <summary>
+            Get метод връщащ информация за технологичните позиции
+            </summary>
+            <param name="plantId"></param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.CreateSafeAssignment(System.Guid)">
             <summary>
             Get действие зареждащо модела на изображението за създаване на наряд 

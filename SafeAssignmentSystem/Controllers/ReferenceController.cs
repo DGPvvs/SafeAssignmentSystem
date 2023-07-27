@@ -6,6 +6,7 @@
     using SafeAssignmentSystem.Common.Exceptions;
     using SafeAssignmentSystem.Controllers.AbstractControlers;
     using SafeAssignmentSystem.Core.Contracts;
+    using SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.Models.ReferenceViewModel;
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
@@ -26,43 +27,53 @@
             this.referencesService = referencesService;
         }
 
+        /// <summary>
+        /// Get метод връщащ информация за технологичните позиции
+        /// </summary>
+        /// <param name="plantId"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> AllTechnologicalPositionCondition(Guid plantId)
         {
-            var model = new PositionsInPlantViewModel();
-
             try
             {
-                var transfer = await this.referencesService.GetTechnologicalPositionCondition(plantId);
+                var transfer = await this.referencesService.GetTechnologicalPositionConditionAsync(plantId, FilterCriteria.All);
+                var model = this.SetInModel(transfer);
 
-                model.ComplexFullName = transfer.ComlpexFullName;
-                model.PlantFullName = transfer.InstalationFullName;
-
-                model.PositionsDetail = transfer.Positions
-                    .Select(p => new PositionDetailViewModel()
-                    {
-                        Name = p.PositionName,
-                        InWork = p.SafeAssignments.Count.Equals(0) ? true : false,
-                        Created = p.SafeAssignments.Where(sa => sa.Status.HasFlag(StatusFlagsEnum.Created)).Count(),
-                        Opening = p.SafeAssignments.Where(sa => sa.Status.HasFlag(StatusFlagsEnum.Opening)).Count(),
-                        Closing = p.SafeAssignments.Where(sa => sa.Status.HasFlag(StatusFlagsEnum.Closing)).Count(),
-                        Required = p.SafeAssignments.Where(sa => sa.Status.HasFlag(StatusFlagsEnum.Required)).Count(),
-                    })
-                    .ToList();
-
-            }
+				return View(model);
+			}
             catch (PlantNotFoundException pnfe)
             {
                 this.TempData[Error_Message] = pnfe.Message;
                 return this.RedirectToAction("Index", "Home");
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
-            }
-
-            return View(model);
+				this.TempData[Error_Message] = e.Message;
+				return this.RedirectToAction("Index", "Home");
+			}            
         }
-    }
+        
+        private PositionsInPlantViewModel SetInModel(PositionInPlantTransferModel transfer)
+        {
+			var model = new PositionsInPlantViewModel();
+
+			model.ComplexFullName = transfer.ComlpexFullName;
+			model.PlantFullName = transfer.InstalationFullName;
+
+			model.PositionsDetail = transfer.Positions
+				.Select(p => new PositionDetailViewModel()
+				{
+					Name = p.PositionName,
+					InWork = p.InWork,
+					Created = p.Created,
+					Opening = p.Opening,
+					Closing = p.Closing,
+					Required = p.Required,
+				})
+				.ToList();
+
+            return model;
+		}
+	}
 }

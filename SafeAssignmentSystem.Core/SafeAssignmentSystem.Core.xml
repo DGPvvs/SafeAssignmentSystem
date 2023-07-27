@@ -18,6 +18,15 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IReferencesService.GetTechnologicalPositionConditionAsync(System.Guid,SafeAssignmentSystem.Common.Enums.FilterCriteria)">
+            <summary>
+            Декларация на метод връщащ състоянието на технологичните позиции
+            в инсталация с идентификатор plantId според критериите на filter 
+            </summary>
+            <param name="plantId">Идентификатор на инсталация</param>
+            <param name="all"></param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(System.Guid,SafeAssignmentSystem.Common.Enums.StatusFlagsEnum)">
             <summary>
             Декларация на метод връщащ всички заведени наряди за технологична позиция
@@ -144,6 +153,11 @@
             Трансферен модел пренасящ детайли за технологичната позиция при подготвяне на справки
             </summary>
         </member>
+        <member name="M:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.PositionId">
             <summary>
             Идентификатор на технологична позиция
@@ -152,6 +166,31 @@
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.PositionName">
             <summary>
             Име на позицията
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.InWork">
+            <summary>
+            Статус: В работа
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.Created">
+            <summary>
+            Брой заведени наряди
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.Opening">
+            <summary>
+            Брой действащи наряди
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.Closing">
+            <summary>
+            Брой закрити наряди
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.Required">
+            <summary>
+            Брой заявки за подаване на напрежение
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionDetailsTransferModel.SafeAssignments">
@@ -461,6 +500,16 @@
             </summary>
             <param name="id"></param>
             <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.ReferencesService.GetTechnologicalPositionConditionAsync(System.Guid,SafeAssignmentSystem.Common.Enums.FilterCriteria)">
+            <summary>
+            Имплементация на метод връщащ състоянието на технологичните позиции
+            в инсталация с идентификатор plantId според критериите на filter
+            </summary>
+            <param name="plantId">Идентификатор на инсталация</param>
+            <param name="filter"></param>
+            <returns></returns>
+            <exception cref="T:SafeAssignmentSystem.Common.Exceptions.PlantNotFoundException"></exception>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(System.Guid,SafeAssignmentSystem.Common.Enums.StatusFlagsEnum)">
             <summary>

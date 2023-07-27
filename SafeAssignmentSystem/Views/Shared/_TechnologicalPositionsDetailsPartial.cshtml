@@ -1,0 +1,51 @@
+﻿@using SafeAssignmentSystem.Models.ReferenceViewModel;
+@model PositionsInPlantViewModel
+
+@{
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Технологична позиция</th>
+            <th>Статус</th>
+            <th>Брой заведени наряди</th>
+            <th>Брой открити наряди</th>
+            <th>Брой закрити наряди</th>
+            <th>Брой заявки за подаване на напрежение</th>
+        </tr>
+
+        <tbody>
+            @foreach (var detail in Model.PositionsDetail)
+            {
+                <tr>
+                    <td>
+                        <p>@detail.Name</p>
+                    </td>
+                    <td>
+                        @if (detail.InWork)
+                        {
+                            <p class="btn-success" >В работа</p>
+                        }
+                        else
+                        {
+                            <p class="btn-danger">В ремонт</p>
+                        }
+                    </td>
+                    <td>
+                        <p>@detail.Created</p>
+                    </td>
+                    <td>
+                        <p>@detail.Opening</p>
+                    </td>
+                    <td>
+                        <p>@detail.Closing</p>
+                    </td>
+                    <td>
+                        <p>@detail.Required</p>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </thead>
+</table>

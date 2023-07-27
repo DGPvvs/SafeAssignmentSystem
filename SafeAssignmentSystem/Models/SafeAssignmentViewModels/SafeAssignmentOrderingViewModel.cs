@@ -5,8 +5,14 @@
 
     using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.SafeAssignmentDocumentConstants;
 
-    public class SafeAssignmentOrderingViewModel
+	/// <summary>
+	/// Mодел на изображение при регистрация на наряд
+	/// </summary>
+	public class SafeAssignmentOrderingViewModel
     {
+        /// <summary>
+        /// Конструктор на модела на изображение при регистрация на наряд
+        /// </summary>
         public SafeAssignmentOrderingViewModel()
         {
             this.TechnologicalPositions = new List<KeyValuePairViewModel>();
@@ -34,12 +40,12 @@
         /// Кратко име на инсталация
         /// </summary>
         [Required]
-        public string PlantInstalationName { get; set; }
+        public string PlantInstalationName { get; set; } = null!;
 
-        /// <summary>
-        /// Идентификатор на инсталация
-        /// </summary>
-        [Required]
+		/// <summary>
+		/// Идентификатор на инсталация
+		/// </summary>
+		[Required]
         public Guid PlantInstalationId { get; set; }
 
         /// <summary>
@@ -51,7 +57,7 @@
         /// <summary>
         /// Пълно име на комплекс
         /// </summary>
-        public string FullComplexName { get; set; }
+        public string FullComplexName { get; set; } = null!;
 
         /// <summary>
         /// Колекция от технологичните позиции за инсталацията
