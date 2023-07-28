@@ -555,11 +555,6 @@
             Колекция от наряди
             </summary>
         </member>
-        <member name="T:SafeAssignmentSystem.DataBase.Migrations.SeedTestData">
-            <summary>
-            SeedTestData
-            </summary>
-        </member>
         <member name="T:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext">
             <summary>
             DbContext на приложението

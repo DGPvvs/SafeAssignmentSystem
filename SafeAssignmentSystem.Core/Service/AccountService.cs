@@ -138,9 +138,14 @@
                 {
                     await this.userManager.RemoveFromRoleAsync(user, role);
                 }
+
                 await this.userManager.AddToRoleAsync(user, model.Role);
 
-                await this.repo.AddRangeAsync(newPlantsPermis);
+                if (newPlantsPermis.Count > 0)
+                {
+                    await this.repo.AddRangeAsync(newPlantsPermis);
+                }
+
                 await this.repo.SaveChangesAsync();
 
                 result.Success = true;

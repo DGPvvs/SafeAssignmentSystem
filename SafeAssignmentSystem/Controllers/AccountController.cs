@@ -309,7 +309,8 @@
                     .ToList()
             };
 
-            var result = await this.accountService.EditAccount(transfer, User.Id());
+            var user = await this.userManager.FindByIdAsync(User.Id());
+            var result = await this.accountService.EditAccount(transfer, user.UserName);
 
             if (result.Success)
             {

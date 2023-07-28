@@ -11,11 +11,8 @@ using SafeAssignmentSystem.Core.Data;
 
 namespace SafeAssignmentSystem.DataBase.Migrations
 {
-    /// <summary>
-    /// SeedTestData
-    /// </summary>
     [DbContext(typeof(SafeAssignmentDbContext))]
-    [Migration("20230717200017_SeedTestData")]
+    [Migration("20230728184822_SeedTestData")]
     partial class SeedTestData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -264,28 +261,28 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         new
                         {
                             Id = new Guid("b6d9e0b1-7844-40dd-bd53-cee6cf8f3b62"),
-                            ConcurrencyStamp = "a252136c-430c-4e69-aecc-7e9b4e110db8",
+                            ConcurrencyStamp = "b895f358-fb7c-4484-b702-d4081dcef0fe",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("26d978a0-e222-4209-a204-f632f093e657"),
-                            ConcurrencyStamp = "72df0f57-f168-4ac4-8050-978509e0bf63",
+                            ConcurrencyStamp = "bbfa1c87-432a-4586-97f2-e0c0e6f9e0ff",
                             Name = "Operator",
                             NormalizedName = "OPERATOR"
                         },
                         new
                         {
                             Id = new Guid("8a08f81e-e7db-44e8-b639-653d22648577"),
-                            ConcurrencyStamp = "23632619-e072-4301-a8ea-ab5a9ae44c1c",
+                            ConcurrencyStamp = "7a19f23f-20b0-4ddc-94af-dc6c76e047a5",
                             Name = "Electrician",
                             NormalizedName = "ELECTRICIAN"
                         },
                         new
                         {
                             Id = new Guid("237cb180-758f-465b-8d7d-bff014cf77b8"),
-                            ConcurrencyStamp = "5bdf0b5c-d2ed-4269-9b55-293d0ea69a0b",
+                            ConcurrencyStamp = "1fe0d320-777b-40b5-9f93-3d82584308a6",
                             Name = "NoRole",
                             NormalizedName = "NOROLE"
                         });
@@ -379,15 +376,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "722d17c8-642d-431c-9446-afc7a7689f72",
+                            ConcurrencyStamp = "52487577-42c9-46e3-9b4f-66412cbd1a5f",
                             EmailConfirmed = false,
                             FirstName = "Дан",
                             LastName = "Игнатов",
                             LockoutEnabled = false,
                             NormalizedUserName = "IGNATOV.DAN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDE9OV3lILJyhor75VuPFrkPyxEOzXazTMFMqReyZF/TfDtUXOUSgWZhuHUFy1eZ1g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEP+mzf/qAViP0WT4b3OQp6UaQMjIoaNj6ma3QvsreDjqgI47FwqkguZ+985F7nSATw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1aad91f0-74ad-4d23-afe1-273157fc01cb",
+                            SecurityStamp = "cf92c309-882d-49f2-9af4-18a05adde5be",
                             TwoFactorEnabled = false,
                             UserName = "Ignatov.Dan",
                             UserWorkNumber = 88327
@@ -396,15 +393,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ad4abd70-c094-47c4-afae-3cad6dbdd8ec",
+                            ConcurrencyStamp = "920ec165-e267-4d2e-99d4-2ced0ad746de",
                             EmailConfirmed = false,
                             FirstName = "Сергей",
                             LastName = "Попов",
                             LockoutEnabled = false,
                             NormalizedUserName = "POPOV.SERGEY",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ5TndkKL4anOvxNsQh9AxLK7r/eM1QTcIT35eXhzaR61I7aOlLdqiG2b/oHwO7Slw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG9w1QznpvQo4pwGZsa9X7rgaw08vntBWA4CyhfVZVabvKERWejKwzhk8kJlwa+L4Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "aee39010-b297-493f-84e2-3aa8c6ce3d40",
+                            SecurityStamp = "a6c02f01-e2f3-4f35-b59b-2a8110e472c5",
                             TwoFactorEnabled = false,
                             UserName = "Popov.Sergey",
                             UserWorkNumber = 38011
@@ -413,15 +410,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4c982959-7b38-428c-aff5-327aa1d2a920",
+                            ConcurrencyStamp = "4d9cb773-25ac-42f2-ab57-d4415f2a13cc",
                             EmailConfirmed = false,
                             FirstName = "Жерар",
                             LastName = "Славчев",
                             LockoutEnabled = false,
                             NormalizedUserName = "GERAR.SLAVTCHEV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGHR18xp0x10g9NMRLCy/QdAf5OJZLzdbRG8r04hOjcXrvg/+Tiohcg8Wy2DSYRfMQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKrksNRQ9LDMZq0O+GT2Jjya0J0SS8RZBXZdh1fsvrgcBdbCQJY42a3uqnOtPoxeMw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5400f2d3-6c25-45a1-8b96-3bae816a67ad",
+                            SecurityStamp = "e0b7b360-3fd7-47b9-ab71-32f38f1e6a46",
                             TwoFactorEnabled = false,
                             UserName = "Gerar.Slavtchev",
                             UserWorkNumber = 45571
@@ -430,15 +427,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "88720165-d8cc-4245-9199-eb6bde99cded",
+                            ConcurrencyStamp = "eb4a21fe-8929-4760-bea5-1bd22df8eabe",
                             EmailConfirmed = false,
                             FirstName = "Руси",
                             LastName = "Магичов",
                             LockoutEnabled = false,
                             NormalizedUserName = "RUSI.MAGITCHOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHl8cJc0SMD+ws1dLk5RKMK5V+QmNZqHaXZeQn08+X2gIitQqJuq+8BnEuvaC37f0w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEM9v61v/FELeZTRrhVRNupdOsd7zofYXEnUAPJ9I42hG/gVSc36nyc5pKkcMj3f3Dg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "da281ec0-adeb-48c1-8c0d-3921f4ae83ce",
+                            SecurityStamp = "6ae25c5b-26a6-4da0-b732-e242ff435ffb",
                             TwoFactorEnabled = false,
                             UserName = "Rusi.Magitchov",
                             UserWorkNumber = 44454
@@ -447,15 +444,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "62706599-bb62-4789-9489-10d3d68ca823",
+                            ConcurrencyStamp = "4c5081bd-1dda-4282-9fe8-517cbac8da50",
                             EmailConfirmed = false,
                             FirstName = "Биню",
                             LastName = "Тошков",
                             LockoutEnabled = false,
                             NormalizedUserName = "BINUY.TOCHKOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEM+mveKp/wQlB8/DwlnL6eJ8U7SwnSUfLPe6byhxrNa3CWKdTe4Qmjuz6BB03I+RbQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKfYe1F1kg5E7gCgaVWxViLagDqudtQunx4KAbxpEfanu9kdkwf4WYB5HhkPmzzPQw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e69612a4-ec75-42ce-89f6-d27eb6f95006",
+                            SecurityStamp = "933b9fb4-cd7a-4098-9939-7a79b40271bf",
                             TwoFactorEnabled = false,
                             UserName = "Binuy.Tochkov",
                             UserWorkNumber = 61815
@@ -464,15 +461,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c5913205-bf8a-43a3-b00d-11b08b2ba3f1",
+                            ConcurrencyStamp = "b9e8fe2c-9222-4a8b-a450-e52bfa9ed259",
                             EmailConfirmed = false,
                             FirstName = "Пейо",
                             LastName = "Ленков",
                             LockoutEnabled = false,
                             NormalizedUserName = "PEYO.LENKOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMNETwaconlI8gcPI16CEnic63ONESfVXMwCBUEOwBKZgAySaX37gZ3RaRDmzEQVxg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIwhvHcp/iycQrXIGqwt3at1QgPcGxLPKBbCq8+428D4a32+A7wOQjq8Tj8B6UODIg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8dce7317-21c6-4e45-847a-6d9fdf5480d2",
+                            SecurityStamp = "49c8d361-27ad-4676-8da0-66fa66d9747a",
                             TwoFactorEnabled = false,
                             UserName = "Peyo.Lenkov",
                             UserWorkNumber = 62230
@@ -481,15 +478,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fcc1e802-1afb-41b9-af7e-16bca5c7775c",
+                            ConcurrencyStamp = "9b125342-d7e5-475f-b44b-7babae3607b4",
                             EmailConfirmed = false,
                             FirstName = "Аню",
                             LastName = "Панчев",
                             LockoutEnabled = false,
                             NormalizedUserName = "ANUY.PANTCHEV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGO1SrngZwQNPaD/STvI11EPSor1TZS5pQoxaXjuEikKKs28sPlp1AaT0XPLfBMpwQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKF6Ujawbc0nj+LoyUb7SQGjYgUwRpXnYfkszrq/SCwDfhnVkI0/0j5+z4Eq3kwZWA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "67a8c93c-2f75-4ddd-94bb-6fd674d6fe8c",
+                            SecurityStamp = "75ce72b0-c457-44a2-b579-5f8fecab5754",
                             TwoFactorEnabled = false,
                             UserName = "Anuy.Pantchev",
                             UserWorkNumber = 65072
@@ -498,15 +495,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f12db1a3-766c-4abf-abc7-13efc370fbfc",
+                            ConcurrencyStamp = "2118c73c-fdf6-4841-a898-a28435f5eaaf",
                             EmailConfirmed = false,
                             FirstName = "Флоро",
                             LastName = "Станов",
                             LockoutEnabled = false,
                             NormalizedUserName = "FLORO.STANOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEN08bE/S+rck/+pTCmI0HWz9MxOG/0XvciNxR32GaDZjhIzRy5VQ2sNA70dSQSDbvQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGHzl4n+e3GYpDJ4k+b/++4RbpPzHeluh+R7DJ8PmkHdpXODkPbKsiYQwIWGHX++KA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "09b19293-9d71-4828-a2ec-64b0d6f8574e",
+                            SecurityStamp = "c2825720-d68d-488a-a855-7605b787a1d3",
                             TwoFactorEnabled = false,
                             UserName = "Floro.Stanov",
                             UserWorkNumber = 71417
@@ -515,15 +512,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "527c5636-62e5-44e0-9794-8cbb7eda9215",
+                            ConcurrencyStamp = "3da8a910-f877-4ec8-8c96-de3993f348b4",
                             EmailConfirmed = false,
                             FirstName = "Доко",
                             LastName = "Цанимиров",
                             LockoutEnabled = false,
                             NormalizedUserName = "DOKO.TSANIMIROV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKo8PnSo0VDThKIBBUflZeNp12bVcHyNPnVbasH1BKC7YmrPGEsYw+WLu9yI2011XQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFu+p3h1A8ze9JhEYhk/SZHQTpacPWwbYl4rM7W1FjaWYFCoPob9jI53KSnpGBJcjQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "15fc534a-f9b5-4b11-b12b-6f6955182515",
+                            SecurityStamp = "89209cdf-9b53-4df7-817e-9e5514f5310d",
                             TwoFactorEnabled = false,
                             UserName = "Doko.Tsanimirov",
                             UserWorkNumber = 46929
@@ -532,15 +529,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "37b74edd-8e2a-4413-80cb-7c2f8a7db380",
+                            ConcurrencyStamp = "0ef890c0-53ee-4c20-8ae0-192edf9dfe88",
                             EmailConfirmed = false,
                             FirstName = "Силвиян",
                             LastName = "Янов",
                             LockoutEnabled = false,
                             NormalizedUserName = "SILVIYAN.YANKOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMJncVE0uwLm+7jTlq5XQEY7ruJCvKRyw0kifjR9+qqdrLAQy5zWPXlokq6JzGPZ5g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF56gwEQdP4KxbXnxIjMu4Zgjk7NtOMLe+eFw3ov6ttiW2YXv/YGhfHRn28gfGhBdQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "515d1559-fec5-4eb6-a7f2-72719382d41a",
+                            SecurityStamp = "917afaa0-7e5f-41e6-95a1-3292c4ebbe30",
                             TwoFactorEnabled = false,
                             UserName = "Silviyan.Yankov",
                             UserWorkNumber = 52291
@@ -549,15 +546,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "03348ca9-418d-44ff-9ae3-697132793687",
+                            ConcurrencyStamp = "1be2477f-6e86-45aa-9ce6-8c5cce0a131c",
                             EmailConfirmed = false,
                             FirstName = "Менко",
                             LastName = "Мирков",
                             LockoutEnabled = false,
                             NormalizedUserName = "MENKO.MIRKOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPScDTm0/itnUrHIrTQPFeLluwf7RHDgV3rTjEMo9atokdcN95cgpiOJil+IO7XUfg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAE2vIl/YaPPCEYyWSrWq2XHssCEi1U/zmAZpOIX8nIgmS3g/8MyuJ9nSJ7I0AUkYw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "352f3b01-4677-4d0b-849b-b8b046d2880c",
+                            SecurityStamp = "0d8583db-d7c6-49b1-9c6b-1e0fcdbae58f",
                             TwoFactorEnabled = false,
                             UserName = "Menko.Mirkov",
                             UserWorkNumber = 19386
@@ -566,15 +563,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "61fa90a2-27ef-4626-9f23-adf4f8c36deb",
+                            ConcurrencyStamp = "fb7effc9-ab29-4d3f-a86c-dbbfc6546215",
                             EmailConfirmed = false,
                             FirstName = "Лазо",
                             LastName = "Шишманов",
                             LockoutEnabled = false,
                             NormalizedUserName = "LAZO.CHICHMANOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEI5QTLAaJ/9eKp0/yiS9htvLel6kNXD/Cb5DABjpduGHpE17eCQ2ofN9Ie9GSo23+Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIHQA2ef6+Nllh46C8IPMHvCGaObNTnsHQ2jV4qdV+y2ubOdWvfqjJdlYNhuxSQ1bw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4560e7ac-143d-41fa-ad24-2f88c0dfc0fc",
+                            SecurityStamp = "da95fc17-d527-4d4e-9508-f1fd5a7242ec",
                             TwoFactorEnabled = false,
                             UserName = "Lazo.Chichmanov",
                             UserWorkNumber = 68340
@@ -583,15 +580,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "69260f3d-4cb3-4568-ae78-dfa62635f1db",
+                            ConcurrencyStamp = "183e9e6e-c900-411e-bc43-b5f458a3dbb4",
                             EmailConfirmed = false,
                             FirstName = "Столипен",
                             LastName = "Тонев",
                             LockoutEnabled = false,
                             NormalizedUserName = "STOLIPEN.TONEV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDVQKm59ysclCeXfX8Q02pPlyIk4/kIr2VrjxBS88rQvl8Z0OQvRj4pKgzFRu+747g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG9zNdtqAnp8WKxlf3tJ7LXC5n/b3tBH/RLXQBnPEy0C3bNl5y65ELYjmVX4S50+Eg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "20caea7e-6e3e-4edd-8e52-93b6f6f6ee03",
+                            SecurityStamp = "9aceefbe-a50c-4494-8cec-2231012cde27",
                             TwoFactorEnabled = false,
                             UserName = "Stolipen.Tonev",
                             UserWorkNumber = 38744
@@ -600,15 +597,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e7f0ec79-ca66-4f80-9020-95e71ddd9b0f",
+                            ConcurrencyStamp = "55149d37-8ba8-4a69-876c-daa7eb651e5b",
                             EmailConfirmed = false,
                             FirstName = "Дарен",
                             LastName = "Павков",
                             LockoutEnabled = false,
                             NormalizedUserName = "DAREN.PAVKOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPPt9bbxzHN3uoztjQIDveTqFVXF9SToSRml2xhUmvSCIkx+UfFX5DRH3zuETK9wtw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOrlTy9R2fc5pIsTCiWGcDCUXM0sBT8XSIDL53w8/VchmeICIZ0UEs0U37IHEuTBWQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b5a89333-5701-4f0b-9f13-57d97bd0e94c",
+                            SecurityStamp = "20355fe6-c68e-4cf9-be92-6e75dd3e3861",
                             TwoFactorEnabled = false,
                             UserName = "Daren.Pavkov",
                             UserWorkNumber = 98129
@@ -617,15 +614,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "27ac00c0-1371-4432-8c01-7c118f3ee9d0",
+                            ConcurrencyStamp = "16d28bdd-e35a-4eeb-94aa-c3bb622b603e",
                             EmailConfirmed = false,
                             FirstName = "Драгни",
                             LastName = "Тодоров",
                             LockoutEnabled = false,
                             NormalizedUserName = "DRAGNI.TODOROV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMIR3YMlCxei0Jxc8LoASg+qGN6dIf8HheFQFYw7PxPjuiVRDujwxmdkFh0fX+OYGA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEH8j1eBk3Fl8pRrQIqPBX1KiwpqKFgocuK+5f7ht7/KK0KJyvw24B2bnP22ox0wqLA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "37e96ad0-ed7c-4b27-81d6-a065b87484e4",
+                            SecurityStamp = "1ff4669a-0455-4ad9-93af-38b618faaaeb",
                             TwoFactorEnabled = false,
                             UserName = "Dragni.Todorov",
                             UserWorkNumber = 80738
@@ -634,15 +631,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fbc2cd55-cd0c-4da4-87aa-b122606b1609",
+                            ConcurrencyStamp = "f08e7453-10fa-4f58-a47d-58d9e70ed6fb",
                             EmailConfirmed = false,
                             FirstName = "Данимил",
                             LastName = "Тинков",
                             LockoutEnabled = false,
                             NormalizedUserName = "DANIMIL.TINKOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEORC6EWx0weNveGuvDI9eaW/q2YAhBL/tqL1ywk9jS7qYkxhuDo9d5e76l4e4H4RuA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKDeBE8qdHhfruhWVtqRzyLC5qE8O3vOG6KgcUUylGqrJuoOThUvqeMRgC/LSzzeyg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e07580be-84ef-4efd-8200-af5feedb2a76",
+                            SecurityStamp = "963bd4c2-e7df-45fd-a3c3-5ead68d27fbf",
                             TwoFactorEnabled = false,
                             UserName = "Danimil.Tinkov",
                             UserWorkNumber = 70677
@@ -651,15 +648,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8d3158a0-c887-4724-8d7e-423ed1d304b1",
+                            ConcurrencyStamp = "14a74491-ce7d-47a9-b90a-4ba1bf7e698c",
                             EmailConfirmed = false,
                             FirstName = "Дориян",
                             LastName = "Славейков",
                             LockoutEnabled = false,
                             NormalizedUserName = "DORIYAN.SLAVEYKOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAENkdt3yGGEmr8jiXso76/Bvi6TUTDfRsmL+weUiIdD/KP0ucTZfDSXwHooyIQBsYNQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGMQWqdcVvHKPI9sSPR9eZ5WonK0crcgl7WqQrCE/zJpzMtCYfyi1l+x6QUq5uyDlQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b9f38c7f-81f1-44a2-9a3a-e4ac4ea0e1b3",
+                            SecurityStamp = "8ca4d178-35fc-4de1-a06d-4701318d91d4",
                             TwoFactorEnabled = false,
                             UserName = "Doriyan.Slaveykov",
                             UserWorkNumber = 39676
@@ -668,15 +665,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "44606d9b-4765-4cc2-8f3d-53291694d175",
+                            ConcurrencyStamp = "b3fa71b1-0d0b-4346-a521-2e2e91354f73",
                             EmailConfirmed = false,
                             FirstName = "Друмчо",
                             LastName = "Светозаров",
                             LockoutEnabled = false,
                             NormalizedUserName = "DRUMTCHO.SVETOZAROV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEET4hEQUlKznIlzd+cKQWFVKyauOd9ylqNrvGpNjIHfy+A5pnUrmlFTsaDbCCw8WFg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBAPVtkzFBV2/vfLlpiCSQmyXD+szGKZBDxyu1EM8Us4m18e68yJab6oBLAw+Dnaog==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "581a04e7-c75f-4ca7-b735-0ac83631c780",
+                            SecurityStamp = "c5f16969-d1e8-44ba-b543-bcaf15484a59",
                             TwoFactorEnabled = false,
                             UserName = "Drumtcho.Svetozarov",
                             UserWorkNumber = 35236
@@ -685,15 +682,15 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("f91c5b35-506c-4987-a89a-fba703b53f03"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9cf728bd-ad6d-4893-9090-b09df170359f",
+                            ConcurrencyStamp = "1c7f5327-e147-4ed8-87ef-187fb748e821",
                             EmailConfirmed = false,
                             FirstName = "Захари",
                             LastName = "Тодеев",
                             LockoutEnabled = false,
                             NormalizedUserName = "ZAHARI.TODEEV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMVoc+8SUHKWM7CxgIdyfjpFRhKNOeJm9D5Nsz1gaEw1D2TUGL2DZ/8KDgpbuwkS2g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPMjnc1f/vqV7BiaS+MR5kvywlEdqFeXEQw/vyyBwEqYD7DILShLQquT/kg5wOB8wA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "58fe52c5-a71d-480c-8b65-45e95ffec7e6",
+                            SecurityStamp = "ed394960-8d31-4cc4-ad44-0db2a291f758",
                             TwoFactorEnabled = false,
                             UserName = "Zahari.Todeev",
                             UserWorkNumber = 50975
@@ -905,7 +902,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("4dabf64e-adb1-486a-b208-b07c5fabc440"),
                             ComplexId = new Guid("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
-                            FullName = "Водородна",
+                            FullName = "Водородна инсталация",
                             Name = "ВИ"
                         },
                         new
@@ -947,14 +944,14 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("0d5fc355-ba0d-494e-aa2d-421616e9f651"),
                             ComplexId = new Guid("79afcb01-d8f3-4fe0-9fa2-fd95b72c615f"),
-                            FullName = "МТБЕ и хидроочистка-1 и 3",
+                            FullName = "МТБЕ и Хидроочистка-1 и 3",
                             Name = "МТБЕ и ХО 1, 3"
                         },
                         new
                         {
                             Id = new Guid("c639c036-bdc1-4e54-9425-c77ab00658a3"),
                             ComplexId = new Guid("125b8f04-7c38-4d1b-b39e-6d750e7bd037"),
-                            FullName = "Очистни съоръжения",
+                            FullName = "Централна пречиствателна станция",
                             Name = "ЦПС"
                         },
                         new
@@ -982,7 +979,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Id = new Guid("27e67a5e-9def-417e-b479-a3374ac01357"),
                             ComplexId = new Guid("d90ccba2-389c-4a1a-ac97-5c54340dadd4"),
-                            FullName = "Сярно-кисело алкилиране и абсорбционно газофракциони",
+                            FullName = "Сярно-кисело алкилиране и абсорбционно газофракциониране",
                             Name = "СКА"
                         },
                         new
@@ -1120,8 +1117,8 @@ namespace SafeAssignmentSystem.DataBase.Migrations
 
                     b.Property<string>("Number")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)")
                         .HasComment("Номер на наряд според вътрешнонарядната номерация");
 
                     b.Property<DateTime?>("OpeningDate")
@@ -1198,33 +1195,9 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                     b.HasData(
                         new
                         {
-                            Date = new DateTime(2023, 7, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 19, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 24, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 25, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 27, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
@@ -1234,9 +1207,9 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
@@ -1248,31 +1221,19 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Date = new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
@@ -1282,38 +1243,38 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
+                            Date = new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 21, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
+                            Date = new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 23, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
+                            Date = new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 24, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
+                            Date = new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 27, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
+                            Date = new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
+                            Date = new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
@@ -1342,7 +1303,13 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
@@ -1360,49 +1327,49 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 17, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
+                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
+                            Date = new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 25, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
+                            Date = new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 26, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
+                            Date = new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
@@ -1410,35 +1377,29 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Date = new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
@@ -1450,195 +1411,165 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 19, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 21, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
                             Date = new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
+                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
+                            Date = new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            Date = new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 23, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            Date = new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 26, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            Date = new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
                             Date = new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 17, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 19, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 21, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 23, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 24, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 25, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 26, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 27, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("ecd856e4-96da-4296-a482-6f66680f1380"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
@@ -1762,33 +1693,75 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 19, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 24, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 25, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 27, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
@@ -1798,9 +1771,9 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
@@ -1812,31 +1785,19 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Date = new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
@@ -1846,38 +1807,38 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
+                            Date = new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 21, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
+                            Date = new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 23, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
+                            Date = new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 24, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
+                            Date = new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 27, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
+                            Date = new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
+                            Date = new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("822edebf-23a5-4373-b56d-94078d984192"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
@@ -1906,7 +1867,13 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
@@ -1924,49 +1891,49 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 17, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
+                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
+                            Date = new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 25, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
+                            Date = new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 26, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
+                            Date = new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
@@ -1974,35 +1941,29 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Date = new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
@@ -2014,195 +1975,165 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 19, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 21, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
                             Date = new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
+                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
+                            Date = new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            Date = new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 23, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            Date = new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 26, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            Date = new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
                             Date = new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 17, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 19, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 21, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 23, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 24, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 25, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 26, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 27, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
@@ -2326,33 +2257,75 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 19, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 24, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 25, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 27, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
@@ -2362,9 +2335,9 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
@@ -2376,31 +2349,19 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Date = new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
@@ -2410,38 +2371,38 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
+                            Date = new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 21, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
+                            Date = new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 23, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
+                            Date = new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 24, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
+                            Date = new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 27, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
+                            Date = new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
+                            Date = new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
@@ -2470,7 +2431,13 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
@@ -2488,49 +2455,49 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 17, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
+                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
+                            Date = new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 25, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
+                            Date = new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 26, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
+                            Date = new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
@@ -2538,35 +2505,29 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         {
                             Date = new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
@@ -2578,195 +2539,165 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 19, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 21, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
-                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
                             Date = new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
+                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
+                            Date = new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
-                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            Date = new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 23, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            Date = new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 26, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            Date = new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
                             Date = new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
                             Date = new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
                             ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
                             ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 17, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 19, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 21, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            ShiftId = new Guid("51e3023b-5967-4221-ba1e-977fdff10eda")
                         },
                         new
                         {
-                            Date = new DateTime(2023, 7, 23, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 24, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 25, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 26, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
-                        },
-                        new
-                        {
-                            Date = new DateTime(2023, 7, 27, 0, 0, 0, 0, DateTimeKind.Local),
-                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
-                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                            Date = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"),
+                            ShiftId = new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2")
                         },
                         new
                         {
@@ -2885,6 +2816,72 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                         new
                         {
                             Date = new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
+                            ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
+                        },
+                        new
+                        {
+                            Date = new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             ApplicationUserId = new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"),
                             ShiftId = new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d")
                         });
