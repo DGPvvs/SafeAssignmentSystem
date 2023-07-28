@@ -158,6 +158,11 @@
 
         public const string New_TechnologicalPosition_Add_Fail = "Новата технологична позиция не беше добавена!";
         public const string New_TechnologicalPosition_Add_Success = "Новата технологична позиция е добавена успешно!";
+
+        /// <summary>
+        /// Технологичната позиция е редактирана успешно!
+        /// </summary>
+        public const string Edit_TechnologicalPosition_Add_Success = "Технологичната позиция е редактирана успешно!";
         public const string TechnologicalPosition_Find_Fail = "Технологичната позиция не беше намерена!";
 
         public const string Time_Format_Incorect = "Неправилен формат на час!";

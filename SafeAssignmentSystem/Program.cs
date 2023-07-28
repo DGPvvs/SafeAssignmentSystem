@@ -18,7 +18,7 @@ namespace SafeAssignmentSystem
         /// </summary>
         /// <param name="args"></param>
         /// <exception cref="InvalidOperationException"></exception>
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -80,7 +80,7 @@ namespace SafeAssignmentSystem
             pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
 
-            app.Run();
+            await app.RunAsync();
         }
     }
 }

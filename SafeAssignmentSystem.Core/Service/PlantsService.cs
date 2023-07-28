@@ -4,7 +4,6 @@
     using Microsoft.EntityFrameworkCore;
     using SafeAssignmentSystem.Common.Exceptions;
     using SafeAssignmentSystem.Common.Exeptions;
-    using SafeAssignmentSystem.Common.Notification;
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels;
     using SafeAssignmentSystem.DataBase.Data.Common;
@@ -157,6 +156,8 @@
 
             entity.IsDeleted = isDel;
 
+            this.repo.Update(entity);
+
             await this.repo.SaveChangesAsync();
         }
 
@@ -189,6 +190,7 @@
             entity!.Name = model.Name;
             entity.FullName = model.FullName;
 
+            this.repo.Update(entity);
             await this.repo.SaveChangesAsync();
         }
 
@@ -203,7 +205,7 @@
             var alreadyExist = await this.repo.AllReadonly<PlantInstalation>()
                 .FirstOrDefaultAsync(c => c.Name == model.Name && c.FullName == model.FullName);
 
-            if (!(alreadyExist is null))
+            if (!(alreadyExist is null) && !alreadyExist.Id.Equals(model.Id))
             {
                 throw new IdentityЕxception();
             }
@@ -214,6 +216,7 @@
             entity.FullName = model.FullName;
             entity.ComplexId = model.ComplexId;
 
+            this.repo.Update(entity);
             await this.repo.SaveChangesAsync();
         }
 
@@ -229,15 +232,19 @@
                 .Where(i => i.InstalationId == model.InstalationId)
                 .FirstOrDefaultAsync(tp => tp.Name == model.Name);
 
-            if (!(duplicate is null))
+            if (!(duplicate is null) && !duplicate.Id.Equals(model.Id))
             {
                 throw new IdentityЕxception();
             }
 
-            var entity = await GetTechnPositionByIdAsync(model.Id);
+            var entity = await this.GetTechnPositionByIdAsync(model.Id);
+            var plant = await this.GetPlnByIdAsync(model.InstalationId);
 
             entity!.Name = model.Name;
             entity.InstalationId = model.InstalationId;
+            entity.Instalation = plant;
+
+            this.repo.Update(entity);
 
             await this.repo.SaveChangesAsync();
         }

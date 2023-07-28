@@ -111,7 +111,7 @@
                 this.TempData[Error_Message] = result.Description;
             }
 
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("AllTechnologicalPositionCondition", "Reference", new { plantId = model.PlantInstalationId });
         }
 
         [Authorize(Roles = $"{Operator}")]

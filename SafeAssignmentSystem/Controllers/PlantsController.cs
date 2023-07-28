@@ -421,9 +421,9 @@
         }
 
         [HttpGet]
-        public async Task<IActionResult> AllTechnologicalPosition(Guid id)
+        public async Task<IActionResult> AllTechnologicalPosition(Guid plantId)
         {
-            var model = await this.plantsService.GetAllPositionInPlantByIdAsync(id, IsDeletedCondition.NotDeleted);
+            var model = await this.plantsService.GetAllPositionInPlantByIdAsync(plantId, IsDeletedCondition.NotDeleted);
 
             var viewModel = model.
                 Select(tp => new EditTechnologicalPositionViewModel()
@@ -484,6 +484,7 @@
             {
                 await this.plantsService.EditTechnologicalPositionAsync(transfer);
 
+                this.TempData[Success_Message] = Edit_TechnologicalPosition_Add_Success;
                 return this.RedirectToAction("Index", "Home");
             }
             catch (IdentityЕxception ie)

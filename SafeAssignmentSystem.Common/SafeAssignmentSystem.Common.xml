@@ -532,6 +532,11 @@
             Комплекса не беше възстановен!
             </summary>
         </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Edit_TechnologicalPosition_Add_Success">
+            <summary>
+            Технологичната позиция е редактирана успешно!
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Shift_Add_Success">
             <summary>
             Успешно добавихте нова смяна!

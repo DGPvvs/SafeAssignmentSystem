@@ -70,6 +70,7 @@
                     Name = p.Name,
                     FullName = p.FullName
                 })
+                .OrderBy(p => p.Name)
                 .ToList()
             };
 
