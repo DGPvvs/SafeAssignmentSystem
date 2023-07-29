@@ -13,6 +13,10 @@ namespace SafeAssignmentSystem.DataBase.Data.Common
 	/// current reposity is attached</typeparam>
 	public class Repository : IRepository
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="context"></param>
 		public Repository(SafeAssignmentDbContext context)
 		{
 			Context = context;
@@ -32,11 +36,25 @@ namespace SafeAssignmentSystem.DataBase.Data.Common
 			return Context.Set<T>();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="procedureName"></param>
+		/// <param name="args"></param>
+		/// <returns></returns>
         public async Task<IEnumerable<T>> ExecuteProc<T>(string procedureName, params object[] args) where T : class
         {
             return await Context.Set<T>().FromSqlRaw($"/*NO LOAD BALANCE*/ select * from {procedureName}", args).ToListAsync();
         }
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="query"></param>
+		/// <param name="args"></param>
+		/// <returns></returns>
         public async Task<IEnumerable<T>> ExecuteSQL<T>(string query, params object[] args) where T : class
         {
             return await Context.Set<T>().FromSqlRaw($"/*NO LOAD BALANCE*/ {query}", args).ToListAsync();
@@ -69,6 +87,12 @@ namespace SafeAssignmentSystem.DataBase.Data.Common
 			return DbSet<T>().AsQueryable();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="search"></param>
+		/// <returns></returns>
 		public IQueryable<T> All<T>(Expression<Func<T, bool>> search) where T : class
 		{
 			return DbSet<T>().Where(search).AsQueryable();
@@ -84,6 +108,13 @@ namespace SafeAssignmentSystem.DataBase.Data.Common
 				.AsQueryable()
 				.AsNoTracking();
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="search"></param>
+		/// <returns></returns>
 		public IQueryable<T> AllReadonly<T>(Expression<Func<T, bool>> search) where T : class
 		{
 			return DbSet<T>()
@@ -150,6 +181,12 @@ namespace SafeAssignmentSystem.DataBase.Data.Common
 			return await DbSet<T>().FindAsync(id);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		public async Task<T> GetByIdsAsync<T>(object[] id) where T : class
 		{
 			return await DbSet<T>().FindAsync(id);
@@ -182,11 +219,21 @@ namespace SafeAssignmentSystem.DataBase.Data.Common
 			DbSet<T>().UpdateRange(entities);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="entities"></param>
 		public void DeleteRange<T>(IEnumerable<T> entities) where T : class
 		{
 			DbSet<T>().RemoveRange(entities);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="deleteWhereClause"></param>
 		public void DeleteRange<T>(Expression<Func<T, bool>> deleteWhereClause) where T : class
 		{
 			var entities = All(deleteWhereClause);

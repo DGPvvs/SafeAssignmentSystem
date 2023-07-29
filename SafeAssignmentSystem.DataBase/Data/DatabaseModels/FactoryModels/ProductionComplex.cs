@@ -13,6 +13,9 @@
     [Comment("Модел на производствените комплекси")]
     public class ProductionComplex
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public ProductionComplex()
         {
             Id = Guid.NewGuid();

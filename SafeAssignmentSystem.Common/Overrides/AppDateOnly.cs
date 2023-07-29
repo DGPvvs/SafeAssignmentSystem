@@ -2,21 +2,35 @@
 {
     using System;
 
+    /// <summary>
+    /// Клас дефиниращ собствена дата
+    /// </summary>
     public class AppDateOnly 
     {
         private DateOnly datModel;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="datModel"></param>
         public AppDateOnly(DateOnly datModel)
         {
             this.datModel = datModel;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public DateOnly DateOnly
         {
             get => this.datModel;
             set => this.datModel = value;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             int mounthNum = this.DateOnly.Month;

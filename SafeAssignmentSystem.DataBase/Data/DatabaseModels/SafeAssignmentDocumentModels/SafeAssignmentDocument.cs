@@ -16,6 +16,9 @@
     [Comment("Модел на нарядите")]
     public class SafeAssignmentDocument
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public SafeAssignmentDocument()
         {
             Id = Guid.NewGuid();

@@ -156,7 +156,7 @@
 
             entity.IsDeleted = isDel;
 
-            this.repo.Update(entity);
+            //this.repo.Update(entity);
 
             await this.repo.SaveChangesAsync();
         }
@@ -436,7 +436,7 @@
         /// <param name="id">Идентификационен ключ</param>
         /// <returns></returns>
         private async Task<ProductionComplex?> GetCompByIdAsync(Guid id) => await this.repo
-            .AllReadonly<ProductionComplex>()
+            .All<ProductionComplex>()
             .FirstOrDefaultAsync(c => c.Id == id);
 
         /// <summary>
@@ -445,7 +445,7 @@
         /// <param name="id"></param>
         /// <returns></returns>
         private async Task<PlantInstalation?> GetPlnByIdAsync(Guid id) => await this.repo
-            .AllReadonly<PlantInstalation>()
+            .All<PlantInstalation>()
             .FirstOrDefaultAsync(c => c.Id == id);
 
         /// <summary>
@@ -454,7 +454,7 @@
         /// <param name="id"></param>
         /// <returns></returns>
         private async Task<TechnologicalPosition?> GetTechnPositionByIdAsync(Guid id) => await this.repo
-            .AllReadonly<TechnologicalPosition>()
+            .All<TechnologicalPosition>()
             .FirstOrDefaultAsync(tp => tp.Id == id);
     }
 }

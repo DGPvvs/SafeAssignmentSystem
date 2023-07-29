@@ -4,8 +4,14 @@
     using SafeAssignmentSystem.Models.CommonViewModels;
     using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants.PlantInstalationConstants;
 
+    /// <summary>
+    /// Модел на изгледа за инсталация
+    /// </summary>
     public class PlantViewModel
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public PlantViewModel()
         {
             this.Complexes = new List<KeyValuePairViewModel>();

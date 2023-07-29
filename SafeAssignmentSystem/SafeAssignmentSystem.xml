@@ -184,14 +184,54 @@
             <param name="id">Идентификатор на наряд</param>
             <returns></returns>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.AccountViewModels.AllUsersViewModel">
+            <summary>
+            Модел на изгледа показващ потребителите
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.AccountViewModels.AllUsersViewModel.Id">
             <summary>
             Поле съдържащо идентификатора на потребител в модела за изгледа показващ потребителите
             </summary>
         </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.AllUsersViewModel.UserName">
+            <summary>
+            Акаунт
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.AccountViewModels.ChangePasswordViewModel">
+            <summary>
+            Модел на изгледа за смяна и промяна на паролата на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.ChangePasswordViewModel.OldPassword">
+            <summary>
+            Текуща парола
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.AccountViewModels.ChangePasswordViewModel.NewPassword">
             <summary>
             Поле държащо новата парола в модела за промяна на паролите
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.ChangePasswordViewModel.ConfirmPassword">
+            <summary>
+            Потвърждение на новата парола
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.EditPasswordViewModel.UserName">
+            <summary>
+            Акаунт на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.EditPasswordViewModel.NewPassword">
+            <summary>
+            Поле държащо новата парола в модела за промяна на паролите
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.EditPasswordViewModel.ConfirmPassword">
+            <summary>
+            Потвърждение на новата парола
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.AccountViewModels.EditRegisterViewModel.Id">
@@ -299,6 +339,11 @@
             Модел кореспондиращ с изображението за визуализиране на грешки на приложението
             </summary>
         </member>
+        <member name="P:SafeAssignmentSystem.Models.ErrorViewModel.ShowRequestId">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Models.FactoriesViewModels.ComplexViewModel">
             <summary>
             Модел на данните за комплекс
@@ -334,6 +379,11 @@
             Комплекс към който се чесли инсталацията
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.FactoriesViewModels.EditTechnologicalPositionViewModel">
+            <summary>
+            Модел на ижгледа за редактиране на технологична позиция
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditTechnologicalPositionViewModel.Id">
             <summary>
             Идентификатор на технологичната позиция
@@ -347,6 +397,16 @@
         <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditTechnologicalPositionViewModel.ComplexName">
             <summary>
             Комплекс към който се числи инсталацията
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.FactoriesViewModels.PlantViewModel">
+            <summary>
+            Модел на изгледа за инсталация
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.FactoriesViewModels.PlantViewModel.#ctor">
+            <summary>
+            Конструктор
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.PlantViewModel.FullName">
@@ -429,6 +489,16 @@
             Брой заявки за подаване на напрежение
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.ReferenceViewModel.PositionsInPlantViewModel">
+            <summary>
+            Модел на изгледа за технологичните позиции в инсталация
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.ReferenceViewModel.PositionsInPlantViewModel.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.PositionsInPlantViewModel.PlantFullName">
             <summary>
             Пълно име на инсталацията
@@ -444,6 +514,11 @@
             Колекция съдържаща описание на статуса на технологичните позиции
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentClosingViewModel">
+            <summary>
+            Модел на изгледа за закриване на наряда
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentClosingViewModel.ЕlectricianOpeningOrder">
             <summary>
             Фамилия на потребител открил наряда
@@ -457,6 +532,11 @@
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentClosingViewModel.OpeningTime">
             <summary>
             Час на откриване на наряда
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOpeningViewModel">
+            <summary>
+            Модел на изгледа при откриване на наряд
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentOpeningViewModel.Id">

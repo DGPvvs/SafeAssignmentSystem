@@ -5,6 +5,9 @@
     /// </summary>
     public static class ConditionConstants
     {
+        /// <summary>
+        /// Константи определящи условията за изтриване
+        /// </summary>
         public static class IsDeletedCondition
         {
             /// <summary>

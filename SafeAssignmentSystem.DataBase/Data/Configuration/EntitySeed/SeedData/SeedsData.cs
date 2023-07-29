@@ -135,6 +135,11 @@
                     UserId = Guid.Parse("f91c5b35-506c-4987-a89a-fba703b53f03")
                 }
             };
+
+		/// <summary>
+		/// Метод създаващ колекция с роли
+		/// </summary>
+		/// <returns></returns>
         public IEnumerable<ApplicationRole> SeedRole() =>
 			new List<ApplicationRole>()
 			{
@@ -163,6 +168,10 @@
 				}				
 			};
 
+		/// <summary>
+		/// Колекция потребители
+		/// </summary>
+		/// <returns></returns>
 		public IEnumerable<ApplicationUser> SeedUsers() =>
 			new List<ApplicationUser>()
 			{
@@ -338,6 +347,11 @@
 				}
 			};
 
+
+		/// <summary>
+		/// Колекция с инсталации
+		/// </summary>
+		/// <returns></returns>
 		public IEnumerable<PlantInstalation> SeedPlantInstalation() =>
 			new List<PlantInstalation>()
 			{
@@ -494,6 +508,10 @@
 				}
 			};
 
+		/// <summary>
+		/// Колекция с комплекси
+		/// </summary>
+		/// <returns></returns>
 		public IEnumerable<ProductionComplex> SeedComplex() =>
 			new List<ProductionComplex>()
 			{
@@ -538,6 +556,10 @@
 				}
 			};
 
+		/// <summary>
+		/// Колекция с технологични позиции
+		/// </summary>
+		/// <returns></returns>
 		public IEnumerable<TechnologicalPosition> SeedTechnologicalPosition() =>
 			new List<TechnologicalPosition>()
 			{
@@ -717,6 +739,10 @@
 				}
 			};
 
+		/// <summary>
+		/// Колекция със смените
+		/// </summary>
+		/// <returns></returns>
 		public IEnumerable<WorkingShift> SeedWorkingShift() =>
 			new List<WorkingShift>()
 			{
@@ -742,9 +768,21 @@
 					ShiftName = "2",
 					StartTime = new DateTime(1, 1, 1) + new TimeOnly(19, 0).ToTimeSpan(),
 					EndTime = new DateTime(1, 1, 2) + new TimeOnly(7, 0).ToTimeSpan()
-				}
-			};
+				},
 
+                new WorkingShift()
+                {
+                    Id = Guid.Parse("1c6c10af-4bc9-4d17-94db-e5bb701cafbd"),
+                    ShiftName = "ALL",
+                    StartTime = new DateTime(1, 1, 1) + new TimeOnly(0, 00).ToTimeSpan(),
+                    EndTime = new DateTime(1, 1, 1) + new TimeOnly(23, 59).ToTimeSpan()
+                },
+            };
+
+		/// <summary>
+		/// Колекция с инсталаците за които потребителя има права
+		/// </summary>
+		/// <returns></returns>
 		public IEnumerable<ApplicationUserPlantInstalation> SeedApplicationUserPlantInstalation() =>
 			new List<ApplicationUserPlantInstalation>()
 			{

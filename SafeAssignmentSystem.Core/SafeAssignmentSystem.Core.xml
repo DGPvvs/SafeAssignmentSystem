@@ -293,6 +293,26 @@
             Поле указващо статуса на наряда
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModel">
+            <summary>
+            Трансферен модел на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModel.UserName">
+            <summary>
+            Име на акаунт на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModel.FirstName">
+            <summary>
+            Първо име на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModel.LastName">
+            <summary>
+            Фамилно име на потребител
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.Id">
             <summary>
             Идентификатор на потребител

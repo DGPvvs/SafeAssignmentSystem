@@ -40,6 +40,12 @@ namespace SafeAssignmentSystem.DataBase.Data.Common
 		/// <returns>Single record</returns>
 		Task<T> GetByIdAsync<T>(object id) where T : class;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		Task<T> GetByIdsAsync<T>(object[] id) where T : class;
 
 		/// <summary>
@@ -78,7 +84,18 @@ namespace SafeAssignmentSystem.DataBase.Data.Common
 		/// <param name="entity">Entity representing record to be deleted</param>
 		void Delete<T>(T entity) where T : class;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="entities"></param>
 		void DeleteRange<T>(IEnumerable<T> entities) where T : class;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="deleteWhereClause"></param>
 		void DeleteRange<T>(Expression<Func<T, bool>> deleteWhereClause) where T : class;
 
 
@@ -94,7 +111,22 @@ namespace SafeAssignmentSystem.DataBase.Data.Common
 		/// <returns>Error code</returns>
 		Task<int> SaveChangesAsync();
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="procedureName"></param>
+		/// <param name="args"></param>
+		/// <returns></returns>
 		Task<IEnumerable<T>> ExecuteProc<T>(string procedureName, params object[] args) where T : class;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="query"></param>
+		/// <param name="args"></param>
+		/// <returns></returns>
 		Task<IEnumerable<T>> ExecuteSQL<T>(string query, params object[] args) where T : class;
 
 		/// <summary>

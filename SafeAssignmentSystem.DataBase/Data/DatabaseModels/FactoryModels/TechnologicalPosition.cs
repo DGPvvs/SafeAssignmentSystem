@@ -14,6 +14,9 @@
     [Comment("Модел на технологична позиция")]
     public class TechnologicalPosition
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public TechnologicalPosition()
         {
             this.Id = Guid.NewGuid();

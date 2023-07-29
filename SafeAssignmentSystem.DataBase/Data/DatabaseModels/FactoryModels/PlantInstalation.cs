@@ -16,6 +16,9 @@
     [Comment("Модел на инсталациите")]
     public class PlantInstalation
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public PlantInstalation()
         {
             Id = Guid.NewGuid();

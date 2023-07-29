@@ -11,7 +11,7 @@
     /// </summary>
     public class PlantNotFoundException : Exception
     {
-        private const string Message = "Инсталацията не е намерена";
+        private const string Error_Message = "Инсталацията не е намерена";
 
         /// <summary>
         /// Конструктор задаващ външно съобщение за грешка
@@ -25,7 +25,7 @@
         /// <summary>
         /// Конструктор задаващ вътрешното съобщение за грешка
         /// </summary>
-        public PlantNotFoundException() : this(Message)
+        public PlantNotFoundException() : this(Error_Message)
         {
 
         }

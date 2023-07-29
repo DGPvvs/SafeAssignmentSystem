@@ -14,6 +14,9 @@
     [Comment("Модел на потребителите")]
     public class ApplicationUser : IdentityUser<Guid>
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public ApplicationUser()
         {
             // Инициализиране на колекция от записи сочещи към свързваща таблица с инсталации

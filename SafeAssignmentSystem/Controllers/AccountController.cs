@@ -328,11 +328,22 @@
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> EditPassword(string userName)
         {
-            var t = userName;
+            var model = new EditPasswordViewModel()
+            {
+                UserName = userName
+            };
 
-            return this.View();
+            return this.View(model);
         }
 
+        [HttpPost]
+        [Authorize(Roles = Administrator)]
+        public async Task<IActionResult> EditPassword(EditPasswordViewModel model)
+        {
+            var user = await this.userManager.FindByIdAsync(User.Id());
 
+
+            return this.RedirectToAction("Index", "Home");
+        }
     }
 }

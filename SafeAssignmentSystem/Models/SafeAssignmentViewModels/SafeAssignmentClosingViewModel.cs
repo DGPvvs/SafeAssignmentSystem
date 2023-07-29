@@ -1,5 +1,8 @@
 ﻿namespace SafeAssignmentSystem.Models.SafeAssignmentViewModels
 {
+    /// <summary>
+    /// Модел на изгледа за закриване на наряда
+    /// </summary>
     public class SafeAssignmentClosingViewModel : SafeAssignmentOpeningViewModel
     {
         /// <summary>

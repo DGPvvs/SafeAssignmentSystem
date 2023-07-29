@@ -2,6 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
 
+    /// <summary>
+    /// Модел на изгледа при откриване на наряд
+    /// </summary>
     public class SafeAssignmentOpeningViewModel : SafeAssignmentOrderingViewModel
     {
         /// <summary>

@@ -1,7 +1,13 @@
 ﻿namespace SafeAssignmentSystem.Models.ReferenceViewModel
 {
+    /// <summary>
+    /// Модел на изгледа за технологичните позиции в инсталация
+    /// </summary>
     public class PositionsInPlantViewModel
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public PositionsInPlantViewModel()
         {
             this.PositionsDetail = new List<PositionDetailViewModel>();
@@ -21,9 +27,5 @@
         /// Колекция съдържаща описание на статуса на технологичните позиции
         /// </summary>
         public ICollection<PositionDetailViewModel> PositionsDetail { get; set; }
-
-
-
-
     }
 }

@@ -25,10 +25,19 @@
         {
         }
 
+        /// <summary>
+        /// Модел на таблицата с инсталации в базата данни
+        /// </summary>
         public DbSet<PlantInstalation> PlantInstalations { get; set; } = null!;
 
+        /// <summary>
+        /// Модел на таблицата с комплекси в базата данни
+        /// </summary>
         public DbSet<ProductionComplex> ProductionComplexes { get; set; } = null!;
 
+        /// <summary>
+        /// Модел на таблицата с технологичните позиции в базата данни
+        /// </summary>
         public DbSet<TechnologicalPosition> TechnologicalPositions { get; set; } = null!;
 
         public DbSet<WorkingShift> WorkingShifts { get; set; } = null!;

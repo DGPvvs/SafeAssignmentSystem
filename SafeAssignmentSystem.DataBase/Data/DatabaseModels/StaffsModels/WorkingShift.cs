@@ -13,6 +13,9 @@
 	[Comment("Модел на смените")]
 	public class WorkingShift
     {
+		/// <summary>
+		/// Конструктор
+		/// </summary>
 		public WorkingShift()
 		{
 			this.Id = Guid.NewGuid();

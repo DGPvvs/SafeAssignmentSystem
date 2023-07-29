@@ -41,6 +41,14 @@
             <param name="id">record identificator</param>
             <returns>Single record</returns>
         </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.GetByIdsAsync``1(System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.AddAsync``1(``0)">
             <summary>
             Adds entity to the database
@@ -77,6 +85,20 @@
             </summary>
             <param name="entity">Entity representing record to be deleted</param>
         </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.DeleteRange``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entities"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.DeleteRange``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="deleteWhereClause"></param>
+        </member>
         <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.Detach``1(``0)">
             <summary>
             Detaches given entity from the context
@@ -88,6 +110,24 @@
             Saves all made changes in trasaction
             </summary>
             <returns>Error code</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.ExecuteProc``1(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="procedureName"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.ExecuteSQL``1(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="args"></param>
+            <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.DataBase.Data.Common.IRepository.Truncate(System.String)">
             <summary>
@@ -108,6 +148,12 @@
             <typeparam name="T">Type of the data table to which 
             current reposity is attached</typeparam>
         </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.#ctor(SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
         <member name="P:SafeAssignmentSystem.DataBase.Data.Common.Repository.Context">
             <summary>
             Entity framework DB context holding connection information and properties
@@ -118,6 +164,24 @@
             <summary>
             Representation of table in database
             </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.ExecuteProc``1(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="procedureName"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.ExecuteSQL``1(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="args"></param>
+            <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.AddAsync``1(``0)">
             <summary>
@@ -137,11 +201,27 @@
             </summary>
             <returns>Queryable expression tree</returns>
         </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.All``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.AllReadonly``1">
             <summary>
             The result collection won't be tracked by the context
             </summary>
             <returns>Expression tree</returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.AllReadonly``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="search"></param>
+            <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.DeleteAsync``1(System.Object)">
             <summary>
@@ -175,6 +255,14 @@
             <param name="id">record identificator</param>
             <returns>Single record</returns>
         </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.GetByIdsAsync``1(System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.SaveChangesAsync">
             <summary>
             Saves all made changes in trasaction
@@ -193,6 +281,20 @@
             </summary>
             <param name="entities">Enumerable collection of entities to be updated</param>
         </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.DeleteRange``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entities"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.DeleteRange``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="deleteWhereClause"></param>
+        </member>
         <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.Truncate(System.String)">
             <summary>
             Truncate table
@@ -202,6 +304,27 @@
         <member name="M:SafeAssignmentSystem.DataBase.Data.Common.Repository.ChangeTrackerClear">
             <summary>
             Undo changes
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.ChangedScheduleTransferModel">
+            <summary>
+            Трансферен модел за зареждане на смените при четене от файл
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.ChangedScheduleTransferModel.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="daysInMonth"></param>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.ChangedScheduleTransferModel.UseNumber">
+            <summary>
+            Табелен номер
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.ChangedScheduleTransferModel.MonthlyDistribution">
+            <summary>
+            Месечно разпределение на смените
             </summary>
         </member>
         <member name="T:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.SeedsData">
@@ -215,6 +338,48 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.SeedsData.SeedRole">
+            <summary>
+            Метод създаващ колекция с роли
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.SeedsData.SeedUsers">
+            <summary>
+            Колекция потребители
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.SeedsData.SeedPlantInstalation">
+            <summary>
+            Колекция с инсталации
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.SeedsData.SeedComplex">
+            <summary>
+            Колекция с комплекси
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.SeedsData.SeedTechnologicalPosition">
+            <summary>
+            Колекция с технологични позиции
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.SeedsData.SeedWorkingShift">
+            <summary>
+            Колекция със смените
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.SeedsData.SeedApplicationUserPlantInstalation">
+            <summary>
+            Колекция с инсталаците за които потребителя има права
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationRole">
             <summary>
             Модел на ролите
@@ -223,6 +388,11 @@
         <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser">
             <summary>
             Модел на потребителите
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.#ctor">
+            <summary>
+            Конструктор
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser.FirstName">
@@ -315,6 +485,11 @@
             Модел на инсталациите
             </summary>
         </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.PlantInstalation.Id">
             <summary>
             Идентификационен ключ
@@ -355,6 +530,11 @@
             Модел на производствените комплекси
             </summary>
         </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels.ProductionComplex.Id">
             <summary>
             Идентификационен ключ
@@ -383,6 +563,11 @@
         <member name="T:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument">
             <summary>
             Модел на нарядите
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.#ctor">
+            <summary>
+            Конструктор
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels.SafeAssignmentDocument.Id">
@@ -505,6 +690,11 @@
             Модел на смените
             </summary>
         </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.WorkingShift.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels.WorkingShift.Id">
             <summary>
             Идентификационен ключ
@@ -528,6 +718,11 @@
         <member name="T:SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition">
             <summary>
             Модел на технологична позиция
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition.#ctor">
+            <summary>
+            Конструктор
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.DataBase.Data.FactoryModels.TechnologicalPosition.Id">
@@ -565,6 +760,21 @@
             Конструктор на SafeAssignmentDbContext 
             </summary>
             <param name="options"></param>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.PlantInstalations">
+            <summary>
+            Модел на таблицата с инсталации в базата данни
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.ProductionComplexes">
+            <summary>
+            Модел на таблицата с комплекси в базата данни
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.TechnologicalPositions">
+            <summary>
+            Модел на таблицата с технологичните позиции в базата данни
+            </summary>
         </member>
     </members>
 </doc>

@@ -1,5 +1,8 @@
 ﻿namespace SafeAssignmentSystem.Models.FactoriesViewModels
 {
+    /// <summary>
+    /// Модел на ижгледа за редактиране на технологична позиция
+    /// </summary>
     public class EditTechnologicalPositionViewModel : TechnologicalPositionViewModel
     {
         /// <summary>

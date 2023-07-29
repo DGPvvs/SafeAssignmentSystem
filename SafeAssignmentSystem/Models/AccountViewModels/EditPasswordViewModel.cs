@@ -1,21 +1,15 @@
-﻿namespace SafeAssignmentSystem.Models.AccountViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+using static SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants;
+
+namespace SafeAssignmentSystem.Models.AccountViewModels
 {
-    using System.ComponentModel.DataAnnotations;
-
-    using static SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.ChangePasswordModelConstants;
-
-    /// <summary>
-    /// Модел на изгледа за смяна и промяна на паролата на потребител
-    /// </summary>
-    public class ChangePasswordViewModel
+    public class EditPasswordViewModel
     {
         /// <summary>
-        /// Текуща парола
+        /// Акаунт на потребител
         /// </summary>
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Текуща парола")]
-        public string OldPassword { get; set; } = null!;
+        public string? UserName { get; set; }
 
         /// <summary>
         /// Поле държащо новата парола в модела за промяна на паролите

@@ -346,6 +346,11 @@
             Клас дефиниращ условните константи
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Common.Notification.ConditionConstants.IsDeletedCondition">
+            <summary>
+            Константи определящи условията за изтриване
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.ConditionConstants.IsDeletedCondition.Deleted">
             <summary>
             Елементът е маркиран като изтрит
@@ -532,9 +537,54 @@
             Комплекса не беше възстановен!
             </summary>
         </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Complex_Has_Plant">
+            <summary>
+            Комплекса не може да бъде изтрит защото има свързани с него инсталации!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.New_Plant_Add_Fail">
+            <summary>
+            Новата инсталация не беше добавена!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.New_Plant_Add_Success">
+            <summary>
+            Новата инсталация е добавена успешно!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Plant_Find_Fail">
+            <summary>
+            Инсталацията не беше намерена!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.New_TechnologicalPosition_Add_Fail">
+            <summary>
+            Новата технологична позиция не беше добавена!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.New_TechnologicalPosition_Add_Success">
+            <summary>
+            Новата технологична позиция е добавена успешно!
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Edit_TechnologicalPosition_Add_Success">
             <summary>
             Технологичната позиция е редактирана успешно!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.TechnologicalPosition_Find_Fail">
+            <summary>
+            Технологичната позиция не беше намерена!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Time_Format_Incorect">
+            <summary>
+            Неправилен формат на час!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Date_Format_Incorect">
+            <summary>
+            Неправилен формат на дата!
             </summary>
         </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Shift_Add_Success">
@@ -651,6 +701,53 @@
             <summary>
             Не е постъпило искане за подаване на напрежение за тази позиция!
             </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.Notification.RoleConstants">
+            <summary>
+            Константи с имената на ролите
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.RoleConstants.Administrator">
+            <summary>
+            Admin
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.RoleConstants.Operator">
+            <summary>
+            Operator
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.RoleConstants.Electrician">
+            <summary>
+            Electrician
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.RoleConstants.NoRole">
+            <summary>
+            NoRole
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.Overrides.AppDateOnly">
+            <summary>
+            Клас дефиниращ собствена дата
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.Overrides.AppDateOnly.#ctor(System.DateOnly)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="datModel"></param>
+        </member>
+        <member name="P:SafeAssignmentSystem.Common.Overrides.AppDateOnly.DateOnly">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.Overrides.AppDateOnly.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

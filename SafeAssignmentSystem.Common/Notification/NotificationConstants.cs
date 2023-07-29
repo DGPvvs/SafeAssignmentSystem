@@ -150,22 +150,55 @@
         /// Комплекса не беше възстановен!
         /// </summary>
         public const string Complex_Undelete_Fail = "Комплекса не беше възстановен!";
+
+        /// <summary>
+        /// Комплекса не може да бъде изтрит защото има свързани с него инсталации!
+        /// </summary>
         public const string Complex_Has_Plant = "Комплекса не може да бъде изтрит защото има свързани с него инсталации!";
 
+        /// <summary>
+        /// Новата инсталация не беше добавена!
+        /// </summary>
         public const string New_Plant_Add_Fail = "Новата инсталация не беше добавена!";
+
+        /// <summary>
+        /// Новата инсталация е добавена успешно!
+        /// </summary>
         public const string New_Plant_Add_Success = "Новата инсталация е добавена успешно!";
+
+        /// <summary>
+        /// Инсталацията не беше намерена!
+        /// </summary>
         public const string Plant_Find_Fail = "Инсталацията не беше намерена!";
 
+        /// <summary>
+        /// Новата технологична позиция не беше добавена!
+        /// </summary>
         public const string New_TechnologicalPosition_Add_Fail = "Новата технологична позиция не беше добавена!";
+
+        /// <summary>
+        /// Новата технологична позиция е добавена успешно!
+        /// </summary>
         public const string New_TechnologicalPosition_Add_Success = "Новата технологична позиция е добавена успешно!";
 
         /// <summary>
         /// Технологичната позиция е редактирана успешно!
         /// </summary>
         public const string Edit_TechnologicalPosition_Add_Success = "Технологичната позиция е редактирана успешно!";
+
+        /// <summary>
+        /// Технологичната позиция не беше намерена!
+        /// </summary>
         public const string TechnologicalPosition_Find_Fail = "Технологичната позиция не беше намерена!";
 
+        /// <summary>
+        /// Неправилен формат на час!
+        /// </summary>
         public const string Time_Format_Incorect = "Неправилен формат на час!";
+
+        /// <summary>
+        /// Неправилен формат на дата!
+        /// </summary>
         public const string Date_Format_Incorect = "Неправилен формат на дата!";
 
         /// <summary>

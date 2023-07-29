@@ -26,10 +26,10 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { new Guid("237cb180-758f-465b-8d7d-bff014cf77b8"), "1fe0d320-777b-40b5-9f93-3d82584308a6", "NoRole", "NOROLE" },
-                    { new Guid("26d978a0-e222-4209-a204-f632f093e657"), "bbfa1c87-432a-4586-97f2-e0c0e6f9e0ff", "Operator", "OPERATOR" },
-                    { new Guid("8a08f81e-e7db-44e8-b639-653d22648577"), "7a19f23f-20b0-4ddc-94af-dc6c76e047a5", "Electrician", "ELECTRICIAN" },
-                    { new Guid("b6d9e0b1-7844-40dd-bd53-cee6cf8f3b62"), "b895f358-fb7c-4484-b702-d4081dcef0fe", "Admin", "ADMIN" }
+                    { new Guid("237cb180-758f-465b-8d7d-bff014cf77b8"), "b8ccc0e1-24aa-4c3d-a42a-8c1f4ff08408", "NoRole", "NOROLE" },
+                    { new Guid("26d978a0-e222-4209-a204-f632f093e657"), "a2e2839f-636f-4933-98aa-03077b672c45", "Operator", "OPERATOR" },
+                    { new Guid("8a08f81e-e7db-44e8-b639-653d22648577"), "bfb72a02-a53a-4ac1-b2a8-b22b43246a04", "Electrician", "ELECTRICIAN" },
+                    { new Guid("b6d9e0b1-7844-40dd-bd53-cee6cf8f3b62"), "5616a845-e096-44ea-869c-86a4dff7a8f2", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -37,25 +37,25 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "UserWorkNumber" },
                 values: new object[,]
                 {
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), 0, "183e9e6e-c900-411e-bc43-b5f458a3dbb4", null, false, "Столипен", "Тонев", false, null, null, "STOLIPEN.TONEV", "AQAAAAEAACcQAAAAEG9zNdtqAnp8WKxlf3tJ7LXC5n/b3tBH/RLXQBnPEy0C3bNl5y65ELYjmVX4S50+Eg==", null, false, "9aceefbe-a50c-4494-8cec-2231012cde27", false, "Stolipen.Tonev", 38744 },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), 0, "4d9cb773-25ac-42f2-ab57-d4415f2a13cc", null, false, "Жерар", "Славчев", false, null, null, "GERAR.SLAVTCHEV", "AQAAAAEAACcQAAAAEKrksNRQ9LDMZq0O+GT2Jjya0J0SS8RZBXZdh1fsvrgcBdbCQJY42a3uqnOtPoxeMw==", null, false, "e0b7b360-3fd7-47b9-ab71-32f38f1e6a46", false, "Gerar.Slavtchev", 45571 },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), 0, "fb7effc9-ab29-4d3f-a86c-dbbfc6546215", null, false, "Лазо", "Шишманов", false, null, null, "LAZO.CHICHMANOV", "AQAAAAEAACcQAAAAEIHQA2ef6+Nllh46C8IPMHvCGaObNTnsHQ2jV4qdV+y2ubOdWvfqjJdlYNhuxSQ1bw==", null, false, "da95fc17-d527-4d4e-9508-f1fd5a7242ec", false, "Lazo.Chichmanov", 68340 },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), 0, "52487577-42c9-46e3-9b4f-66412cbd1a5f", null, false, "Дан", "Игнатов", false, null, null, "IGNATOV.DAN", "AQAAAAEAACcQAAAAEP+mzf/qAViP0WT4b3OQp6UaQMjIoaNj6ma3QvsreDjqgI47FwqkguZ+985F7nSATw==", null, false, "cf92c309-882d-49f2-9af4-18a05adde5be", false, "Ignatov.Dan", 88327 },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), 0, "2118c73c-fdf6-4841-a898-a28435f5eaaf", null, false, "Флоро", "Станов", false, null, null, "FLORO.STANOV", "AQAAAAEAACcQAAAAEGHzl4n+e3GYpDJ4k+b/++4RbpPzHeluh+R7DJ8PmkHdpXODkPbKsiYQwIWGHX++KA==", null, false, "c2825720-d68d-488a-a855-7605b787a1d3", false, "Floro.Stanov", 71417 },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), 0, "eb4a21fe-8929-4760-bea5-1bd22df8eabe", null, false, "Руси", "Магичов", false, null, null, "RUSI.MAGITCHOV", "AQAAAAEAACcQAAAAEM9v61v/FELeZTRrhVRNupdOsd7zofYXEnUAPJ9I42hG/gVSc36nyc5pKkcMj3f3Dg==", null, false, "6ae25c5b-26a6-4da0-b732-e242ff435ffb", false, "Rusi.Magitchov", 44454 },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), 0, "55149d37-8ba8-4a69-876c-daa7eb651e5b", null, false, "Дарен", "Павков", false, null, null, "DAREN.PAVKOV", "AQAAAAEAACcQAAAAEOrlTy9R2fc5pIsTCiWGcDCUXM0sBT8XSIDL53w8/VchmeICIZ0UEs0U37IHEuTBWQ==", null, false, "20355fe6-c68e-4cf9-be92-6e75dd3e3861", false, "Daren.Pavkov", 98129 },
-                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), 0, "f08e7453-10fa-4f58-a47d-58d9e70ed6fb", null, false, "Данимил", "Тинков", false, null, null, "DANIMIL.TINKOV", "AQAAAAEAACcQAAAAEKDeBE8qdHhfruhWVtqRzyLC5qE8O3vOG6KgcUUylGqrJuoOThUvqeMRgC/LSzzeyg==", null, false, "963bd4c2-e7df-45fd-a3c3-5ead68d27fbf", false, "Danimil.Tinkov", 70677 },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), 0, "920ec165-e267-4d2e-99d4-2ced0ad746de", null, false, "Сергей", "Попов", false, null, null, "POPOV.SERGEY", "AQAAAAEAACcQAAAAEG9w1QznpvQo4pwGZsa9X7rgaw08vntBWA4CyhfVZVabvKERWejKwzhk8kJlwa+L4Q==", null, false, "a6c02f01-e2f3-4f35-b59b-2a8110e472c5", false, "Popov.Sergey", 38011 },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), 0, "b9e8fe2c-9222-4a8b-a450-e52bfa9ed259", null, false, "Пейо", "Ленков", false, null, null, "PEYO.LENKOV", "AQAAAAEAACcQAAAAEIwhvHcp/iycQrXIGqwt3at1QgPcGxLPKBbCq8+428D4a32+A7wOQjq8Tj8B6UODIg==", null, false, "49c8d361-27ad-4676-8da0-66fa66d9747a", false, "Peyo.Lenkov", 62230 },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), 0, "9b125342-d7e5-475f-b44b-7babae3607b4", null, false, "Аню", "Панчев", false, null, null, "ANUY.PANTCHEV", "AQAAAAEAACcQAAAAEKF6Ujawbc0nj+LoyUb7SQGjYgUwRpXnYfkszrq/SCwDfhnVkI0/0j5+z4Eq3kwZWA==", null, false, "75ce72b0-c457-44a2-b579-5f8fecab5754", false, "Anuy.Pantchev", 65072 },
-                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), 0, "b3fa71b1-0d0b-4346-a521-2e2e91354f73", null, false, "Друмчо", "Светозаров", false, null, null, "DRUMTCHO.SVETOZAROV", "AQAAAAEAACcQAAAAEBAPVtkzFBV2/vfLlpiCSQmyXD+szGKZBDxyu1EM8Us4m18e68yJab6oBLAw+Dnaog==", null, false, "c5f16969-d1e8-44ba-b543-bcaf15484a59", false, "Drumtcho.Svetozarov", 35236 },
-                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), 0, "14a74491-ce7d-47a9-b90a-4ba1bf7e698c", null, false, "Дориян", "Славейков", false, null, null, "DORIYAN.SLAVEYKOV", "AQAAAAEAACcQAAAAEGMQWqdcVvHKPI9sSPR9eZ5WonK0crcgl7WqQrCE/zJpzMtCYfyi1l+x6QUq5uyDlQ==", null, false, "8ca4d178-35fc-4de1-a06d-4701318d91d4", false, "Doriyan.Slaveykov", 39676 },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), 0, "1be2477f-6e86-45aa-9ce6-8c5cce0a131c", null, false, "Менко", "Мирков", false, null, null, "MENKO.MIRKOV", "AQAAAAEAACcQAAAAEAE2vIl/YaPPCEYyWSrWq2XHssCEi1U/zmAZpOIX8nIgmS3g/8MyuJ9nSJ7I0AUkYw==", null, false, "0d8583db-d7c6-49b1-9c6b-1e0fcdbae58f", false, "Menko.Mirkov", 19386 },
-                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), 0, "0ef890c0-53ee-4c20-8ae0-192edf9dfe88", null, false, "Силвиян", "Янов", false, null, null, "SILVIYAN.YANKOV", "AQAAAAEAACcQAAAAEF56gwEQdP4KxbXnxIjMu4Zgjk7NtOMLe+eFw3ov6ttiW2YXv/YGhfHRn28gfGhBdQ==", null, false, "917afaa0-7e5f-41e6-95a1-3292c4ebbe30", false, "Silviyan.Yankov", 52291 },
-                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), 0, "16d28bdd-e35a-4eeb-94aa-c3bb622b603e", null, false, "Драгни", "Тодоров", false, null, null, "DRAGNI.TODOROV", "AQAAAAEAACcQAAAAEH8j1eBk3Fl8pRrQIqPBX1KiwpqKFgocuK+5f7ht7/KK0KJyvw24B2bnP22ox0wqLA==", null, false, "1ff4669a-0455-4ad9-93af-38b618faaaeb", false, "Dragni.Todorov", 80738 },
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), 0, "3da8a910-f877-4ec8-8c96-de3993f348b4", null, false, "Доко", "Цанимиров", false, null, null, "DOKO.TSANIMIROV", "AQAAAAEAACcQAAAAEFu+p3h1A8ze9JhEYhk/SZHQTpacPWwbYl4rM7W1FjaWYFCoPob9jI53KSnpGBJcjQ==", null, false, "89209cdf-9b53-4df7-817e-9e5514f5310d", false, "Doko.Tsanimirov", 46929 },
-                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), 0, "4c5081bd-1dda-4282-9fe8-517cbac8da50", null, false, "Биню", "Тошков", false, null, null, "BINUY.TOCHKOV", "AQAAAAEAACcQAAAAEKfYe1F1kg5E7gCgaVWxViLagDqudtQunx4KAbxpEfanu9kdkwf4WYB5HhkPmzzPQw==", null, false, "933b9fb4-cd7a-4098-9939-7a79b40271bf", false, "Binuy.Tochkov", 61815 },
-                    { new Guid("f91c5b35-506c-4987-a89a-fba703b53f03"), 0, "1c7f5327-e147-4ed8-87ef-187fb748e821", null, false, "Захари", "Тодеев", false, null, null, "ZAHARI.TODEEV", "AQAAAAEAACcQAAAAEPMjnc1f/vqV7BiaS+MR5kvywlEdqFeXEQw/vyyBwEqYD7DILShLQquT/kg5wOB8wA==", null, false, "ed394960-8d31-4cc4-ad44-0db2a291f758", false, "Zahari.Todeev", 50975 }
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), 0, "f0e06d09-134c-4326-95c5-c77c0435d918", null, false, "Столипен", "Тонев", false, null, null, "STOLIPEN.TONEV", "AQAAAAEAACcQAAAAEASvQJWZUTJoWwv6xMhFn5/B58vqLrGu5wjtdbMiUsxfFiE3x7G1PDhGilVvTkmBPQ==", null, false, "0d328859-a3b4-4164-ad5b-73bdc0f64f5b", false, "Stolipen.Tonev", 38744 },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), 0, "2ec24f8e-8f00-48d1-9ced-12868b3a183f", null, false, "Жерар", "Славчев", false, null, null, "GERAR.SLAVTCHEV", "AQAAAAEAACcQAAAAEPFquFUtqpsBbTtUmT/7CtIXyrdXDywW+hFdN1EDRx6l/g24XYOt+LRDZS9oitiPtQ==", null, false, "c17de8cb-bdaf-4bc3-9b44-7aca105d1604", false, "Gerar.Slavtchev", 45571 },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), 0, "3045d679-9cc5-44d0-bbf2-205fcccff666", null, false, "Лазо", "Шишманов", false, null, null, "LAZO.CHICHMANOV", "AQAAAAEAACcQAAAAEII0SldofqLrteQnMq2t/lewQUWDa1+zZygl8Ftfiz8/6Q+oyH2tAl4zQQfLdwtoOw==", null, false, "0e2f869f-7652-4753-911e-99653ab4b66c", false, "Lazo.Chichmanov", 68340 },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), 0, "7bcbc902-f376-4170-bf68-d03cc61db61e", null, false, "Дан", "Игнатов", false, null, null, "IGNATOV.DAN", "AQAAAAEAACcQAAAAENNfO5CGYnLuqp+0vPow5Ta23kCP/IJZlqixiFZQkbIzV3O3KCLj/tDcUIpUVibVyA==", null, false, "7f1faebc-acaa-484f-b25b-ff5127771343", false, "Ignatov.Dan", 88327 },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), 0, "00ca1551-f505-4208-bf1a-f4ca967ca41f", null, false, "Флоро", "Станов", false, null, null, "FLORO.STANOV", "AQAAAAEAACcQAAAAEDca4OpFIK6THZJ9sSigViej6A/1LiXU8SS2/zYUV9ecEPX63fDIq7c0caHaw33gIQ==", null, false, "b2be42f6-756f-430c-a610-54c0e8fa5ba1", false, "Floro.Stanov", 71417 },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), 0, "9dce6875-010c-4ebb-9c3e-540d55db674e", null, false, "Руси", "Магичов", false, null, null, "RUSI.MAGITCHOV", "AQAAAAEAACcQAAAAEBr7UdKTz2oxYA/JPTqO8mKz8ovZ72kb+vRJjcQhh9EVEmVvptBTIwx+EsUDg/GrRg==", null, false, "939bfa81-8242-4bee-9981-0a890446a1bb", false, "Rusi.Magitchov", 44454 },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), 0, "94006630-6613-43d6-91f4-1eef248534aa", null, false, "Дарен", "Павков", false, null, null, "DAREN.PAVKOV", "AQAAAAEAACcQAAAAECOYpCgvFhl4gC1RhqtG3fl9C/Dcn6D+5Z16GeESbfOL5aU4RbGJ2nyrX9IqKq6SXg==", null, false, "e79f6497-e142-4cd1-a77b-83c77cef9f1f", false, "Daren.Pavkov", 98129 },
+                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), 0, "dcf99e55-67cd-4fd1-8c43-f452b4afdfdd", null, false, "Данимил", "Тинков", false, null, null, "DANIMIL.TINKOV", "AQAAAAEAACcQAAAAEHEcRPrupw1iUTkJ2qsTCeTKZ13++flis44U2xDFUlryCHxwLe+TfjDrGp+PL1/WlA==", null, false, "bcb60f46-7f8b-4d76-b0a6-24cc895f9feb", false, "Danimil.Tinkov", 70677 },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), 0, "4bff2512-d08e-444c-b67f-50218b94fa3e", null, false, "Сергей", "Попов", false, null, null, "POPOV.SERGEY", "AQAAAAEAACcQAAAAEB/CjlFlObrogrhozLP92HDZarlKvPQPf395ab05iam+eznMZubrEzCX40kX/OhGOw==", null, false, "42427b7a-5589-4731-b27d-32c422e5be7c", false, "Popov.Sergey", 38011 },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), 0, "6c6ffc76-59ef-4460-8401-5689cdf84e02", null, false, "Пейо", "Ленков", false, null, null, "PEYO.LENKOV", "AQAAAAEAACcQAAAAEEqsC2lBTFWJEUEoiro+dq/I92AUaCrPrrkpOn714nBrJ/EVEy/m4mpdn7oK9uWEzw==", null, false, "4aa0b551-8a6d-4030-9ec0-44204b775a77", false, "Peyo.Lenkov", 62230 },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), 0, "d1801c2c-5609-4d9c-9511-e64ac85fc0b4", null, false, "Аню", "Панчев", false, null, null, "ANUY.PANTCHEV", "AQAAAAEAACcQAAAAEORTOhr9v/FCq+IhQmv2Z7u2G9lfpZcw9HcK5KJ8gvgYkuOW/sBxno34YCWOVFFPIw==", null, false, "1663ece7-ad00-422e-9b14-37ef8dac361c", false, "Anuy.Pantchev", 65072 },
+                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), 0, "22af60ff-0ed5-40d0-941f-acb5179001d0", null, false, "Друмчо", "Светозаров", false, null, null, "DRUMTCHO.SVETOZAROV", "AQAAAAEAACcQAAAAEL/S5mujoBQTwALDbOBsxwc3rjrtcOV0tv8ye9e8etUH3qLNigBK4GWUFWRv1qdzzw==", null, false, "dedc2864-323e-4450-b034-3e136a06c35d", false, "Drumtcho.Svetozarov", 35236 },
+                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), 0, "66258c42-5314-4d15-9360-3e9566a07d7b", null, false, "Дориян", "Славейков", false, null, null, "DORIYAN.SLAVEYKOV", "AQAAAAEAACcQAAAAEJuZx4rXXAfZ03a1HbsQYyKktllavlw9JdV7k/23QVlflegLPgp2Ezv92MB5F3I79g==", null, false, "6069e3e7-240e-4662-b7de-2166099b6933", false, "Doriyan.Slaveykov", 39676 },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), 0, "4caeefa1-d425-46de-8d44-54fbeb93f98b", null, false, "Менко", "Мирков", false, null, null, "MENKO.MIRKOV", "AQAAAAEAACcQAAAAEMa0YAti0D+MTzoFTdjfNOnEdlGZJouowXA/2oRhDSOIoiaJfTbTD5fucDIWXGEe6g==", null, false, "7533bba0-c0ce-40b9-b056-4212dba9b49a", false, "Menko.Mirkov", 19386 },
+                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), 0, "aeb055af-ea6a-4e7c-906d-047917dee8f6", null, false, "Силвиян", "Янов", false, null, null, "SILVIYAN.YANKOV", "AQAAAAEAACcQAAAAELiGNE2l7gykooT8LhwTpT7+pHdPYwdayR8lMXB96wT8HPVOp7t23EQ4xmCtzZZVag==", null, false, "f505346a-4fcf-483a-bc8e-399e21df3915", false, "Silviyan.Yankov", 52291 },
+                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), 0, "68bb1d14-426c-4533-aaee-8e1e23dea043", null, false, "Драгни", "Тодоров", false, null, null, "DRAGNI.TODOROV", "AQAAAAEAACcQAAAAEDlJNnMexWvQDX0HGXjl5caIj7SXiWzvpXGzyvXEStSxKvRCBQApuPpAWiynumy1eA==", null, false, "105b6af6-407b-4b8b-9e8c-6039a573023a", false, "Dragni.Todorov", 80738 },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), 0, "afb635f9-cdeb-42bf-87ab-f9d10c8790b0", null, false, "Доко", "Цанимиров", false, null, null, "DOKO.TSANIMIROV", "AQAAAAEAACcQAAAAECVJpjbHO3cSFkKyeDpcODrAt+HLX92U0+3BXXkO8i54Bn7eQnM8N8Bjex6m9gMU3A==", null, false, "4cad63cd-b564-4ec8-92f2-0435056f59de", false, "Doko.Tsanimirov", 46929 },
+                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), 0, "eddbf140-67a7-47d7-a96d-9ee9077f4790", null, false, "Биню", "Тошков", false, null, null, "BINUY.TOCHKOV", "AQAAAAEAACcQAAAAEGtvF795oimySPh3IY/efzG+MXY/iP5D20KCP8jzr+h/boQteD/x3Hd2GBpnpBU6Wg==", null, false, "dfdb7e1c-9805-47b8-a137-5118ad177e6a", false, "Binuy.Tochkov", 61815 },
+                    { new Guid("f91c5b35-506c-4987-a89a-fba703b53f03"), 0, "d9e2dca4-588f-4c23-b2a8-38e23224607d", null, false, "Захари", "Тодеев", false, null, null, "ZAHARI.TODEEV", "AQAAAAEAACcQAAAAEFrYInEReAinu5N1Eh3EL5eb+icoG42HS83IIr10440kPXnhJvqysKp8/jIvDp/AEA==", null, false, "a43fe837-61de-4581-8c9b-8bbec3e5cbbc", false, "Zahari.Todeev", 50975 }
                 });
 
             migrationBuilder.InsertData(
@@ -75,6 +75,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 columns: new[] { "Id", "EndTime", "ShiftName", "StartTime" },
                 values: new object[,]
                 {
+                    { new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd"), new DateTime(1, 1, 1, 23, 59, 0, 0, DateTimeKind.Unspecified), "ALL", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { new Guid("51e3023b-5967-4221-ba1e-977fdff10eda"), new DateTime(1, 1, 1, 19, 0, 0, 0, DateTimeKind.Unspecified), "1", new DateTime(1, 1, 1, 7, 0, 0, 0, DateTimeKind.Unspecified) },
                     { new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d"), new DateTime(1, 1, 1, 16, 0, 0, 0, DateTimeKind.Unspecified), "Р", new DateTime(1, 1, 1, 7, 30, 0, 0, DateTimeKind.Unspecified) },
                     { new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2"), new DateTime(1, 1, 2, 7, 0, 0, 0, DateTimeKind.Unspecified), "2", new DateTime(1, 1, 1, 19, 0, 0, 0, DateTimeKind.Unspecified) }
@@ -111,78 +112,29 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
                 values: new object[,]
                 {
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") }
-                });
-
-            migrationBuilder.InsertData(
-                table: "ChangedsSchedules",
-                columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
-                values: new object[,]
-                {
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") }
+                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") }
                 });
 
             migrationBuilder.InsertData(
@@ -190,97 +142,146 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
                 values: new object[,]
                 {
-                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ChangedsSchedules",
+                columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
+                values: new object[,]
+                {
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") }
-                });
-
-            migrationBuilder.InsertData(
-                table: "ChangedsSchedules",
-                columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
-                values: new object[,]
-                {
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ChangedsSchedules",
+                columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
+                values: new object[,]
+                {
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") }
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") }
                 });
 
             migrationBuilder.InsertData(
@@ -288,48 +289,48 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
                 values: new object[,]
                 {
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") }
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") }
                 });
 
             migrationBuilder.InsertData(
@@ -337,97 +338,97 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
                 values: new object[,]
                 {
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ChangedsSchedules",
+                columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
+                values: new object[,]
+                {
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") }
-                });
-
-            migrationBuilder.InsertData(
-                table: "ChangedsSchedules",
-                columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
-                values: new object[,]
-                {
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") }
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") }
                 });
 
             migrationBuilder.InsertData(
@@ -435,13 +436,57 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
                 values: new object[,]
                 {
+                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
-                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
-                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
                     { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
                     { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
-                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") }
+                    { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd") },
+                    { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") },
+                    { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("51e3023b-5967-4221-ba1e-977fdff10eda") },
+                    { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ChangedsSchedules",
+                columns: new[] { "ApplicationUserId", "Date", "ShiftId" },
+                values: new object[,]
+                {
+                    { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("8dd62cbc-0f4d-4868-bdaa-0bb3980fc47d") },
+                    { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local), new Guid("ad095ab8-ed2b-4f15-9f2d-088188db4ee2") }
                 });
 
             migrationBuilder.InsertData(
@@ -766,92 +811,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 7, 28, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 7, 29, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -861,12 +831,12 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -896,42 +866,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -946,7 +896,32 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 7, 31, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -966,12 +941,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -982,6 +952,11 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1001,6 +976,11 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
@@ -1011,12 +991,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1031,27 +1016,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1081,17 +1056,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 3, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1101,27 +1076,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1136,27 +1106,32 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 4, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1166,7 +1141,12 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1181,27 +1161,52 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1216,17 +1221,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1241,22 +1246,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 7, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1296,17 +1301,12 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1321,22 +1321,52 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1351,22 +1381,32 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1376,7 +1416,12 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1391,22 +1436,12 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1416,27 +1451,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1451,7 +1476,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 11, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1461,17 +1496,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1482,6 +1522,11 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 12, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1501,22 +1546,37 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1531,27 +1591,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 13, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1561,7 +1601,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1591,22 +1631,47 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 15, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1636,7 +1701,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1646,17 +1726,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1671,27 +1751,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 16, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1701,12 +1761,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1721,17 +1786,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 17, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1741,7 +1811,12 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1771,7 +1846,27 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 18, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1791,11 +1886,6 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
@@ -1806,12 +1896,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 19, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1821,12 +1916,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1836,12 +1936,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1856,22 +1951,17 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1891,6 +1981,11 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
@@ -1901,17 +1996,12 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1921,7 +2011,12 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1951,32 +2046,42 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -1991,7 +2096,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -2006,7 +2111,7 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -2016,12 +2121,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -2036,7 +2151,12 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 24, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -2046,12 +2166,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -2066,22 +2196,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("08972cfc-c9f9-40fd-8bd9-5cb1a2137512"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("15116ebd-a590-489b-96f3-f4b87352ceb3"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -2091,12 +2221,12 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("3e3070f2-48d9-4aa4-a760-5654f7d59b14"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -2126,37 +2256,22 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
                 keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
-
-            migrationBuilder.DeleteData(
-                table: "ChangedsSchedules",
-                keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
@@ -2171,7 +2286,122 @@ namespace SafeAssignmentSystem.DataBase.Migrations
             migrationBuilder.DeleteData(
                 table: "ChangedsSchedules",
                 keyColumns: new[] { "ApplicationUserId", "Date" },
-                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
+                keyValues: new object[] { new Guid("cb0d669c-0739-46cb-af7e-135b3c1359ab"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("d5ebbc22-5405-4a37-94d5-b76cb8dd489a"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("ecd856e4-96da-4296-a482-6f66680f1380"), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("68c22160-dd62-44e3-b9fa-a5285aeed74a"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("dc64720a-db37-48a3-b0d9-da13abec71f7"), new DateTime(2023, 8, 28, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("291a943f-27f5-45ec-b38a-c97f4e2cba89"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("3bd76d51-384b-4233-a83e-40e1e1a355dc"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("46704eca-2943-4635-ae5b-0b9a4a9fa274"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("6a1a286e-7523-4b64-bec5-a5350b4f8169"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("789fd6e8-ea96-4af7-b417-75284395ceeb"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("822edebf-23a5-4373-b56d-94078d984192"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("878d9e51-f7c1-4460-b502-6d3611acc9de"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("984b9932-5e9b-4bc9-a923-4099f7d488b2"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("b5459434-2a22-47eb-b993-775edc6f4bf1"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.DeleteData(
+                table: "ChangedsSchedules",
+                keyColumns: new[] { "ApplicationUserId", "Date" },
+                keyValues: new object[] { new Guid("c6f014d9-2816-4d1d-961f-9d313dbeb2ea"), new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.DeleteData(
                 table: "PlantInstalations",
@@ -2522,6 +2752,11 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 table: "ProductionComplexes",
                 keyColumn: "Id",
                 keyValue: new Guid("fe306aa1-f678-4e94-9d86-308ed58fd305"));
+
+            migrationBuilder.DeleteData(
+                table: "WorkingShifts",
+                keyColumn: "Id",
+                keyValue: new Guid("1c6c10af-4bc9-4d17-94db-e5bb701cafbd"));
 
             migrationBuilder.DeleteData(
                 table: "WorkingShifts",
