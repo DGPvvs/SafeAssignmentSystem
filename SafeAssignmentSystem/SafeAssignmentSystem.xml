@@ -146,6 +146,14 @@
             <param name="model">Модел на данните необходими за създаване на нов наряд</param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.RequestedSafeAssignment(System.Guid)">
+            <summary>
+            Post действие за искане за подаване на напрежение на технологична позиция
+            с идентификатор positionId ако няма открити наряди за позицията
+            </summary>
+            <param name="positionId"></param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.AppliedSafeAssignment(System.Guid)">
             <summary>
             Get действие за подаване на напрежение на технологична позиция

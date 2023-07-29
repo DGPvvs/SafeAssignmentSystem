@@ -13,10 +13,10 @@
     using SafeAssignmentSystem.Models.CommonViewModels;
     using SafeAssignmentSystem.Models.SafeAssignmentViewModels;
     using System.Net;
+    using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants;
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
     using static SafeAssignmentSystem.Common.Notification.RoleConstants;
-    using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants;
 
     public class SafeAssignmentController : BaseSafeAssignmentController
     {
@@ -114,10 +114,18 @@
             return this.RedirectToAction("AllTechnologicalPositionCondition", "Reference", new { plantId = model.PlantInstalationId });
         }
 
+        /// <summary>
+        /// Post действие за искане за подаване на напрежение на технологична позиция
+        /// с идентификатор positionId ако няма открити наряди за позицията
+        /// </summary>
+        /// <param name="positionId"></param>
+        /// <returns></returns>
         [Authorize(Roles = $"{Operator}")]
         [HttpGet]
         public async Task<IActionResult> RequestedSafeAssignment(Guid positionId)
         {
+            Guid guid = Guid.Empty;
+
             try
             {
                 var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(positionId, StatusFlagsEnum.Opening);
@@ -130,6 +138,8 @@
                                 
                 var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(positionId);
                 var user = await this.userManager.FindByIdAsync(User.Id());
+
+                guid = positionTransfer.InstalationId;
 
                 if (!(await this.accountService.HasUserPremisionForPlant(user.Id, positionTransfer.InstalationId)))
                 {
@@ -148,7 +158,7 @@
                 return this.RedirectToAction("Index", "Home");
             }
 
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("AllTechnologicalPositionCondition", "Reference", new { plantId = guid });
         }
 
         /// <summary>
@@ -162,6 +172,8 @@
         [HttpGet]
         public async Task<IActionResult> AppliedSafeAssignment(Guid positionId)
         {
+            Guid guid = Guid.Empty;
+
             try
             {
                 var transferModel = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(positionId, StatusFlagsEnum.Required);
@@ -184,6 +196,8 @@
                 var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(positionId);
                 var user = await this.userManager.FindByIdAsync(User.Id());
 
+                guid = positionTransfer.InstalationId;
+
                 if (!(await this.accountService.HasUserPremisionForPlant(user.Id, positionTransfer.InstalationId)))
                 {
                     this.TempData[Error_Message] = User_Not_Permision;
@@ -201,7 +215,7 @@
                 return this.RedirectToAction("Index", "Home");
             }
 
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("AllTechnologicalPositionCondition", "Reference", new { plantId = guid });
         }            
 
         /// <summary>
@@ -263,12 +277,15 @@
 		[HttpGet]
 		public async Task<IActionResult> OpeningSafeAssignmentPost(Guid id)
         {
+            Guid guid = Guid.Empty;
             try
             {
                 var safeAssignment = await this.safeAssignmentService.GetSafeAssignmentByIdAsync(id);
+                
                 var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(safeAssignment.TechnologicalPositionId);
                 var user = await this.userManager.FindByIdAsync(User.Id());
 
+                guid = positionTransfer.InstalationId;
 
                 if (!(await this.accountService.HasUserPremisionForPlant(user.Id, positionTransfer.InstalationId)))
                 {
@@ -295,7 +312,7 @@
 				this.TempData[Error_Message] = Opening_SafeAssignment_Document_Fail;
             }
 
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("AllTechnologicalPositionCondition", "Reference", new { plantId = guid });
         }
 
         [Authorize(Roles = $"{Electrician}")]
@@ -357,14 +374,18 @@
 		[HttpGet]
 		public async Task<IActionResult> ClosingSafeAssignmentPost(Guid id)
         {
-			try
+            Guid guid = Guid.Empty;
+
+            try
 			{
 				var safeAssignment = await this.safeAssignmentService.GetSafeAssignmentByIdAsync(id);
 				var positionTransfer = await this.plantsService.GetTechnologicalPositionByIdAsync(safeAssignment.TechnologicalPositionId);
 				var user = await this.userManager.FindByIdAsync(User.Id());
 
+                guid = positionTransfer.InstalationId;
 
-				if (!(await this.accountService.HasUserPremisionForPlant(user.Id, positionTransfer.InstalationId)))
+
+                if (!(await this.accountService.HasUserPremisionForPlant(user.Id, positionTransfer.InstalationId)))
 				{
 					this.TempData[Error_Message] = User_Not_Permision;
 					return this.RedirectToAction("Index", "Home");
@@ -389,7 +410,7 @@
 				this.TempData[Error_Message] = Closing_SafeAssignment_Document_Fail;
 			}
 
-			return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("AllTechnologicalPositionCondition", "Reference", new { plantId = guid });
 		}		
 	}
 }
