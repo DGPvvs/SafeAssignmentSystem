@@ -1,44 +1,74 @@
 ﻿namespace SafeAssignmentSystem.Core.Service
 {
-    using Microsoft.EntityFrameworkCore;
-    using SafeAssignmentSystem.Common.Enums;
-    using SafeAssignmentSystem.Common.Exceptions;
-    using SafeAssignmentSystem.Core.Contracts;
-    using SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels;
-    using SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels;
-    using SafeAssignmentSystem.DataBase.Data.Common;
-    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
-    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
-    using SafeAssignmentSystem.DataBase.Data.FactoryModels;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.Design;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+	using Microsoft.EntityFrameworkCore;
+	using SafeAssignmentSystem.Common.Enums;
+	using SafeAssignmentSystem.Common.Exceptions;
+	using SafeAssignmentSystem.Core.Contracts;
+	using SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels;
+	using SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels;
+	using SafeAssignmentSystem.DataBase.Data.Common;
+	using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
+	using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
+	using SafeAssignmentSystem.DataBase.Data.FactoryModels;
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Threading.Tasks;
 
-    public class ReferencesService : IReferencesService
+	public class ReferencesService : IReferencesService
     {
         private readonly IRepository repo;
         private readonly IChoisPlantsService choisPlantsService;
+		private readonly ISafeAssignmentService safeAssignmentService;
 
         public ReferencesService(
             IRepository repo,
-            IChoisPlantsService choisPlantsService)
+            IChoisPlantsService choisPlantsService,
+            ISafeAssignmentService safeAssignmentService)
         {
             this.repo = repo;
             this.choisPlantsService = choisPlantsService;
+			this.safeAssignmentService = safeAssignmentService;
         }
 
-		/// <summary>
-		/// Имплементация на метод връщащ състоянието на технологичните позиции
-		/// в инсталация с идентификатор plantId според критериите на filter
-		/// </summary>
-		/// <param name="plantId">Идентификатор на инсталация</param>
-		/// <param name="filter"></param>
-		/// <returns></returns>
-		/// <exception cref="PlantNotFoundException"></exception>
-		public async Task<PositionInPlantTransferModel> GetTechnologicalPositionConditionAsync(Guid plantId, FilterCriteria filter)
+        /// <summary>
+        /// Имплементация на метод връщащ архивираните нарядите за технологична позиция
+        /// </summary>
+        /// <param name="positionId">Идентификатор на технологична позиция</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public async Task<AllSafeAssignmentArchivedTransferModel> GetAllArchivedSafeAssignmentTechnologicalPositionAsync(Guid positionId)
+        {
+			var result = await this.repo.AllReadonly<TechnologicalPosition>()
+				.Where(tp => tp.Id.Equals(positionId))
+				.Select(tp => new AllSafeAssignmentArchivedTransferModel()
+				{
+                    Complex = tp.Instalation.Complex.FullName,
+                    Plant = tp.Instalation.FullName,
+                    Position = tp.Name
+                })
+				.FirstOrDefaultAsync();
+
+			if (result is null)
+			{
+				throw new TechnologicalPositionException();
+			}
+
+			var transfer = await this.safeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(positionId, StatusFlagsEnum.Archived);
+            result.SafeAssignments = transfer;
+
+			return result;
+        }
+
+        /// <summary>
+        /// Имплементация на метод връщащ състоянието на технологичните позиции
+        /// в инсталация с идентификатор plantId според критериите на filter
+        /// </summary>
+        /// <param name="plantId">Идентификатор на инсталация</param>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        /// <exception cref="PlantNotFoundException"></exception>
+        public async Task<PositionInPlantTransferModel> GetTechnologicalPositionConditionAsync(Guid plantId, FilterCriteria filter)
 		{
 			var plant = await this.repo.AllReadonly<PlantInstalation>()
 				.Where(pi => pi.Id.Equals(plantId))

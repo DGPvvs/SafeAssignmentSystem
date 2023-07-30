@@ -139,6 +139,13 @@
             <param name="plantId">Идентификатор на инсталация</param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ReferenceController.AllSafeAssignment(System.Guid)">
+            <summary>
+            Get метод връщащ информация за всички наряди за технологична позиция
+            </summary>
+            <param name="positionId">Идентификатор на технологична позиция</param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Controllers.ReferenceController.SetInModel(SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel)">
             <summary>
             Метод запълващ детайлите за технологичната позиция
@@ -162,7 +169,7 @@
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.RequestedSafeAssignment(System.Guid)">
             <summary>
-            Post действие за искане за подаване на напрежение на технологична позиция
+            Get действие за искане за подаване на напрежение на технологична позиция
             с идентификатор positionId ако няма открити наряди за позицията
             </summary>
             <param name="positionId"></param>
@@ -468,6 +475,91 @@
             Колекция от ключ - име на инсталации
             </summary>        
         </member>
+        <member name="T:SafeAssignmentSystem.Models.ReferenceViewModel.AllArchiveViewModel">
+            <summary>
+            Модел на изгледа на списъка за всички архивни наряди
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.ReferenceViewModel.AllArchiveViewModel.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.AllArchiveViewModel.Complex">
+            <summary>
+            Име на комплекс
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.AllArchiveViewModel.Plant">
+            <summary>
+            Име на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.AllArchiveViewModel.Position">
+            <summary>
+            Име на технологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.AllArchiveViewModel.SafeAssignments">
+            <summary>
+            Колекция с наряди за позицията
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.ReferenceViewModel.ArchivedSafeAssignmentPositionViewModels">
+            <summary>
+            Модел на изгледа за визуализиране на архивираните наряди
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.ArchivedSafeAssignmentPositionViewModels.Number">
+            <summary>
+            Номер на наряд според вътрешнонарядната номерация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.ArchivedSafeAssignmentPositionViewModels.OpeningDate">
+            <summary>
+            Дата на откриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.ArchivedSafeAssignmentPositionViewModels.OpeningTime">
+            <summary>
+            Час на откриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.ArchivedSafeAssignmentPositionViewModels.PersonRequestedOpeningOrder">
+            <summary>
+            Фамилия на потребител, поискал откриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.ArchivedSafeAssignmentPositionViewModels.ЕlectricianOpeningOrder">
+            <summary>
+            Фамилия на потребител открил наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.ArchivedSafeAssignmentPositionViewModels.ClosingDate">
+            <summary>
+            Дата на закриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.ArchivedSafeAssignmentPositionViewModels.ClosingTime">
+            <summary>
+            Час на закриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.ArchivedSafeAssignmentPositionViewModels.ЕlectricianClosingOrder">
+            <summary>
+            Фамилия на потребител закрил наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.ArchivedSafeAssignmentPositionViewModels.PersonRequestedVoltageSupply">
+            <summary>
+            Фамилия на потребител поискал подаване на напрежение
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.ArchivedSafeAssignmentPositionViewModels.ElectricianAppliedVoltage">
+            <summary>
+            Фамилия на потребител подал напрежение
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Models.ReferenceViewModel.PositionDetailViewModel">
             <summary>
             Визуален модел на детайлите за техтологичната позиция
@@ -526,6 +618,36 @@
         <member name="P:SafeAssignmentSystem.Models.ReferenceViewModel.PositionsInPlantViewModel.PositionsDetail">
             <summary>
             Колекция съдържаща описание на статуса на технологичните позиции
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentArchivedViewModel">
+            <summary>
+            Модел на изгледа за архивираните наряди
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentArchivedViewModel.ClosingDate">
+            <summary>
+            Дата на закриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentArchivedViewModel.ClosingTime">
+            <summary>
+            Час на закриване на наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentArchivedViewModel.ЕlectricianClosingOrder">
+            <summary>
+            Фамилия на потребител закрил наряда
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentArchivedViewModel.MyProPersonRequestedVoltageSupplyperty">
+            <summary>
+            Фамилия на потребител поискал подаване на напрежение
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentArchivedViewModel.ElectricianAppliedVoltage">
+            <summary>
+            Фамилия на потребител подал напрежение
             </summary>
         </member>
         <member name="T:SafeAssignmentSystem.Models.SafeAssignmentViewModels.SafeAssignmentClosingViewModel">

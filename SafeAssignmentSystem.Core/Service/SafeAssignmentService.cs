@@ -47,8 +47,16 @@
                                                                                     sa.OpeningDate.Value.Day),
                     OpeningTime = sa.OpeningDate.Equals(null) ? null : new TimeOnly(sa.OpeningDate.Value.Hour,
                                                                                     sa.OpeningDate.Value.Minute),
-                    ЕlectricianOpeningOrderId = sa.ЕlectricianOpeningOrderId
-				})
+                    ЕlectricianOpeningOrderId = sa.ЕlectricianOpeningOrderId,
+                    ClosingDate = sa.ClosingDate.Equals(null) ? null : new DateOnly(sa.ClosingDate.Value.Year,
+                                                                                    sa.ClosingDate.Value.Month,
+                                                                                    sa.ClosingDate.Value.Day),
+                    ClosingTime = sa.ClosingDate.Equals(null) ? null : new TimeOnly(sa.ClosingDate.Value.Hour,
+                                                                                    sa.ClosingDate.Value.Minute),
+                    ЕlectricianClosingOrderId = sa.ЕlectricianClosingOrderId,
+                    PersonRequestedVoltageSupplyId = sa.PersonRequestedVoltageSupplyId,
+                    ElectricianAppliedVoltageId = sa.ElectricianAppliedVoltageId
+                })
                 .ToListAsync();
 
             return transfer;

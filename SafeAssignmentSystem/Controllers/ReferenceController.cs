@@ -109,7 +109,74 @@
                 this.TempData[Error_Message] = e.Message;
                 return this.RedirectToAction("Index", "Home");
             }
-        }        
+        }
+
+        /// <summary>
+        /// Get метод връщащ информация за всички наряди за технологична позиция
+        /// </summary>
+        /// <param name="positionId">Идентификатор на технологична позиция</param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> AllSafeAssignment(Guid positionId)
+        {
+            try
+            {
+                var transfer = await this.referencesService.GetAllArchivedSafeAssignmentTechnologicalPositionAsync(positionId);
+
+                var model = new AllArchiveViewModel()
+                {
+                    Complex = transfer.Complex,
+                    Plant = transfer.Plant,
+                    Position = transfer.Position
+                };
+
+                foreach (var safeAssignment in transfer.SafeAssignments.OrderBy(sa => sa.Number))
+                {
+                    var archiveSafeAssignment = new ArchivedSafeAssignmentPositionViewModels()
+                    {
+                        Number = safeAssignment.Number,
+                        OpeningDate = safeAssignment.OpeningDate?.ToString() ?? null,
+                        OpeningTime = safeAssignment.OpeningTime?.ToString() ?? null,
+                        ClosingDate= safeAssignment.ClosingDate?.ToString() ?? null,
+                        ClosingTime = safeAssignment.ClosingTime?.ToString() ?? null
+                    };
+
+                    var user = await this.userManager.FindByIdAsync(safeAssignment.ElectricianAppliedVoltageId.ToString());
+                    archiveSafeAssignment.ElectricianAppliedVoltage = user.LastName;
+
+                    user = await this.userManager.FindByIdAsync(safeAssignment.ЕlectricianOpeningOrderId.ToString());
+                    archiveSafeAssignment.ЕlectricianOpeningOrder = user.LastName;
+
+                    user = await this.userManager.FindByIdAsync(safeAssignment.ЕlectricianClosingOrderId.ToString());
+                    archiveSafeAssignment.ЕlectricianClosingOrder = user.LastName;
+
+                    user = await this.userManager.FindByIdAsync(safeAssignment.PersonRequestedOpeningOrderId.ToString());
+                    archiveSafeAssignment.PersonRequestedOpeningOrder = user.LastName;
+
+                    user = await this.userManager.FindByIdAsync(safeAssignment.PersonRequestedVoltageSupplyId.ToString());
+                    archiveSafeAssignment.PersonRequestedVoltageSupply = user.LastName;
+
+                    model.SafeAssignments.Add(archiveSafeAssignment);
+                }
+
+
+                return this.View(model);
+            }
+            catch (TechnologicalPositionException tpe)
+            {
+                this.TempData[Error_Message] = tpe.Message;
+                return this.RedirectToAction("Index", "Home");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return this.RedirectToAction("Index", "Home");
+        }
+
+        
 
         /// <summary>
         /// Метод запълващ детайлите за технологичната позиция

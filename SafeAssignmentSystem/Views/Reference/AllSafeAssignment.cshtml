@@ -1,0 +1,44 @@
+﻿@using SafeAssignmentSystem.Models.ReferenceViewModel;
+@model AllArchiveViewModel
+
+@{
+	ViewBag.Title = $"Комплекс: {Model.Complex} Инсталация: {Model.Plant} {Model.Position}";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Завел</th>
+            <th>Открил</th>
+            <th>Дата на откриване</th>
+            <th>Час на откриване</th>
+            <th>Закрил</th>
+            <th>Дата на закриване</th>
+            <th>Час на закриване</th>
+            <th>Поискал напрежение</th>
+            <th>Подал напрежение</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var detail in Model.SafeAssignments)
+        {
+            <tr>
+                <td>@detail.Number</td>
+                <td>@detail.PersonRequestedOpeningOrder</td>
+                <td>@detail.ЕlectricianOpeningOrder</td>
+                <td>@detail.OpeningDate</td>
+                <td>@detail.OpeningTime</td>
+                <td>@detail.ЕlectricianClosingOrder</td>
+                <td>@detail.ClosingDate</td>
+                <td>@detail.ClosingTime</td>
+                <td>@detail.PersonRequestedVoltageSupply</td>
+                <td>@detail.ElectricianAppliedVoltage</td>
+            </tr>
+        }
+    </tbody>
+</table>

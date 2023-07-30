@@ -750,6 +750,52 @@
             Колекция от наряди
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Migrations.InitBasaTables">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Migrations.InitBasaTables.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="migrationBuilder"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Migrations.InitBasaTables.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="migrationBuilder"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Migrations.InitBasaTables.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Migrations.SeedTestData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Migrations.SeedTestData.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="migrationBuilder"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Migrations.SeedTestData.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="migrationBuilder"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Migrations.SeedTestData.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
         <member name="T:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext">
             <summary>
             DbContext на приложението
@@ -775,6 +821,32 @@
             <summary>
             Модел на таблицата с технологичните позиции в базата данни
             </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.WorkingShifts">
+            <summary>
+            Модел ва таблицата със смените в базата данни
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.ChangedsSchedules">
+            <summary>
+            Модел на таблицата със сменният график в базата данни
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.ApplicationUserPlantInstalations">
+            <summary>
+            Модел на свързващата таблица между потребителите и инсталациите в базата данни 
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.SafeAssignmentDocuments">
+            <summary>
+            Модел на таблицата с нарядите в базата данни
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Конфигуриране на базата данни
+            </summary>
+            <param name="modelBuilder"></param>
         </member>
     </members>
 </doc>

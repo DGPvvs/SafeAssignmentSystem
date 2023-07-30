@@ -75,7 +75,7 @@
                                                 <li class="nav-item dropdown">
                                                     
                                                     <!-- Справка за състояниено на всички позиции в инсталация -->
-                                                    <a class="nav-link btn-info text-white dropdown-toggle"
+                                                    <a class="nav-link btn-info text-dark dropdown-toggle"
                                                         asp-controller="Choices"
                                                         asp-action="ChoisPlant"
                                                         asp-route-data="Reference AllTechnologicalPositionCondition">
@@ -96,6 +96,14 @@
                                                         asp-action="ChoisPlant"
                                                         asp-route-data="Reference AllTechnologicalPositionNoVoltageApplied">
                                                         Справка за оборудването в инсталацията на което не е подадено напрежение
+                                                    </a>
+                                                    
+                                                    <!-- Справка за нарядите за оборудване -->
+                                                    <a class="nav-link btn-primary text-white dropdown-toggle"
+                                                        asp-controller="Choices"
+                                                        asp-action="ChoisPlant"
+                                                        asp-route-data="Choices ChoisTechnologicalPosition Reference AllSafeAssignment">
+                                                        Справка за нарядите за оборудване
                                                     </a>
                                                 </li>
                                             </ul>

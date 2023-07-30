@@ -4,12 +4,74 @@
         <name>SafeAssignmentSystem.Core</name>
     </assembly>
     <members>
+        <member name="T:SafeAssignmentSystem.Core.Contracts.IAccountService">
+            <summary>
+            Интерфейс дефиниращ методите за работа с потребителските акаунти
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IAccountService.EditAccount(SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel,System.String)">
+            <summary>
+            Дефиниция на метода за редактиране на потребителски акаунти
+            </summary>
+            <param name="model">Трансферен модел</param>
+            <param name="AdministratorUserName">Потребителско име на текущо логнатия администратор</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IAccountService.GetAllUsers(System.String)">
+            <summary>
+            Дефиниция на метода връщащ колекция с трансферния модел на всички акаунти
+            с изключение на текущо логнат администратор
+            </summary>
+            <param name="currentUserName">Потребителско име на текущо логнатия администратор</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IAccountService.GetAllUsersWhithRole(System.String)">
+            <summary>
+            Дефиниция на метод връщащ колекция от трансферни модели на всички потребители
+            с роли Оператор и Дежурен електротехник
+            </summary>
+            <param name="currentUserName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IAccountService.HasUserPremisionForPlant(System.Guid,System.Guid)">
+            <summary>
+            Дефиниция на метод показващ дали потребителя с идентификатор userId
+            има права за оборудването в инсталация с идентификатор plantId 
+            </summary>
+            <param name="userId">Идентификатор на потребител</param>
+            <param name="plantId">Идетнификатор на инсталация</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IAccountService.LoginPermissionAsync(SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModel)">
+            <summary>
+            дефиниция на метод показващ дали потребителя има права да се логне в системата
+            </summary>
+            <param name="user">Потребител</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IAccountService.RegisterUserAsync(SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel)">
+            <summary>
+            Дефиниране на метод регистриращ нов потребител
+            </summary>
+            <param name="model">Трансферен модел с данните на потребителя</param>
+            <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Contracts.IChoisPlantsService">
+            <summary>
+            Интерфейс деклариращ методи за селекция
+            </summary>
+        </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.IChoisPlantsService.ChoicesAllPositionInPlantAsync(System.Guid)">
             <summary>
             Деклариране на метод селектиращ всички технологични позиции в инсталация с идентификатор plantId
             </summary>
             <param name="plantId">Идентификатор на инсталация</param>
             <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Contracts.IPlantsService">
+            <summary>
+            Интерфейс деклариращ методи за менажиране на комплекси, инсталации и технологично оборудване
+            </summary>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.AddComplexAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel)">
             <summary>
@@ -18,13 +80,27 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.GetAllComplexAsync(System.Boolean)">
+            <summary>
+            дефиниране на метод връщащ колекция от трансферни модели с всички комплекси
+            </summary>
+            <param name="isDel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IReferencesService.GetAllArchivedSafeAssignmentTechnologicalPositionAsync(System.Guid)">
+            <summary>
+            Декларация на метод връщащ архивираните нарядите за технологична позиция
+            </summary>
+            <param name="positionId">Идентификатор на технологична позиция</param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.IReferencesService.GetTechnologicalPositionConditionAsync(System.Guid,SafeAssignmentSystem.Common.Enums.FilterCriteria)">
             <summary>
             Декларация на метод връщащ състоянието на технологичните позиции
             в инсталация с идентификатор plantId според критериите на filter 
             </summary>
             <param name="plantId">Идентификатор на инсталация</param>
-            <param name="all"></param>
+            <param name="filter"></param>
             <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(System.Guid,SafeAssignmentSystem.Common.Enums.StatusFlagsEnum)">
@@ -221,6 +297,36 @@
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel.Positions">
             <summary>
             Колекция от технологични позиции с детайли за състоянието им 
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.AllSafeAssignmentArchivedTransferModel">
+            <summary>
+            Трансферен модел за всички архивирани наряди за технологична позиция
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.AllSafeAssignmentArchivedTransferModel.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.AllSafeAssignmentArchivedTransferModel.Complex">
+            <summary>
+            Име на комплекс
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.AllSafeAssignmentArchivedTransferModel.Plant">
+            <summary>
+            Име на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.AllSafeAssignmentArchivedTransferModel.Position">
+            <summary>
+            Име на технологичната позиция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.AllSafeAssignmentArchivedTransferModel.SafeAssignments">
+            <summary>
+            Колекция с наряди за позицията
             </summary>
         </member>
         <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels.SafeAssignmentTransferModel">
@@ -520,6 +626,14 @@
             </summary>
             <param name="id"></param>
             <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.ReferencesService.GetAllArchivedSafeAssignmentTechnologicalPositionAsync(System.Guid)">
+            <summary>
+            Имплементация на метод връщащ архивираните нарядите за технологична позиция
+            </summary>
+            <param name="positionId">Идентификатор на технологична позиция</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.ReferencesService.GetTechnologicalPositionConditionAsync(System.Guid,SafeAssignmentSystem.Common.Enums.FilterCriteria)">
             <summary>
