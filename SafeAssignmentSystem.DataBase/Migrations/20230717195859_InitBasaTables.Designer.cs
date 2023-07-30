@@ -8,10 +8,17 @@ using SafeAssignmentSystem.Core.Data;
 
 namespace SafeAssignmentSystem.DataBase.Migrations
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [DbContext(typeof(SafeAssignmentDbContext))]
     [Migration("20230717195859_InitBasaTables")]
     partial class InitBasaTables
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

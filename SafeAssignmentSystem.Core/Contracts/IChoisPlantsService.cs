@@ -3,6 +3,9 @@
     using System;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Интерфейс деклариращ методи за селекция
+    /// </summary>
     public interface IChoisPlantsService
     {
         /// <summary>

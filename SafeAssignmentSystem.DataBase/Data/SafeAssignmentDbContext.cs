@@ -40,14 +40,34 @@
         /// </summary>
         public DbSet<TechnologicalPosition> TechnologicalPositions { get; set; } = null!;
 
+
+        /// <summary>
+        /// Модел ва таблицата със смените в базата данни
+        /// </summary>
         public DbSet<WorkingShift> WorkingShifts { get; set; } = null!;
 
+
+        /// <summary>
+        /// Модел на таблицата със сменният график в базата данни
+        /// </summary>
         public DbSet<ChangedSchedule> ChangedsSchedules { get; set; } = null!;
 
+
+        /// <summary>
+        /// Модел на свързващата таблица между потребителите и инсталациите в базата данни 
+        /// </summary>
         public DbSet<ApplicationUserPlantInstalation> ApplicationUserPlantInstalations { get; set; } = null!;
 
+
+        /// <summary>
+        /// Модел на таблицата с нарядите в базата данни
+        /// </summary>
         public DbSet<SafeAssignmentDocument> SafeAssignmentDocuments { get; set; } = null!;
 
+        /// <summary>
+        /// Конфигуриране на базата данни
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
             // Конфигуриране на моделите на базата

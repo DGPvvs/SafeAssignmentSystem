@@ -2,7 +2,9 @@
 {
     using SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels;
     using System.Threading.Tasks;
-
+    /// <summary>
+    /// Интерфейс деклариращ методи за менажиране на комплекси, инсталации и технологично оборудване
+    /// </summary>
     public interface IPlantsService
     {
         /// <summary>
@@ -12,6 +14,11 @@
         /// <returns></returns>
         public Task AddComplexAsync(ComplexTransferModel model);
 
+        /// <summary>
+        /// дефиниране на метод връщащ колекция от трансферни модели с всички комплекси
+        /// </summary>
+        /// <param name="isDel"></param>
+        /// <returns></returns>
         public Task<IEnumerable<ComplexTransferModel>> GetAllComplexAsync(bool isDel);
 
         public Task<ComplexTransferModel> GetComplexByIdAsync(Guid id);

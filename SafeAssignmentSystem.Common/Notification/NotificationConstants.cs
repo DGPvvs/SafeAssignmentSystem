@@ -70,15 +70,25 @@
 		/// </summary>
 		public const string User_Change_Password_Success = "Успешно променихте паролата си!";
 
-		/// <summary>
-		/// Не успяхте да променихте паролата си!
-		/// </summary>
-		public const string User_Change_Password_Not_Allow = "Не успяхте да променихте паролата си!";
+        /// <summary>
+        /// Успешно променихте паролата!
+        /// </summary>
+        public const string Change_Password_Success = "Успешно променихте паролата!";
 
-		/// <summary>
-		/// Вече има потребител с такова име!
-		/// </summary>
-		public const string User_Already_Exists = "Вече има потребител с такова име!";
+        /// <summary>
+        /// Не успяхте да променихте паролата си!
+        /// </summary>
+        public const string User_Change_Password_Not_Allow = "Не успяхте да променихте паролата си!";
+
+        /// <summary>
+        /// Не успяхте да променихте паролата си!
+        /// </summary>
+        public const string Change_Password_Not_Allow = "Не успяхте да променихте паролата!";
+
+        /// <summary>
+        /// Вече има потребител с такова име!
+        /// </summary>
+        public const string User_Already_Exists = "Вече има потребител с такова име!";
 
 		/// <summary>
 		/// Вече има потребител с такъв табелен номер!

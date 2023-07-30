@@ -5,8 +5,15 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SafeAssignmentSystem.DataBase.Migrations
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class SeedTestData : Migration
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="migrationBuilder"></param>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
@@ -586,6 +593,11 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 });
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="migrationBuilder"></param>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DeleteData(

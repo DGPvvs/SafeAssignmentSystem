@@ -324,6 +324,11 @@
             return this.RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Get метод зареждащ модела за изгледа за промяна на паролата на потребител
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         [HttpGet]
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> EditPassword(string userName)
@@ -336,12 +341,42 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post метод за промяна на паролата на потребител
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> EditPassword(EditPasswordViewModel model)
         {
-            var user = await this.userManager.FindByIdAsync(User.Id());
+            var userAdmin = await this.userManager.FindByIdAsync(User.Id());
 
+            var user = await this.userManager.FindByNameAsync(model.UserName);
+
+            if ((userAdmin is null) || (user is null))
+            {
+                this.TempData[Error_Message] = User_Not_Found;
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            if (userAdmin.Id.Equals(user.Id))
+            {
+                this.TempData[Error_Message] = User_Cant_Edit_Youself;
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            var token = await this.userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await this.userManager.ResetPasswordAsync(user, token, model.NewPassword);
+
+            if (result.Succeeded)
+            {
+                this.TempData[Success_Message] = Change_Password_Success;
+            }
+            else
+            {
+                this.TempData[Error_Message] = Change_Password_Not_Allow;
+            }
 
             return this.RedirectToAction("Index", "Home");
         }

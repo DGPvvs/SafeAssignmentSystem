@@ -6,6 +6,10 @@ namespace SafeAssignmentSystem.DataBase.Migrations
 {
     public partial class InitBasaTables : Migration
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="migrationBuilder"></param>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -429,6 +433,10 @@ namespace SafeAssignmentSystem.DataBase.Migrations
                 column: "InstalationId");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="migrationBuilder"></param>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

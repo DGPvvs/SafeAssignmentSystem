@@ -32,6 +32,20 @@
             Базов контролер за отчети
             </summary>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.EditPassword(System.String)">
+            <summary>
+            Get метод зареждащ модела за изгледа за промяна на паролата на потребител
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.EditPassword(SafeAssignmentSystem.Models.AccountViewModels.EditPasswordViewModel)">
+            <summary>
+            Post метод за промяна на паролата на потребител
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="T:SafeAssignmentSystem.Controllers.ChoicesController">
             <summary>
             Контролер за избор

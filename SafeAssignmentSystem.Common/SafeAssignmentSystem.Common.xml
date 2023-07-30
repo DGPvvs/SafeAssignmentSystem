@@ -457,7 +457,17 @@
             Успешно променихте паролата си!
             </summary>
         </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Change_Password_Success">
+            <summary>
+            Успешно променихте паролата!
+            </summary>
+        </member>
         <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.User_Change_Password_Not_Allow">
+            <summary>
+            Не успяхте да променихте паролата си!
+            </summary>
+        </member>
+        <member name="F:SafeAssignmentSystem.Common.Notification.NotificationConstants.Change_Password_Not_Allow">
             <summary>
             Не успяхте да променихте паролата си!
             </summary>
