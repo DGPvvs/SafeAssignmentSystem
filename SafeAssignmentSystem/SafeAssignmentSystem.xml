@@ -360,6 +360,11 @@
             Модел кореспондиращ с изображението за визуализиране на грешки на приложението
             </summary>
         </member>
+        <member name="P:SafeAssignmentSystem.Models.ErrorViewModel.RequestId">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.ErrorViewModel.ShowRequestId">
             <summary>
             
@@ -380,6 +385,11 @@
             Съкратено наименование на комплекса
             </summary>    
         </member>
+        <member name="T:SafeAssignmentSystem.Models.FactoriesViewModels.EditComplexViewModel">
+            <summary>
+            Модел на изгледа за комплекс
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditComplexViewModel.Id">
             <summary>
             Идентификатор на комплекса
@@ -388,6 +398,11 @@
         <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditComplexViewModel.CountPlant">
             <summary>
             Брой инсталации свързани с комплекса
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.FactoriesViewModels.EditPlantViewModel">
+            <summary>
+            Модел на изгледа за редакция на инсталация 
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.FactoriesViewModels.EditPlantViewModel.Id">

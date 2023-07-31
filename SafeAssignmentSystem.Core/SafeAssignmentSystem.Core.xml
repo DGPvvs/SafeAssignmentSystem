@@ -82,10 +82,44 @@
         </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.GetAllComplexAsync(System.Boolean)">
             <summary>
-            дефиниране на метод връщащ колекция от трансферни модели с всички комплекси
+            Дефиниране на метод връщащ колекция от трансферни модели с всички комплекси
             </summary>
             <param name="isDel"></param>
             <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.GetComplexByIdAsync(System.Guid)">
+            <summary>
+            Дефиниране на метод връщащ трансферния модел на комплекс с идентификатор id 
+            </summary>
+            <param name="id">Идентификатор на комплекс</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.EditComplexAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel)">
+            <summary>
+            Дефиниране на метод редактиращ комплекс 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.ChangeDeleteStatusComplexAsync(System.Guid,System.Boolean)">
+            <summary>
+            Дефиниране на метод променящ статуса на полето за изтриване на комплекс
+            </summary>
+            <param name="id">Идентификатор на комплекс</param>
+            <param name="isDel">Статус на комплекса</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.AddPlantAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel)">
+            <summary>
+            Дефиниране на метод са добавяне на нова инсталация в базата
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Contracts.IReferencesService">
+            <summary>
+            Интерфейс дефиниращ сървис манипулиращ с данните за създаване на отчети
+            </summary>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.IReferencesService.GetAllArchivedSafeAssignmentTechnologicalPositionAsync(System.Guid)">
             <summary>
@@ -103,11 +137,17 @@
             <param name="filter"></param>
             <returns></returns>
         </member>
+        <member name="T:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService">
+            <summary>
+            Интерфейс дефиниращ сървис манипулиращ с данните при работа с наряди
+            </summary>
+        </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(System.Guid,SafeAssignmentSystem.Common.Enums.StatusFlagsEnum)">
             <summary>
             Декларация на метод връщащ всички заведени наряди за технологична позиция
             </summary>
             <param name="positionId">Идентификатор на технологична позиция</param>
+            <param name="status">Идентификатор на статус на наряда</param>
             <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService.AppliedSafeAssignmentAsync(System.Guid,System.Guid)">
@@ -163,6 +203,11 @@
             <param name="positionId">Идентификатор на позиция</param>
             <param name="id">Идентификатор на потребител</param>
             <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Contracts.IWorkingRotationService">
+            <summary>
+            Интерфейс дефиниращ сървис манипулиращ с данните за смените и сменните графици
+            </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.Id">
             <summary>
@@ -457,6 +502,11 @@
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.Instalations">
             <summary>
             Списък с възможните инсталации
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Service.AccountService">
+            <summary>
+            Сървис манипулиращ данните при работа с акаунти на потребители
             </summary>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.AccountService.GetAllUsers(System.String)">

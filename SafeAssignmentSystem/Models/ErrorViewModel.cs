@@ -5,6 +5,9 @@ namespace SafeAssignmentSystem.Models
     /// </summary>
     public class ErrorViewModel
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string? RequestId { get; set; }
 
         /// <summary>

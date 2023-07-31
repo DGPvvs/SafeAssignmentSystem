@@ -4,7 +4,6 @@
     using Microsoft.EntityFrameworkCore;
     using SafeAssignmentSystem.Common.Notification;
     using SafeAssignmentSystem.Core.Contracts;
-    using SafeAssignmentSystem.Core.Data;
     using SafeAssignmentSystem.Core.Models.StatusModels;
     using SafeAssignmentSystem.Core.Models.TransferModels;
     using SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels;
@@ -14,29 +13,25 @@
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
     using static SafeAssignmentSystem.Common.Notification.RoleConstants;
 
+    /// <summary>
+    /// Сървис манипулиращ данните при работа с акаунти на потребители
+    /// </summary>
     public class AccountService : IAccountService
     {
         private readonly UserManager<ApplicationUser> userManager;
-        private readonly SignInManager<ApplicationUser> signInManager;
-        private readonly RoleManager<ApplicationRole> roleManager;
         private readonly IRepository repo;
 
         public AccountService(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
-            RoleManager<ApplicationRole> roleManager,
             IRepository repo)
         {
             this.userManager = userManager;
-            this.signInManager = signInManager;
-            this.roleManager = roleManager;
             this.repo = repo;
         }
 
@@ -151,7 +146,7 @@
                 result.Success = true;
                 result.Description = User_Edit_Account_Success;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 result.Description = User_Edit_Account_Fail;
             }

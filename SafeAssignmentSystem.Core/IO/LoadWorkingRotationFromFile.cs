@@ -4,13 +4,22 @@
     using OfficeOpenXml;
     using SafeAssignmentSystem.Common.IO.Contracts;
     using SafeAssignmentSystem.Core.Models.TransferModels;
-    using SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels;
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Клас имплементиращ функционалности за четене на сменен график от файл
+    /// </summary>
     public class LoadWorkingRotationFromFile : IReader
     {
+        /// <summary>
+        /// Имплементация на метод за четене на сменен график от файлов стриим
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public IEnumerable<ChangedScheduleTransferModel> ReadData(IFormFile file, IList<ChangedScheduleTransferModel> model)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -74,6 +83,5 @@
 
             return model;
         }
-
     }
 }

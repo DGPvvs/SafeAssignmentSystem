@@ -1,5 +1,8 @@
 ﻿namespace SafeAssignmentSystem.Models.FactoriesViewModels
 {
+    /// <summary>
+    /// Модел на изгледа за редакция на инсталация 
+    /// </summary>
     public class EditPlantViewModel : PlantViewModel
     {
         /// <summary>

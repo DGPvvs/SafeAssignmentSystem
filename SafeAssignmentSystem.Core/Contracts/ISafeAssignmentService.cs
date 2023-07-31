@@ -4,15 +4,18 @@
     using SafeAssignmentSystem.Core.Models.StatusModels;
     using SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels;
     using System;
-    using System.Security.Cryptography.Xml;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Интерфейс дефиниращ сървис манипулиращ с данните при работа с наряди
+    /// </summary>
     public interface ISafeAssignmentService
     {
         /// <summary>
         /// Декларация на метод връщащ всички заведени наряди за технологична позиция
         /// </summary>
         /// <param name="positionId">Идентификатор на технологична позиция</param>
+        /// <param name="status">Идентификатор на статус на наряда</param>
         /// <returns></returns>
         public Task<IEnumerable<SafeAssignmentTransferModel>> AllSafeAssigmentForPositionAndStatusAsync(Guid positionId, StatusFlagsEnum status);
 

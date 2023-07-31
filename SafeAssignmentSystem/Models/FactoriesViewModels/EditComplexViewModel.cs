@@ -1,5 +1,8 @@
 ﻿namespace SafeAssignmentSystem.Models.FactoriesViewModels
 {
+    /// <summary>
+    /// Модел на изгледа за комплекс
+    /// </summary>
     public class EditComplexViewModel : ComplexViewModel
     {
         /// <summary>

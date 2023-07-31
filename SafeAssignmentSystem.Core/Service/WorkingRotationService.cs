@@ -114,14 +114,21 @@
 
 			return new ShiftTransferModel()
 			{
-				Id = entity.Id,
+				Id = entity!.Id,
 				ShiftName = entity.ShiftName,
 				Start = new TimeOnly(entity.StartTime.Hour, entity.StartTime.Minute),
 				End = new TimeOnly(entity.EndTime.Hour, entity.EndTime.Minute)
 			};
 		}
 
-		public async Task<IList<ShiftsTransferModel>> GetUserShiftsPerPeriodAsync(Guid userId, AppDateOnly date)
+        /// <summary>
+        /// Имплементира метод връщащ колекция със смените на потребител за месец указан от date
+		/// Данните се вземат от таблицата със сменни графици
+        /// </summary>
+        /// <param name="userId">Идентификатор на потребител</param>
+        /// <param name="date">Дата сочеща месеца за който да бъдат взети смените</param>
+        /// <returns></returns>
+        public async Task<IList<ShiftsTransferModel>> GetUserShiftsPerPeriodAsync(Guid userId, AppDateOnly date)
 		{
 			InstantConstants baseTime = new InstantConstants();
 
@@ -167,7 +174,15 @@
 			return userShifts;
 		}
 
-		public async Task<StatusModel> ModifyNewShiftsRotationAsync(Guid id, DateOnly period, List<ShiftsTransferModel> transfer)
+        /// <summary>
+        /// Имплементира метод редактиращ сменния график на потребител с идентификатор id
+        /// съобразно списъка в transfer 
+        /// </summary>
+        /// <param name="id">Идентификатор на потребител</param>
+        /// <param name="period">Година и месец</param>
+        /// <param name="transfer">Списък със смени</param>
+        /// <returns></returns>
+        public async Task<StatusModel> ModifyNewShiftsRotationAsync(Guid id, DateOnly period, List<ShiftsTransferModel> transfer)
 		{
 			var result = new StatusModel()
 			{
@@ -208,6 +223,13 @@
 			return result;
 		}
 
+
+		/// <summary>
+		/// Имплементация на метод зареждаща сменен график от файл
+		/// </summary>
+		/// <param name="file"></param>
+		/// <param name="userName"></param>
+		/// <returns></returns>
         public async Task<StatusModel> SetWorkingRotation(IFormFile file, string userName)
         {
             var result = new StatusModel()

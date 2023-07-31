@@ -6,6 +6,10 @@
     using System;
     using System.Threading.Tasks;
 
+
+    /// <summary>
+    /// Интерфейс дефиниращ сървис манипулиращ с данните за създаване на отчети
+    /// </summary>
 	public interface IReferencesService
     {
         /// <summary>

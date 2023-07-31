@@ -55,6 +55,7 @@ namespace SafeAssignmentSystem
             {
                 options.LoginPath = "/Account/Login";
                 options.LogoutPath = "/Account/Login";
+                options.AccessDeniedPath = "/Home/Error401";
             });
 
             var app = builder.Build();
