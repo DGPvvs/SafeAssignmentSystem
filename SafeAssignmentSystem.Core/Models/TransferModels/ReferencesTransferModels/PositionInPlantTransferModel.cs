@@ -8,6 +8,9 @@
     /// </summary>
     public class PositionInPlantTransferModel
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public PositionInPlantTransferModel()
         {
             this.Position = new List<SafeAssignmentTransferModel>();

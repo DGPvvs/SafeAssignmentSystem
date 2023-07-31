@@ -16,11 +16,19 @@
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
 
+    /// <summary>
+    /// Сървис за менажиране на комплекси, инсталации и технологично оборудване
+    /// </summary>
     public class PlantsService : IPlantsService
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IRepository repo;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="repo"></param>
         public PlantsService(
             UserManager<ApplicationUser> userManager,
             IRepository repo)
@@ -242,7 +250,7 @@
 
             entity!.Name = model.Name;
             entity.InstalationId = model.InstalationId;
-            entity.Instalation = plant;
+            entity.Instalation = plant!;
 
             this.repo.Update(entity);
 

@@ -116,6 +116,68 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.GetAllPlantsAsync(System.Guid,System.Boolean,System.Boolean)">
+            <summary>
+            Дефиниране на метод връщащ колекция с данни за инсталациите за които
+            потребител с идентификатор userId има права 
+            </summary>
+            <param name="userId">Идентификатор на потребител</param>
+            <param name="isAdmin">Указва дали userId е Администратор</param>
+            <param name="isActive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.GetPlantByIdAsync(System.Guid)">
+            <summary>
+            Дефинира метод връщащ трансферен модел с данни за инсталация с идентификатор id
+            </summary>
+            <param name="id">Идентификатор на инсталация</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.EditPlantAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel)">
+            <summary>
+            Дефинира метод редактиращ инсталация 
+            </summary>
+            <param name="model">Трансферен модел с данни за инсталацията</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.AddTechnologicalPositionAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel)">
+            <summary>
+            Дефинира метод добавящ нова технологична позиция в базата данни
+            </summary>
+            <param name="model">Трансферен модел с данни за новата технологична позиция</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.GetAllPositionInPlantByIdAsync(System.Guid,System.Boolean)">
+            <summary>
+            Дефинира метод връщащ колекция с данни за всички технологични позиции
+            намиращи с в инсталация с идентификатор id
+            </summary>
+            <param name="id">Идентификатор на инсталация</param>
+            <param name="isDel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.GetTechnologicalPositionByIdAsync(System.Guid)">
+            <summary>
+            Дефинира метод връщащ данни за технологична позиция с идентификатор id
+            </summary>
+            <param name="id">Идентификатор на технологична позиция</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.EditTechnologicalPositionAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.TechnologicalPositionTransferModel)">
+            <summary>
+            Дефинира метод редактиращ технологична позиция
+            </summary>
+            <param name="model">Данни за технологичната позиция</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IPlantsService.GetPlantByPositionId(System.Guid)">
+            <summary>
+            Дефинира метод връщащ данни за инсталация, към която се числи технологичната позиция 
+            с идентификатор positionId
+            </summary>
+            <param name="positionId">Идентификатор на технологична позиция</param>
+            <returns></returns>
+        </member>
         <member name="T:SafeAssignmentSystem.Core.Contracts.IReferencesService">
             <summary>
             Интерфейс дефиниращ сървис манипулиращ с данните за създаване на отчети
@@ -207,6 +269,154 @@
         <member name="T:SafeAssignmentSystem.Core.Contracts.IWorkingRotationService">
             <summary>
             Интерфейс дефиниращ сървис манипулиращ с данните за смените и сменните графици
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IWorkingRotationService.AddShiftAsync(SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftTransferModel)">
+            <summary>
+            Дефенера метод добавящ нова смяна в базата данни
+            </summary>
+            <param name="transfer">Модел с данни за новата смяна</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IWorkingRotationService.EditShiftAsync(SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftTransferModel)">
+            <summary>
+            дефинира метод за редакция на съществуваща смяна
+            </summary>
+            <param name="transfer">Модел с данни за смяната</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IWorkingRotationService.GetAllShiftAsync">
+            <summary>
+            Дефинира метод връщащ колекция с всички смени регистрирани в базата данни
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IWorkingRotationService.GetShiftByIdAsync(System.Guid)">
+            <summary>
+            Дефинира метод връщащ смяна с идентификатор id
+            </summary>
+            <param name="id">Идентификатор на смяна</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IWorkingRotationService.GetUserShiftsPerPeriodAsync(System.Guid,SafeAssignmentSystem.Common.Overrides.AppDateOnly)">
+            <summary>
+            Дефинира метод връщащ колекция със смените на потребител за месец указан от date        /// 
+            </summary>
+            <param name="userId">Идентификатор на потребител</param>
+            <param name="date">Дата сочеща месеца за който да бъдат взети смените</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IWorkingRotationService.ModifyNewShiftsRotationAsync(System.Guid,System.DateOnly,System.Collections.Generic.List{SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftsTransferModel})">
+            <summary>
+            Дефинира метод редактиращ сменния график на потребител с идентификатор id
+            съобразно списъка в transfer
+            </summary>
+            <param name="id">Идентификатор на потребител</param>
+            <param name="period">Период</param>
+            <param name="transfer">Списък със смени</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Contracts.IWorkingRotationService.SetWorkingRotation(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            Декларация на метод зареждаща сменен график от файл
+            </summary>
+            <param name="file">файл с данни за смените</param>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.IO.LoadWorkingRotationFromFile">
+            <summary>
+            Клас имплементиращ функционалности за четене на сменен график от файл
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.IO.LoadWorkingRotationFromFile.ReadData(Microsoft.AspNetCore.Http.IFormFile,System.Collections.Generic.IList{SafeAssignmentSystem.Core.Models.TransferModels.ChangedScheduleTransferModel})">
+            <summary>
+            Имплементация на метод за четене на сменен график от файлов стриим
+            </summary>
+            <param name="file"></param>
+            <param name="model"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.StatusModels.StatusModel">
+            <summary>
+            Статус модел
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.StatusModels.StatusModel.Success">
+            <summary>
+            Стойност на статус модела - true успешна операцияр false неуспешна операция
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.StatusModels.StatusModel.Description">
+            <summary>
+            Описание на резултата
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.ChangedScheduleTransferModel">
+            <summary>
+            Трансферен модел на сменният график
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Models.TransferModels.ChangedScheduleTransferModel.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="daysInMonth"></param>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ChangedScheduleTransferModel.UseNumber">
+            <summary>
+            Табелен номер на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ChangedScheduleTransferModel.Date">
+            <summary>
+            Година и месец за който се отнася сменният график
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ChangedScheduleTransferModel.MonthlyDistribution">
+            <summary>
+            Разпределение на смените на потребителя по дати от месеца
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel">
+            <summary>
+            Трансферен модел на комплекс
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel.Id">
+            <summary>
+            Идентификатор на комплекс
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel.FullName">
+            <summary>
+            Пълно име на комплекс
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel.Name">
+            <summary>
+            Кратко име на комплекс
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel.IsDeleted">
+            <summary>
+            Поле указващо дали комплекса е изтрит
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel.PlantInstalations">
+            <summary>
+            Колекция от свързани с комплекса инсталации
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel">
+            <summary>
+            Трансферен модел на инсталаця
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.PlantTransferModel.Id">
@@ -322,6 +532,11 @@
         <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel">
             <summary>
             Транспортен модел връщащ детайли за състоянието на всички технологични позиции в дадена инсталация
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel.#ctor">
+            <summary>
+            Конструктор
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels.PositionInPlantTransferModel.ComlpexFullName">
@@ -464,6 +679,16 @@
             Фамилно име на потребител
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel">
+            <summary>
+            Трансферен модел на данните при регистрация на потребител
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel.Id">
             <summary>
             Идентификатор на потребител
@@ -504,10 +729,115 @@
             Списък с възможните инсталации
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.EditUserShiftTransferModel">
+            <summary>
+            Трансферен модел за редакция на сменен график
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.EditUserShiftTransferModel.UserId">
+            <summary>
+            Идентификатор на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.EditUserShiftTransferModel.ShiftId">
+            <summary>
+            Идентификатор на смяна
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftsTransferModel">
+            <summary>
+            Трансферен модел на сменен график
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftsTransferModel.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftsTransferModel.Date">
+            <summary>
+            Дата 
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftsTransferModel.ShiftName">
+            <summary>
+            Име на смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftsTransferModel.ShiftId">
+            <summary>
+            Идентификатор на смяна
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftTransferModel">
+            <summary>
+            Трансферен модел на смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftTransferModel.Id">
+            <summary>
+            Идентификатор на смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftTransferModel.ShiftName">
+            <summary>
+            Име на смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftTransferModel.Start">
+            <summary>
+            Начален час на смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftTransferModel.End">
+            <summary>
+            Краен час на смяна
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.UserShiftTransferModel">
+            <summary>
+            Трансферен модел на смяна към потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.UserShiftTransferModel.ShiftName">
+            <summary>
+            Име на смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.UserShiftTransferModel.Start">
+            <summary>
+            Начален час на смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.UserShiftTransferModel.End">
+            <summary>
+            Краен час на смяна
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.UserShiftTransferModel.Date">
+            <summary>
+            Дата на смяната
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Core.Service.AccountService">
             <summary>
             Сървис манипулиращ данните при работа с акаунти на потребители
             </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.AccountService.#ctor(Microsoft.AspNetCore.Identity.UserManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser},SafeAssignmentSystem.DataBase.Data.Common.IRepository)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userManager"></param>
+            <param name="repo"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.AccountService.EditAccount(SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel,System.String)">
+            <summary>
+            Имплементация на метода за редактиране на потребителски акаунти 
+            </summary>
+            <param name="model">Трансферен модел</param>
+            <param name="AdministratorUserName">Потребителско име на текущо логнатия администратор</param>
+            <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.AccountService.GetAllUsers(System.String)">
             <summary>
@@ -517,12 +847,47 @@
             <param name="currentUserName">Име на потребител, който няма да бъде включен във върнатата колекция</param>
             <returns></returns>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Service.ChoisPlantsService.#ctor(SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext,SafeAssignmentSystem.Core.Contracts.IPlantsService,SafeAssignmentSystem.DataBase.Data.Common.IRepository)">
+        <member name="M:SafeAssignmentSystem.Core.Service.AccountService.GetAllUsersWhithRole(System.String)">
+            <summary>
+            Имплементация на метода връщащ колекция с трансферния модел на всички акаунти
+            с изключение на текущо логнат администратор
+            </summary>
+            <param name="currentUserName">Потребителско име на текущо логнатия администратор</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.AccountService.HasUserPremisionForPlant(System.Guid,System.Guid)">
+            <summary>
+            Имплементация на метод показващ дали потребителя с идентификатор userId
+            има права за оборудването в инсталация с идентификатор plantId 
+            </summary>
+            <param name="userId">Идентификатор на потребител</param>
+            <param name="plantId">Идетнификатор на инсталация</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.AccountService.LoginPermissionAsync(SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModel)">
+            <summary>
+            Имплементация на метод показващ дали потребителя има права да се логне в системата
+            </summary>
+            <param name="user">Потребител</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.AccountService.RegisterUserAsync(SafeAssignmentSystem.Core.Models.TransferModels.UserTransferModels.RegisterUserTransferModel)">
+            <summary>
+            Имплементация на метод регистриращ нов потребител
+            </summary>
+            <param name="model">Трансферен модел с данните на потребителя</param>
+            <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Service.ChoisPlantsService">
+            <summary>
+            Сървис имплементиращ методи за селекция
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.ChoisPlantsService.#ctor(SafeAssignmentSystem.DataBase.Data.Common.IRepository)">
             <summary>
             Конструктор на сървиса менажиращ изборите
             </summary>
-            <param name="context"></param>
-            <param name="service"></param>
+            <param name="repo"></param>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.ChoisPlantsService.ChoicesAllPositionInPlantAsync(System.Guid)">
             <summary>
@@ -530,6 +895,18 @@
             </summary>
             <param name="plantId">Идентификатор на инсталация</param>
             <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Service.PlantsService">
+            <summary>
+            Сървис за менажиране на комплекси, инсталации и технологично оборудване
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.#ctor(Microsoft.AspNetCore.Identity.UserManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser},SafeAssignmentSystem.DataBase.Data.Common.IRepository)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userManager"></param>
+            <param name="repo"></param>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.AddComplexAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel)">
             <summary>
@@ -677,6 +1054,19 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:SafeAssignmentSystem.Core.Service.ReferencesService">
+            <summary>
+            Сървис манипулиращ с данните за създаване на отчети
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.ReferencesService.#ctor(SafeAssignmentSystem.DataBase.Data.Common.IRepository,SafeAssignmentSystem.Core.Contracts.IChoisPlantsService,SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="repo"></param>
+            <param name="choisPlantsService"></param>
+            <param name="safeAssignmentService"></param>
+        </member>
         <member name="M:SafeAssignmentSystem.Core.Service.ReferencesService.GetAllArchivedSafeAssignmentTechnologicalPositionAsync(System.Guid)">
             <summary>
             Имплементация на метод връщащ архивираните нарядите за технологична позиция
@@ -694,6 +1084,17 @@
             <param name="filter"></param>
             <returns></returns>
             <exception cref="T:SafeAssignmentSystem.Common.Exceptions.PlantNotFoundException"></exception>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Service.SafeAssignmentService">
+            <summary>
+            Сървис манипулиращ с данните при работа с наряди
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.#ctor(SafeAssignmentSystem.DataBase.Data.Common.IRepository)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="repo"></param>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.SafeAssignmentService.AllSafeAssigmentForPositionAndStatusAsync(System.Guid,SafeAssignmentSystem.Common.Enums.StatusFlagsEnum)">
             <summary>
@@ -755,6 +1156,86 @@
             </summary>
             <param name="positionId">Идентификатор на позиция</param>
             <param name="id">Идентификатор на потребител</param>
+            <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Core.Service.WorkingRotationService">
+            <summary>
+            Сървис манипулиращ с данните за смените и сменните графици
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.WorkingRotationService.#ctor(Microsoft.AspNetCore.Identity.UserManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser},SafeAssignmentSystem.DataBase.Data.Common.IRepository,SafeAssignmentSystem.Common.IO.Contracts.IReader)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userManager"></param>
+            <param name="repo"></param>
+            <param name="reader"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.WorkingRotationService.AddShiftAsync(SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftTransferModel)">
+            <summary>
+            Имплементация метод добавящ нова смяна в базата данни
+            </summary>
+            <param name="transfer">Модел с данни за новата смяна</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.WorkingRotationService.EditShiftAsync(SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftTransferModel)">
+            <summary>
+            Имплементация метод за редакция на съществуваща смяна
+            </summary>
+            <param name="transfer">Модел с данни за смяната</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.WorkingRotationService.GetAllShiftAsync">
+            <summary>
+            Имплементация на метод връщащ колекция с всички смени регистрирани в базата данни
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.WorkingRotationService.GetShiftByIdAsync(System.Guid)">
+            <summary>
+            Имплементация на метод връщащ смяна с идентификатор id
+            </summary>
+            <param name="id">Идентификатор на смяна</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.WorkingRotationService.GetUserShiftsPerPeriodAsync(System.Guid,SafeAssignmentSystem.Common.Overrides.AppDateOnly)">
+            <summary>
+            Имплементира метод връщащ колекция със смените на потребител за месец указан от date
+            Данните се вземат от таблицата със сменни графици
+            </summary>
+            <param name="userId">Идентификатор на потребител</param>
+            <param name="date">Дата сочеща месеца за който да бъдат взети смените</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.WorkingRotationService.ModifyNewShiftsRotationAsync(System.Guid,System.DateOnly,System.Collections.Generic.List{SafeAssignmentSystem.Core.Models.WorkingRotationTransfetModels.ShiftsTransferModel})">
+            <summary>
+            Имплементира метод редактиращ сменния график на потребител с идентификатор id
+            съобразно списъка в transfer 
+            </summary>
+            <param name="id">Идентификатор на потребител</param>
+            <param name="period">Година и месец</param>
+            <param name="transfer">Списък със смени</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Core.Service.WorkingRotationService.SetWorkingRotation(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            Имплементация на метод зареждаща сменен график от файл
+            </summary>
+            <param name="file"></param>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Common.IO.Contracts.IReader">
+            <summary>
+            Интерфейс деклариращ методи за четене на сменен график
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Common.IO.Contracts.IReader.ReadData(Microsoft.AspNetCore.Http.IFormFile,System.Collections.Generic.IList{SafeAssignmentSystem.Core.Models.TransferModels.ChangedScheduleTransferModel})">
+            <summary>
+            Дефиниция на метод за четене на сменен график от файлов стриим
+            </summary>
+            <param name="file"></param>
+            <param name="model"></param>
             <returns></returns>
         </member>
     </members>

@@ -2,8 +2,14 @@
 {
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Трансферен модел на данните при регистрация на потребител
+    /// </summary>
     public class RegisterUserTransferModel
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public RegisterUserTransferModel()
         {
             this.Instalations = new List<Guid>();

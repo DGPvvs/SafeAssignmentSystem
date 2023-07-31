@@ -15,10 +15,17 @@
 
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
 
+    /// <summary>
+    /// Сървис манипулиращ с данните при работа с наряди
+    /// </summary>
     public class SafeAssignmentService : ISafeAssignmentService
     {
         private readonly IRepository repo;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="repo"></param>
         public SafeAssignmentService(IRepository repo)
         {
             this.repo = repo;

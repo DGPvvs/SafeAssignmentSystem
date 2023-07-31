@@ -20,6 +20,9 @@
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
     using static SafeAssignmentSystem.Common.Notification.RoleConstants;
 
+    /// <summary>
+    /// Контролер на акаунтите
+    /// </summary>
     public class AccountController : BaseController
     {
         private readonly UserManager<ApplicationUser> userManager;
@@ -28,7 +31,14 @@
         private readonly IAccountService accountService;
         private readonly IPlantsService plantsService;
 
-
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="signInManager"></param>
+        /// <param name="roleManager"></param>
+        /// <param name="accountService"></param>
+        /// <param name="plantsService"></param>
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,

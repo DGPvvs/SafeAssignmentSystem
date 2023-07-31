@@ -8,24 +8,19 @@
     using System;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Сървис имплементиращ методи за селекция
+    /// </summary>
     public class ChoisPlantsService : IChoisPlantsService
-    {
-        private readonly SafeAssignmentDbContext context;
-        private readonly IPlantsService service;
+    {        
         private readonly IRepository repo;
 
         /// <summary>
         /// Конструктор на сървиса менажиращ изборите
         /// </summary>
-        /// <param name="context"></param>
-        /// <param name="service"></param>
-        public ChoisPlantsService(
-            SafeAssignmentDbContext context,
-            IPlantsService service,
-            IRepository repo)
+        /// <param name="repo"></param>
+        public ChoisPlantsService(IRepository repo)
         {
-            this.context = context;
-            this.service = service;
             this.repo = repo;
         }
 

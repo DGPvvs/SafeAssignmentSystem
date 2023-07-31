@@ -2,6 +2,7 @@
 {
     using SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels;
     using System.Threading.Tasks;
+
     /// <summary>
     /// Интерфейс деклариращ методи за менажиране на комплекси, инсталации и технологично оборудване
     /// </summary>

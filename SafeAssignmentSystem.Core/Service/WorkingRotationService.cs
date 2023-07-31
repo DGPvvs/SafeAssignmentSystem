@@ -20,27 +20,37 @@
 
 	using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
 
-	public class WorkingRotationService : IWorkingRotationService
+    /// <summary>
+    /// Сървис манипулиращ с данните за смените и сменните графици
+    /// </summary>
+    public class WorkingRotationService : IWorkingRotationService
 	{
 		private readonly UserManager<ApplicationUser> userManager;
 		private readonly IRepository repo;
-		private readonly IAccountService accountService;
         private readonly IReader reader;
 
-
+		/// <summary>
+		/// Конструктор
+		/// </summary>
+		/// <param name="userManager"></param>
+		/// <param name="repo"></param>
+		/// <param name="reader"></param>
         public WorkingRotationService(
             UserManager<ApplicationUser> userManager,
-        IRepository repo,
-            IAccountService accountService,
+			IRepository repo,
             IReader reader)
 		{
 			this.userManager = userManager;
 			this.repo = repo;
-			this.accountService = accountService;
 			this.reader = reader;
 		}
 
-		public async Task AddShiftAsync(ShiftTransferModel transfer)
+        /// <summary>
+        /// Имплементация метод добавящ нова смяна в базата данни
+        /// </summary>
+        /// <param name="transfer">Модел с данни за новата смяна</param>
+        /// <returns></returns>
+        public async Task AddShiftAsync(ShiftTransferModel transfer)
 		{
 			var duplicate = await this.repo
 				.AllReadonly<WorkingShift>(sh => sh.ShiftName == transfer.ShiftName)
@@ -70,7 +80,12 @@
 			await this.repo.SaveChangesAsync();
 		}
 
-		public async Task EditShiftAsync(ShiftTransferModel transfer)
+        /// <summary>
+        /// Имплементация метод за редакция на съществуваща смяна
+        /// </summary>
+        /// <param name="transfer">Модел с данни за смяната</param>
+        /// <returns></returns>
+        public async Task EditShiftAsync(ShiftTransferModel transfer)
 		{
 			var entity = await this.repo.All<WorkingShift>(ws => ws.Id == transfer.Id).FirstOrDefaultAsync();
 
@@ -93,7 +108,11 @@
 			await this.repo.SaveChangesAsync();
 		}
 
-		public async Task<IEnumerable<ShiftTransferModel>> GetAllShiftAsync()
+        /// <summary>
+        /// Имплементация на метод връщащ колекция с всички смени регистрирани в базата данни
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<ShiftTransferModel>> GetAllShiftAsync()
 		{
 			var entity = await this.repo.AllReadonly<WorkingShift>().ToListAsync();
 
@@ -108,7 +127,12 @@
 			return result;
 		}
 
-		public async Task<ShiftTransferModel> GetShiftByIdAsync(Guid id)
+        /// <summary>
+        /// Имплементация на метод връщащ смяна с идентификатор id
+        /// </summary>
+        /// <param name="id">Идентификатор на смяна</param>
+        /// <returns></returns>
+        public async Task<ShiftTransferModel> GetShiftByIdAsync(Guid id)
 		{
 			var entity = await this.repo.AllReadonly<WorkingShift>(ws => ws.Id == id).FirstOrDefaultAsync();
 

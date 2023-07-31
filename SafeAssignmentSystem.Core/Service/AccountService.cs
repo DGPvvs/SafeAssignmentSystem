@@ -27,6 +27,11 @@
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IRepository repo;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="repo"></param>
         public AccountService(
             UserManager<ApplicationUser> userManager,
             IRepository repo)
@@ -35,6 +40,13 @@
             this.repo = repo;
         }
 
+
+        /// <summary>
+        /// Имплементация на метода за редактиране на потребителски акаунти 
+        /// </summary>
+        /// <param name="model">Трансферен модел</param>
+        /// <param name="AdministratorUserName">Потребителско име на текущо логнатия администратор</param>
+        /// <returns></returns>
         public async Task<StatusModel> EditAccount(RegisterUserTransferModel model, string AdministratorUserName)
         {
             StatusModel result = new StatusModel()
@@ -173,6 +185,12 @@
                 .ToListAsync();
         }
 
+        /// <summary>
+        /// Имплементация на метода връщащ колекция с трансферния модел на всички акаунти
+        /// с изключение на текущо логнат администратор
+        /// </summary>
+        /// <param name="currentUserName">Потребителско име на текущо логнатия администратор</param>
+        /// <returns></returns>
         public async Task<IEnumerable<UserTransferModel>> GetAllUsersWhithRole(string currentUserName)
         {
             var operatorsUsers = await this.userManager.GetUsersInRoleAsync(Operator);
@@ -203,6 +221,14 @@
             return result;
         }
 
+
+        /// <summary>
+        /// Имплементация на метод показващ дали потребителя с идентификатор userId
+        /// има права за оборудването в инсталация с идентификатор plantId 
+        /// </summary>
+        /// <param name="userId">Идентификатор на потребител</param>
+        /// <param name="plantId">Идетнификатор на инсталация</param>
+        /// <returns></returns>
         public async Task<bool> HasUserPremisionForPlant(Guid userId, Guid plantId) => await this.repo
             .AllReadonly<ApplicationUserPlantInstalation>()
             .Where(ai => ai.UserId.Equals(userId)
@@ -210,6 +236,11 @@
                 && ai.IsActive)
             .AnyAsync();
 
+        /// <summary>
+        /// Имплементация на метод показващ дали потребителя има права да се логне в системата
+        /// </summary>
+        /// <param name="user">Потребител</param>
+        /// <returns></returns>
         public async Task<StatusModel> LoginPermissionAsync(UserTransferModel user)
         {
 
@@ -274,6 +305,11 @@
             return result;
         }
 
+        /// <summary>
+        /// Имплементация на метод регистриращ нов потребител
+        /// </summary>
+        /// <param name="model">Трансферен модел с данните на потребителя</param>
+        /// <returns></returns>
         public async Task<StatusModel> RegisterUserAsync(RegisterUserTransferModel model)
         {
             StatusModel result = new StatusModel()

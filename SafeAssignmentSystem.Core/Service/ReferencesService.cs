@@ -15,12 +15,21 @@
 	using System.Linq;
 	using System.Threading.Tasks;
 
-	public class ReferencesService : IReferencesService
+    /// <summary>
+    /// Сървис манипулиращ с данните за създаване на отчети
+    /// </summary>
+    public class ReferencesService : IReferencesService
     {
         private readonly IRepository repo;
         private readonly IChoisPlantsService choisPlantsService;
 		private readonly ISafeAssignmentService safeAssignmentService;
 
+		/// <summary>
+		/// Конструктор
+		/// </summary>
+		/// <param name="repo"></param>
+		/// <param name="choisPlantsService"></param>
+		/// <param name="safeAssignmentService"></param>
         public ReferencesService(
             IRepository repo,
             IChoisPlantsService choisPlantsService,

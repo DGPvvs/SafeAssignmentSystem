@@ -10,6 +10,11 @@
             Всички останали контролери наследяват този контролер
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Controllers.AbstractControlers.BaseChoicesPlantsController">
+            <summary>
+            Базов контролер за избор
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Controllers.AbstractControlers.BaseController">
             <summary>
             Базов контролер за всички логнати потребители
@@ -27,10 +32,40 @@
             </summary>
             <param name="context"></param>
         </member>
+        <member name="T:SafeAssignmentSystem.Controllers.AbstractControlers.BasePlantsController">
+            <summary>
+            базов контролер за комплески, инстелеции и технологични позиции
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Controllers.AbstractControlers.BaseReferenceController">
             <summary>
             Базов контролер за отчети
             </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Controllers.AbstractControlers.BaseSafeAssignmentController">
+            <summary>
+            Базов контролер за работа с нарядите
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Controllers.AbstractControlers.BaseWorkingRotationController">
+            <summary>
+            Базов контролер за сменните графици
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Controllers.AccountController">
+            <summary>
+            Контролер на акаунтите
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser},Microsoft.AspNetCore.Identity.SignInManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationRole},SafeAssignmentSystem.Core.Contracts.IAccountService,SafeAssignmentSystem.Core.Contracts.IPlantsService)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userManager"></param>
+            <param name="signInManager"></param>
+            <param name="roleManager"></param>
+            <param name="accountService"></param>
+            <param name="plantsService"></param>
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.AccountController.EditPassword(System.String)">
             <summary>

@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Трансферен модел на инсталаця
+    /// </summary>
     public class PlantTransferModel
     {
         /// <summary>
