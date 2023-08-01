@@ -22,6 +22,11 @@
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IPlantsService plantsService;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="plantsService"></param>
         public PlantsController(
             UserManager<ApplicationUser> userManager,
             IPlantsService plantsService)
@@ -85,7 +90,7 @@
         }
 
         /// <summary>
-        /// Екшън изобразяващ всички неизтрити комплекси
+        /// Действие изобразяващ всички неизтрити комплекси
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -107,6 +112,11 @@
             return this.View(viewModel);
         }
 
+        /// <summary>
+        /// Get действие на изгледа за редакция на комплекс
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> EditComplex(Guid id)
         {

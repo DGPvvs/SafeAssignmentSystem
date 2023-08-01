@@ -53,6 +53,11 @@
             this.plantsService = plantsService;
         }
 
+        /// <summary>
+        /// Get действие за логване на потребител
+        /// </summary>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login(string? returnUrl = "/")
@@ -70,6 +75,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие за логване на потребител
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -115,6 +125,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Get действие за регистрация на нов потребител
+        /// </summary>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
         [HttpGet]
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> Register(string? returnUrl = "/")
@@ -141,6 +156,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие за регистрация на нов потребител
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> Register(RegisterViewModel model)
@@ -174,6 +194,10 @@
             return this.RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Действие за изход от акаунта
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Logout()
         {
             await this.signInManager.SignOutAsync();
@@ -181,6 +205,10 @@
             return this.RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Get действие за смяна на паролата на текущо логнатия потребител
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> ChangePassword()
         {
@@ -197,6 +225,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие за смяна на паролата на текущо логнатия потребител
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
         {
@@ -234,6 +267,11 @@
             return this.RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Get действие на редакция на акаунта на регистриран потребител
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         [HttpGet]
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> EditAccount(string userName)
@@ -301,6 +339,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие на редакция на акаунта на регистриран потребител 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> EditAccount(EditRegisterViewModel model)
@@ -335,13 +378,13 @@
         }
 
         /// <summary>
-        /// Get метод зареждащ модела за изгледа за промяна на паролата на потребител
+        /// Get метод зареждащ модела за изгледа за промяна на паролата на регистриран потребител
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
         [HttpGet]
         [Authorize(Roles = Administrator)]
-        public async Task<IActionResult> EditPassword(string userName)
+        public IActionResult EditPassword(string userName)
         {
             var model = new EditPasswordViewModel()
             {
@@ -352,7 +395,7 @@
         }
 
         /// <summary>
-        /// Post метод за промяна на паролата на потребител
+        /// Post метод за промяна на паролата на регистриран потребител
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>

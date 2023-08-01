@@ -27,6 +27,13 @@
         private readonly IChoisPlantsService choisPlantsService;
         private readonly IAccountService accountService;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="plantsService"></param>
+        /// <param name="choisPlantsService"></param>
+        /// <param name="accountService"></param>
         public ChoicesController(
             UserManager<ApplicationUser> userManager,
             IPlantsService plantsService,
@@ -118,8 +125,7 @@
         }
 
         /// <summary>
-        /// Get action предаващ модела на технологичните позиции
-        /// към изгледа за избор на технологична позиция
+        /// Get действие на изгледа за избор на технологична позиция
         /// </summary>
         /// <param name="plantId">Идентификатор на инсталация</param>
         /// <param name="data">Препратка към следващо действие</param>
@@ -141,18 +147,27 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие на изгледа за избор на технологична позиция 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> ChoisTechnologicalPosition(ChoisTechnologicalPositionViewModel model)
+        public IActionResult ChoisTechnologicalPosition(ChoisTechnologicalPositionViewModel model)
         {
-
-
-            var rout = model.Redirection.Split(" ", StringSplitOptions.RemoveEmptyEntries).ToList();
+            var rout = model.Redirection!.Split(" ", StringSplitOptions.RemoveEmptyEntries).ToList();
 
             return RedirectToAction(rout[1], rout[0], new { positionId = model.Id});
         }
 
 
-
+        /// <summary>
+        /// Get действие на изгледа за избор на акаунт
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="action"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
         [HttpGet]
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> ChoisAccount(string controller, string action, string data)
@@ -176,9 +191,14 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие на изгледа за избор на акаунт 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = Administrator)]
-        public async Task<IActionResult> ChoisAccount(ChoisAccountViewModel model)
+        public IActionResult ChoisAccount(ChoisAccountViewModel model)
         {
             var currentUserName = User?.Identity?.Name;
 
@@ -192,6 +212,13 @@
             return this.RedirectToAction(model.RedirectAction, model.RedirectController, new { userName = model.User});
         }
 
+        /// <summary>
+        /// Get действие на изгледа за избор на потребител и дата
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="action"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
         [HttpGet]
         [Authorize(Roles = Administrator)]
         public async Task<IActionResult> ChoisUserAndMonth(string controller, string action, string data)
@@ -216,9 +243,14 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие на изгледа за избор на потребител и дата
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = Administrator)]
-        public async Task<IActionResult> ChoisUserAndMonth(ChoisUserAndMonthViewModel model)
+        public IActionResult ChoisUserAndMonth(ChoisUserAndMonthViewModel model)
         {
             var currentUserName = User?.Identity?.Name;            
 

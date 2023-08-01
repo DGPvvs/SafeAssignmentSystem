@@ -67,16 +67,77 @@
             <param name="accountService"></param>
             <param name="plantsService"></param>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.Login(System.String)">
+            <summary>
+            Get действие за логване на потребител
+            </summary>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.Login(SafeAssignmentSystem.Models.AccountViewModels.LoginViewModel)">
+            <summary>
+            Post действие за логване на потребител
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.Register(System.String)">
+            <summary>
+            Get действие за регистрация на нов потребител
+            </summary>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.Register(SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel)">
+            <summary>
+            Post действие за регистрация на нов потребител
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.Logout">
+            <summary>
+            Действие за изход от акаунта
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.ChangePassword">
+            <summary>
+            Get действие за смяна на паролата на текущо логнатия потребител
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.ChangePassword(SafeAssignmentSystem.Models.AccountViewModels.ChangePasswordViewModel)">
+            <summary>
+            Post действие за смяна на паролата на текущо логнатия потребител
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.EditAccount(System.String)">
+            <summary>
+            Get действие на редакция на акаунта на регистриран потребител
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.AccountController.EditAccount(SafeAssignmentSystem.Models.AccountViewModels.EditRegisterViewModel)">
+            <summary>
+            Post действие на редакция на акаунта на регистриран потребител 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Controllers.AccountController.EditPassword(System.String)">
             <summary>
-            Get метод зареждащ модела за изгледа за промяна на паролата на потребител
+            Get метод зареждащ модела за изгледа за промяна на паролата на регистриран потребител
             </summary>
             <param name="userName"></param>
             <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.AccountController.EditPassword(SafeAssignmentSystem.Models.AccountViewModels.EditPasswordViewModel)">
             <summary>
-            Post метод за промяна на паролата на потребител
+            Post метод за промяна на паролата на регистриран потребител
             </summary>
             <param name="model"></param>
             <returns></returns>
@@ -85,6 +146,15 @@
             <summary>
             Контролер за избор
             </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.#ctor(Microsoft.AspNetCore.Identity.UserManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser},SafeAssignmentSystem.Core.Contracts.IPlantsService,SafeAssignmentSystem.Core.Contracts.IChoisPlantsService,SafeAssignmentSystem.Core.Contracts.IAccountService)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userManager"></param>
+            <param name="plantsService"></param>
+            <param name="choisPlantsService"></param>
+            <param name="accountService"></param>
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.ChoisPlant(System.String,System.String,System.String)">
             <summary>
@@ -104,11 +174,26 @@
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.ChoisTechnologicalPosition(System.Guid,System.String)">
             <summary>
-            Get action предаващ модела на технологичните позиции
-            към изгледа за избор на технологична позиция
+            Get действие на изгледа за избор на технологична позиция
             </summary>
             <param name="plantId">Идентификатор на инсталация</param>
             <param name="data">Препратка към следващо действие</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.ChoisTechnologicalPosition(SafeAssignmentSystem.Models.ChoisViewModels.ChoisTechnologicalPositionViewModel)">
+            <summary>
+            Post действие на изгледа за избор на технологична позиция 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.ChoisAccount(System.String,System.String,System.String)">
+            <summary>
+            Get действие на изгледа за избор на акаунт
+            </summary>
+            <param name="controller"></param>
+            <param name="action"></param>
+            <param name="data"></param>
             <returns></returns>
         </member>
         <member name="T:SafeAssignmentSystem.Controllers.PlantsController">
