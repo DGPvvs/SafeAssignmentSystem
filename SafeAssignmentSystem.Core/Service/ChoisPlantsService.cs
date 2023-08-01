@@ -2,7 +2,6 @@
 {
     using Microsoft.EntityFrameworkCore;
     using SafeAssignmentSystem.Core.Contracts;
-    using SafeAssignmentSystem.Core.Data;
     using SafeAssignmentSystem.DataBase.Data.Common;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
     using System;

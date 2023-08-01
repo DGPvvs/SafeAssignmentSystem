@@ -196,10 +196,75 @@
             <param name="data"></param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.ChoisAccount(SafeAssignmentSystem.Models.ChoisViewModels.ChoisAccountViewModel)">
+            <summary>
+            Post действие на изгледа за избор на акаунт 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.ChoisUserAndMonth(System.String,System.String,System.String)">
+            <summary>
+            Get действие на изгледа за избор на потребител и дата
+            </summary>
+            <param name="controller"></param>
+            <param name="action"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ChoicesController.ChoisUserAndMonth(SafeAssignmentSystem.Models.ChoisViewModels.ChoisUserAndMonthViewModel)">
+            <summary>
+            Post действие на изгледа за избор на потребител и дата
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Controllers.HomeController">
+            <summary>
+            Контролер на изгледа на началната стряница
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{SafeAssignmentSystem.Controllers.HomeController})">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.HomeController.Index">
+            <summary>
+            Get действие на изгледа за начална страница
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.HomeController.Error401">
+            <summary>
+            Get действие на изгледа за грешка 401 - неоторизиран достъп
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.HomeController.Error404">
+            <summary>
+            Get действие на изгледа за грешка 404 - страницата не е намерена
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.HomeController.Error">
+            <summary>
+            Изглед на страницата за показване на грешки
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:SafeAssignmentSystem.Controllers.PlantsController">
             <summary>
             Контролер менажиращ таблиците с комплекси, инсталации и технологични позиции
             </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser},SafeAssignmentSystem.Core.Contracts.IPlantsService)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userManager"></param>
+            <param name="plantsService"></param>
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.PlantsController.ComplexCreate">
             <summary>
@@ -217,8 +282,15 @@
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.PlantsController.AllComplex">
             <summary>
-            Екшън изобразяващ всички неизтрити комплекси
+            Действие изобразяващ всички неизтрити комплекси
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.EditComplex(System.Guid)">
+            <summary>
+            Get действие на изгледа за редакция на комплекс
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.PlantsController.EditPlant(System.Guid)">

@@ -739,11 +739,22 @@
 				}
 			};
 
-		/// <summary>
-		/// Колекция със смените
-		/// </summary>
-		/// <returns></returns>
-		public IEnumerable<WorkingShift> SeedWorkingShift() =>
+        public IQueryable<TechnologicalPosition> TechnologicalPosition()
+		{
+			var result = new Queue<TechnologicalPosition>();
+
+			foreach (var item in this.SeedTechnologicalPosition())
+			{
+				result.Enqueue(item);
+			}
+			return (IQueryable<TechnologicalPosition>)result;
+        }
+
+        /// <summary>
+        /// Колекция със смените
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<WorkingShift> SeedWorkingShift() =>
 			new List<WorkingShift>()
 			{
 				new WorkingShift()
