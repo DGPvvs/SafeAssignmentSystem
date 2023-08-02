@@ -1,6 +1,5 @@
 ﻿namespace SafeAssignmentSystem.Tests
 {
-    using Microsoft.EntityFrameworkCore;
     using Moq;
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Service;
@@ -32,7 +31,7 @@
             var mockRepo = new Mock<IRepository>();
             mockRepo
                 .Setup(p => p.AllReadonly<TechnologicalPosition>())
-                .Returns(seed.SeedTechnologicalPosition().AsQueryable());
+                .Returns(await Task.FromResult(seed.SeedTechnologicalPosition().AsQueryable()));
 
             var service = new ChoisPlantsService(mockRepo.Object);
 
@@ -47,11 +46,6 @@
                 var target = seed.SeedTechnologicalPosition().Where(tp => tp.InstalationId.Equals(plantId));
                 Assert.Equals(result.Count(), target.Count());
             }
-
-
-            
-
-            //Assert.Pass();
         }
     }
 }

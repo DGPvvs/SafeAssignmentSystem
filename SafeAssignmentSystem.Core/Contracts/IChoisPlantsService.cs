@@ -1,5 +1,6 @@
 ﻿namespace SafeAssignmentSystem.Core.Contracts
 {
+    using SafeAssignmentSystem.DataBase.Data.FactoryModels;
     using System;
     using System.Threading.Tasks;
 
