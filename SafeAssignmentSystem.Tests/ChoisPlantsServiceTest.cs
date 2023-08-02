@@ -1,21 +1,15 @@
 ﻿namespace SafeAssignmentSystem.Tests
 {
     using Moq;
-    using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Service;
     using SafeAssignmentSystem.DataBase.Data.Common;
     using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
     using System;
-    using System.Collections.Generic;
 
     [TestFixture]
     public class ChoisPlantsServiceTest
     {
-        private Mock repo;
-        private IChoisPlantsService choisPlantsService;
-        private List<Object> _objects;
-
         [SetUp]
         public void Setup()
         {            
