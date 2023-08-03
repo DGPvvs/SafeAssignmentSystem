@@ -5,7 +5,7 @@
     using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 
-    internal class RoleSeeder : IEntityTypeConfiguration<ApplicationRole>
+    public class RoleSeeder : IEntityTypeConfiguration<ApplicationRole>
     {
         public void Configure(EntityTypeBuilder<ApplicationRole> builder)
         {

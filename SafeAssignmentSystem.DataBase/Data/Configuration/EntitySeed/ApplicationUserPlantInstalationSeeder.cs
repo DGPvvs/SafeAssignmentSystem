@@ -5,7 +5,7 @@
     using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
 
-    internal class ApplicationUserPlantInstalationSeeder : IEntityTypeConfiguration<ApplicationUserPlantInstalation>
+    public class ApplicationUserPlantInstalationSeeder : IEntityTypeConfiguration<ApplicationUserPlantInstalation>
     {
         public void Configure(EntityTypeBuilder<ApplicationUserPlantInstalation> builder)
         {

@@ -15,7 +15,7 @@
     /// DbContext на приложението
     /// </summary>
     public class SafeAssignmentDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
-	{
+    {
         private bool seedDb;
 
         /// <summary>
@@ -28,15 +28,6 @@
             bool seedDb = true)
             : base(options)
         {
-            if (this.Database.IsRelational())
-            {
-                this.Database.Migrate();
-            }
-            else
-            {
-                this.Database.EnsureCreated();
-            }
-
             this.seedDb = seedDb;
         }
 
@@ -84,24 +75,27 @@
         /// </summary>
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-		{
+        {
             // Конфигуриране на моделите на базата
             modelBuilder.ApplyConfiguration(new ChangedScheduleEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ApplicationUserPlantInstalationEntityConfiguration());
 
-            // Зареждане на тестовите данни в базата
-            //modelBuilder.ApplyConfiguration(new ProductionComplexSeeder());
-            //modelBuilder.ApplyConfiguration(new PlantInstalationSeeder());
-            //modelBuilder.ApplyConfiguration(new TechnologicalPositionSeeder());
-            //modelBuilder.ApplyConfiguration(new WorkingShiftSeeder());
-            //modelBuilder.ApplyConfiguration(new RoleSeeder());
-            //modelBuilder.ApplyConfiguration(new ApplicationUserSeeder());
-            //modelBuilder.ApplyConfiguration(new UserRoleSeeder());
-            ////Debugger.Launch();
-            //modelBuilder.ApplyConfiguration(new ChangedScheduleSeede());
-            //modelBuilder.ApplyConfiguration(new ApplicationUserPlantInstalationSeeder());
+            if (this.seedDb)
+            {
+                // Зареждане на тестовите данни в базата
+                modelBuilder.ApplyConfiguration(new ProductionComplexSeeder());
+                modelBuilder.ApplyConfiguration(new PlantInstalationSeeder());
+                modelBuilder.ApplyConfiguration(new TechnologicalPositionSeeder());
+                modelBuilder.ApplyConfiguration(new WorkingShiftSeeder());
+                modelBuilder.ApplyConfiguration(new RoleSeeder());
+                modelBuilder.ApplyConfiguration(new ApplicationUserSeeder());
+                modelBuilder.ApplyConfiguration(new UserRoleSeeder());
+                //Debugger.Launch();
+                modelBuilder.ApplyConfiguration(new ChangedScheduleSeede());
+                modelBuilder.ApplyConfiguration(new ApplicationUserPlantInstalationSeeder());
+            }
 
             base.OnModelCreating(modelBuilder);
-		}
-	}
+        }
+    }
 }
