@@ -48,6 +48,7 @@
             this.context.Roles.AddRange(this.CreateRoles());
             this.context.Users.AddRange(this.CreateUsers());
             this.context.UserRoles.AddRange(this.CreateUsersRole());
+            this.context.SaveChanges();
         }
 
         private IEnumerable<IdentityUserRole<Guid>> CreateUsersRole()

@@ -1,5 +1,6 @@
 ﻿namespace SafeAssignmentSystem.Tests
 {
+    using Microsoft.EntityFrameworkCore;
     using Moq;
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Service;
@@ -26,20 +27,12 @@
             var rnd = new Random();
 
             var seed = new SeedsData();
-
-            //var mockRepo = new Mock<IRepository>();
-            //mockRepo
-            //    .Setup(p => p.AllReadonly<TechnologicalPosition>())
-            //    .Returns(seed.SeedTechnologicalPosition().AsQueryable());
-
-            //var service = new ChoisPlantsService(mockRepo.Object);
-
             int count = 20;
 
             for (int i = 0; i < count; i++)
             {
                 int countCollection = seed.SeedTechnologicalPosition().Count();
-                Guid plantId = seed.SeedTechnologicalPosition().Skip(rnd.Next(countCollection - 1)).Take(1).First().Id;
+                Guid plantId = seed.SeedTechnologicalPosition().Skip(rnd.Next(countCollection - 1)).Take(1).First().InstalationId;
 
                 var target = seed.SeedTechnologicalPosition()
                     .Where(tp => tp.InstalationId.Equals(plantId))
@@ -47,7 +40,26 @@
                     .ToList();
                 var result = new List<Guid>(await this.choisPlantsService.ChoicesAllPositionInPlantAsync(plantId));
 
-                Assert.AreEqual(result.Count(), target.Count());
+                Assert.AreEqual(target.Count(), result.Count());
+            }
+        }
+
+        [Test]
+        public async Task SecondChoicesAllPositionInPlantAsync_Test_Positiv()
+        {
+            var seed = new SeedsData();
+
+            for (int i = 0; i < seed.SeedTechnologicalPosition().Count(); i++)
+            {                
+                Guid plantId = seed.SeedTechnologicalPosition().Skip(i).Take(1).First().InstalationId;
+
+                var target = seed.SeedTechnologicalPosition()
+                    .Where(tp => tp.InstalationId.Equals(plantId))
+                    .Select(tp => tp.Id)
+                    .ToList();
+                var result = new List<Guid>(await this.choisPlantsService.ChoicesAllPositionInPlantAsync(plantId));
+                
+                Assert.AreEqual(target.Count(), result.Count());
             }
         }
     }
