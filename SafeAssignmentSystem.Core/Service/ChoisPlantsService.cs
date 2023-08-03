@@ -28,10 +28,9 @@
         /// </summary>
         /// <param name="plantId">Идентификатор на инсталация</param>
         /// <returns></returns>
-        public async Task<IEnumerable<Guid>> ChoicesAllPositionInPlantAsync(Guid plantId) =>
-            await this.repo.AllReadonly<TechnologicalPosition>()
-                .Where(tp => tp.InstalationId.Equals(plantId))
-                .Select(tp => tp.Id)
-                .ToListAsync();
+        public async Task<IEnumerable<Guid>> ChoicesAllPositionInPlantAsync(Guid plantId) => await this.repo.AllReadonly<TechnologicalPosition>()
+            .Where(tp => tp.InstalationId.Equals(plantId))
+            .Select(tp => tp.Id)
+            .ToListAsync();
     }
 }

@@ -801,11 +801,12 @@
             DbContext на приложението
             </summary>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext})">
+        <member name="M:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext},System.Boolean)">
             <summary>
             Конструктор на SafeAssignmentDbContext 
             </summary>
             <param name="options"></param>
+            <param name="seedDb">параметър указващ дали базата ще се сиидва</param>
         </member>
         <member name="P:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext.PlantInstalations">
             <summary>

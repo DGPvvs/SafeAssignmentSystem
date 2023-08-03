@@ -290,6 +290,33 @@
             <summary>
             Get действие на изгледа за редакция на комплекс
             </summary>
+            <param name="id">Идентификатор на комплекс</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.EditComplex(SafeAssignmentSystem.Models.FactoriesViewModels.EditComplexViewModel)">
+            <summary>
+            Post действие на изгледа за редакция на комплекс
+            </summary>
+            <param name="model">Модел на данните за редакцията на комплекса</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.DelComplex(System.Guid)">
+            <summary>
+            Get действие на изгледа за изтриване на комплекс
+            </summary>
+            <param name="id">Идентификатор на комплекс</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.AllDeletedComplex">
+            <summary>
+            Get действие на изгледа за визуализиране на всички изтрити комплекси
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.ComplexRecovery(System.Guid)">
+            <summary>
+            Get действие на изгледа за възстановяване на изтрити комплекси
+            </summary>
             <param name="id"></param>
             <returns></returns>
         </member>

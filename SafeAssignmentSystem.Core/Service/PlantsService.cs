@@ -164,7 +164,7 @@
 
             entity.IsDeleted = isDel;
 
-            //this.repo.Update(entity);
+            this.repo.Update(entity);
 
             await this.repo.SaveChangesAsync();
         }

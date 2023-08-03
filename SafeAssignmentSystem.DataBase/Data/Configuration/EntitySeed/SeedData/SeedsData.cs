@@ -737,18 +737,7 @@
 					Name = "ЦП 4",
 					InstalationId = Guid.Parse("973994a0-3ee2-4aba-b422-bc12be18040c")
 				}
-			};
-
-        public IQueryable<TechnologicalPosition> TechnologicalPosition()
-		{
-			var result = new Queue<TechnologicalPosition>();
-
-			foreach (var item in this.SeedTechnologicalPosition())
-			{
-				result.Enqueue(item);
-			}
-			return (IQueryable<TechnologicalPosition>)result;
-        }
+			};        
 
         /// <summary>
         /// Колекция със смените

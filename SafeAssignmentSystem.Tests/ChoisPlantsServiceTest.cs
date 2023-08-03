@@ -25,7 +25,7 @@
             var mockRepo = new Mock<IRepository>();
             mockRepo
                 .Setup(p => p.AllReadonly<TechnologicalPosition>())
-                .Returns(await Task.FromResult(seed.SeedTechnologicalPosition().AsQueryable()));
+                .Returns(seed.SeedTechnologicalPosition().AsQueryable());
 
             var service = new ChoisPlantsService(mockRepo.Object);
 
@@ -35,9 +35,11 @@
             {
                 int countCollection = seed.SeedTechnologicalPosition().Count();
                 Guid plantId = seed.SeedTechnologicalPosition().Skip(rnd.Next(countCollection - 1)).Take(1).First().Id;
+                var target = seed.SeedTechnologicalPosition().Where(tp => tp.InstalationId.Equals(plantId)).ToList();
                 var result = await service.ChoicesAllPositionInPlantAsync(plantId);
 
-                var target = seed.SeedTechnologicalPosition().Where(tp => tp.InstalationId.Equals(plantId));
+                
+                var target1 = seed.SeedTechnologicalPosition();
                 Assert.Equals(result.Count(), target.Count());
             }
         }

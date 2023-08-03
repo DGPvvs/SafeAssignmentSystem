@@ -115,7 +115,7 @@
         /// <summary>
         /// Get действие на изгледа за редакция на комплекс
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">Идентификатор на комплекс</param>
         /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> EditComplex(Guid id)
@@ -139,6 +139,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие на изгледа за редакция на комплекс
+        /// </summary>
+        /// <param name="model">Модел на данните за редакцията на комплекса</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> EditComplex(EditComplexViewModel model)
         {
@@ -174,6 +179,11 @@
             }
         }
 
+        /// <summary>
+        /// Get действие на изгледа за изтриване на комплекс
+        /// </summary>
+        /// <param name="id">Идентификатор на комплекс</param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> DelComplex(Guid id)
         {
@@ -197,6 +207,10 @@
             }
         }
 
+        /// <summary>
+        /// Get действие на изгледа за визуализиране на всички изтрити комплекси
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> AllDeletedComplex()
         {
@@ -216,6 +230,11 @@
             return this.View(viewModel);
         }
 
+        /// <summary>
+        /// Get действие на изгледа за възстановяване на изтрити комплекси
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> ComplexRecovery(Guid id)
         {
