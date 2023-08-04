@@ -6,8 +6,16 @@
 	using SafeAssignmentSystem.Core.Service;
 	using SafeAssignmentSystem.DataBase.Data.Common;
 
+	/// <summary>
+	/// Клас менажиращ сървиси
+	/// </summary>
 	public static class SafeAssignmentSystemeServiceCollectionExtension
 	{
+		/// <summary>
+		/// Метод инжектиращ сървиси в приложението
+		/// </summary>
+		/// <param name="services"></param>
+		/// <returns></returns>
 		public static IServiceCollection AddApplicationServices(this IServiceCollection services)
 		{			
 			services.AddScoped<IRepository, Repository>();

@@ -1,6 +1,7 @@
 namespace SafeAssignmentSystem
 {
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -47,7 +48,12 @@ namespace SafeAssignmentSystem
                 options.User.AllowedUserNameCharacters = builder.Configuration.GetValue<string>("Identity:User:AllowedUserNameCharacters");
             });
 
-            builder.Services.AddControllersWithViews();
+            builder.Services
+                .AddControllersWithViews()
+                .AddMvcOptions(options =>
+                {
+                    options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+                }); 
 
             builder.Services.AddApplicationServices();
 

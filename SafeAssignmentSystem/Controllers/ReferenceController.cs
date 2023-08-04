@@ -9,14 +9,24 @@
     using SafeAssignmentSystem.Core.Models.TransferModels.ReferencesTransferModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.Models.ReferenceViewModel;
+    using System;
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
 
+    /// <summary>
+    /// Контролер менажиращ извеждането на списъци
+    /// </summary>
     public class ReferenceController : BaseReferenceController
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IPlantsService plantsService;
         private readonly IReferencesService referencesService;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="plantsService"></param>
+        /// <param name="referencesService"></param>
         public ReferenceController(
             UserManager<ApplicationUser> userManager,
             IPlantsService plantsService,
@@ -167,13 +177,11 @@
                 this.TempData[Error_Message] = tpe.Message;
                 return this.RedirectToAction("Index", "Home");
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
-            }
-
-            return this.RedirectToAction("Index", "Home");
+                this.TempData[Error_Message] = e.Message;
+                return this.RedirectToAction("Index", "Home");
+            }            
         }
 
         

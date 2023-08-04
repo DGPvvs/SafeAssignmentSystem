@@ -2,10 +2,13 @@
 {
     using System.ComponentModel.DataAnnotations;
 
+    /// <summary>
+    /// Модел на изгледа връщащ датата на смяната
+    /// </summary>
     public class ChoisUserAndMonthViewModel : ChoisAccountViewModel
     {
         /// <summary>
-        /// Начален час на смяната
+        /// Дата на смяната
         /// </summary>
         [Required]
         [DataType(DataType.Date)]

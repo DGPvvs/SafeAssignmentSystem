@@ -1,29 +1,33 @@
 ﻿namespace SafeAssignmentSystem.Tests
 {
-    using Microsoft.AspNetCore.Identity;
     using Moq;
+    using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Service;
     using SafeAssignmentSystem.DataBase.Data.Common;
     using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
-    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
+    using SafeAssignmentSystem.Tests.UnitTests;
     using System.Linq;
     using System.Threading.Tasks;
 
     [TestFixture]
-    public class PlantsServiceTests
-    {
-        private UserManager<ApplicationUser> userManager;
+    public class PlantsServiceTests : UnitTestsBase
+    {        
+        private IPlantsService plantsService;
+        
+        
 
-        [SetUp]
-        public void Setup(UserManager<ApplicationUser> userManager)
+        [OneTimeSetUp]
+        public void Setup()
         {
-            this.userManager = userManager;
+                         
         }
 
         [Test]
-        public async Task GetAllComplexAsync_test()
+        public async Task GetAllComplexAsync_Test()
         {
+            this.plantsService = new PlantsService(this.repo);
+
             var seed = new SeedsData();
 
             var mockRepo = new Mock<IRepository>();
@@ -31,9 +35,9 @@
                 .Setup(p => p.AllReadonly<ProductionComplex>())
                 .Returns(seed.SeedComplex().AsQueryable());
 
-            var service = new PlantsService(this.userManager, mockRepo.Object);
+            var service = new PlantsService(mockRepo.Object);
 
             var result = service.GetAllComplexAsync(false);
-        }
+        }        
     }
 }

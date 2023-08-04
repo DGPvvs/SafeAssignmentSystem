@@ -258,6 +258,10 @@
             }
         }        
 
+        /// <summary>
+        /// Get действие на изглеза за създаване на нови инсталации
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> PlantCreate()
         {
@@ -269,6 +273,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие на изглеза за създаване на нови инсталации
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> PlantCreate(PlantViewModel model)
         {
@@ -307,6 +316,10 @@
             }
         }
 
+        /// <summary>
+        /// Get действие на изгледа за визуализиране на всички инсталации
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> AllPlants()
         {
@@ -400,6 +413,10 @@
             }
         }
 
+        /// <summary>
+        /// Get действие на изгледа за създаване на нови технологични позиции
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> TechnologicalPositionCreate()
         {
@@ -412,6 +429,11 @@
         }
 
 
+        /// <summary>
+        /// Post действие на изгледа за създаване на нови технологични позиции
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> TechnologicalPositionCreate(TechnologicalPositionViewModel model)
         {
@@ -449,6 +471,12 @@
             }
         }
 
+        /// <summary>
+        /// Get действие на изгледа за извеждане на всички технологични позиции в инсталация
+        /// с идентификатор plantId 
+        /// </summary>
+        /// <param name="plantId">Идентификатор на инсталация</param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> AllTechnologicalPosition(Guid plantId)
         {
@@ -468,6 +496,11 @@
             return this.View(viewModel);
         }
 
+        /// <summary>
+        /// Get действие на изгледа за редактиране на технологични позиции
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> EditTechnologicalPosition(Guid id)
         {
@@ -493,6 +526,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие на изгледа за редакция на технологични позиции
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> EditTechnologicalPosition(EditTechnologicalPositionViewModel model)
         {

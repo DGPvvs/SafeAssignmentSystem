@@ -18,6 +18,9 @@
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
     using static SafeAssignmentSystem.Common.Notification.RoleConstants;
 
+    /// <summary>
+    /// Контролер менажиращ нарядите
+    /// </summary>
     public class SafeAssignmentController : BaseSafeAssignmentController
     {
         private readonly UserManager<ApplicationUser> userManager;
@@ -25,6 +28,13 @@
         private readonly ISafeAssignmentService safeAssignmentService;
         private readonly IAccountService accountService;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="plantsService"></param>
+        /// <param name="safeAssignmentService"></param>
+        /// <param name="accountService"></param>
         public SafeAssignmentController(
             UserManager<ApplicationUser> userManager,
             IPlantsService plantsService,
@@ -315,6 +325,11 @@
             return this.RedirectToAction("AllTechnologicalPositionCondition", "Reference", new { plantId = guid });
         }
 
+        /// <summary>
+        /// Get действие обработващо заявката за закриване на наряда
+        /// </summary>
+        /// <param name="positionId"></param>
+        /// <returns></returns>
         [Authorize(Roles = $"{Electrician}")]
         [HttpGet]
         public async Task<IActionResult> ClosingSafeAssignment(Guid positionId)

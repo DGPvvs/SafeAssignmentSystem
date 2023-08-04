@@ -2,6 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
 
+    /// <summary>
+    /// Модел на изгледа за редакция на потребител
+    /// </summary>
     public class EditRegisterViewModel : RegisterViewModel
     {
         /// <summary>

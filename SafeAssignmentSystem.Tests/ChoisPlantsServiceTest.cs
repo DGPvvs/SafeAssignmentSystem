@@ -1,12 +1,8 @@
 ﻿namespace SafeAssignmentSystem.Tests
 {
-    using Microsoft.EntityFrameworkCore;
-    using Moq;
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Service;
-    using SafeAssignmentSystem.DataBase.Data.Common;
     using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
-    using SafeAssignmentSystem.DataBase.Data.FactoryModels;
     using SafeAssignmentSystem.Tests.UnitTests;
     using System;
 
@@ -40,7 +36,7 @@
                     .ToList();
                 var result = new List<Guid>(await this.choisPlantsService.ChoicesAllPositionInPlantAsync(plantId));
 
-                Assert.AreEqual(target.Count(), result.Count());
+                Assert.That(result.Count.Equals(target.Count));
             }
         }
 

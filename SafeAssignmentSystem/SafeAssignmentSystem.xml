@@ -320,6 +320,25 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.PlantCreate">
+            <summary>
+            Get действие на изглеза за създаване на нови инсталации
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.PlantCreate(SafeAssignmentSystem.Models.FactoriesViewModels.PlantViewModel)">
+            <summary>
+            Post действие на изглеза за създаване на нови инсталации
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.AllPlants">
+            <summary>
+            Get действие на изгледа за визуализиране на всички инсталации
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Controllers.PlantsController.EditPlant(System.Guid)">
             <summary>
             Get action отговарящ за редакцията на инсталациите
@@ -333,6 +352,54 @@
             </summary>
             <param name="model">Модел на данните върнат от изображението</param>
             <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.TechnologicalPositionCreate">
+            <summary>
+            Get действие на изгледа за създаване на нови технологични позиции
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.TechnologicalPositionCreate(SafeAssignmentSystem.Models.FactoriesViewModels.TechnologicalPositionViewModel)">
+            <summary>
+            Post действие на изгледа за създаване на нови технологични позиции
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.AllTechnologicalPosition(System.Guid)">
+            <summary>
+            Get действие на изгледа за извеждане на всички технологични позиции в инсталация
+            с идентификатор plantId 
+            </summary>
+            <param name="plantId">Идентификатор на инсталация</param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.EditTechnologicalPosition(System.Guid)">
+            <summary>
+            Get действие на изгледа за редактиране на технологични позиции
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.PlantsController.EditTechnologicalPosition(SafeAssignmentSystem.Models.FactoriesViewModels.EditTechnologicalPositionViewModel)">
+            <summary>
+            Post действие на изгледа за редакция на технологични позиции
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Controllers.ReferenceController">
+            <summary>
+            Контролер менажиращ извеждането на списъци
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.ReferenceController.#ctor(Microsoft.AspNetCore.Identity.UserManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser},SafeAssignmentSystem.Core.Contracts.IPlantsService,SafeAssignmentSystem.Core.Contracts.IReferencesService)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userManager"></param>
+            <param name="plantsService"></param>
+            <param name="referencesService"></param>
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.ReferenceController.AllTechnologicalPositionCondition(System.Guid)">
             <summary>
@@ -371,6 +438,20 @@
             </summary>
             <param name="transfer">Трансферен модел с детайлите за технологичните позиции</param>
             <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Controllers.SafeAssignmentController">
+            <summary>
+            Контролер менажиращ нарядите
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.#ctor(Microsoft.AspNetCore.Identity.UserManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser},SafeAssignmentSystem.Core.Contracts.IPlantsService,SafeAssignmentSystem.Core.Contracts.ISafeAssignmentService,SafeAssignmentSystem.Core.Contracts.IAccountService)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userManager"></param>
+            <param name="plantsService"></param>
+            <param name="safeAssignmentService"></param>
+            <param name="accountService"></param>
         </member>
         <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.CreateSafeAssignment(System.Guid)">
             <summary>
@@ -417,11 +498,91 @@
             <param name="id">Идентификатор на наряд</param>
             <returns></returns>
         </member>
+        <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.ClosingSafeAssignment(System.Guid)">
+            <summary>
+            Get действие обработващо заявката за закриване на наряда
+            </summary>
+            <param name="positionId"></param>
+            <returns></returns>
+        </member>
         <member name="M:SafeAssignmentSystem.Controllers.SafeAssignmentController.ClosingSafeAssignmentPost(System.Guid)">
             <summary>
             Метод обработващ заявката за закриване на наряд с идентификатор id 
             </summary>
             <param name="id">Идентификатор на наряд</param>
+            <returns></returns>
+        </member>
+        <member name="T:SafeAssignmentSystem.Controllers.WorkingRotationController">
+            <summary>
+            Контролер менажиращ смените и сменните графици
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.WorkingRotationController.#ctor(SafeAssignmentSystem.Core.Contracts.IWorkingRotationService,Microsoft.AspNetCore.Identity.UserManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser})">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="workingRotationService"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.WorkingRotationController.ShiftCreate">
+            <summary>
+            Get действие на изгледа за създаване на нова смяна
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.WorkingRotationController.ShiftCreate(SafeAssignmentSystem.Models.WorkingRotationViewModels.WorkingShiftViewModel)">
+            <summary>
+            Post действие на изгледа за създаване на нова смяна
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.WorkingRotationController.AllShift">
+            <summary>
+            Get действие на изгледа визуализиращ всички смени
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.WorkingRotationController.EditlShift(System.Guid)">
+            <summary>
+            Get действие на изгледа за редакция на смени
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.WorkingRotationController.EditShift(SafeAssignmentSystem.Models.WorkingRotationViewModels.EditWorkingShiftViewModel)">
+            <summary>
+            Post действие на изгледа за редакция на смени
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.WorkingRotationController.EditChangedSchedule(System.String,System.String)">
+            <summary>
+            Get действие за редакция на сменен график
+            </summary>
+            <param name="userName"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.WorkingRotationController.EditChangedSchedule(SafeAssignmentSystem.Models.WorkingRotationViewModels.ShiftScheduleViewModel)">
+            <summary>
+            Post действие на изгледа за редакция на сменен график
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.WorkingRotationController.LoadFromFile">
+            <summary>
+            Get действие на изгледа за избор на файл с данни за сменен график
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SafeAssignmentSystem.Controllers.WorkingRotationController.LoadFromFile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Post действие на изгледа за ибор на файл с данни за сменен график
+            </summary>
+            <param name="file"></param>
             <returns></returns>
         </member>
         <member name="T:SafeAssignmentSystem.Models.AccountViewModels.AllUsersViewModel">
@@ -459,6 +620,11 @@
             Потвърждение на новата парола
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.AccountViewModels.EditPasswordViewModel">
+            <summary>
+            Модел на изображението за редакция на потребителста парола
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.AccountViewModels.EditPasswordViewModel.UserName">
             <summary>
             Акаунт на потребител
@@ -474,14 +640,44 @@
             Потвърждение на новата парола
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.AccountViewModels.EditRegisterViewModel">
+            <summary>
+            Модел на изгледа за редакция на потребител
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.AccountViewModels.EditRegisterViewModel.Id">
             <summary>
             Идентификатор на потребител, който ще се редактира
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.AccountViewModels.LoginViewModel">
+            <summary>
+            Модел на изгледа за логване на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.LoginViewModel.UserName">
+            <summary>
+            Потребителско име на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.LoginViewModel.Password">
+            <summary>
+            Парола на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.AccountViewModels.LoginViewModel.ReturnUrl">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel">
             <summary>
             Модел кореспондиращ с изображението за регистрация на нов потребител
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.#ctor">
+            <summary>
+            Конструктор
             </summary>
         </member>
         <member name="P:SafeAssignmentSystem.Models.AccountViewModels.RegisterViewModel.UserName">
@@ -529,6 +725,71 @@
             Списък с роли
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.ChoisViewModels.ChoisAccountViewModel">
+            <summary>
+            Модел на изгледа за избор на акаунт
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.ChoisViewModels.ChoisAccountViewModel.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisAccountViewModel.User">
+            <summary>
+            Потребителско име на потребител
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisAccountViewModel.RedirectController">
+            <summary>
+            Име на контролера за редиректване
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisAccountViewModel.RedirectAction">
+            <summary>
+            Действие на редиректването
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisAccountViewModel.AllUsers">
+            <summary>
+            Колекция с потребителските имена и имената на потребителите
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.ChoisViewModels.ChoisPlantViewModel">
+            <summary>
+            Модел на изгледа за избор на инсталации
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.ChoisViewModels.ChoisPlantViewModel.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisPlantViewModel.Id">
+            <summary>
+            Идентификатор на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisPlantViewModel.RedirectRouter">
+            <summary>
+            Път за редиректване след избор на инсталация
+            </summary>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisPlantViewModel.Plants">
+            <summary>
+            Колекция с модели на изгледа на инсталациите
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.ChoisViewModels.ChoisTechnologicalPositionViewModel">
+            <summary>
+            Модел на изгледа за избор на технологична позиция
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.ChoisViewModels.ChoisTechnologicalPositionViewModel.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisTechnologicalPositionViewModel.Id">
             <summary>
             Идентификатор на избраната технологична позиция
@@ -544,9 +805,14 @@
             Колекция от модели на технологични позиции
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.Models.ChoisViewModels.ChoisUserAndMonthViewModel">
+            <summary>
+            Модел на изгледа връщащ датата на смяната
+            </summary>
+        </member>
         <member name="P:SafeAssignmentSystem.Models.ChoisViewModels.ChoisUserAndMonthViewModel.Date">
             <summary>
-            Начален час на смяната
+            Дата на смяната
             </summary>
         </member>
         <member name="T:SafeAssignmentSystem.Models.CommonViewModels.CheckBoxViewModel">
@@ -572,6 +838,23 @@
         <member name="P:SafeAssignmentSystem.Models.CommonViewModels.CheckBoxViewModel.Selected">
             <summary>
             Указател показващ дали елемента е избран
+            </summary>
+        </member>
+        <member name="T:SafeAssignmentSystem.Models.CommonViewModels.KeyValuePairViewModel">
+            <summary>
+            Модел на изглед съдържащ двойки ключ-стойност във формат Guid-string
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.Models.CommonViewModels.KeyValuePairViewModel.#ctor(System.Guid,System.String)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="P:SafeAssignmentSystem.Models.CommonViewModels.KeyValuePairViewModel.KvP">
+            <summary>
+            Двойка ключ-стойност
             </summary>
         </member>
         <member name="T:SafeAssignmentSystem.Models.ErrorViewModel">
@@ -1105,6 +1388,30 @@
             </summary>
             <param name="args"></param>
             <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.ClaimsPrincipalExtension">
+            <summary>
+            Екстенжън клас 
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ClaimsPrincipalExtension.Id(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            Идентификатор на текущо логнат потребител
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.SafeAssignmentSystemeServiceCollectionExtension">
+            <summary>
+            Клас менажиращ сървиси
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.SafeAssignmentSystemeServiceCollectionExtension.AddApplicationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Метод инжектиращ сървиси в приложението
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

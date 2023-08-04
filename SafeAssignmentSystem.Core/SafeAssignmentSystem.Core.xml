@@ -901,11 +901,10 @@
             Сървис за менажиране на комплекси, инсталации и технологично оборудване
             </summary>
         </member>
-        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.#ctor(Microsoft.AspNetCore.Identity.UserManager{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUser},SafeAssignmentSystem.DataBase.Data.Common.IRepository)">
+        <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.#ctor(SafeAssignmentSystem.DataBase.Data.Common.IRepository)">
             <summary>
             Конструктор
             </summary>
-            <param name="userManager"></param>
             <param name="repo"></param>
         </member>
         <member name="M:SafeAssignmentSystem.Core.Service.PlantsService.AddComplexAsync(SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels.ComplexTransferModel)">

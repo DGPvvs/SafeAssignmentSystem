@@ -17,11 +17,19 @@
 
     using static SafeAssignmentSystem.Common.Notification.NotificationConstants;
 
+    /// <summary>
+    /// Контролер менажиращ смените и сменните графици
+    /// </summary>
     public class WorkingRotationController : BaseWorkingRotationController
     {
         private readonly IWorkingRotationService workingRotationService;
         private readonly UserManager<ApplicationUser> userManager;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="workingRotationService"></param>
+        /// <param name="userManager"></param>
         public WorkingRotationController(
             IWorkingRotationService workingRotationService,
             UserManager<ApplicationUser> userManager)
@@ -30,6 +38,10 @@
             this.userManager = userManager;
         }
 
+        /// <summary>
+        /// Get действие на изгледа за създаване на нова смяна
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ShiftCreate()
         {
@@ -38,6 +50,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие на изгледа за създаване на нова смяна
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> ShiftCreate(WorkingShiftViewModel model)
         {
@@ -92,6 +109,10 @@
             }
         }
 
+        /// <summary>
+        /// Get действие на изгледа визуализиращ всички смени
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> AllShift()
         {
@@ -111,6 +132,11 @@
             return this.View(viewModel);
         }
 
+        /// <summary>
+        /// Get действие на изгледа за редакция на смени
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> EditlShift(Guid id)
         {
@@ -134,6 +160,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие на изгледа за редакция на смени
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> EditShift(EditWorkingShiftViewModel model)
         {
@@ -183,6 +214,12 @@
             }
         }
 
+        /// <summary>
+        /// Get действие за редакция на сменен график
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="date"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> EditChangedSchedule(string userName, string date)
         {
@@ -234,6 +271,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Post действие на изгледа за редакция на сменен график
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> EditChangedSchedule(ShiftScheduleViewModel model)
         {
@@ -274,12 +316,21 @@
 			return this.RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Get действие на изгледа за избор на файл с данни за сменен график
+        /// </summary>
+        /// <returns></returns>
         [HttpGet] //("LoadFromFile")
         public IActionResult LoadFromFile()
         {            
             return this.View();
         }
 
+        /// <summary>
+        /// Post действие на изгледа за ибор на файл с данни за сменен график
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> LoadFromFile(IFormFile file)
         {

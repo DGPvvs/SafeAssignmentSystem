@@ -306,6 +306,17 @@
             Undo changes
             </summary>
         </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.ApplicationUserPlantInstalationSeeder">
+            <summary>
+            Клас зареждащ свързващата таблица с потребители имащи права върху инсталации
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.ApplicationUserPlantInstalationSeeder.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account.ApplicationUserPlantInstalation})">
+            <summary>
+            Метод конфигуриращ свързващата таблица
+            </summary>
+            <param name="builder"></param>
+        </member>
         <member name="T:SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData.ChangedScheduleTransferModel">
             <summary>
             Трансферен модел за зареждане на смените при четене от файл
@@ -795,6 +806,23 @@
             
             </summary>
             <param name="modelBuilder"></param>
+        </member>
+        <member name="T:SafeAssignmentSystem.DataBase.Migrations._12">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Migrations._12.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="migrationBuilder"></param>
+        </member>
+        <member name="M:SafeAssignmentSystem.DataBase.Migrations._12.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="migrationBuilder"></param>
         </member>
         <member name="T:SafeAssignmentSystem.Core.Data.SafeAssignmentDbContext">
             <summary>

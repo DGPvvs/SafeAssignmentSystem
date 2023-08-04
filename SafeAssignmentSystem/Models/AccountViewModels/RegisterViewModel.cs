@@ -10,6 +10,9 @@ namespace SafeAssignmentSystem.Models.AccountViewModels
     /// </summary>
     public class RegisterViewModel
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public RegisterViewModel()
         {
             this.Instalations = new List<CheckBoxViewModel>();

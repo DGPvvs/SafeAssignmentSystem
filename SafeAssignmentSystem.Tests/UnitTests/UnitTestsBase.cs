@@ -1,6 +1,7 @@
 ﻿namespace SafeAssignmentSystem.Tests.UnitTests
 {
     using Microsoft.AspNetCore.Identity;
+    using Moq;
     using OfficeOpenXml;
     using SafeAssignmentSystem.Core.Data;
     using SafeAssignmentSystem.DataBase.Data.Common;
@@ -16,25 +17,16 @@
     {
         protected SafeAssignmentDbContext context;
         protected IRepository repo;
+        protected UserManager<ApplicationUser> userManager;
 
         [OneTimeSetUp]
         public void SetUpBase()
         {
             this.context = DataBaseMock.Instance;
             this.repo = new Repository(this.context);
+            this.userManager = MockUserManager<ApplicationUser>(new SeedsData().SeedUsers().ToList()).Object;
             this.SeedDataBase();
         }
-
-        //public IEnumerable<PlantInstalation> PlantInstalation { get; set; } = null!;
-        //public ProductionComplex ProductionComplex { get; set; } = null!;
-        //public TechnologicalPosition TechnologicalPosition { get; set; } = null!;
-        //public WorkingShift WorkingShift { get; set; } = null!;
-        //public ChangedSchedule ChangedSchedule { get; set; } = null!;
-        //public ApplicationUserPlantInstalation ApplicationUserPlantInstalation { get; set; } = null!;
-        //public SafeAssignmentDocument SafeAssignmentDocument { get; set; } = null!;
-        //public ApplicationRole ApplicationRole { get; set; } = null!;
-        //public ApplicationUser ApplicationUser { get; set; } = null!;
-
 
         private void SeedDataBase()
         {
@@ -49,6 +41,20 @@
             this.context.Users.AddRange(this.CreateUsers());
             this.context.UserRoles.AddRange(this.CreateUsersRole());
             this.context.SaveChanges();
+        }
+
+        private static Mock<UserManager<TUser>> MockUserManager<TUser>(List<TUser> ls) where TUser : class
+        {
+            var store = new Mock<IUserStore<TUser>>();
+            var mgr = new Mock<UserManager<TUser>>(store.Object, null, null, null, null, null, null, null, null);
+            mgr.Object.UserValidators.Add(new UserValidator<TUser>());
+            mgr.Object.PasswordValidators.Add(new PasswordValidator<TUser>());
+
+            mgr.Setup(x => x.DeleteAsync(It.IsAny<TUser>())).ReturnsAsync(IdentityResult.Success);
+            mgr.Setup(x => x.CreateAsync(It.IsAny<TUser>(), It.IsAny<string>())).ReturnsAsync(IdentityResult.Success).Callback<TUser, string>((x, y) => ls.Add(x));
+            mgr.Setup(x => x.UpdateAsync(It.IsAny<TUser>())).ReturnsAsync(IdentityResult.Success);            
+
+            return mgr;
         }
 
         private IEnumerable<IdentityUserRole<Guid>> CreateUsersRole()

@@ -4,6 +4,9 @@ using static SafeAssignmentSystem.Common.ModelsConstants.ViewModelConstants.Chan
 
 namespace SafeAssignmentSystem.Models.AccountViewModels
 {
+    /// <summary>
+    /// Модел на изображението за редакция на потребителста парола
+    /// </summary>
     public class EditPasswordViewModel
     {
         /// <summary>

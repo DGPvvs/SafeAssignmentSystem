@@ -2,8 +2,14 @@
 {
     using SafeAssignmentSystem.Models.FactoriesViewModels;
 
+    /// <summary>
+    /// Модел на изгледа за избор на технологична позиция
+    /// </summary>
     public class ChoisTechnologicalPositionViewModel
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public ChoisTechnologicalPositionViewModel()
         {
             this.TechnologicalPositions = new List<EditTechnologicalPositionViewModel>();

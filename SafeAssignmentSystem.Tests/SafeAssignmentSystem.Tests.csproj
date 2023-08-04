@@ -22,6 +22,7 @@
     <ProjectReference Include="..\SafeAssignmentSystem.Common\SafeAssignmentSystem.Common.csproj" />
     <ProjectReference Include="..\SafeAssignmentSystem.Core\SafeAssignmentSystem.Core.csproj" />
     <ProjectReference Include="..\SafeAssignmentSystem.DataBase\SafeAssignmentSystem.DataBase.csproj" />
+    <ProjectReference Include="..\SafeAssignmentSystem\SafeAssignmentSystem.csproj" />
   </ItemGroup>
 
 </Project>

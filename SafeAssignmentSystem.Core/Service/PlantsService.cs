@@ -21,20 +21,17 @@
     /// </summary>
     public class PlantsService : IPlantsService
     {
-        private readonly UserManager<ApplicationUser> userManager;
+        //private readonly UserManager<ApplicationUser> userManager;
         private readonly IRepository repo;
 
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="userManager"></param>
         /// <param name="repo"></param>
-        public PlantsService(
-            UserManager<ApplicationUser> userManager,
-            IRepository repo)
+        public PlantsService(IRepository repo)
         {
             this.repo = repo;
-            this.userManager = userManager;
+            //this.userManager = userManager;
         }
 
         /// <summary>
