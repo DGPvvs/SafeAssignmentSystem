@@ -8,6 +8,7 @@
     using SafeAssignmentSystem.Core.Service;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
     using SafeAssignmentSystem.Tests.UnitTests;
+    using System.Numerics;
     using System.Threading.Tasks;
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
 
@@ -537,6 +538,138 @@
             await this.plantsService.AddPlantAsync(plant);
 
             Assert.ThrowsAsync<NotEmptyException>(async () => await this.plantsService.ChangeDeleteStatusComplexAsync(complexId, IsDeletedCondition.NotDeleted));
+        }
+
+        [Test]
+        public async Task EditComplexAsync_EditExistingComplex()
+        {
+            var complexes = await this.repo
+                .AllReadonly<ProductionComplex>()
+                .AsNoTracking()
+                .ToListAsync();
+
+            List<ComplexTransferModel> editedComplexes = new List<ComplexTransferModel>();
+
+            foreach (var complex in complexes)
+            {
+                complex.Name = $"{complex.Name} Test";
+                complex.FullName = $"{complex.FullName} Test";
+
+                var editComplex = new ComplexTransferModel()
+                {
+                    Name = complex.Name,
+                    FullName = complex.FullName,
+                    Id = complex.Id
+                };
+
+                editedComplexes.Add(editComplex);
+
+                await this.plantsService.EditComplexAsync(editComplex);
+            }
+
+            foreach (var complex in editedComplexes)
+            {
+                var target = await this.repo
+                    .AllReadonly<ProductionComplex>()
+                    .FirstOrDefaultAsync(c => c.Id.Equals(complex.Id));
+
+                Assert.NotNull(target);
+                Assert.AreEqual(target.Name, complex.Name);
+                Assert.AreEqual(target.FullName, complex.FullName);
+            }
+        }
+
+        [Test]
+        public async Task EditComplexAsync_EditExistingComplexByNameAndFullName()
+        {
+            var complexes = await this.repo
+                .AllReadonly<ProductionComplex>()
+                .AsNoTracking()
+                .ToListAsync();
+
+            var newComplex = new ComplexTransferModel()
+            {
+                Name = "Test",
+                FullName = "Full Test",
+                IsDeleted = false
+            };
+
+            await this.plantsService.AddComplexAsync(newComplex);
+
+            var testComplexes = await this.repo
+                .AllReadonly<ProductionComplex>(c => c.FullName.Equals(newComplex.FullName) && c.Name.Equals(newComplex.Name))
+                .AsNoTracking()
+                .ToListAsync();
+
+            var testComplex = testComplexes.First();
+
+            foreach (var complex in complexes)
+            {
+                var editComplex = new ComplexTransferModel()
+                {
+                    Name = complex.Name,
+                    FullName = complex.FullName,
+                    IsDeleted = testComplex.IsDeleted,
+                    Id = testComplex.Id
+                };
+
+                Assert.ThrowsAsync<IdentityЕxception>(async () => { await this.plantsService.EditComplexAsync(editComplex); });
+            }
+        }
+
+        [Test]
+        public async Task EditComplexAsync_EditExistingComplexByNameAndFullNameIsDeleted()
+        {
+            int n = 20;
+
+            for (int i = 0; i < n; i++)
+            {
+                var newComplex = new ComplexTransferModel()
+                {
+                    Name = $"Test{i}",
+                    FullName = $"Full Test{i}",
+                    IsDeleted = true
+                };
+
+                await this.plantsService.AddComplexAsync(newComplex);
+            }
+
+            var testComplex = new ComplexTransferModel()
+            {
+                Name = $"Test",
+                FullName = $"Full Test",
+                IsDeleted = true
+            };
+
+            await this.plantsService.AddComplexAsync(testComplex);
+
+            var complexes = await this.repo
+                .AllReadonly<ProductionComplex>()
+                .AsNoTracking()
+                .Where(c => c.IsDeleted)
+                .ToListAsync();            
+
+            var testComplexes = await this.repo
+                .AllReadonly<ProductionComplex>(c => c.FullName.Equals(testComplex.FullName) && c.Name.Equals(testComplex.Name))
+                .AsNoTracking()
+                .ToListAsync();
+
+            var target = testComplexes.First();
+
+            foreach (var complex in complexes)
+            {
+                await this.plantsService.ChangeDeleteStatusComplexAsync(complex.Id, IsDeletedCondition.Deleted);
+
+                var editComplex = new ComplexTransferModel()
+                {
+                    Name = complex.Name,
+                    FullName = complex.FullName,
+                    IsDeleted = testComplex.IsDeleted,
+                    Id = testComplex.Id
+                };
+
+                Assert.ThrowsAsync<IdentityЕxception>(async () => { await this.plantsService.EditComplexAsync(editComplex); });
+            }
         }
     }
 }
