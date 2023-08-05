@@ -19,7 +19,7 @@
         protected IRepository repo;
         protected UserManager<ApplicationUser> userManager;
 
-        [OneTimeSetUp]
+        [SetUp]
         public void SetUpBase()
         {
             this.context = DataBaseMock.Instance;

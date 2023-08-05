@@ -11,7 +11,7 @@
     {
         private IChoisPlantsService choisPlantsService;
 
-        [OneTimeSetUp]
+        [SetUp]
         public void Setup()
         {
             this.choisPlantsService = new ChoisPlantsService(this.repo);
