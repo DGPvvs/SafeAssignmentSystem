@@ -205,5 +205,178 @@
                 Assert.IsFalse(result.IsDeleted);
             }
         }
+
+        [Test]
+        public async Task AddPlantAsync_AddNewPlant()
+        {
+            int n = 20;
+
+            var rnd = new Random();
+            var seeder = await this.repo.AllReadonly<ProductionComplex>().ToListAsync();
+            int countCollection = seeder.Count();
+
+            var newPlants = new List<PlantTransferModel>();
+
+            for (int i = 0; i < n; i++)
+            {
+                var complex = seeder.Skip(rnd.Next(countCollection - 1)).Take(1).First();
+
+                var newPlant = new PlantTransferModel()
+                {
+                    FullName = $"Тестова Инсталация {i * 10}",
+                    Name = $"Тест {i * 10}",
+                    ComplexId= complex.Id
+                };
+
+                await this.plantsService.AddPlantAsync(newPlant);
+
+                newPlants.Add(newPlant);
+            }
+
+            foreach (var comlex in newPlants)
+            {
+                var model = await this.repo.AllReadonly<PlantInstalation>()
+                    .FirstOrDefaultAsync(c => c.Name == comlex.Name && c.FullName == comlex.FullName);
+
+                Assert.IsNotNull(model);
+                Assert.AreEqual(model.FullName, comlex.FullName);
+                Assert.AreEqual(model.Name, comlex.Name);
+            }
+        }
+
+        [Test]
+        public async Task AddPlantAsync_AddExistingPlantByName()
+        {
+            int n = 20;
+
+            var rnd = new Random();
+            var seeder = await this.repo.AllReadonly<ProductionComplex>().ToListAsync();
+            int complecCount = seeder.Count();
+
+            var plants = await this.repo.AllReadonly<PlantInstalation>()
+                .AsNoTracking()
+                .ToListAsync();
+
+            int plantsCount = plants.Count();
+
+            for (int i = 0; i < n; i++)
+            {
+                var complex = seeder.Skip(rnd.Next(complecCount - 1)).Take(1).First();
+                var plant = plants.Skip(rnd.Next(plantsCount - 1)).Take(1).First();
+
+                var newPlant = new PlantTransferModel()
+                {
+                    FullName = $"Тестова Инсталация {i * 10}",
+                    Name = plant.Name,
+                    ComplexId = complex.Id
+                };
+
+                Assert.ThrowsAsync<IdentityЕxception>(async () => { await this.plantsService.AddPlantAsync(newPlant); });
+            }
+        }
+
+        [Test]
+        public async Task AddPlantAsync_AddExistingPlantByFullName()
+        {
+            int n = 20;
+
+            var rnd = new Random();
+            var seeder = await this.repo.AllReadonly<ProductionComplex>().ToListAsync();
+            int complecCount = seeder.Count;
+
+            var plants = await this.repo.AllReadonly<PlantInstalation>()
+                .AsNoTracking()
+                .ToListAsync();
+
+            int plantsCount = plants.Count;
+
+            for (int i = 0; i < n; i++)
+            {
+                var complex = seeder.Skip(rnd.Next(complecCount - 1)).Take(1).First();
+                var plant = plants.Skip(rnd.Next(plantsCount - 1)).Take(1).First();
+
+                var newPlant = new PlantTransferModel()
+                {
+                    FullName = plant.FullName,
+                    Name = $"Тест {i * 10}",
+                    ComplexId = complex.Id
+                };
+
+                Assert.ThrowsAsync<IdentityЕxception>(async () => { await this.plantsService.AddPlantAsync(newPlant); });
+            }
+        }
+
+        [Test]
+        public async Task AddTechnologicalPositionAsync_AddNewPosition()
+        {
+            int n = 20;
+            var rnd = new Random();
+
+            var plants = await this.repo.AllReadonly<PlantInstalation>()
+                .AsNoTracking()
+                .ToListAsync();
+            int plantCount = plants.Count;
+
+            List<TechnologicalPositionTransferModel> positions = new List<TechnologicalPositionTransferModel>();
+
+            for (int i = 0; i < n; i++)
+            {
+                var plant = plants.Skip(rnd.Next(plantCount) - 1).Take(1).First();
+                var newPosition = new TechnologicalPositionTransferModel()
+                {
+                    Name = $"Test {i * 10}",
+                    InstalationId = plant.Id
+                };
+
+                await this.plantsService.AddTechnologicalPositionAsync(newPosition);
+
+                positions.Add(newPosition);
+            }
+
+            var result = await this.context.TechnologicalPositions.AsNoTracking().ToListAsync();
+
+            foreach (var position in positions)
+            {
+                var target = result
+                    .FirstOrDefault(tp => tp.Name.Equals(position.Name) && tp.InstalationId.Equals(position.InstalationId));
+
+                Assert.NotNull(target);                
+            }
+        }
+
+        [Test]
+        public async Task AddTechnologicalPositionAsync_AddExistingPositionByName()
+        {
+            int n = 20;
+            var rnd = new Random();
+
+            var plants = await this.repo.AllReadonly<PlantInstalation>()
+                .AsNoTracking()
+                .ToListAsync();
+            int plantCount = plants.Count;
+
+            List<TechnologicalPositionTransferModel> positions = new List<TechnologicalPositionTransferModel>();
+            var plant = plants.Skip(rnd.Next(plantCount) - 1).Take(1).First();
+
+            for (int i = 0; i < n; i++)
+            {                
+                var newPosition = new TechnologicalPositionTransferModel()
+                {
+                    Name = $"Test {i * 10}",
+                    InstalationId = plant.Id
+                };
+
+                await this.plantsService.AddTechnologicalPositionAsync(newPosition);
+
+                positions.Add(newPosition);
+            }
+
+            var result = await this.context.TechnologicalPositions.AsNoTracking().ToListAsync();
+
+            foreach (var position in positions)
+            {
+                Assert.ThrowsAsync<IdentityЕxception>(async () => { await this.plantsService.AddTechnologicalPositionAsync(position); });
+            }
+        }
     }
 }
