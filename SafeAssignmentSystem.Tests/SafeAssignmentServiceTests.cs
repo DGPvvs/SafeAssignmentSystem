@@ -6,6 +6,7 @@
     using SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels;
     using SafeAssignmentSystem.Core.Service;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
     using SafeAssignmentSystem.Tests.UnitTests;
     using System;
@@ -44,7 +45,7 @@
             for (int i = 0; i < n; i++)
             {
                 var position = allPositions.Skip(rnd.Next(allPositions.Count) - 1).Take(1).First();
-                var safeAssignment = await this.CreateSafeAssignment(position);
+                var safeAssignment = await this.CreateTestSafeAssignment(position);
                 await this.safeAssignmentService.CreateSafeAssignmentAsync(safeAssignment);
 
                 if (!positionCounts.ContainsKey(position.Id))
@@ -60,13 +61,14 @@
                 var targetSA = await this.safeAssignmentService.
                     AllSafeAssigmentForPositionAndStatusAsync(position.Key, StatusFlagsEnum.Created);
 
-                Assert.AreEqual(targetSA.Count(), position.Value);                
-            }            
+                Assert.AreEqual(targetSA.Count(), position.Value);
+            }
         }
 
         [Test]
         public async Task CreateSafeAssignmentAsync_Correct()
         {
+            int n = 20;
             var rnd = new Random();
 
             var allPositions = await this.repo
@@ -74,16 +76,30 @@
                 .AsNoTracking()
                 .ToListAsync();
 
-            var position = allPositions.Skip(rnd.Next(allPositions.Count) - 1).Take(1).First();
+            for (int i = 0; i < n; i++)
+            {
+                var position = allPositions.Skip(rnd.Next(allPositions.Count) - 1).Take(1).First();
 
-            var safeAssignment = await this.CreateSafeAssignment(position);
+                var safeAssignment = await this.CreateTestSafeAssignment(position);
 
-            await this.safeAssignmentService.CreateSafeAssignmentAsync(safeAssignment);
-            
+                await this.safeAssignmentService.CreateSafeAssignmentAsync(safeAssignment);
 
+                var targets = await this.repo
+                    .AllReadonly<SafeAssignmentDocument>()
+                    .AsNoTracking()
+                    .Where(sa => sa.Number.Equals(safeAssignment.Number))
+                    .ToListAsync();
+
+                var target = targets.FirstOrDefault();
+
+                Assert.NotNull(target);
+                Assert.AreEqual(target.Status, safeAssignment.Status);
+                Assert.AreEqual(target.TechnologicalPositionId, safeAssignment.TechnologicalPositionId);
+                Assert.AreEqual(target.PersonRequestedOpeningOrderId, safeAssignment.PersonRequestedOpeningOrderId);
+            }
         }
 
-        private async Task<SafeAssignmentTransferModel> CreateSafeAssignment(TechnologicalPosition position)
+        private async Task<SafeAssignmentTransferModel> CreateTestSafeAssignment(TechnologicalPosition position)
         {
             var rnd = new Random();
             var plant = await this.repo
