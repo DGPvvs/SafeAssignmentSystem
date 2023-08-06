@@ -3,16 +3,13 @@
     using Microsoft.EntityFrameworkCore;
     using SafeAssignmentSystem.Common.Exceptions;
     using SafeAssignmentSystem.Common.Exeptions;
-    using SafeAssignmentSystem.Common.Notification;
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Models.TransferModels.FactoriesTransferModels;
     using SafeAssignmentSystem.Core.Service;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
     using SafeAssignmentSystem.Tests.UnitTests;
-    using System.Numerics;
     using System.Threading.Tasks;
-    using System.Xml.Linq;
     using static SafeAssignmentSystem.Common.Notification.ConditionConstants;
 
     [TestFixture]
