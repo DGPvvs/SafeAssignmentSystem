@@ -325,7 +325,7 @@
         /// <param name="id"></param>
         /// <param name="isDel"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<TechnologicalPositionTransferModel>> GetAllPositionInPlantByIdAsync(Guid id, bool isDel)
+        public async Task<IEnumerable<TechnologicalPositionTransferModel>> GetAllPositionInPlantByIdAsync(Guid id, bool isDel = true)
         {
             return await this.repo.AllReadonly<TechnologicalPosition>()
                 .AsNoTracking()
@@ -396,6 +396,15 @@
             var position = await this.repo.AllReadonly<TechnologicalPosition>()
                 .AsNoTracking()
                 .Where(pi => pi.Id.Equals(positionId))
+                .Select(pi => new PlantTransferModel()
+                {
+                    Id = pi.Instalation.Id,
+                    Name = pi.Instalation.Name,
+                    FullName = pi.Instalation.FullName,
+                    ComplexName = pi.Instalation.Complex.FullName,
+                    ComplexId = pi.Instalation.Complex.Id,
+                    FullComplexName = pi.Instalation.Complex.FullName
+                })
                 .FirstOrDefaultAsync();
 
             if (position is null)
@@ -403,13 +412,7 @@
                 throw new TechnologicalPositionException();
             }
 
-            return new PlantTransferModel()
-            {
-                Id = position.Instalation.Id,
-                Name = position.Instalation.Name,
-                FullName = position.Instalation.FullName,
-                ComplexName = position.Instalation.Complex.FullName
-            };
+            return position;
         }
 
         /// <summary>

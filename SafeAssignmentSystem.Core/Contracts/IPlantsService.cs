@@ -90,7 +90,7 @@
         /// <param name="id">Идентификатор на инсталация</param>
         /// <param name="isDel"></param>
         /// <returns></returns>
-        public Task<IEnumerable<TechnologicalPositionTransferModel>> GetAllPositionInPlantByIdAsync(Guid id, bool isDel);
+        public Task<IEnumerable<TechnologicalPositionTransferModel>> GetAllPositionInPlantByIdAsync(Guid id, bool isDel = true);
 
         /// <summary>
         /// Дефинира метод връщащ данни за технологична позиция с идентификатор id
