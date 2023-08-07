@@ -239,8 +239,15 @@
 				OpeningTime = transfer.OpeningDate.Equals(null) ? null : new TimeOnly(transfer.OpeningDate.Value.Hour,
 																					transfer.OpeningDate.Value.Minute),
 				ЕlectricianOpeningOrderId = transfer.ЕlectricianOpeningOrderId,
-
-				Status = transfer.Status
+                ClosingDate = transfer.ClosingDate.Equals(null) ? null : new DateOnly(transfer.ClosingDate.Value.Year,
+                                                                                    transfer.ClosingDate.Value.Month,
+                                                                                    transfer.ClosingDate.Value.Day),
+                ClosingTime = transfer.ClosingDate.Equals(null) ? null : new TimeOnly(transfer.ClosingDate.Value.Hour,
+                                                                                    transfer.ClosingDate.Value.Minute),
+                ЕlectricianClosingOrderId = transfer.ЕlectricianClosingOrderId,
+                PersonRequestedVoltageSupplyId = transfer.PersonRequestedVoltageSupplyId,
+                ElectricianAppliedVoltageId = transfer.ElectricianAppliedVoltageId,
+                Status = transfer.Status
             };
             
             return result;
@@ -304,7 +311,7 @@
         {
             StatusModel result = new StatusModel()
             {
-                Success = false,
+                Success = false
             };
 
             var safeAssigments = await this.repo.All<SafeAssignmentDocument>()

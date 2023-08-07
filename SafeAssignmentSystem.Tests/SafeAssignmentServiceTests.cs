@@ -2,6 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using SafeAssignmentSystem.Common.Enums;
+    using SafeAssignmentSystem.Common.Exceptions;
     using SafeAssignmentSystem.Core.Contracts;
     using SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels;
     using SafeAssignmentSystem.Core.Service;
@@ -99,6 +100,261 @@
             }
         }
 
+        [Test]
+        public async Task OpeningSafeAssignmentAsync_Corect()
+        {
+            int n = 20;
+            var rnd = new Random();
+
+            var allPositions = await this.repo
+                .AllReadonly<TechnologicalPosition>()
+                .AsNoTracking()
+                .ToListAsync();
+
+            var testedList = new List<string>();
+            var testedQueue = new Queue<Guid>();
+
+            for (int i = 0; i < n; i++)
+            {
+                var position = allPositions.Skip(rnd.Next(allPositions.Count) - 1).Take(1).First();
+                var safeAssignment = await this.CreateTestSafeAssignment(position);
+
+                await this.safeAssignmentService.CreateSafeAssignmentAsync(safeAssignment);
+
+                var targets = await this.repo
+                    .AllReadonly<SafeAssignmentDocument>()
+                    .AsNoTracking()
+                    .Where(sa => sa.Number.Equals(safeAssignment.Number))
+                    .ToListAsync();
+
+                var target = targets.FirstOrDefault();
+
+                testedList.Add(target.Number);
+            }
+
+            foreach (var safeAssignmentNum in testedList)
+            {
+                var targets = await this.repo
+                    .AllReadonly<SafeAssignmentDocument>()
+                    .AsNoTracking()
+                    .Where(sa => sa.Number.Equals(safeAssignmentNum))
+                    .ToListAsync();
+
+                var target = targets.FirstOrDefault();
+
+                var status = await this.safeAssignmentService.OpeningSafeAssignmentAsync(target.Id, this.electricianId);
+
+                Assert.IsTrue(status.Success);
+                testedQueue.Enqueue(target.Id);
+            }
+
+            while (testedQueue.Count > 0)
+            {
+                var id = testedQueue.Dequeue();
+
+                var target = await this.repo
+                    .GetByIdAsync<SafeAssignmentDocument>(id);
+
+                var safeAssignment = await this.safeAssignmentService.GetSafeAssignmentByIdAsync(id);
+
+                Assert.NotNull(target);
+                Assert.NotNull(safeAssignment);
+                Assert.AreEqual(target.Number, safeAssignment.Number);
+                Assert.AreEqual(target.TechnologicalPositionId, safeAssignment.TechnologicalPositionId);
+                Assert.AreEqual(target.PersonRequestedOpeningOrderId, safeAssignment.PersonRequestedOpeningOrderId);
+                Assert.AreEqual(target.ЕlectricianOpeningOrderId, safeAssignment.ЕlectricianOpeningOrderId);
+                Assert.AreEqual(target.Status, StatusFlagsEnum.Opening);
+            }
+        }
+
+        [Test]
+        public async Task ClosingSafeAssignmentAsync_Corect()
+        {
+            int n = 20;
+            var rnd = new Random();
+
+            var allPositions = await this.repo
+                .AllReadonly<TechnologicalPosition>()
+                .AsNoTracking()
+                .ToListAsync();
+
+            var testedList = new List<string>();
+            var testedQueue = new Queue<Guid>();
+
+            for (int i = 0; i < n; i++)
+            {
+                var position = allPositions.Skip(rnd.Next(allPositions.Count) - 1).Take(1).First();
+                var safeAssignment = await this.OpeningTestSafeAssignmentAsync(position);
+
+                await this.SetTestSafeAssignmentInBase(safeAssignment);
+
+                var targets = await this.repo
+                    .AllReadonly<SafeAssignmentDocument>()
+                    .AsNoTracking()
+                    .Where(sa => sa.Number.Equals(safeAssignment.Number))
+                    .ToListAsync();
+
+                var target = targets.FirstOrDefault();
+
+                testedList.Add(target.Number);
+            }
+
+            foreach (var safeAssignmentNum in testedList)
+            {
+                var targets = await this.repo
+                    .AllReadonly<SafeAssignmentDocument>()
+                    .AsNoTracking()
+                    .Where(sa => sa.Number.Equals(safeAssignmentNum))
+                    .ToListAsync();
+
+                var target = targets.FirstOrDefault();
+
+                var status = await this.safeAssignmentService.ClosingSafeAssignmentAsync(target.Id, this.electricianId);
+
+                Assert.IsTrue(status.Success);
+                testedQueue.Enqueue(target.Id);
+            }
+
+            while (testedQueue.Count > 0)
+            {
+                var id = testedQueue.Dequeue();
+
+                var target = await this.repo
+                    .GetByIdAsync<SafeAssignmentDocument>(id);
+
+                var safeAssignment = await this.safeAssignmentService.GetSafeAssignmentByIdAsync(id);
+
+                Assert.NotNull(target);
+                Assert.NotNull(safeAssignment);
+                Assert.AreEqual(target.Number, safeAssignment.Number);
+                Assert.AreEqual(target.TechnologicalPositionId, safeAssignment.TechnologicalPositionId);
+                Assert.AreEqual(target.PersonRequestedOpeningOrderId, safeAssignment.PersonRequestedOpeningOrderId);
+                Assert.AreEqual(target.ЕlectricianOpeningOrderId, safeAssignment.ЕlectricianOpeningOrderId);
+                Assert.AreEqual(target.ЕlectricianClosingOrderId, safeAssignment.ЕlectricianClosingOrderId);
+                Assert.AreEqual(target.Status, StatusFlagsEnum.Closing);
+            }
+        }
+
+        [Test]
+        public async Task GetSafeAssignmentByIdAsync_ThrowException()
+        {
+            int n = 20;
+
+            for (int i = 0; i < n; i++)
+            {
+                Guid safeAssignmentId = Guid.NewGuid();
+
+                var test = await this.repo
+                    .AllReadonly<SafeAssignmentDocument>()
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync<SafeAssignmentDocument>(sa => sa.Id.Equals(safeAssignmentId));
+                if (test is null)
+                {
+                    Assert.ThrowsAsync<SafeAssignmentNotExistException>(async () => await this.safeAssignmentService.GetSafeAssignmentByIdAsync(safeAssignmentId));
+                }
+            }
+        }
+
+        [Test]
+        public async Task RequestedSafeAssignmentAsync_Corect()
+        {
+            int n = 20;
+            var rnd = new Random();
+
+            var allPositions = await this.repo
+                .AllReadonly<TechnologicalPosition>()
+                .AsNoTracking()
+                .ToListAsync();
+
+            var rndCountPerPosition = new Dictionary<Guid, int>();
+            var testSafeAssignment = new List<Guid>();
+
+            foreach (var position in allPositions)
+            {
+                int count = rnd.Next(1, n + 1);
+                rndCountPerPosition[position.Id] = count;
+            }
+
+            foreach (var positionKvP in rndCountPerPosition)
+            {
+                var position = await this.repo
+                    .GetByIdAsync<TechnologicalPosition>(positionKvP.Key);
+
+                for (int i = 0; i < positionKvP.Value; i++)
+                {
+                    var safeAssignment = await this.ClosingTestSafeAssignmentAsync(position);
+
+                    await this.SetTestSafeAssignmentInBase(safeAssignment);
+
+                    var targets = await this.repo
+                    .AllReadonly<SafeAssignmentDocument>()
+                    .AsNoTracking()
+                    .Where(sa => sa.Number.Equals(safeAssignment.Number))
+                    .ToListAsync();
+
+                    var targetId = targets.FirstOrDefault()!.Id;
+
+                    testSafeAssignment.Add(targetId);
+                }
+
+                var status = await this.safeAssignmentService.RequestedSafeAssignmentAsync(this.operatorId, positionKvP.Key);
+
+                Assert.True(status.Success);
+            }
+
+            //foreach (var safeAssignmentId in testSafeAssignment)
+            //{
+            //    var target = await this.safeAssignmentService.GetSafeAssignmentByIdAsync(safeAssignmentId);
+
+            //    //var position = await this.repo.GetByIdAsync<TechnologicalPosition>(target.TechnologicalPositionId);
+
+            //    rndCountPerPosition[target.TechnologicalPositionId]--;
+            //}
+
+            //foreach (var positionKvP in rndCountPerPosition)
+            //{
+            //    Assert.AreEqual(positionKvP.Value, 0);
+            //}
+        }
+
+        private async Task SetTestSafeAssignmentInBase(SafeAssignmentTransferModel testModel)
+        {
+            var newSafeAssignment = new SafeAssignmentDocument()
+            {
+                Number = testModel.Number,
+                TechnologicalPositionId = testModel.TechnologicalPositionId,
+
+                PersonRequestedOpeningOrderId = testModel.PersonRequestedOpeningOrderId,
+                ЕlectricianOpeningOrderId = testModel.ЕlectricianOpeningOrderId,
+
+                ЕlectricianClosingOrderId = testModel.ЕlectricianClosingOrderId,
+                PersonRequestedVoltageSupplyId = testModel.PersonRequestedVoltageSupplyId,
+                ElectricianAppliedVoltageId = testModel.ElectricianAppliedVoltageId,
+                Status = testModel.Status
+            };
+
+            if (testModel.OpeningDate.Equals(null) || testModel.OpeningTime.Equals(null))
+            {
+                newSafeAssignment.OpeningDate = null;
+            }
+            else
+            {
+                newSafeAssignment.OpeningDate = new DateTime(testModel.OpeningDate.Value.Year, testModel.OpeningDate.Value.Month, testModel.OpeningDate.Value.Day, testModel.OpeningTime.Value.Hour, testModel.OpeningTime.Value.Minute, 0);
+            }
+
+            if (testModel.ClosingDate.Equals(null) || testModel.ClosingTime.Equals(null))
+            {
+                newSafeAssignment.ClosingDate = null;
+            }
+            else
+            {
+                newSafeAssignment.ClosingDate = new DateTime(testModel.ClosingDate.Value.Year, testModel.ClosingDate.Value.Month, testModel.ClosingDate.Value.Day, testModel.ClosingTime.Value.Hour, testModel.ClosingTime.Value.Minute, 0);
+            }
+
+            await this.repo.AddAsync(newSafeAssignment);
+            await this.repo.SaveChangesAsync();
+        }
+
         private async Task<SafeAssignmentTransferModel> CreateTestSafeAssignment(TechnologicalPosition position)
         {
             var rnd = new Random();
@@ -117,6 +373,30 @@
                 PersonRequestedOpeningOrderId = this.operatorId,
                 Status = StatusFlagsEnum.Created
             };
+
+            return newSafeAssignment;
+        }
+
+        private async Task<SafeAssignmentTransferModel> OpeningTestSafeAssignmentAsync(TechnologicalPosition position)
+        {
+            var newSafeAssignment = await this.CreateTestSafeAssignment(position);
+            var time = DateTime.Now;
+            newSafeAssignment.ЕlectricianOpeningOrderId = this.electricianId;
+            newSafeAssignment.OpeningDate = new DateOnly(time.Year, time.Month, time.Day);
+            newSafeAssignment.OpeningTime = new TimeOnly(time.Hour, time.Minute);
+            newSafeAssignment.Status = StatusFlagsEnum.Opening;
+
+            return newSafeAssignment;
+        }
+
+        private async Task<SafeAssignmentTransferModel> ClosingTestSafeAssignmentAsync(TechnologicalPosition position)
+        {
+            var newSafeAssignment = await this.OpeningTestSafeAssignmentAsync(position);
+            var time = DateTime.Now;
+            newSafeAssignment.ЕlectricianClosingOrderId = this.electricianId;
+            newSafeAssignment.ClosingDate = new DateOnly(time.Year, time.Month, time.Day);
+            newSafeAssignment.ClosingTime = new TimeOnly(time.Hour, time.Minute);
+            newSafeAssignment.Status = StatusFlagsEnum.Closing;
 
             return newSafeAssignment;
         }

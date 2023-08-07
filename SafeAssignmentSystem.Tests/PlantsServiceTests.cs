@@ -43,7 +43,7 @@
 
                 newComplexList.Add(newComplex);
 
-                Thread.Sleep(500);
+                Thread.Sleep(50);
             }
 
             foreach (var comlex in newComplexList)

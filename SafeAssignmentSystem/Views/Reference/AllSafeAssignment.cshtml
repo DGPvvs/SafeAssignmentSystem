@@ -2,9 +2,10 @@
 @model AllArchiveViewModel
 
 @{
-	ViewBag.Title = $"Комплекс: {Model.Complex} Инсталация: {Model.Plant} {Model.Position}";
+	ViewBag.Title = $"Комплекс: {Model.Complex} Инсталация: {Model.Plant}";
 }
 
+<h2 class="text-center">Архивирани наряди за: @Model.Position</h2>
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 
