@@ -302,20 +302,150 @@
                 Assert.True(status.Success);
             }
 
-            //foreach (var safeAssignmentId in testSafeAssignment)
-            //{
-            //    var target = await this.safeAssignmentService.GetSafeAssignmentByIdAsync(safeAssignmentId);
+            foreach (var safeAssignmentId in testSafeAssignment)
+            {
+                var target = await this.safeAssignmentService.GetSafeAssignmentByIdAsync(safeAssignmentId);
+                rndCountPerPosition[target.TechnologicalPositionId]--;
+            }
 
-            //    //var position = await this.repo.GetByIdAsync<TechnologicalPosition>(target.TechnologicalPositionId);
-
-            //    rndCountPerPosition[target.TechnologicalPositionId]--;
-            //}
-
-            //foreach (var positionKvP in rndCountPerPosition)
-            //{
-            //    Assert.AreEqual(positionKvP.Value, 0);
-            //}
+            foreach (var positionKvP in rndCountPerPosition)
+            {
+                Assert.AreEqual(positionKvP.Value, 0);
+            }
         }
+
+        [Test]
+        public async Task AppliedSafeAssignmentAsync_WhitStatusRequired_Corect()
+        {
+            int n = 20;
+            var rnd = new Random();
+
+            var allPositions = await this.repo
+                .AllReadonly<TechnologicalPosition>()
+                .AsNoTracking()
+                .ToListAsync();
+
+            var rndCountPerPosition = new Dictionary<Guid, int>();
+            var testSafeAssignment = new List<Guid>();
+
+            foreach (var position in allPositions)
+            {
+                int count = rnd.Next(1, n + 1);
+                rndCountPerPosition[position.Id] = count;
+            }
+
+            foreach (var positionKvP in rndCountPerPosition)
+            {
+                var position = await this.repo
+                    .GetByIdAsync<TechnologicalPosition>(positionKvP.Key);
+
+                for (int i = 0; i < positionKvP.Value; i++)
+                {
+                    var safeAssignment = await this.RequiredTestSafeAssignmentAsync(position);
+
+                    await this.SetTestSafeAssignmentInBase(safeAssignment);
+
+                    var targets = await this.repo
+                    .AllReadonly<SafeAssignmentDocument>()
+                    .AsNoTracking()
+                    .Where(sa => sa.Number.Equals(safeAssignment.Number))
+                    .ToListAsync();
+
+                    var targetId = targets.FirstOrDefault()!.Id;
+
+                    testSafeAssignment.Add(targetId);
+                }
+
+                var status = await this.safeAssignmentService.AppliedSafeAssignmentAsync(this.operatorId, positionKvP.Key);
+
+                Assert.True(status.Success);
+            }
+
+            foreach (var safeAssignmentId in testSafeAssignment)
+            {
+                var target = await this.safeAssignmentService.GetSafeAssignmentByIdAsync(safeAssignmentId);
+                rndCountPerPosition[target.TechnologicalPositionId]--;
+            }
+
+            foreach (var positionKvP in rndCountPerPosition)
+            {
+                Assert.AreEqual(positionKvP.Value, 0);
+            }
+        }
+
+        [Test]
+        public async Task AppliedSafeAssignmentAsync_WhitStatusClosing_Corect()
+        {
+            int n = 20;
+            var rnd = new Random();
+
+            var allPositions = await this.repo
+                .AllReadonly<TechnologicalPosition>()
+                .AsNoTracking()
+                .ToListAsync();
+
+            var rndCountPerPosition = new Dictionary<Guid, int>();
+            var testSafeAssignment = new List<Guid>();
+
+            foreach (var position in allPositions)
+            {
+                int count = rnd.Next(1, n + 1);
+                rndCountPerPosition[position.Id] = count;
+            }
+
+            foreach (var positionKvP in rndCountPerPosition)
+            {
+                var position = await this.repo
+                    .GetByIdAsync<TechnologicalPosition>(positionKvP.Key);
+
+                var safeAssignment = await this.RequiredTestSafeAssignmentAsync(position);
+
+                await this.SetTestSafeAssignmentInBase(safeAssignment);
+
+                var targets = await this.repo
+                .AllReadonly<SafeAssignmentDocument>()
+                .AsNoTracking()
+                .Where(sa => sa.Number.Equals(safeAssignment.Number))
+                .ToListAsync();
+
+                var targetId = targets.FirstOrDefault()!.Id;
+
+                testSafeAssignment.Add(targetId);
+
+                for (int i = 1; i < positionKvP.Value; i++)
+                {
+                    safeAssignment = await this.ClosingTestSafeAssignmentAsync(position);
+
+                    await this.SetTestSafeAssignmentInBase(safeAssignment);
+
+                    targets = await this.repo
+                    .AllReadonly<SafeAssignmentDocument>()
+                    .AsNoTracking()
+                    .Where(sa => sa.Number.Equals(safeAssignment.Number))
+                    .ToListAsync();
+
+                    targetId = targets.FirstOrDefault()!.Id;
+
+                    testSafeAssignment.Add(targetId);
+                }
+
+                var status = await this.safeAssignmentService.AppliedSafeAssignmentAsync(this.operatorId, positionKvP.Key);
+
+                Assert.True(status.Success);
+            }
+
+            foreach (var safeAssignmentId in testSafeAssignment)
+            {
+                var target = await this.safeAssignmentService.GetSafeAssignmentByIdAsync(safeAssignmentId);
+                rndCountPerPosition[target.TechnologicalPositionId]--;
+            }
+
+            foreach (var positionKvP in rndCountPerPosition)
+            {
+                Assert.AreEqual(positionKvP.Value, 0);
+            }
+        }
+
 
         private async Task SetTestSafeAssignmentInBase(SafeAssignmentTransferModel testModel)
         {
@@ -368,12 +498,13 @@
 
             var newSafeAssignment = new SafeAssignmentTransferModel()
             {
-                Number = string.Format(SafeAssignmentDocumentConstants.Format_Number, complex.Name, plant.Name, number, DateOnly.FromDateTime(DateTime.Now).ToString(SafeAssignmentDocumentConstants.Date_Display_Format)),
+                Number = string.Format(SafeAssignmentDocumentConstants.Format_Number, complex.Name, plant.Name, number, DateTime.Now.ToString("o")),
                 TechnologicalPositionId = position.Id,
                 PersonRequestedOpeningOrderId = this.operatorId,
                 Status = StatusFlagsEnum.Created
             };
 
+            Thread.Sleep(10);
             return newSafeAssignment;
         }
 
@@ -397,6 +528,16 @@
             newSafeAssignment.ClosingDate = new DateOnly(time.Year, time.Month, time.Day);
             newSafeAssignment.ClosingTime = new TimeOnly(time.Hour, time.Minute);
             newSafeAssignment.Status = StatusFlagsEnum.Closing;
+
+            return newSafeAssignment;
+        }
+
+        private async Task<SafeAssignmentTransferModel> RequiredTestSafeAssignmentAsync(TechnologicalPosition position)
+        {
+            var newSafeAssignment = await this.ClosingTestSafeAssignmentAsync(position);            
+
+            newSafeAssignment.ElectricianAppliedVoltageId = this.electricianId;
+            newSafeAssignment.Status = StatusFlagsEnum.Required;
 
             return newSafeAssignment;
         }
