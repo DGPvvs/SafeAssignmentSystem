@@ -236,6 +236,27 @@
         }
 
         [Test]
+        public async Task ClosingSafeAssignmentAsync_Fail()
+        {            
+            int n = 20;
+            int i = 0;
+
+            while (i < n)            
+            {
+                Guid testId = Guid.NewGuid();
+
+                var testSafeAssignment = await this.repo.GetByIdAsync<SafeAssignmentDocument>(testId);
+
+                if (testSafeAssignment is null)
+                {                    
+                    var status = await this.safeAssignmentService.ClosingSafeAssignmentAsync(testId, this.electricianId);
+                    Assert.IsFalse(status.Success);
+                    i++;
+                }
+            }
+        }
+
+        [Test]
         public async Task GetSafeAssignmentByIdAsync_ThrowException()
         {
             int n = 20;

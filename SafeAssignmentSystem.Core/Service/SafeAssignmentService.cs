@@ -122,6 +122,7 @@
             }
             catch (Exception)
             {
+                result.Success = false;
                 result.Description = Request_SafeAssignment_Document_Fail;
             }
 
@@ -150,6 +151,7 @@
 			if (safeAssignment is null)
 			{
 				result.Description = SafeAssignment_Not_Exist;
+                return result;
 			}
 			else
 			{
