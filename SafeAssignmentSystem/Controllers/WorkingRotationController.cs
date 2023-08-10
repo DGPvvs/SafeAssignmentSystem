@@ -140,24 +140,35 @@
         [HttpGet]
         public async Task<IActionResult> EditlShift(Guid id)
         {
-            var transfer = await this.workingRotationService.GetShiftByIdAsync(id);
+            try
+            {
+                var transfer = await this.workingRotationService.GetShiftByIdAsync(id);
 
-            if (transfer is null)
+                if (transfer is null)
+                {
+                    this.TempData[Error_Message] = Shift_Find_Fail;
+                    ModelState.AddModelError(string.Empty, Shift_Find_Fail);
+                    return this.RedirectToAction("AllShift", "WorkingRotation");
+                }
+
+                var model = new EditWorkingShiftViewModel()
+                {
+                    Id = transfer.Id,
+                    ShiftName = transfer.ShiftName,
+                    EndTime = transfer.End.ToString("HH:mm"),
+                    StartTime = transfer.Start.ToString("HH:mm")
+                };
+
+                return this.View(model);
+
+            }
+            catch (NullReferenceException)
             {
                 this.TempData[Error_Message] = Shift_Find_Fail;
                 ModelState.AddModelError(string.Empty, Shift_Find_Fail);
-                return this.RedirectToAction("AllShift", "WorkingRotation");
+                return RedirectToAction("Index", "Home");
             }
-
-            var model = new EditWorkingShiftViewModel()
-            {
-                Id = transfer.Id,
-                ShiftName = transfer.ShiftName,
-                EndTime = transfer.End.ToString("HH:mm"),
-                StartTime = transfer.Start.ToString("HH:mm")
-            };
-
-            return this.View(model);
+            
         }
 
         /// <summary>
@@ -224,6 +235,14 @@
         public async Task<IActionResult> EditChangedSchedule(string userName, string date)
         {
             var user = await this.userManager.FindByNameAsync(userName);
+
+            var userAdmin = User.Id();
+
+            if (user.Id.ToString().Equals(userAdmin))
+            {
+                this.TempData[Error_Message] = User_Cant_Edit_Youself;
+                return this.RedirectToAction("Index", "Home");
+            }
 
             if (user is null)
             {

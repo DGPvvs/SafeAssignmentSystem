@@ -64,7 +64,7 @@
 			var startTime = new DateTime(1, 1, 1) + transfer.Start.ToTimeSpan();
 			var endTime = new DateTime(1, 1, 1) + transfer.End.ToTimeSpan();
 
-			if (transfer.Start > transfer.End)
+			if (transfer.Start >= transfer.End)
 			{
 				endTime = new DateTime(1, 1, 2) + transfer.End.ToTimeSpan();
 			}
@@ -97,7 +97,7 @@
 			var startTime = new DateTime(1, 1, 1) + transfer.Start.ToTimeSpan();
 			var endTime = new DateTime(1, 1, 1) + transfer.End.ToTimeSpan();
 
-			if (transfer.Start > transfer.End)
+			if (transfer.Start >= transfer.End)
 			{
 				endTime = new DateTime(1, 1, 2) + transfer.End.ToTimeSpan();
 			}
@@ -105,6 +105,7 @@
 			entity.StartTime = startTime;
 			entity.EndTime = endTime;
 
+			this.repo.Update(entity);
 			await this.repo.SaveChangesAsync();
 		}
 
@@ -135,6 +136,11 @@
         public async Task<ShiftTransferModel> GetShiftByIdAsync(Guid id)
 		{
 			var entity = await this.repo.AllReadonly<WorkingShift>(ws => ws.Id == id).FirstOrDefaultAsync();
+
+			if (entity is null)
+			{
+				throw new NullReferenceException(nameof(entity));
+			}
 
 			return new ShiftTransferModel()
 			{

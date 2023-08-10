@@ -3,6 +3,7 @@
     using Microsoft.AspNetCore.Identity;
     using Moq;
     using OfficeOpenXml;
+    using SafeAssignmentSystem.Common.IO.Contracts;
     using SafeAssignmentSystem.Core.Data;
     using SafeAssignmentSystem.DataBase.Data.Common;
     using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
@@ -18,6 +19,7 @@
         protected SafeAssignmentDbContext context;
         protected IRepository repo;
         protected UserManager<ApplicationUser> userManager;
+        protected IReader? reader;
 
         [SetUp]
         public void SetUpBase()
