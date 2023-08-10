@@ -159,5 +159,71 @@
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await this.workingRotationService.EditShiftAsync(editShift));
         }
+
+        [Test]
+        public async Task GetAllShiftAsync_Corect()
+        {
+            int n = 20;
+
+            var rnd = new Random();
+
+            for (int i = 0; i < n; i++)
+            {
+                var newShift = new ShiftTransferModel()
+                {
+                    ShiftName = $"Смяна {i}",
+                    Start = new TimeOnly(rnd.Next(0, 23), rnd.Next(0, 59)),
+                    End = new TimeOnly(rnd.Next(0, 23), rnd.Next(0, 59))
+                };
+
+                await this.workingRotationService.AddShiftAsync(newShift);
+            }
+
+            var reper = this.repo.AllReadonly<WorkingShift>();//.ToListAsync();
+
+            var target = await this.workingRotationService.GetAllShiftAsync();
+
+            Assert.AreEqual(target.Count(), reper.Count());
+        }
+
+        [Test]
+        public async Task GetShiftByIdAsync_Corect()
+        {
+            int n = 20;
+
+            var rnd = new Random();
+
+            for (int i = 0; i < n; i++)
+            {
+                var newShift = new ShiftTransferModel()
+                {
+                    ShiftName = $"Смяна {i}",
+                    Start = new TimeOnly(rnd.Next(0, 23), rnd.Next(0, 59)),
+                    End = new TimeOnly(rnd.Next(0, 23), rnd.Next(0, 59))
+                };
+
+                await this.workingRotationService.AddShiftAsync(newShift);
+            }
+
+            var targets = await this.workingRotationService.GetAllShiftAsync();
+
+            for (int i = 0; i < n; i++)
+            {
+                var reper = targets.Skip(rnd.Next(targets.Count()) - 1).Take(1).First();
+
+                var target = await this.workingRotationService.GetShiftByIdAsync(reper.Id);
+
+                Assert.NotNull(target);
+                Assert.AreEqual(target.ShiftName, reper.ShiftName);
+                Assert.AreEqual(target.Start, reper.Start);
+                Assert.AreEqual(target.End, reper.End);
+            }
+        }
+
+        [Test]
+        public async Task GetShiftByIdAsync_ThrowNullReferenceException()
+        {
+            Assert.ThrowsAsync<NullReferenceException>(async () => await this.workingRotationService.GetShiftByIdAsync(Guid.Empty));
+        }
     }
 }
