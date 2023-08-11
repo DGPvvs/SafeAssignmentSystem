@@ -182,9 +182,7 @@
                 this.TempData[Error_Message] = e.Message;
                 return this.RedirectToAction("Index", "Home");
             }            
-        }
-
-        
+        }        
 
         /// <summary>
         /// Метод запълващ детайлите за технологичната позиция

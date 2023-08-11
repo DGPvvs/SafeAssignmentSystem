@@ -80,6 +80,7 @@
         public async Task<PositionInPlantTransferModel> GetTechnologicalPositionConditionAsync(Guid plantId, FilterCriteria filter)
 		{
 			var plant = await this.repo.AllReadonly<PlantInstalation>()
+				.AsNoTracking()
 				.Where(pi => pi.Id.Equals(plantId))
 				.Select(pi => new PlantInstalation()
 				{
@@ -111,6 +112,7 @@
 					PositionId = position.Id,
 					PositionName = position.Name,
 					SafeAssignments = await this.repo.AllReadonly<SafeAssignmentDocument>()
+						.AsNoTracking()
 						.Where(sa => sa.TechnologicalPositionId.Equals(position.Id)
 							&& !sa.Status.Equals(StatusFlagsEnum.Archived))
 						.Select(sa => new SafeAssignmentTransferModel()

@@ -3,16 +3,22 @@
     using Microsoft.AspNetCore.Identity;
     using Moq;
     using OfficeOpenXml;
+    using SafeAssignmentSystem.Common.Enums;
     using SafeAssignmentSystem.Common.IO.Contracts;
     using SafeAssignmentSystem.Core.Data;
+    using SafeAssignmentSystem.Core.Models.TransferModels.SafeAssignmentTransferModels;
     using SafeAssignmentSystem.DataBase.Data.Common;
     using SafeAssignmentSystem.DataBase.Data.Configuration.EntitySeed.SeedData;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.Account;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
+    using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.StaffsModels;
+    using SafeAssignmentSystem.DataBase.Data.FactoryModels;
     using SafeAssignmentSystem.Tests.Mocks;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using static SafeAssignmentSystem.Common.ModelsConstants.DataModelsConstants;
 
     public class UnitTestsBase
     {
@@ -20,6 +26,9 @@
         protected IRepository repo;
         protected UserManager<ApplicationUser> userManager;
         protected IReader? reader;
+
+        protected Guid electricianId;
+        protected Guid operatorId;
 
         [SetUp]
         public void SetUpBase()
@@ -182,6 +191,111 @@
             }
 
             return model;
+        }
+
+        protected async Task SetTestSafeAssignmentInBase(SafeAssignmentTransferModel testModel)
+        {
+            var newSafeAssignment = new SafeAssignmentDocument()
+            {
+                Number = testModel.Number,
+                TechnologicalPositionId = testModel.TechnologicalPositionId,
+
+                PersonRequestedOpeningOrderId = testModel.PersonRequestedOpeningOrderId,
+                ЕlectricianOpeningOrderId = testModel.ЕlectricianOpeningOrderId,
+
+                ЕlectricianClosingOrderId = testModel.ЕlectricianClosingOrderId,
+                PersonRequestedVoltageSupplyId = testModel.PersonRequestedVoltageSupplyId,
+                ElectricianAppliedVoltageId = testModel.ElectricianAppliedVoltageId,
+                Status = testModel.Status
+            };
+
+            if (testModel.OpeningDate.Equals(null) || testModel.OpeningTime.Equals(null))
+            {
+                newSafeAssignment.OpeningDate = null;
+            }
+            else
+            {
+                newSafeAssignment.OpeningDate = new DateTime(testModel.OpeningDate.Value.Year, testModel.OpeningDate.Value.Month, testModel.OpeningDate.Value.Day, testModel.OpeningTime.Value.Hour, testModel.OpeningTime.Value.Minute, 0);
+            }
+
+            if (testModel.ClosingDate.Equals(null) || testModel.ClosingTime.Equals(null))
+            {
+                newSafeAssignment.ClosingDate = null;
+            }
+            else
+            {
+                newSafeAssignment.ClosingDate = new DateTime(testModel.ClosingDate.Value.Year, testModel.ClosingDate.Value.Month, testModel.ClosingDate.Value.Day, testModel.ClosingTime.Value.Hour, testModel.ClosingTime.Value.Minute, 0);
+            }
+
+            await this.repo.AddAsync(newSafeAssignment);
+            await this.repo.SaveChangesAsync();
+        }
+
+        protected async Task<SafeAssignmentTransferModel> CreateTestSafeAssignment(TechnologicalPosition position)
+        {
+            var rnd = new Random();
+            var plant = await this.repo
+                .GetByIdAsync<PlantInstalation>(position.InstalationId);
+            var complex = await this.repo
+                .GetByIdAsync<ProductionComplex>(plant.ComplexId);
+
+            string number = $"{rnd.Next(10)}{rnd.Next(10)}{rnd.Next(10)}{rnd.Next(10)}";
+
+
+            var newSafeAssignment = new SafeAssignmentTransferModel()
+            {
+                Number = string.Format(SafeAssignmentDocumentConstants.Format_Number, complex.Name, plant.Name, number, DateTime.Now.ToString("o")),
+                TechnologicalPositionId = position.Id,
+                PersonRequestedOpeningOrderId = this.operatorId,
+                Status = StatusFlagsEnum.Created
+            };
+
+            Thread.Sleep(10);
+            return newSafeAssignment;
+        }
+
+        protected async Task<SafeAssignmentTransferModel> OpeningTestSafeAssignmentAsync(TechnologicalPosition position)
+        {
+            var newSafeAssignment = await this.CreateTestSafeAssignment(position);
+            var time = DateTime.Now;
+            newSafeAssignment.ЕlectricianOpeningOrderId = this.electricianId;
+            newSafeAssignment.OpeningDate = new DateOnly(time.Year, time.Month, time.Day);
+            newSafeAssignment.OpeningTime = new TimeOnly(time.Hour, time.Minute);
+            newSafeAssignment.Status = StatusFlagsEnum.Opening;
+
+            return newSafeAssignment;
+        }
+
+        protected async Task<SafeAssignmentTransferModel> ClosingTestSafeAssignmentAsync(TechnologicalPosition position)
+        {
+            var newSafeAssignment = await this.OpeningTestSafeAssignmentAsync(position);
+            var time = DateTime.Now;
+            newSafeAssignment.ЕlectricianClosingOrderId = this.electricianId;
+            newSafeAssignment.ClosingDate = new DateOnly(time.Year, time.Month, time.Day);
+            newSafeAssignment.ClosingTime = new TimeOnly(time.Hour, time.Minute);
+            newSafeAssignment.Status = StatusFlagsEnum.Closing;
+
+            return newSafeAssignment;
+        }
+
+        protected async Task<SafeAssignmentTransferModel> RequiredTestSafeAssignmentAsync(TechnologicalPosition position)
+        {
+            var newSafeAssignment = await this.ClosingTestSafeAssignmentAsync(position);
+
+            newSafeAssignment.PersonRequestedVoltageSupplyId = this.operatorId;
+            newSafeAssignment.Status = StatusFlagsEnum.Required;
+
+            return newSafeAssignment;
+        }
+
+        protected async Task<SafeAssignmentTransferModel> ArchivedTestSafeAssignmentAsync(TechnologicalPosition position)
+        {
+            var newSafeAssignment = await this.ClosingTestSafeAssignmentAsync(position);
+
+            newSafeAssignment.ElectricianAppliedVoltageId = this.electricianId;
+            newSafeAssignment.Status = StatusFlagsEnum.Archived;
+
+            return newSafeAssignment;
         }
     }
 }
