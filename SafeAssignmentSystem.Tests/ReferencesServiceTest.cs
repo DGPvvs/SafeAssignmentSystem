@@ -8,12 +8,13 @@
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.FactoryModels;
     using SafeAssignmentSystem.DataBase.Data.DatabaseModels.SafeAssignmentDocumentModels;
     using SafeAssignmentSystem.DataBase.Data.FactoryModels;
+    using SafeAssignmentSystem.Tests.Models;
     using SafeAssignmentSystem.Tests.UnitTests;
     using System;
 
     [TestFixture]
     public class ReferencesServiceTest : UnitTestsBase
-    {        
+    {
         private IChoisPlantsService choisPlantsService;
         private ISafeAssignmentService safeAssignmentService;
         private IReferencesService referencesService;
@@ -82,8 +83,8 @@
                 Assert.AreEqual(targets.Position, position.Name);
                 Assert.AreEqual(targets.Plant, plant.FullName);
                 Assert.AreEqual(targets.Complex, complex.FullName);
-                Assert.AreEqual(targets.SafeAssignments.Count(), positionKvP.Value);                
-            }            
+                Assert.AreEqual(targets.SafeAssignments.Count(), positionKvP.Value);
+            }
         }
 
         [Test]
@@ -95,7 +96,89 @@
         [Test]
         public async Task GetTechnologicalPositionConditionAsync_ThrowException()
         {
-            Assert.ThrowsAsync<PlantNotFoundException>( async () => await this.referencesService.GetTechnologicalPositionConditionAsync(Guid.Empty, FilterCriteria.All));
+            Assert.ThrowsAsync<PlantNotFoundException>(async () => await this.referencesService.GetTechnologicalPositionConditionAsync(Guid.Empty, FilterCriteria.All));
+        }
+
+        //TODO: Не е довършен
+        [Test]
+        public async Task GetTechnologicalPositionConditionAsync_InWork()
+        {            
+            var plants = await this.repo.AllReadonly<PlantInstalation>()
+                .AsNoTracking()
+                .ToListAsync();
+
+            var rnd = new Random();
+            int n = 20;
+
+            var l = new Dictionary<Guid, PlantTestModel>();
+
+            foreach (var plant in plants)
+            {
+                var plantId = plant.Id;
+                var positions = await this.choisPlantsService.ChoicesAllPositionInPlantAsync(plantId);
+
+                if (positions.Count() > 0)
+                {
+                    if (!l.ContainsKey(plantId))
+                    {
+                        l.Add(plantId, new PlantTestModel(plantId));
+                    }
+
+                    foreach (var positionId in positions)
+                    {
+                        var position = await this.repo.GetByIdAsync<TechnologicalPosition>(positionId);
+
+                        for (int i = 0; i < n; i++)
+                        {
+                            int index = rnd.Next(1, 5);
+
+                            switch (index)
+                            {
+                                case 1:
+                                    var safeAssignment = await this.CreateTestSafeAssignment(position);
+                                    await this.SetTestSafeAssignmentInBase(safeAssignment);
+                                    l[plantId].CountRequested += 1;
+                                    break;
+                                case 2:
+                                    safeAssignment = await this.OpeningTestSafeAssignmentAsync(position);
+                                    await this.SetTestSafeAssignmentInBase(safeAssignment);
+                                    l[plantId].CountOpening += 1;
+                                    break;
+                                case 3:
+                                    safeAssignment = await this.ClosingTestSafeAssignmentAsync(position);
+                                    await this.SetTestSafeAssignmentInBase(safeAssignment);
+                                    l[plantId].CountClosing += 1;
+                                    break;
+                                case 4:
+                                    safeAssignment = await this.RequiredTestSafeAssignmentAsync(position);
+                                    await this.SetTestSafeAssignmentInBase(safeAssignment);
+                                    l[plantId].CountRequestedVoltageSupply += 1;
+                                    break;
+                                case 5:
+                                    safeAssignment = await this.ArchivedTestSafeAssignmentAsync(position);
+                                    await this.SetTestSafeAssignmentInBase(safeAssignment);
+                                    l[plantId].CountArchive += 1;
+                                    break;
+                            }
+                        }
+                    }
+
+
+
+
+                    //var safe = await this.referencesService.GetTechnologicalPositionConditionAsync(plant.Id, FilterCriteria.All);
+                    //var safeUnderRepair = await this.referencesService.GetTechnologicalPositionConditionAsync(plant.Id, FilterCriteria.UnderRepair);
+                    //var safeNoVoltageApplied = await this.referencesService.GetTechnologicalPositionConditionAsync(plant.Id, FilterCriteria.NoVoltageApplied);
+
+                    //foreach (var position in safe.Positions)
+                    //{
+                    //    Assert.AreEqual(0, 0);
+                    //}
+
+                }
+
+
+            }
         }
     }
 }
